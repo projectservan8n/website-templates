@@ -4,7 +4,8 @@
       "Bash(tree:*)",
       "Bash(npx serve -l 3000)",
       "Bash(timeout:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git push:*)"
     ]
   }
 }
