@@ -1,0 +1,374 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "tonyfyp-contact",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "b8d060b2-10bf-4eb2-b924-3a83c8644b7a",
+      "name": "Webhook - Portfolio Consultation1",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -1648,
+        1120
+      ],
+      "webhookId": "tonyfyp-contact-form"
+    },
+    {
+      "parameters": {
+        "fromEmail": "tony@opusautomations.com",
+        "toEmail": "tony@opusautomations.com",
+        "subject": "=🎯 New Inquiry: {{$node[\"Webhook - Portfolio Consultation1\"].json.body.name}} - {{$node[\"Webhook - Portfolio Consultation1\"].json.body.type}}",
+        "emailFormat": "html",
+        "html": "=<!DOCTYPE html>\n<html>\n<head>\n    <style>\n        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; }\n        .header { background: linear-gradient(135deg, #10b981, #06b6d4); color: white; padding: 20px; text-align: center; border-radius: 10px; margin-bottom: 20px; }\n        .content { padding: 20px; }\n        .info-box { background: #f8fafc; border: 2px solid #10b981; padding: 20px; margin: 20px 0; border-radius: 10px; }\n        .urgent-box { background: #fef2f2; border: 2px solid #dc2626; padding: 20px; margin: 20px 0; border-radius: 10px; }\n        .service-box { background: #ecfdf5; border: 2px solid #10b981; padding: 20px; margin: 20px 0; border-radius: 10px; }\n        .website-box { background: #eff6ff; border: 2px solid #3b82f6; padding: 20px; margin: 20px 0; border-radius: 10px; }\n        .automation-box { background: #faf5ff; border: 2px solid #a855f7; padding: 20px; margin: 20px 0; border-radius: 10px; }\n    </style>\n</head>\n<body>\n    <div class=\"header\">\n        <h1>🎯 New Client Inquiry</h1>\n        <h2>{{$node[\"Webhook - Portfolio Consultation1\"].json.body.name}}</h2>\n        <p>Source: tonyfyp.com Portfolio</p>\n    </div>\n    \n    <div class=\"content\">\n        <div class=\"urgent-box\">\n            <h3>⚡ ACTION REQUIRED:</h3>\n            <ul>\n                <li><strong>Respond within 24 hours</strong> as promised</li>\n                <li><strong>Review their service request:</strong> {{$node[\"Webhook - Portfolio Consultation1\"].json.body.type}}</li>\n                <li><strong>Prepare personalized response</strong> with relevant examples</li>\n            </ul>\n        </div>\n        \n        {{$node[\"Webhook - Portfolio Consultation1\"].json.body.type.startsWith('website') ? \n        '<div class=\"website-box\"><h3 style=\"color: #2563eb; margin: 0 0 15px 0;\">🌐 Website Service Request</h3><p><strong>Service Type:</strong> ' + $node[\"Webhook - Portfolio Consultation1\"].json.body.type + '</p><p><strong>Recommended Response:</strong></p><ul><li>Share relevant website portfolio examples</li><li>Discuss their business needs and target audience</li><li>Provide pricing starting at ₱5,000</li><li>Explain hosting & maintenance included</li></ul></div>' :\n        '<div class=\"automation-box\"><h3 style=\"color: #9333ea; margin: 0 0 15px 0;\">⚡ Automation Service Request</h3><p><strong>Service Type:</strong> ' + $node[\"Webhook - Portfolio Consultation1\"].json.body.type + '</p><p><strong>Recommended Response:</strong></p><ul><li>Share relevant automation case studies</li><li>Discuss workflow pain points</li><li>Present n8n automation solutions</li><li>Offer discovery call</li></ul></div>'}}\n        \n        <div class=\"info-box\">\n            <h3>📋 Contact Details:</h3>\n            <p><strong>Name:</strong> {{$node[\"Webhook - Portfolio Consultation1\"].json.body.name}}</p>\n            <p><strong>Email:</strong> {{$node[\"Webhook - Portfolio Consultation1\"].json.body.email}}</p>\n            <p><strong>Service Type:</strong> {{$node[\"Webhook - Portfolio Consultation1\"].json.body.type}}</p>\n        </div>\n        \n        <div class=\"info-box\">\n            <h3>💬 Their Message:</h3>\n            <p>{{$node[\"Webhook - Portfolio Consultation1\"].json.body.message || 'No specific message provided - follow up to understand their needs'}}</p>\n        </div>\n        \n        <div style=\"background: #fef3c7; padding: 20px; border-radius: 10px; margin: 20px 0;\">\n            <h3 style=\"color: #d97706;\">📞 Quick Actions:</h3>\n            <ul style=\"color: #92400e;\">\n                <li><a href=\"mailto:{{$node[\"Webhook - Portfolio Consultation1\"].json.body.email}}\">Reply to {{$node[\"Webhook - Portfolio Consultation1\"].json.body.name}}</a></li>\n                <li><a href=\"https://calendly.com/tony-opusautomations/30min\">Send Calendly Link</a></li>\n            </ul>\n        </div>\n    </div>\n</body>\n</html>",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "30b97d5a-5a1f-4872-9a61-f0a816a08cee",
+      "name": "Email Tony - Portfolio Inquiry Alert1",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [
+        -752,
+        928
+      ],
+      "webhookId": "portfolio-tony-alert-webhook",
+      "credentials": {
+        "smtp": {
+          "id": "RKBTYSt0DT9Saf7Y",
+          "name": "Zoho Mail - Tony"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "tony@opusautomations.com",
+        "toEmail": "={{ $('Webhook - Portfolio Consultation1').item.json.body.email }}",
+        "subject": "=Thanks for reaching out! - {{$node[\"Webhook - Portfolio Consultation1\"].json.body.type.startsWith('website') ? 'Website Inquiry' : 'Automation Inquiry'}}",
+        "emailFormat": "html",
+        "html": "=<!DOCTYPE html>\n<html>\n<head>\n    <style>\n        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; line-height: 1.6; }\n        .header { background: linear-gradient(135deg, #10b981, #06b6d4); color: white; padding: 30px; text-align: center; }\n        .content { padding: 30px; }\n        .highlight-box { background: #f8fafc; padding: 20px; border-left: 4px solid #10b981; margin: 20px 0; }\n        .cta-button { background: linear-gradient(135deg, #10b981, #06b6d4); color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; display: inline-block; margin: 20px 0; }\n        .calendly-button { background: linear-gradient(135deg, #059669, #10b981); color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; display: inline-block; margin: 10px 5px; }\n        .footer { background: #f1f5f9; padding: 20px; text-align: center; font-size: 12px; color: #666; }\n        .timeline { background: #f8fafc; padding: 20px; margin: 20px 0; border-radius: 5px; }\n        .website-focus { background: #eff6ff; border: 2px solid #3b82f6; padding: 20px; margin: 20px 0; border-radius: 10px; }\n        .automation-focus { background: #faf5ff; border: 2px solid #a855f7; padding: 20px; margin: 20px 0; border-radius: 10px; }\n    </style>\n</head>\n<body>\n    <div class=\"header\">\n        <h1>🚀 Thanks for reaching out!</h1>\n        <p>I received your inquiry and will respond personally within 24 hours</p>\n    </div>\n    \n    <div class=\"content\">\n        <p>Hi {{$node[\"Webhook - Portfolio Consultation1\"].json.body.name}},</p>\n        \n        <p>Thank you for contacting me through my portfolio! I've received your inquiry about <strong>{{$node[\"Webhook - Portfolio Consultation1\"].json.body.type}}</strong>.</p>\n        \n        {{$node[\"Webhook - Portfolio Consultation1\"].json.body.type.startsWith('website') ? \n        '<div class=\"website-focus\"><h3 style=\"color: #2563eb; margin: 0 0 15px 0;\">🌐 Website Solutions</h3><p>I specialize in creating custom, mobile-first websites for local businesses. Here\\'s what you can expect:</p><ul><li><strong>Custom Design:</strong> No templates - designed specifically for your business</li><li><strong>Mobile-First:</strong> Looks great on all devices</li><li><strong>SEO-Ready:</strong> Built to help you get found on Google</li><li><strong>Hosting Included:</strong> Starting at ₱5,000 with hosting & maintenance</li></ul><p><a href=\"https://tonyfyp.com/#templates\" style=\"color: #2563eb;\">View my website portfolio →</a></p></div>' :\n        '<div class=\"automation-focus\"><h3 style=\"color: #9333ea; margin: 0 0 15px 0;\">⚡ Automation Services</h3><p>I help businesses reduce manual work through practical AI automation. Here\\'s what I can help with:</p><ul><li><strong>Workflow Automation:</strong> Connect your apps and automate repetitive tasks</li><li><strong>Lead Generation:</strong> Automated lead capture and CRM integration</li><li><strong>Reporting:</strong> Automated reports and dashboards</li><li><strong>Custom Solutions:</strong> Tailored to your specific needs</li></ul><p><a href=\"https://tonyfyp.com/#work\" style=\"color: #9333ea;\">View my automation projects →</a></p></div>'}}\n        \n        <div style=\"background: #fef2f2; border: 2px solid #ef4444; padding: 20px; margin: 20px 0; border-radius: 10px; text-align: center;\">\n            <h3 style=\"color: #ef4444; margin: 0 0 15px 0;\">⚡ Want to discuss this today?</h3>\n            <p style=\"margin: 10px 0;\">Skip the wait and book a call now:</p>\n            <a href=\"https://calendly.com/tony-opusautomations/30min\" class=\"calendly-button\" style=\"color: white;\">📅 Schedule Call Now</a>\n        </div>\n        \n        <div class=\"timeline\">\n            <h3 style=\"color: #10b981; margin-top: 0;\">🎯 What happens next?</h3>\n            <ul>\n                <li><strong>Within 24 hours:</strong> I'll personally review your request</li>\n                <li><strong>Personal Response:</strong> I'll reply with relevant examples and questions</li>\n                <li><strong>Discovery Call:</strong> We'll discuss your specific needs</li>\n                <li><strong>Custom Quote:</strong> Tailored proposal with timeline and pricing</li>\n            </ul>\n        </div>\n        \n        <div class=\"highlight-box\">\n            <h4 style=\"margin: 0 0 10px 0; color: #10b981;\">📋 Your Request Summary:</h4>\n            <p><strong>Name:</strong> {{$node[\"Webhook - Portfolio Consultation1\"].json.body.name}}</p>\n            <p><strong>Service Type:</strong> {{$node[\"Webhook - Portfolio Consultation1\"].json.body.type}}</p>\n            {{$node[\"Webhook - Portfolio Consultation1\"].json.body.message ? '<p><strong>Your Message:</strong> ' + $node[\"Webhook - Portfolio Consultation1\"].json.body.message + '</p>' : ''}}\n        </div>\n        \n        <p>Looking forward to helping you!</p>\n        \n        <p>Best regards,<br>\n        <strong>Tony Herrera</strong><br>\n        AI Automation & Web Solutions<br>\n        <a href=\"https://tonyfyp.com\" style=\"color: #10b981;\">tonyfyp.com</a> | <a href=\"mailto:tony@opusautomations.com\" style=\"color: #10b981;\">tony@opusautomations.com</a></p>\n    </div>\n    \n    <div class=\"footer\">\n        <p><strong>📞 Response Timeline:</strong> Personal response within 24 hours</p>\n        <p><strong>⚡ Book immediately:</strong> <a href=\"https://calendly.com/tony-opusautomations/30min\" style=\"color: #10b981;\">Schedule your consultation</a></p>\n        <p>This is an automated acknowledgment. I'll personally respond with specific information for your request.</p>\n        <hr style=\"margin: 20px 0; border: none; border-top: 1px solid #e2e8f0;\">\n        <p>Tony Herrera | <a href=\"https://tonyfyp.com\" style=\"color: #10b981;\">tonyfyp.com</a></p>\n    </div>\n</body>\n</html>",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "5e5aba24-3c40-441c-993b-dec1fb16cf75",
+      "name": "Email Prospect - Portfolio Auto Response1",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [
+        -752,
+        1120
+      ],
+      "webhookId": "portfolio-auto-response-webhook",
+      "credentials": {
+        "smtp": {
+          "id": "RKBTYSt0DT9Saf7Y",
+          "name": "Zoho Mail - Tony"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1GGfBYRkEO76kLVzoTV-URfBu7m6UMoXtCCxhUo_Ztmg",
+          "mode": "list",
+          "cachedResultName": "LEAD SHEET FUNNEL FROM WEBSITE",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1GGfBYRkEO76kLVzoTV-URfBu7m6UMoXtCCxhUo_Ztmg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 584770960,
+          "mode": "list",
+          "cachedResultName": "Portfolio_Leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1GGfBYRkEO76kLVzoTV-URfBu7m6UMoXtCCxhUo_Ztmg/edit#gid=584770960"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp": "={{$now.format('yyyy-MM-dd HH:mm:ss')}}",
+            "Name": "={{ $json.body.name }}",
+            "Email": "={{$json.body.email}}",
+            "Service_Type": "={{$json.body.type}}",
+            "Service_Category": "={{$json.body.type.startsWith('website') ? 'Website' : 'Automation'}}",
+            "Message": "={{$json.body.message || 'No message provided'}}",
+            "Source": "tonyfyp.com Portfolio",
+            "Status": "New",
+            "Follow_Up_Date": "={{$now.plus({days: 1}).format('yyyy-MM-dd')}}",
+            "Lead_Score": "={{$json.body.type === 'website-new' || $json.body.type === 'lead-gen' ? 'High' : 'Medium'}}",
+            "Response_Required": "24 hours"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Service_Type",
+              "displayName": "Service_Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Service_Category",
+              "displayName": "Service_Category",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Message",
+              "displayName": "Message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Source",
+              "displayName": "Source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Follow_Up_Date",
+              "displayName": "Follow_Up_Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Lead_Score",
+              "displayName": "Lead_Score",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Response_Required",
+              "displayName": "Response_Required",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "9c845449-a73e-4b09-9be8-d6f1aa4c8623",
+      "name": "Save Portfolio Lead to Sheets1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        -1200,
+        1024
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rwLNlWuwRmocf0FL",
+          "name": "Serva"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.body.name }}",
+              "operation": "isNotEmpty"
+            },
+            {
+              "value1": "={{ $json.body.email }}",
+              "operation": "regex",
+              "value2": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"
+            },
+            {
+              "value1": "={{ $json.body.type }}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "id": "2a8b351d-09c3-4899-ba6b-fa192fcb193a",
+      "name": "Validate Portfolio Form Data1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        -1424,
+        1120
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\n  \"success\": true,\n  \"message\": \"Thank you! I'll personally respond within 24 hours.\",\n  \"leadId\": \"{{$now.toFormat('yyyyMMdd-HHmmss')}}\",\n  \"serviceType\": \"{{$node['Webhook - Portfolio Consultation1'].json.body.type}}\"\n}",
+        "options": {}
+      },
+      "id": "0e9f1065-1f26-4edf-bf6c-26e8570a2d8c",
+      "name": "Success Response2",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        -512,
+        1024
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"success\": false,\n  \"message\": \"Please fill in all required fields with valid information\"\n}",
+        "options": {
+          "responseCode": 400
+        }
+      },
+      "id": "40f8fb2a-8d0e-4187-86aa-d8c616dcc55c",
+      "name": "Error Response2",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        -1200,
+        1216
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook - Portfolio Consultation1": {
+      "main": [
+        [
+          {
+            "node": "Validate Portfolio Form Data1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email Tony - Portfolio Inquiry Alert1": {
+      "main": [
+        [
+          {
+            "node": "Success Response2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email Prospect - Portfolio Auto Response1": {
+      "main": [
+        [
+          {
+            "node": "Success Response2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Portfolio Lead to Sheets1": {
+      "main": [
+        [
+          {
+            "node": "Email Tony - Portfolio Inquiry Alert1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Email Prospect - Portfolio Auto Response1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Portfolio Form Data1": {
+      "main": [
+        [
+          {
+            "node": "Save Portfolio Lead to Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error Response2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ad95b84ab133a6ae48f06ddaf80f428733a75669a1a6e4f3694c6e3d5da1ddba"
+  }
+}
