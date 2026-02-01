@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tony Herrera - AI Automation Consultant. I help businesses reduce manual work through practical AI automation using n8n, OpenAI, and custom API integrations.">
+
+  <title>tony@opus:~$ AI Automation Consultant</title>
+
+  <!-- Fonts: JetBrains Mono + Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared Scroll Animation Styles -->
+  <link rel="stylesheet" href="shared/css/base.css">
+
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #0f0f17;
+      --bg-tertiary: #14141f;
+      --bg-card: #12121a;
+      --text-primary: #e4e4e7;
+      --text-secondary: #9ca3af;
+      --text-muted: #6b7280;
+      --accent: #10b981;
+      --accent-cyan: #06b6d4;
+      --accent-purple: #a855f7;
+      --accent-yellow: #fbbf24;
+      --accent-pink: #ec4899;
+      --border: #1f2937;
+      --border-glow: rgba(16, 185, 129, 0.3);
+
+      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+      --font-sans: 'Poppins', system-ui, sans-serif;
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) var(--bg-primary);
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 4px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--bg-primary);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    /* ===== UTILITY CLASSES ===== */
+    .font-mono {
+      font-family: var(--font-mono);
+    }
+
+    .text-accent { color: var(--accent); }
+    .text-cyan { color: var(--accent-cyan); }
+    .text-purple { color: var(--accent-purple); }
+    .text-yellow { color: var(--accent-yellow); }
+    .text-pink { color: var(--accent-pink); }
+
+    /* ===== SCANLINES EFFECT ===== */
+    .scanlines {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.03) 0px,
+        rgba(0, 0, 0, 0.03) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+    }
+
+    /* ===== CURSOR GLOW FOLLOWER ===== */
+    .cursor-glow {
+      position: fixed;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent) 0%, var(--accent-cyan) 40%, transparent 70%);
+      filter: blur(60px);
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+      transition: left 0.1s ease-out, top 0.1s ease-out;
+    }
+
+    /* Glass effect for cards */
+    .glass {
+      background: rgba(18, 18, 26, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* ===== LAYOUT ===== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(1rem, 4vw, 2rem);
+    }
+
+    .section {
+      padding: clamp(4rem, 10vh, 8rem) 0;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1rem 0;
+      background: rgba(10, 10, 15, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .nav-logo .prompt {
+      color: var(--accent-cyan);
+    }
+
+    .nav-logo .path {
+      color: var(--accent-purple);
+    }
+
+    .nav-logo .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 16px;
+      background: var(--accent);
+      margin-left: 4px;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      padding: 0.5rem 1rem;
+      color: var(--text-secondary);
+      border: 1px solid transparent;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--accent);
+      border-color: var(--border);
+      background: var(--bg-secondary);
+    }
+
+    .nav-cta {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      padding: 0.5rem 1.25rem;
+      background: var(--accent);
+      color: var(--bg-primary);
+      border-radius: 4px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      background: #0d9668;
+      box-shadow: 0 0 20px var(--border-glow);
+    }
+
+    .nav-toggle {
+      display: none;
+      color: var(--text-primary);
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: block; }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(6, 182, 212, 0.06) 0%, transparent 40%),
+        radial-gradient(ellipse at 60% 80%, rgba(168, 85, 247, 0.05) 0%, transparent 40%);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.3;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+    }
+
+    .terminal-window {
+      background: rgba(18, 18, 26, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .terminal-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .terminal-dot.red { background: #ef4444; }
+    .terminal-dot.yellow { background: #fbbf24; }
+    .terminal-dot.green { background: #10b981; }
+
+    .terminal-title {
+      flex: 1;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .terminal-body {
+      padding: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .terminal-line {
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      animation: typeIn 0.5s ease forwards;
+    }
+
+    .terminal-line:nth-child(1) { animation-delay: 0.2s; }
+    .terminal-line:nth-child(2) { animation-delay: 0.4s; }
+    .terminal-line:nth-child(3) { animation-delay: 0.6s; }
+    .terminal-line:nth-child(4) { animation-delay: 0.8s; }
+    .terminal-line:nth-child(5) { animation-delay: 1s; }
+
+    @keyframes typeIn {
+      from { opacity: 0; transform: translateX(-10px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .prompt-symbol {
+      color: var(--accent);
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title .highlight {
+      background: linear-gradient(135deg, var(--accent), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.875rem 1.5rem;
+      border-radius: 6px;
+      transition: all 0.3s var(--ease-out);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg-primary);
+    }
+
+    .btn-primary:hover {
+      background: #0d9668;
+      box-shadow: 0 0 30px var(--border-glow);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 20px var(--border-glow);
+    }
+
+    /* ===== SECTION HEADER ===== */
+    .section-header {
+      margin-bottom: 3rem;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .section-label::before {
+      content: '//';
+      color: var(--text-muted);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+      color: var(--text-secondary);
+      margin-top: 1rem;
+      max-width: 600px;
+    }
+
+    /* ===== ABOUT ===== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    @media (max-width: 800px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .about-card {
+      background: rgba(18, 18, 26, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .about-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 2px solid var(--accent);
+    }
+
+    .about-name {
+      font-weight: 600;
+      font-size: 1.25rem;
+    }
+
+    .about-role {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 1rem;
+      background: var(--bg-secondary);
+      border-radius: 6px;
+    }
+
+    .stat-value {
+      font-family: var(--font-mono);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .about-text p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ===== PROJECTS ===== */
+    .projects-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2rem;
+      background: rgba(18, 18, 26, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: all 0.3s var(--ease-out);
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 40px rgba(16, 185, 129, 0.1);
+      transform: translateY(-4px);
+    }
+
+    @media (max-width: 700px) {
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .project-image {
+      aspect-ratio: 16/10;
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--bg-secondary);
+    }
+
+    .project-image img,
+    .project-image video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s var(--ease-out);
+    }
+
+    .project-card:hover .project-image img,
+    .project-card:hover .project-image video {
+      transform: scale(1.05);
+    }
+
+    .project-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-role {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent-cyan);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-description {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      background: var(--bg-secondary);
+      color: var(--text-muted);
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      transition: gap 0.2s ease;
+    }
+
+    .project-link:hover {
+      gap: 0.75rem;
+    }
+
+    /* ===== TEMPLATES ===== */
+    .templates-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 1000px) {
+      .templates-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 550px) {
+      .templates-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .template-card {
+      background: rgba(18, 18, 26, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s var(--ease-out);
+      display: block;
+    }
+
+    .template-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 0 30px rgba(16, 185, 129, 0.15);
+    }
+
+    .template-image {
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      background: var(--bg-secondary);
+    }
+
+    .template-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.5s var(--ease-out);
+    }
+
+    .template-card:hover .template-image img {
+      transform: scale(1.05);
+    }
+
+    .template-info {
+      padding: 1rem;
+    }
+
+    .template-name {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .template-desc {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== SERVICES ===== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 800px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .service-card {
+      background: rgba(18, 18, 26, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: all 0.3s var(--ease-out);
+    }
+
+    .service-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .service-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .service-text {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* ===== SKILLS ===== */
+    .skills-container {
+      background: rgba(18, 18, 26, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .skills-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .skills-body {
+      padding: 1.5rem;
+    }
+
+    .skills-category {
+      margin-bottom: 1.5rem;
+    }
+
+    .skills-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .skills-category-title {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skills-category-title::before {
+      content: '>';
+      color: var(--text-muted);
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .skill-tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .skill-tag.expert {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .skill-tag.advanced {
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+    }
+
+    /* Clients */
+    .clients-row {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .client-item {
+      text-align: center;
+      padding: 1.5rem 2rem;
+      background: rgba(18, 18, 26, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+    }
+
+    .client-logo {
+      height: 60px;
+      width: auto;
+      max-width: 200px;
+      object-fit: contain;
+      margin-bottom: 0.75rem;
+      border-radius: 6px;
+    }
+
+    .client-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== CONTACT ===== */
+    .contact {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    @media (max-width: 800px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: all 0.3s var(--ease-out);
+    }
+
+    .contact-link:hover {
+      border-color: var(--accent);
+      transform: translateX(8px);
+    }
+
+    .contact-link-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .contact-link-text {
+      flex: 1;
+    }
+
+    .contact-link-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .contact-link-value {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .contact-link-arrow {
+      color: var(--text-muted);
+      transition: transform 0.2s ease;
+    }
+
+    .contact-link:hover .contact-link-arrow {
+      transform: translateX(4px);
+      color: var(--accent);
+    }
+
+    /* Contact Form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      transition: all 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--border-glow);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--text-muted);
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .form-group select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+    }
+
+    .form-submit {
+      margin-top: 0.5rem;
+    }
+
+    .form-note {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      padding: 2rem 0;
+      background: var(--bg-primary);
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-logo {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--accent);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      transition: all 0.2s ease;
+    }
+
+    .footer-social a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .footer-copy {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+  </style>
+</head>
+<body data-scroll-theme="tech">
+  <!-- Scanlines overlay -->
+  <div class="scanlines"></div>
+
+  <!-- Cursor glow follower -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="prompt">tony</span>@<span class="path">opus</span>:~$<span class="cursor"></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">about</a></li>
+        <li><a href="#work" class="nav-link">projects</a></li>
+        <li><a href="#templates" class="nav-link">templates</a></li>
+        <li><a href="#services" class="nav-link">services</a></li>
+        <li><a href="#skills" class="nav-link">skills</a></li>
+        <li><a href="#contact" class="nav-link">contact</a></li>
+      </ul>
+
+      <a href="#contact" class="nav-cta">./start_chat.sh</a>
+
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+
+    <div class="container hero-content">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-title">tony@opus:~/automation</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt-symbol">$</span> whoami</div>
+          <div class="terminal-line"><span class="text-cyan">AI Automation Consultant</span></div>
+          <div class="terminal-line"><span class="prompt-symbol">$</span> cat mission.txt</div>
+          <div class="terminal-line"><span class="text-secondary">Helping businesses reduce manual work through practical automation</span></div>
+          <div class="terminal-line"><span class="prompt-symbol">$</span> <span class="text-accent">█</span></div>
+        </div>
+      </div>
+
+      <h1 class="hero-title">
+        Streamline<br>
+        <span class="highlight">Operations.</span><br>
+        Save Time.
+      </h1>
+
+      <p class="hero-description">
+        I help businesses reduce manual work through practical AI automation. Whether you're a growing startup or established company—let's build something useful together.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="#work" class="btn btn-primary">
+          <span>→</span> See My Work
+        </a>
+        <a href="https://opusautomations.com" target="_blank" class="btn btn-secondary">
+          Software & Rates
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-card" data-scroll="fade-right">
+          <div class="about-card-header">
+            <img src="assets/video/TONY.JPEG" alt="Tony Herrera" class="about-avatar">
+            <div>
+              <div class="about-name">Tony Herrera</div>
+              <div class="about-role">@tonyfyp_</div>
+            </div>
+          </div>
+          <div class="about-stats">
+            <div class="stat-item">
+              <div class="stat-value">50+</div>
+              <div class="stat-label">Automations</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">24h</div>
+              <div class="stat-label">Response</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <div class="section-label" data-scroll="fade-up">about_me.md</div>
+          <h2 class="section-title" data-scroll="fade-up" data-scroll-delay="100">Building automation that <span class="text-accent">actually works</span></h2>
+          <p data-scroll="fade-up" data-scroll-delay="200">
+            I'm an AI Automation Consultant who helps businesses work more efficiently. I've managed product timelines, coordinated with dev teams, and built automation systems that genuinely save time and reduce repetitive tasks.
+          </p>
+          <p data-scroll="fade-up" data-scroll-delay="200">
+            I work with businesses at different stages—from simple workflow improvements to more complex automation projects—always matching scope to your actual needs and budget.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section" id="work">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label" data-scroll="fade-up">projects/</div>
+        <h2 class="section-title" data-scroll="fade-up" data-scroll-delay="100">Featured Projects</h2>
+        <p class="section-subtitle" data-scroll="fade-up" data-scroll-delay="200">Projects I've worked on across different industries and company sizes.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <article class="project-card" data-scroll="fade-up">
+          <div class="project-image">
+            <img src="assets/video/JELLY APP.JPEG" alt="Jelly App">
+          </div>
+          <div class="project-content">
+            <div class="project-role">// Operations Manager</div>
+            <h3 class="project-title">Jelly App</h3>
+            <p class="project-description">
+              TikTok creator-brand deal platform. Managed creator onboarding, campaign delivery, and outreach systems. Built repeatable UGC workflows (30 videos in 30 days) with automated tracking.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Creator Management</span>
+              <span class="project-tag">UGC Workflows</span>
+              <span class="project-tag">Campaign Automation</span>
+            </div>
+            <a href="https://getjelly.app" target="_blank" class="project-link">
+              getjelly.app <span>→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card" data-scroll="fade-up">
+          <div class="project-image">
+            <video src="assets/video/shredder.mp4" autoplay muted loop playsinline alt="Shredder"></video>
+          </div>
+          <div class="project-content">
+            <div class="project-role">// Operations Manager</div>
+            <h3 class="project-title">Shredder</h3>
+            <p class="project-description">
+              Ski/snowboard social app. Oversaw timelines and coordinated directly with developers. Managed client-dev communication, tracked payments, and supported post-launch scaling.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Dev Coordination</span>
+              <span class="project-tag">Timeline Management</span>
+              <span class="project-tag">Payment Tracking</span>
+            </div>
+            <a href="https://tryshredder.com" target="_blank" class="project-link">
+              tryshredder.com <span>→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card" data-scroll="fade-up">
+          <div class="project-image">
+            <video src="assets/video/Heraops Final.mp4" autoplay muted loop playsinline alt="Hera Ops"></video>
+          </div>
+          <div class="project-content">
+            <div class="project-role">// Co-founder</div>
+            <h3 class="project-title">Hera Ops</h3>
+            <p class="project-description">
+              VA agency for startups and creators. Led ops, hiring, SOPs, pricing, and AI automation. Built cold outreach systems (LinkedIn, Discord, email) and managed VA deployment.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Cold Outreach</span>
+              <span class="project-tag">VA Management</span>
+              <span class="project-tag">Discord Support</span>
+            </div>
+            <a href="https://heraops.com" target="_blank" class="project-link">
+              heraops.com <span>→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card" data-scroll="fade-up">
+          <div class="project-image">
+            <img src="assets/video/OpusMainPage.PNG" alt="Opus Automations">
+          </div>
+          <div class="project-content">
+            <div class="project-role">// Founder</div>
+            <h3 class="project-title">Opus Automations</h3>
+            <p class="project-description">
+              My automation consultancy. I work with tools like n8n, OpenAI integration, and custom API development to build systems that actually solve problems and get used by teams.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">n8n</span>
+              <span class="project-tag">API Integration</span>
+              <span class="project-tag">Custom Solutions</span>
+            </div>
+            <a href="https://opusautomations.com" target="_blank" class="project-link">
+              opusautomations.com <span>→</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Templates Section -->
+  <section class="section" id="templates">
+    <div class="container">
+      <div class="section-header" style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">
+        <div class="section-label" data-scroll="fade-up">templates/</div>
+        <h2 class="section-title" data-scroll="fade-up" data-scroll-delay="100">Website Templates</h2>
+        <p class="section-subtitle" data-scroll="fade-up" data-scroll-delay="200" style="margin: 1rem auto 0;">Mobile-first HTML templates for Zamboanga City SMEs. Static, fast, and easy to customize.</p>
+      </div>
+
+      <div class="templates-grid">
+        <a href="templates/restaurant/index.html" class="template-card" data-scroll="scale-up" target="_blank">
+          <div class="template-image">
+            <img src="assets/screenshots/restaurant.png" alt="Kusina de Zamboanga - Restaurant Template">
+          </div>
+          <div class="template-info">
+            <h3 class="template-name">Restaurant</h3>
+            <p class="template-desc">Kusina de Zamboanga - Filipino cuisine</p>
+          </div>
+        </a>
+
+        <a href="templates/clinic/index.html" class="template-card" data-scroll="scale-up" data-scroll-delay="100" target="_blank">
+          <div class="template-image">
+            <img src="assets/screenshots/clinic.png" alt="Skin & Glow Dermatology - Clinic Template">
+          </div>
+          <div class="template-info">
+            <h3 class="template-name">Medical Clinic</h3>
+            <p class="template-desc">Skin & Glow Dermatology Clinic</p>
+          </div>
+        </a>
+
+        <a href="templates/gym/index.html" class="template-card" data-scroll="scale-up" data-scroll-delay="200" target="_blank">
+          <div class="template-image">
+            <img src="assets/screenshots/gym.png" alt="Iron Tribe Fitness - Gym Template">
+          </div>
+          <div class="template-info">
+            <h3 class="template-name">Gym & Fitness</h3>
+            <p class="template-desc">Iron Tribe Fitness Center</p>
+          </div>
+        </a>
+
+        <a href="templates/tutorial-center/index.html" class="template-card" data-scroll="scale-up" target="_blank">
+          <div class="template-image">
+            <img src="assets/screenshots/tutorial-center.png" alt="Achievers Learning Hub - Tutorial Center Template">
+          </div>
+          <div class="template-info">
+            <h3 class="template-name">Tutorial Center</h3>
+            <p class="template-desc">Achievers Learning Hub</p>
+          </div>
+        </a>
+
+        <a href="templates/real-estate/index.html" class="template-card" data-scroll="scale-up" data-scroll-delay="100" target="_blank">
+          <div class="template-image">
+            <img src="assets/screenshots/real-estate.png" alt="Prime Properties - Real Estate Template">
+          </div>
+          <div class="template-info">
+            <h3 class="template-name">Real Estate</h3>
+            <p class="template-desc">Prime Properties Zamboanga</p>
+          </div>
+        </a>
+
+        <a href="templates/events-supplier/index.html" class="template-card" data-scroll="scale-up" data-scroll-delay="200" target="_blank">
+          <div class="template-image">
+            <img src="assets/screenshots/events-supplier.png" alt="Bliss & Bloom - Events Supplier Template">
+          </div>
+          <div class="template-info">
+            <h3 class="template-name">Events Supplier</h3>
+            <p class="template-desc">Bliss & Bloom Events</p>
+          </div>
+        </a>
+
+        <a href="templates/hardware-store/index.html" class="template-card" data-scroll="scale-up" target="_blank">
+          <div class="template-image">
+            <img src="assets/screenshots/hardware-store.png" alt="Builders Central - Hardware Store Template">
+          </div>
+          <div class="template-info">
+            <h3 class="template-name">Hardware Store</h3>
+            <p class="template-desc">Builders Central Hardware</p>
+          </div>
+        </a>
+
+        <a href="templates/salon/index.html" class="template-card" data-scroll="scale-up" data-scroll-delay="100" target="_blank">
+          <div class="template-image">
+            <img src="assets/screenshots/salon.png" alt="Bella Vida - Salon & Spa Template">
+          </div>
+          <div class="template-info">
+            <h3 class="template-name">Salon & Spa</h3>
+            <p class="template-desc">Bella Vida Salon & Spa</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-header" style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">
+        <div class="section-label" data-scroll="fade-up">services/</div>
+        <h2 class="section-title" data-scroll="fade-up" data-scroll-delay="100">Core Capabilities</h2>
+        <p class="section-subtitle" data-scroll="fade-up" data-scroll-delay="200" style="margin: 1rem auto 0;">Practical automation solutions that actually fit your workflow.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card" data-scroll="fade-up">
+          <div class="service-icon">&lt;/&gt;</div>
+          <h3 class="service-title">Automation & Workflow Design</h3>
+          <p class="service-text">Custom automation solutions using n8n and web-based tools, designed around your actual business processes.</p>
+        </div>
+
+        <div class="service-card" data-scroll="fade-up" data-scroll-delay="100">
+          <div class="service-icon">[~]</div>
+          <h3 class="service-title">Process Analysis</h3>
+          <p class="service-text">I'll review your current workflows to find practical automation opportunities that make sense for your team.</p>
+        </div>
+
+        <div class="service-card" data-scroll="fade-up" data-scroll-delay="200">
+          <div class="service-icon">{ai}</div>
+          <h3 class="service-title">AI Tool Integration</h3>
+          <p class="service-text">Connecting tools like n8n, OpenAI, webhooks, and APIs to work together in ways that support your goals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-header" style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">
+        <div class="section-label" data-scroll="fade-up">tech_stack.json</div>
+        <h2 class="section-title" data-scroll="fade-up" data-scroll-delay="100">Tools & Technologies</h2>
+      </div>
+
+      <div class="skills-container" data-scroll="fade-up">
+        <div class="skills-header">
+          <span class="text-accent">~</span> skills.config
+        </div>
+        <div class="skills-body">
+          <div class="skills-category">
+            <div class="skills-category-title">Expert Level</div>
+            <div class="skills-list">
+              <span class="skill-tag expert">n8n</span>
+              <span class="skill-tag expert">REST APIs</span>
+              <span class="skill-tag expert">Webhooks</span>
+              <span class="skill-tag expert">CRM Systems</span>
+              <span class="skill-tag expert">Databases</span>
+            </div>
+          </div>
+          <div class="skills-category">
+            <div class="skills-category-title">Advanced Level</div>
+            <div class="skills-list">
+              <span class="skill-tag advanced">OpenAI API</span>
+              <span class="skill-tag advanced">Email Platforms</span>
+            </div>
+          </div>
+          <div class="skills-category">
+            <div class="skills-category-title">Intermediate Level</div>
+            <div class="skills-list">
+              <span class="skill-tag">Zapier</span>
+              <span class="skill-tag">Make (Integromat)</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Analytics</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trusted By -->
+      <div class="clients-row">
+        <div class="client-item" data-scroll="scale-up">
+          <img src="assets/images/veblenlogo.png" alt="VEBLEN" class="client-logo">
+          <div class="client-desc">Content Marketing for Real Estate</div>
+        </div>
+        <div class="client-item" data-scroll="scale-up" data-scroll-delay="100">
+          <img src="assets/images/AgenticScale.webp" alt="AgenticScale.AI" class="client-logo">
+          <div class="client-desc">Enterprise AI Agents & Automation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label" data-scroll="fade-up">contact/</div>
+        <h2 class="section-title" data-scroll="fade-up" data-scroll-delay="100">Let's <span class="text-accent">build</span> together</h2>
+        <p class="section-subtitle" data-scroll="fade-up" data-scroll-delay="200">Let's talk about your workflow challenges. <strong class="text-accent">I respond within 24 hours.</strong></p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-links">
+          <a href="mailto:tony@opusautomations.com" class="contact-link" data-scroll="fade-left">
+            <div class="contact-link-icon">@</div>
+            <div class="contact-link-text">
+              <div class="contact-link-label">EMAIL</div>
+              <div class="contact-link-value">tony@opusautomations.com</div>
+            </div>
+            <span class="contact-link-arrow">→</span>
+          </a>
+
+          <a href="https://wa.me/639559918754" target="_blank" class="contact-link" data-scroll="fade-left">
+            <div class="contact-link-icon">W</div>
+            <div class="contact-link-text">
+              <div class="contact-link-label">WHATSAPP</div>
+              <div class="contact-link-value">+63 955 991 8754</div>
+            </div>
+            <span class="contact-link-arrow">→</span>
+          </a>
+
+          <a href="https://t.me/+639559918754" target="_blank" class="contact-link" data-scroll="fade-left">
+            <div class="contact-link-icon">T</div>
+            <div class="contact-link-text">
+              <div class="contact-link-label">TELEGRAM</div>
+              <div class="contact-link-value">+63 955 991 8754</div>
+            </div>
+            <span class="contact-link-arrow">→</span>
+          </a>
+
+          <a href="https://instagram.com/tonyfyp_" target="_blank" class="contact-link" data-scroll="fade-left">
+            <div class="contact-link-icon">IG</div>
+            <div class="contact-link-text">
+              <div class="contact-link-label">INSTAGRAM</div>
+              <div class="contact-link-value">@tonyfyp_</div>
+            </div>
+            <span class="contact-link-arrow">→</span>
+          </a>
+
+          <a href="https://drive.google.com/file/d/1-QZVXfJ8HbwcGlFrpzUJ1HzLviOoOAx-/view?usp=sharing" target="_blank" class="contact-link" data-scroll="fade-left">
+            <div class="contact-link-icon">CV</div>
+            <div class="contact-link-text">
+              <div class="contact-link-label">RESUME</div>
+              <div class="contact-link-value">Download Resume</div>
+            </div>
+            <span class="contact-link-arrow">→</span>
+          </a>
+        </div>
+
+        <form class="contact-form" data-scroll="fade-right">
+          <div class="form-group">
+            <label for="name">name *</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">email *</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="type">automation_type *</label>
+            <select id="type" name="type" required>
+              <option value="">Select an option...</option>
+              <option value="lead-gen">Lead Generation & CRM</option>
+              <option value="reporting">Reporting & Analytics</option>
+              <option value="content">Content & Social Media</option>
+              <option value="onboarding">Customer Onboarding</option>
+              <option value="workflow">General Workflow Automation</option>
+              <option value="integration">Tool Integration & APIs</option>
+              <option value="other">Other / Not Sure</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">message *</label>
+            <textarea id="message" name="message" placeholder="Describe what you'd like to automate..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">
+            <span>→</span> ./send_message.sh
+          </button>
+          <p class="form-note">// I'll respond within 24 hours with next steps</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="#" class="footer-logo">opus_automations</a>
+
+      <div class="footer-social">
+        <a href="https://instagram.com/tonyfyp_" target="_blank" aria-label="Instagram">IG</a>
+        <a href="https://wa.me/639559918754" target="_blank" aria-label="WhatsApp">W</a>
+        <a href="https://t.me/+639559918754" target="_blank" aria-label="Telegram">T</a>
+      </div>
+
+      <p class="footer-copy">© 2025 Opus Automations // All rights reserved</p>
+    </div>
+  </footer>
+
+  <!-- Shared Scroll Animation System -->
+  <script src="shared/js/common.js"></script>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Form
+    document.querySelector('.contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Message sent! I\'ll get back to you within 24 hours.');
+      e.target.reset();
+    });
+
+    // Cursor glow follower
+    const cursorGlow = document.getElementById('cursorGlow');
+    document.addEventListener('mousemove', (e) => {
+      cursorGlow.style.left = e.clientX + 'px';
+      cursorGlow.style.top = e.clientY + 'px';
+    });
+  </script>
+</body>
+</html>

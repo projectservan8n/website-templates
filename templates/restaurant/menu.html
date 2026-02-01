@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse our full menu of fresh seafood and authentic Zamboanga dishes at Mariscos del Sur Seafood House. Order via WhatsApp for pickup or delivery.">
+
+  <title>Menu - Mariscos del Sur Seafood House</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50: '#e6f4f9', 100: '#b3ddef', 200: '#80c6e5', 300: '#4dafdb', 400: '#2699d1', 500: '#0077B6', 600: '#006a9f', 700: '#005c88', 800: '#004e71', 900: '#00405a' },
+            accent: { 50: '#fff5f0', 100: '#ffe0d1', 200: '#ffcbb3', 300: '#ffb694', 400: '#ffa175', 500: '#FF6B6B', 600: '#e85d04', 700: '#c54f03', 800: '#a24103', 900: '#7f3302' },
+            sand: { 50: '#fdfbf7', 100: '#F4E4C1', 200: '#eddbb0', 300: '#e5d19f', 400: '#ddc88e', 500: '#d5be7d' },
+            charcoal: '#2D3436',
+          },
+          fontFamily: { 'display': ['Playfair Display', 'Georgia', 'serif'], 'body': ['Source Sans 3', 'system-ui', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="../../shared/css/base.css">
+  <style>
+    :root {
+      --color-primary: #0077B6;
+      --color-primary-dark: #005c88;
+      --color-primary-rgb: 0, 119, 182;
+    }
+    .category-tab.active {
+      background: var(--color-primary);
+      color: white;
+    }
+  </style>
+</head>
+<body class="font-body text-charcoal bg-white" data-scroll-theme="elegant">
+
+  <!-- NAVIGATION (Simplified for inner pages) -->
+  <header class="bg-primary-600 sticky top-0 z-50 shadow-lg">
+    <nav class="container mx-auto px-4 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+            </svg>
+          </div>
+          <span class="font-display text-lg font-bold text-white">Mariscos del Sur</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-6">
+          <a href="index.html" class="text-white/80 hover:text-white font-medium transition-colors">Home</a>
+          <a href="menu.html" class="text-white font-medium">Menu</a>
+          <a href="contact.html" class="text-white/80 hover:text-white font-medium transition-colors">Contact</a>
+        </div>
+
+        <a href="tel:(062) 992-8888" class="flex items-center gap-2 text-white hover:text-sand-100 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/>
+          </svg>
+          <span class="hidden sm:inline font-medium">(062) 992-8888</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="bg-gradient-to-r from-primary-600 to-primary-500 py-16 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <defs>
+          <pattern id="waves" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M0 10 Q5 5, 10 10 T20 10" fill="none" stroke="white" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect width="100" height="100" fill="url(#waves)"/>
+      </svg>
+    </div>
+    <div class="container mx-auto px-4 lg:px-8 relative z-10">
+      <div class="text-center">
+        <nav class="flex items-center justify-center gap-2 text-white/70 text-sm mb-4">
+          <a href="index.html" class="hover:text-white transition-colors">Home</a>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
+          </svg>
+          <span class="text-white">Menu</span>
+        </nav>
+        <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-4">Our Menu</h1>
+        <p class="text-white/80 text-lg max-w-xl mx-auto">Fresh catches and authentic flavors, prepared daily with love and tradition.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU CONTENT -->
+  <section class="section bg-sand-50">
+    <div class="container mx-auto px-4 lg:px-8">
+
+      <!-- Category Tabs -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12" data-scroll="fade-up">
+        <button class="category-tab active px-6 py-3 rounded-full font-semibold text-sm transition-all hover:shadow-lg" data-category="all">
+          All Items
+        </button>
+        <!-- CUSTOMIZATION: Add your menu categories -->
+        <button class="category-tab bg-white text-charcoal px-6 py-3 rounded-full font-semibold text-sm transition-all hover:shadow-lg" data-category="seafood">
+          Seafood
+        </button>
+        <button class="category-tab bg-white text-charcoal px-6 py-3 rounded-full font-semibold text-sm transition-all hover:shadow-lg" data-category="meat">
+          Meat Dishes
+        </button>
+        <button class="category-tab bg-white text-charcoal px-6 py-3 rounded-full font-semibold text-sm transition-all hover:shadow-lg" data-category="vegetables">
+          Vegetables
+        </button>
+        <button class="category-tab bg-white text-charcoal px-6 py-3 rounded-full font-semibold text-sm transition-all hover:shadow-lg" data-category="drinks">
+          Drinks
+        </button>
+      </div>
+
+      <!-- Menu Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="menuGrid">
+
+        <!-- SEAFOOD SECTION -->
+        <!-- Menu Item 1: Curacha sa Gata -->
+        <div class="menu-item group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-category="seafood" data-scroll="fade-up" data-scroll-delay="100">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=250&fit=crop" alt="Curacha sa Gata" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 bg-accent-500 text-white text-xs font-bold px-3 py-1 rounded-full">Best Seller</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-display text-lg font-bold text-charcoal">Curacha sa Gata</h3>
+              <span class="text-accent-500 font-bold text-lg whitespace-nowrap">P850</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Zamboanga's famous spanner crab cooked in rich coconut cream with local spices and aromatics</p>
+            <a
+              href="https://wa.me/639178888888?text=Hi!%20I'd%20like%20to%20order%20Curacha%20sa%20Gata%20from%20your%20menu."
+              class="inline-flex items-center gap-2 text-primary-500 text-sm font-semibold hover:text-primary-600 transition-colors group/link"
+            >
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Order via WhatsApp
+              <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Menu Item 2: Grilled Blue Marlin -->
+        <div class="menu-item group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-category="seafood" data-scroll="fade-up" data-scroll-delay="150">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&h=250&fit=crop" alt="Grilled Blue Marlin" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 bg-primary-500 text-white text-xs font-bold px-3 py-1 rounded-full">Chef's Choice</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-display text-lg font-bold text-charcoal">Grilled Blue Marlin</h3>
+              <span class="text-accent-500 font-bold text-lg whitespace-nowrap">P380</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Fresh blue marlin steak grilled to perfection with calamansi butter sauce and garlic rice</p>
+            <a href="https://wa.me/639178888888?text=Hi!%20I'd%20like%20to%20order%20Grilled%20Blue%20Marlin" class="inline-flex items-center gap-2 text-primary-500 text-sm font-semibold hover:text-primary-600 transition-colors group/link">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order via WhatsApp
+              <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Menu Item 3: Sinigang na Lapu-Lapu -->
+        <div class="menu-item group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-category="seafood" data-scroll="fade-up" data-scroll-delay="200">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=400&h=250&fit=crop" alt="Sinigang na Lapu-Lapu" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-display text-lg font-bold text-charcoal">Sinigang na Lapu-Lapu</h3>
+              <span class="text-accent-500 font-bold text-lg whitespace-nowrap">P420</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Fresh grouper in sour tamarind broth with kangkong, radish, and tomatoes</p>
+            <a href="https://wa.me/639178888888?text=Hi!%20I'd%20like%20to%20order%20Sinigang%20na%20Lapu-Lapu" class="inline-flex items-center gap-2 text-primary-500 text-sm font-semibold hover:text-primary-600 transition-colors group/link">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order via WhatsApp
+              <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Menu Item 4: Grilled Tiger Prawns -->
+        <div class="menu-item group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-category="seafood" data-scroll="fade-up" data-scroll-delay="250">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1579631542720-3a87824fff86?w=400&h=250&fit=crop" alt="Grilled Tiger Prawns" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-display text-lg font-bold text-charcoal">Grilled Tiger Prawns</h3>
+              <span class="text-accent-500 font-bold text-lg whitespace-nowrap">P520</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Jumbo tiger prawns grilled with garlic butter and fresh herbs, served with java rice</p>
+            <a href="https://wa.me/639178888888?text=Hi!%20I'd%20like%20to%20order%20Grilled%20Tiger%20Prawns" class="inline-flex items-center gap-2 text-primary-500 text-sm font-semibold hover:text-primary-600 transition-colors group/link">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order via WhatsApp
+              <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Menu Item 5: Kinilaw na Tuna -->
+        <div class="menu-item group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-category="seafood" data-scroll="fade-up" data-scroll-delay="300">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?w=400&h=250&fit=crop" alt="Kinilaw na Tuna" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-display text-lg font-bold text-charcoal">Kinilaw na Tuna</h3>
+              <span class="text-accent-500 font-bold text-lg whitespace-nowrap">P295</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Fresh yellowfin tuna cured in vinegar and calamansi with ginger, onions, and chili</p>
+            <a href="https://wa.me/639178888888?text=Hi!%20I'd%20like%20to%20order%20Kinilaw%20na%20Tuna" class="inline-flex items-center gap-2 text-primary-500 text-sm font-semibold hover:text-primary-600 transition-colors group/link">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order via WhatsApp
+              <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Menu Item 6: Baked Tahong -->
+        <div class="menu-item group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-category="seafood" data-scroll="fade-up" data-scroll-delay="350">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=250&fit=crop" alt="Baked Tahong" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-display text-lg font-bold text-charcoal">Baked Tahong</h3>
+              <span class="text-accent-500 font-bold text-lg whitespace-nowrap">P245</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Green mussels baked with garlic butter and topped with melted cheese</p>
+            <a href="https://wa.me/639178888888?text=Hi!%20I'd%20like%20to%20order%20Baked%20Tahong" class="inline-flex items-center gap-2 text-primary-500 text-sm font-semibold hover:text-primary-600 transition-colors group/link">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order via WhatsApp
+              <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- MEAT DISHES -->
+        <!-- Menu Item 7: Chicken Pianggang -->
+        <div class="menu-item group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-category="meat" data-scroll="fade-up" data-scroll-delay="100">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=400&h=250&fit=crop" alt="Chicken Pianggang" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-display text-lg font-bold text-charcoal">Chicken Pianggang</h3>
+              <span class="text-accent-500 font-bold text-lg whitespace-nowrap">P320</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Traditional Tausug grilled chicken marinated in coconut milk and spices, charcoal-grilled</p>
+            <a href="https://wa.me/639178888888?text=Hi!%20I'd%20like%20to%20order%20Chicken%20Pianggang" class="inline-flex items-center gap-2 text-primary-500 text-sm font-semibold hover:text-primary-600 transition-colors group/link">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order via WhatsApp
+              <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Menu Item 8: Crispy Pata -->
+        <div class="menu-item group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-category="meat" data-scroll="fade-up" data-scroll-delay="150">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=250&fit=crop" alt="Crispy Pata" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-display text-lg font-bold text-charcoal">Crispy Pata</h3>
+              <span class="text-accent-500 font-bold text-lg whitespace-nowrap">P650</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Deep-fried pork leg, crispy golden outside and tender inside, served with liver sauce</p>
+            <a href="https://wa.me/639178888888?text=Hi!%20I'd%20like%20to%20order%20Crispy%20Pata" class="inline-flex items-center gap-2 text-primary-500 text-sm font-semibold hover:text-primary-600 transition-colors group/link">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order via WhatsApp
+              <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Menu Item 9: Beef Tapa -->
+        <div class="menu-item group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-category="meat" data-scroll="fade-up" data-scroll-delay="200">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=400&h=250&fit=crop" alt="Beef Tapa" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-display text-lg font-bold text-charcoal">Beef Tapa</h3>
+              <span class="text-accent-500 font-bold text-lg whitespace-nowrap">P285</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Sweet and savory cured beef slices, pan-fried and served with garlic rice and egg</p>
+            <a href="https://wa.me/639178888888?text=Hi!%20I'd%20like%20to%20order%20Beef%20Tapa" class="inline-flex items-center gap-2 text-primary-500 text-sm font-semibold hover:text-primary-600 transition-colors group/link">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order via WhatsApp
+              <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- VEGETABLES -->
+        <!-- Menu Item 10: Pinakbet -->
+        <div class="menu-item group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-category="vegetables" data-scroll="fade-up" data-scroll-delay="100">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&h=250&fit=crop" alt="Pinakbet" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-display text-lg font-bold text-charcoal">Pinakbet</h3>
+              <span class="text-accent-500 font-bold text-lg whitespace-nowrap">P195</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Mixed vegetables with shrimp paste, featuring eggplant, squash, okra, and bitter gourd</p>
+            <a href="https://wa.me/639178888888?text=Hi!%20I'd%20like%20to%20order%20Pinakbet" class="inline-flex items-center gap-2 text-primary-500 text-sm font-semibold hover:text-primary-600 transition-colors group/link">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order via WhatsApp
+              <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Menu Item 11: Ensaladang Talong -->
+        <div class="menu-item group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-category="vegetables" data-scroll="fade-up" data-scroll-delay="150">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=250&fit=crop" alt="Ensaladang Talong" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-display text-lg font-bold text-charcoal">Ensaladang Talong</h3>
+              <span class="text-accent-500 font-bold text-lg whitespace-nowrap">P145</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Grilled eggplant salad with tomatoes, onions, and salted egg in vinaigrette dressing</p>
+            <a href="https://wa.me/639178888888?text=Hi!%20I'd%20like%20to%20order%20Ensaladang%20Talong" class="inline-flex items-center gap-2 text-primary-500 text-sm font-semibold hover:text-primary-600 transition-colors group/link">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order via WhatsApp
+              <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- DRINKS -->
+        <!-- Menu Item 12: Fresh Buko Juice -->
+        <div class="menu-item group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-category="drinks" data-scroll="fade-up" data-scroll-delay="100">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&h=250&fit=crop" alt="Fresh Buko Juice" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-display text-lg font-bold text-charcoal">Fresh Buko Juice</h3>
+              <span class="text-accent-500 font-bold text-lg whitespace-nowrap">P85</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Fresh young coconut water with tender coconut meat, served cold</p>
+            <a href="https://wa.me/639178888888?text=Hi!%20I'd%20like%20to%20order%20Fresh%20Buko%20Juice" class="inline-flex items-center gap-2 text-primary-500 text-sm font-semibold hover:text-primary-600 transition-colors group/link">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order via WhatsApp
+              <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Menu Item 13: Calamansi Juice -->
+        <div class="menu-item group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-category="drinks" data-scroll="fade-up" data-scroll-delay="150">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=400&h=250&fit=crop" alt="Calamansi Juice" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-display text-lg font-bold text-charcoal">Calamansi Juice</h3>
+              <span class="text-accent-500 font-bold text-lg whitespace-nowrap">P65</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Refreshing Philippine lime juice, freshly squeezed with honey and served chilled</p>
+            <a href="https://wa.me/639178888888?text=Hi!%20I'd%20like%20to%20order%20Calamansi%20Juice" class="inline-flex items-center gap-2 text-primary-500 text-sm font-semibold hover:text-primary-600 transition-colors group/link">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order via WhatsApp
+              <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Menu Item 14: Mango Shake -->
+        <div class="menu-item group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300" data-category="drinks" data-scroll="fade-up" data-scroll-delay="200">
+          <div class="relative overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1546173159-315724a31696?w=400&h=250&fit=crop" alt="Mango Shake" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-4 mb-2">
+              <h3 class="font-display text-lg font-bold text-charcoal">Mango Shake</h3>
+              <span class="text-accent-500 font-bold text-lg whitespace-nowrap">P95</span>
+            </div>
+            <p class="text-gray-600 text-sm mb-4">Creamy Philippine mango shake made with fresh ripe mangoes and milk</p>
+            <a href="https://wa.me/639178888888?text=Hi!%20I'd%20like%20to%20order%20Mango%20Shake" class="inline-flex items-center gap-2 text-primary-500 text-sm font-semibold hover:text-primary-600 transition-colors group/link">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order via WhatsApp
+              <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Empty State (shown when no items match filter) -->
+      <div id="emptyState" class="hidden text-center py-16">
+        <div class="w-20 h-20 bg-sand-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-10 h-10 text-primary-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
+          </svg>
+        </div>
+        <h3 class="font-display text-xl font-bold text-charcoal mb-2">No items found</h3>
+        <p class="text-gray-600">Try selecting a different category</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER CTA -->
+  <section class="py-12 bg-primary-600 text-white">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div>
+          <h2 class="font-display text-2xl font-bold mb-2">Ready to Order?</h2>
+          <p class="text-white/80">Message us on WhatsApp for pickup or delivery!</p>
+        </div>
+        <a
+          href="https://wa.me/639178888888?text=Hi!%20I'd%20like%20to%20place%20an%20order."
+          class="btn bg-white text-primary-600 hover:bg-sand-100 px-8 py-4 rounded-full font-semibold shadow-lg"
+        >
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Order via WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (Simplified) -->
+  <footer class="bg-charcoal text-white py-8">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-primary-500 flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+            </svg>
+          </div>
+          <span class="font-display font-bold">Mariscos del Sur</span>
+        </div>
+        <nav class="flex items-center gap-6 text-sm">
+          <a href="index.html" class="text-white/70 hover:text-white transition-colors">Home</a>
+          <a href="menu.html" class="text-white hover:text-white transition-colors">Menu</a>
+          <a href="contact.html" class="text-white/70 hover:text-white transition-colors">Contact</a>
+        </nav>
+        <p class="text-sm text-white/50">&copy; 2024 Mariscos del Sur Seafood House</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/639178888888?text=Hi!%20I'd%20like%20to%20place%20an%20order." class="whatsapp-float no-print" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="white" class="w-8 h-8">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- Scripts -->
+  <script src="../../shared/js/common.js"></script>
+  <script>
+    // Category filter functionality
+    const categoryTabs = document.querySelectorAll('.category-tab');
+    const menuItems = document.querySelectorAll('.menu-item');
+    const emptyState = document.getElementById('emptyState');
+
+    categoryTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Update active tab
+        categoryTabs.forEach(t => {
+          t.classList.remove('active', 'bg-primary-500', 'text-white');
+          t.classList.add('bg-white', 'text-charcoal');
+        });
+        tab.classList.add('active');
+        tab.classList.remove('bg-white', 'text-charcoal');
+
+        const category = tab.dataset.category;
+        let visibleCount = 0;
+
+        // Filter items
+        menuItems.forEach(item => {
+          if (category === 'all' || item.dataset.category === category) {
+            item.style.display = 'block';
+            visibleCount++;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        // Show/hide empty state
+        if (visibleCount === 0) {
+          emptyState.classList.remove('hidden');
+        } else {
+          emptyState.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

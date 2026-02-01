@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View our complete service menu at Bella Vida Salon & Spa. Haircuts, coloring, treatments, nails, and spa services. Premium beauty services in Zamboanga City.">
+  <meta name="keywords" content="salon services, haircut prices, hair color, nail salon, spa services, Zamboanga City">
+  <meta name="author" content="Bella Vida Salon & Spa">
+
+  <title>Services & Prices | Bella Vida Salon & Spa</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#7C3AED',
+            'primary-dark': '#6D28D9',
+            accent: '#B76E79',
+            gold: '#D4AF37',
+            lavender: '#F3E8FF',
+            'lavender-light': '#FAF5FF',
+            dark: '#1F2937',
+            'dark-light': '#374151'
+          },
+          fontFamily: {
+            display: ['Italiana', 'serif'],
+            body: ['Raleway', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Base Styles -->
+  <link rel="stylesheet" href="../../shared/css/base.css">
+
+  <style>
+    :root {
+      --color-primary: #7C3AED;
+      --color-primary-rgb: 124, 58, 237;
+      --color-primary-dark: #6D28D9;
+      --gradient-start: #7C3AED;
+      --gradient-end: #B76E79;
+    }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .font-display {
+      font-family: 'Italiana', serif;
+    }
+
+    /* Line Accent */
+    .line-accent {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, #D4AF37, #B76E79);
+    }
+
+    /* Category Tab Active */
+    .category-tab.active {
+      background: #7C3AED;
+      color: white;
+      border-color: #7C3AED;
+    }
+
+    /* Service Item Hover */
+    .service-item:hover {
+      background: #FAF5FF;
+      border-color: #7C3AED;
+    }
+
+    /* Gold Accent Text */
+    .text-gold-gradient {
+      background: linear-gradient(135deg, #D4AF37, #B76E79);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+<body class="bg-white text-dark font-body" data-scroll-theme="elegant">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+    <div class="container mx-auto px-4">
+      <nav class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
+            <span class="text-white font-display text-xl">BV</span>
+          </div>
+          <div>
+            <span class="font-display text-2xl text-dark">Bella Vida</span>
+            <span class="block text-xs text-accent tracking-widest uppercase">Salon & Spa</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <ul class="hidden lg:flex items-center gap-8">
+          <li><a href="index.html" class="text-dark-light hover:text-primary transition-colors">Home</a></li>
+          <li><a href="services.html" class="text-primary font-medium">Services</a></li>
+          <li><a href="index.html#team" class="text-dark-light hover:text-primary transition-colors">Our Team</a></li>
+          <li><a href="index.html#gallery" class="text-dark-light hover:text-primary transition-colors">Gallery</a></li>
+          <li><a href="index.html#contact" class="text-dark-light hover:text-primary transition-colors">Contact</a></li>
+        </ul>
+
+        <!-- CTA & Mobile Menu -->
+        <div class="flex items-center gap-4">
+          <a href="booking.html" class="hidden sm:inline-flex btn btn-primary text-sm">
+            Book Now
+          </a>
+
+          <!-- Mobile Menu Button -->
+          <button data-menu-toggle class="lg:hidden p-2 text-dark" aria-label="Toggle menu" aria-expanded="false">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div data-menu-overlay class="mobile-menu-overlay"></div>
+
+  <!-- Mobile Menu -->
+  <div data-mobile-menu class="mobile-menu bg-white">
+    <div class="p-6">
+      <div class="flex items-center justify-between mb-8">
+        <span class="font-display text-xl text-dark">Bella Vida</span>
+        <button data-menu-close class="p-2 text-dark-light hover:text-dark">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <ul class="space-y-4">
+        <li><a href="index.html" class="block py-2 text-dark-light hover:text-primary text-lg">Home</a></li>
+        <li><a href="services.html" class="block py-2 text-primary font-medium text-lg">Services</a></li>
+        <li><a href="index.html#team" class="block py-2 text-dark-light hover:text-primary text-lg">Our Team</a></li>
+        <li><a href="index.html#gallery" class="block py-2 text-dark-light hover:text-primary text-lg">Gallery</a></li>
+        <li><a href="index.html#contact" class="block py-2 text-dark-light hover:text-primary text-lg">Contact</a></li>
+      </ul>
+
+      <div class="mt-8 pt-8 border-t border-gray-100">
+        <a href="booking.html" class="btn btn-primary w-full justify-center">
+          Book Appointment
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="pt-32 pb-16 bg-gradient-to-br from-lavender-light to-white">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-accent font-medium tracking-widest uppercase mb-3" data-scroll="fade-up">Our Menu</p>
+      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl text-dark mb-4" data-scroll="fade-up" data-scroll-delay="100">
+        Services & <span class="text-gold-gradient">Prices</span>
+      </h1>
+      <div class="line-accent mx-auto mb-6" data-scroll="fade-up" data-scroll-delay="200"></div>
+      <p class="text-dark-light max-w-2xl mx-auto" data-scroll="fade-up" data-scroll-delay="300">
+        Discover our complete range of beauty services. From precision haircuts to rejuvenating spa treatments,
+        we offer personalized experiences designed to enhance your natural beauty.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+
+      <!-- Category: Haircut & Styling -->
+      <div class="mb-16" id="haircuts">
+        <div class="flex items-center gap-4 mb-8" data-scroll="fade-up">
+          <div class="w-14 h-14 bg-lavender rounded-2xl flex items-center justify-center text-primary">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="font-display text-3xl text-dark">Haircut & Styling</h2>
+            <p class="text-dark-light text-sm">Expert cuts tailored to your face shape and lifestyle</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <!-- Service Item 1 -->
+          <div class="service-item border-2 border-gray-100 rounded-xl p-6 transition-all duration-300" data-scroll="fade-up" data-scroll-delay="100">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-dark text-lg">Ladies' Haircut</h3>
+              <span class="text-gold font-display text-xl">P250-450</span>
+            </div>
+            <p class="text-dark-light text-sm mb-3">Precision cut with consultation, shampoo, and blow dry. Price varies by hair length.</p>
+            <div class="flex items-center gap-2 text-sm text-dark-light">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>45-60 mins</span>
+            </div>
+          </div>
+
+          <!-- Service Item 2 -->
+          <div class="service-item border-2 border-gray-100 rounded-xl p-6 transition-all duration-300" data-scroll="fade-up" data-scroll-delay="150">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-dark text-lg">Men's Haircut</h3>
+              <span class="text-gold font-display text-xl">P150-250</span>
+            </div>
+            <p class="text-dark-light text-sm mb-3">Classic or modern cut with shampoo and styling. Includes beard trim upon request.</p>
+            <div class="flex items-center gap-2 text-sm text-dark-light">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>30-45 mins</span>
+            </div>
+          </div>
+
+          <!-- Service Item 3 -->
+          <div class="service-item border-2 border-gray-100 rounded-xl p-6 transition-all duration-300" data-scroll="fade-up" data-scroll-delay="200">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-dark text-lg">Kids' Haircut</h3>
+              <span class="text-gold font-display text-xl">P120-180</span>
+            </div>
+            <p class="text-dark-light text-sm mb-3">Gentle haircuts for children under 12. Fun, patient service in a kid-friendly environment.</p>
+            <div class="flex items-center gap-2 text-sm text-dark-light">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>20-30 mins</span>
+            </div>
+          </div>
+
+          <!-- Service Item 4 -->
+          <div class="service-item border-2 border-gray-100 rounded-xl p-6 transition-all duration-300" data-scroll="fade-up" data-scroll-delay="250">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-dark text-lg">Blowout & Styling</h3>
+              <span class="text-gold font-display text-xl">P350-550</span>
+            </div>
+            <p class="text-dark-light text-sm mb-3">Professional blow dry and styling for any occasion. Includes shampoo and heat protection.</p>
+            <div class="flex items-center gap-2 text-sm text-dark-light">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>45-60 mins</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category: Hair Color -->
+      <div class="mb-16" id="color">
+        <div class="flex items-center gap-4 mb-8" data-scroll="fade-up">
+          <div class="w-14 h-14 bg-lavender rounded-2xl flex items-center justify-center text-primary">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="font-display text-3xl text-dark">Hair Color</h2>
+            <p class="text-dark-light text-sm">Vibrant colors and expert techniques for stunning results</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <!-- Color Service 1 -->
+          <div class="service-item border-2 border-gray-100 rounded-xl p-6 transition-all duration-300" data-scroll="fade-up" data-scroll-delay="100">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-dark text-lg">Full Color (Single Process)</h3>
+              <span class="text-gold font-display text-xl">P1,200-2,000</span>
+            </div>
+            <p class="text-dark-light text-sm mb-3">Root to tip color application. Covers grays or creates a new base color. Includes toner if needed.</p>
+            <div class="flex items-center gap-2 text-sm text-dark-light">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>1.5-2 hrs</span>
+            </div>
+          </div>
+
+          <!-- Color Service 2 -->
+          <div class="service-item border-2 border-gray-100 rounded-xl p-6 transition-all duration-300" data-scroll="fade-up" data-scroll-delay="150">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-dark text-lg">Highlights / Lowlights</h3>
+              <span class="text-gold font-display text-xl">P1,800-3,500</span>
+            </div>
+            <p class="text-dark-light text-sm mb-3">Partial or full head foil highlights to add dimension and depth to your hair.</p>
+            <div class="flex items-center gap-2 text-sm text-dark-light">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>2-3 hrs</span>
+            </div>
+          </div>
+
+          <!-- Color Service 3 -->
+          <div class="service-item border-2 border-gray-100 rounded-xl p-6 transition-all duration-300" data-scroll="fade-up" data-scroll-delay="200">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-dark text-lg">Balayage / Ombre</h3>
+              <span class="text-gold font-display text-xl">P2,500-4,500</span>
+            </div>
+            <p class="text-dark-light text-sm mb-3">Hand-painted highlights for a natural, sun-kissed look. Includes toning and styling.</p>
+            <div class="flex items-center gap-2 text-sm text-dark-light">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>3-4 hrs</span>
+            </div>
+          </div>
+
+          <!-- Color Service 4 -->
+          <div class="service-item border-2 border-gray-100 rounded-xl p-6 transition-all duration-300" data-scroll="fade-up" data-scroll-delay="250">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-dark text-lg">Fashion Colors</h3>
+              <span class="text-gold font-display text-xl">P2,000-5,000</span>
+            </div>
+            <p class="text-dark-light text-sm mb-3">Vibrant, creative colors (pink, purple, blue, etc.). May require bleaching. Price varies by complexity.</p>
+            <div class="flex items-center gap-2 text-sm text-dark-light">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>3-5 hrs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category: Hair Treatment -->
+      <div class="mb-16" id="treatments">
+        <div class="flex items-center gap-4 mb-8" data-scroll="fade-up">
+          <div class="w-14 h-14 bg-lavender rounded-2xl flex items-center justify-center text-primary">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="font-display text-3xl text-dark">Hair Treatment</h2>
+            <p class="text-dark-light text-sm">Restore, repair, and revitalize your hair</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <!-- Treatment Service 1 -->
+          <div class="service-item border-2 border-gray-100 rounded-xl p-6 transition-all duration-300" data-scroll="fade-up" data-scroll-delay="100">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-dark text-lg">Deep Conditioning</h3>
+              <span class="text-gold font-display text-xl">P500-800</span>
+            </div>
+            <p class="text-dark-light text-sm mb-3">Intensive moisture treatment for dry, damaged hair. Includes scalp massage and steam.</p>
+            <div class="flex items-center gap-2 text-sm text-dark-light">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>30-45 mins</span>
+            </div>
+          </div>
+
+          <!-- Treatment Service 2 -->
+          <div class="service-item border-2 border-gray-100 rounded-xl p-6 transition-all duration-300" data-scroll="fade-up" data-scroll-delay="150">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-dark text-lg">Keratin Treatment</h3>
+              <span class="text-gold font-display text-xl">P3,500-6,000</span>
+            </div>
+            <p class="text-dark-light text-sm mb-3">Smoothing treatment that reduces frizz and adds shine. Results last 3-5 months.</p>
+            <div class="flex items-center gap-2 text-sm text-dark-light">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>2-3 hrs</span>
+            </div>
+          </div>
+
+          <!-- Treatment Service 3 -->
+          <div class="service-item border-2 border-gray-100 rounded-xl p-6 transition-all duration-300" data-scroll="fade-up" data-scroll-delay="200">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-dark text-lg">Scalp Treatment</h3>
+              <span class="text-gold font-display text-xl">P600-1,000</span>
+            </div>
+            <p class="text-dark-light text-sm mb-3">Targeted treatment for scalp concerns (dandruff, oiliness, sensitivity). Includes massage.</p>
+            <div class="flex items-center gap-2 text-sm text-dark-light">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>45 mins</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category: Nails -->
+      <div class="mb-16" id="nails">
+        <div class="flex items-center gap-4 mb-8" data-scroll="fade-up">
+          <div class="w-14 h-14 bg-lavender rounded-2xl flex items-center justify-center text-primary">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="font-display text-3xl text-dark">Nails</h2>
+            <p class="text-dark-light text-sm">Manicures, pedicures, and nail artistry</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <!-- Nail Service 1 -->
+          <div class="service-item border-2 border-gray-100 rounded-xl p-6 transition-all duration-300" data-scroll="fade-up" data-scroll-delay="100">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-dark text-lg">Classic Manicure</h3>
+              <span class="text-gold font-display text-xl">P150</span>
+            </div>
+            <p class="text-dark-light text-sm mb-3">Nail shaping, cuticle care, hand massage, and regular polish of your choice.</p>
+            <div class="flex items-center gap-2 text-sm text-dark-light">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>30 mins</span>
+            </div>
+          </div>
+
+          <!-- Nail Service 2 -->
+          <div class="service-item border-2 border-gray-100 rounded-xl p-6 transition-all duration-300" data-scroll="fade-up" data-scroll-delay="150">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-dark text-lg">Gel Manicure</h3>
+              <span class="text-gold font-display text-xl">P350-450</span>
+            </div>
+            <p class="text-dark-light text-sm mb-3">Long-lasting gel polish that stays chip-free for 2-3 weeks. UV cured for instant dry.</p>
+            <div class="flex items-center gap-2 text-sm text-dark-light">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>45 mins</span>
+            </div>
+          </div>
+
+          <!-- Nail Service 3 -->
+          <div class="service-item border-2 border-gray-100 rounded-xl p-6 transition-all duration-300" data-scroll="fade-up" data-scroll-delay="200">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-dark text-lg">Classic Pedicure</h3>
+              <span class="text-gold font-display text-xl">P250</span>
+            </div>
+            <p class="text-dark-light text-sm mb-3">Foot soak, nail shaping, cuticle care, callus removal, massage, and polish.</p>
+            <div class="flex items-center gap-2 text-sm text-dark-light">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>45 mins</span>
+            </div>
+          </div>
+
+          <!-- Nail Service 4 -->
+          <div class="service-item border-2 border-gray-100 rounded-xl p-6 transition-all duration-300" data-scroll="fade-up" data-scroll-delay="250">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-dark text-lg">Nail Art (per nail)</h3>
+              <span class="text-gold font-display text-xl">P30-100</span>
+            </div>
+            <p class="text-dark-light text-sm mb-3">Custom designs, gems, French tips, or intricate artwork. Price varies by complexity.</p>
+            <div class="flex items-center gap-2 text-sm text-dark-light">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>10-30 mins</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category: Spa & Massage -->
+      <div class="mb-16" id="spa">
+        <div class="flex items-center gap-4 mb-8" data-scroll="fade-up">
+          <div class="w-14 h-14 bg-lavender rounded-2xl flex items-center justify-center text-primary">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="font-display text-3xl text-dark">Spa & Massage</h2>
+            <p class="text-dark-light text-sm">Relaxation and rejuvenation for body and soul</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <!-- Spa Service 1 -->
+          <div class="service-item border-2 border-gray-100 rounded-xl p-6 transition-all duration-300" data-scroll="fade-up" data-scroll-delay="100">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-dark text-lg">Swedish Massage</h3>
+              <span class="text-gold font-display text-xl">P500-900</span>
+            </div>
+            <p class="text-dark-light text-sm mb-3">Relaxing full-body massage using long, flowing strokes to ease tension and stress.</p>
+            <div class="flex items-center gap-2 text-sm text-dark-light">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>60-90 mins</span>
+            </div>
+          </div>
+
+          <!-- Spa Service 2 -->
+          <div class="service-item border-2 border-gray-100 rounded-xl p-6 transition-all duration-300" data-scroll="fade-up" data-scroll-delay="150">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-dark text-lg">Deep Tissue Massage</h3>
+              <span class="text-gold font-display text-xl">P700-1,100</span>
+            </div>
+            <p class="text-dark-light text-sm mb-3">Therapeutic massage targeting deeper muscle layers for chronic pain and tension relief.</p>
+            <div class="flex items-center gap-2 text-sm text-dark-light">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>60-90 mins</span>
+            </div>
+          </div>
+
+          <!-- Spa Service 3 -->
+          <div class="service-item border-2 border-gray-100 rounded-xl p-6 transition-all duration-300" data-scroll="fade-up" data-scroll-delay="200">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-dark text-lg">Classic Facial</h3>
+              <span class="text-gold font-display text-xl">P800-1,200</span>
+            </div>
+            <p class="text-dark-light text-sm mb-3">Deep cleansing facial with extraction, mask, and moisturizer. Customized for your skin type.</p>
+            <div class="flex items-center gap-2 text-sm text-dark-light">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>60 mins</span>
+            </div>
+          </div>
+
+          <!-- Spa Service 4 -->
+          <div class="service-item border-2 border-gray-100 rounded-xl p-6 transition-all duration-300" data-scroll="fade-up" data-scroll-delay="250">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="font-semibold text-dark text-lg">Hot Stone Therapy</h3>
+              <span class="text-gold font-display text-xl">P900-1,300</span>
+            </div>
+            <p class="text-dark-light text-sm mb-3">Heated basalt stones placed on key points to melt away tension and improve circulation.</p>
+            <div class="flex items-center gap-2 text-sm text-dark-light">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>75 mins</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Note -->
+      <div class="bg-lavender rounded-2xl p-6 text-center" data-scroll="fade-up">
+        <p class="text-dark-light">
+          <span class="text-primary font-semibold">Note:</span>
+          Prices may vary based on hair length and complexity. A consultation is recommended for color services.
+          Prices are subject to change without prior notice.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="py-16 bg-gradient-to-r from-primary to-accent">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="font-display text-3xl md:text-4xl text-white mb-4" data-scroll="fade-up">
+        Ready to Book Your Service?
+      </h2>
+      <p class="text-white/90 mb-8 max-w-xl mx-auto" data-scroll="fade-up" data-scroll-delay="100">
+        Schedule your appointment today and experience the difference of professional care.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4" data-scroll="fade-up" data-scroll-delay="200">
+        <a href="booking.html" class="btn bg-gold text-dark hover:bg-gold/90 font-semibold">
+          Book Appointment
+        </a>
+        <a
+          href="#"
+          data-whatsapp="639175555555"
+          data-message="Hi! I'd like to inquire about your services and book an appointment."
+          class="btn bg-white/20 text-white hover:bg-white/30 backdrop-blur-sm border border-white/30"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          WhatsApp Inquiry
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark-light py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <!-- Brand -->
+        <div class="md:col-span-2">
+          <a href="index.html" class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
+              <span class="text-white font-display text-lg">BV</span>
+            </div>
+            <span class="font-display text-xl text-white">Bella Vida</span>
+          </a>
+          <p class="text-gray-400 mb-4 max-w-sm">
+            Where beauty meets relaxation. Experience premium salon and spa services in the heart of Zamboanga City.
+          </p>
+          <div class="flex items-center gap-3">
+            <a href="https://facebook.com/bellavidazc" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gold transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://instagram.com/bellavidazc" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gold transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-400 hover:text-gold transition-colors">Home</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-gold transition-colors">Services</a></li>
+            <li><a href="booking.html" class="text-gray-400 hover:text-gold transition-colors">Book Now</a></li>
+            <li><a href="index.html#contact" class="text-gray-400 hover:text-gold transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Contact</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li>(062) 991-5555</li>
+            <li>book@bellavidasalon.ph</li>
+            <li class="text-sm">55 Veterans Ave., Zamboanga City</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 pt-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2024 Bella Vida Salon & Spa. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a
+    href="#"
+    data-whatsapp="639175555555"
+    data-message="Hi! I'd like to book an appointment at Bella Vida Salon & Spa. Can you help me?"
+    class="whatsapp-float no-print"
+    aria-label="Chat on WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top no-print" aria-label="Back to top">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
+
+  <!-- Common JS -->
+  <script src="../../shared/js/common.js"></script>
+</body>
+</html>

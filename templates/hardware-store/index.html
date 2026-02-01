@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Builders Central Hardware - Your trusted hardware and construction supply store in Zamboanga City. Complete stocks, competitive prices, and delivery available.">
+  <title>Builders Central Hardware - Hardware & Construction Supplies | Zamboanga City</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#EA580C',
+            'primary-dark': '#C2410C',
+            accent: '#EAB308',
+            'accent-dark': '#CA8A04',
+            danger: '#DC2626',
+            concrete: '#E5E7EB',
+            'concrete-dark': '#D1D5DB',
+            dark: '#111827',
+            'dark-light': '#1F2937'
+          },
+          fontFamily: {
+            display: ['Archivo Black', 'sans-serif'],
+            body: ['Archivo', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Shared Styles -->
+  <link rel="stylesheet" href="../../shared/css/base.css">
+
+  <style>
+    :root {
+      --color-primary: #EA580C;
+      --color-primary-dark: #C2410C;
+      --color-primary-rgb: 234, 88, 12;
+    }
+    body {
+      font-family: 'Archivo', sans-serif;
+    }
+    .font-display {
+      font-family: 'Archivo Black', sans-serif;
+    }
+    .hero-pattern {
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .stripe-pattern {
+      background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(234, 179, 8, 0.1) 10px,
+        rgba(234, 179, 8, 0.1) 20px
+      );
+    }
+  </style>
+</head>
+<body class="bg-white text-dark font-body" data-scroll-theme="sturdy">
+
+  <!-- Header -->
+  <header class="bg-dark sticky top-0 z-50 shadow-lg">
+    <!-- Top Bar -->
+    <div class="bg-primary text-white text-sm py-2">
+      <div class="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-2">
+        <div class="flex items-center gap-4">
+          <span class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Open 6AM - 6PM Daily
+          </span>
+          <span class="hidden sm:flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            (062) 991-5678
+          </span>
+        </div>
+        <div class="font-semibold">Contractor Discounts Available!</div>
+      </div>
+    </div>
+
+    <!-- Main Nav -->
+    <nav class="container mx-auto px-4 py-4">
+      <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+            </svg>
+          </div>
+          <div>
+            <span class="font-display text-xl text-white block leading-tight">Builders Central Hardware</span>
+            <span class="text-gray-400 text-sm">Hardware & Construction</span>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="index.html" class="text-white font-semibold hover:text-primary transition-colors">Home</a>
+          <a href="products.html" class="text-gray-300 hover:text-primary transition-colors">Products</a>
+          <a href="contact.html" class="text-gray-300 hover:text-primary transition-colors">Contact / Quote</a>
+        </div>
+
+        <!-- CTA & Mobile Toggle -->
+        <div class="flex items-center gap-4">
+          <a href="contact.html" class="hidden sm:inline-flex bg-primary hover:bg-primary-dark text-white font-semibold px-5 py-2.5 rounded-lg transition-all hover:-translate-y-0.5">
+            Request Quote
+          </a>
+          <button data-menu-toggle class="lg:hidden text-white p-2" aria-label="Toggle menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div data-menu-overlay class="mobile-menu-overlay"></div>
+  <div data-mobile-menu class="mobile-menu bg-dark-light">
+    <div class="p-6">
+      <div class="flex justify-between items-center mb-8">
+        <span class="font-display text-white text-lg">Builders Central Hardware</span>
+        <button data-menu-close class="text-gray-400 hover:text-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <nav class="space-y-4">
+        <a href="index.html" class="block text-white font-semibold py-2 border-b border-gray-700">Home</a>
+        <a href="products.html" class="block text-gray-300 hover:text-white py-2 border-b border-gray-700">Products</a>
+        <a href="contact.html" class="block text-gray-300 hover:text-white py-2 border-b border-gray-700">Contact / Quote</a>
+      </nav>
+      <a href="contact.html" class="mt-8 block bg-primary text-white text-center font-semibold py-3 rounded-lg">
+        Request Quote
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="bg-dark hero-pattern relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-dark via-dark/95 to-dark/80"></div>
+    <div class="container mx-auto px-4 py-20 lg:py-28 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div data-scroll="fade-up">
+          <div class="inline-flex items-center gap-2 bg-accent/20 text-accent px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            Serving Zamboanga City Since 1998
+          </div>
+          <h1 class="font-display text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6">
+            BUILD WITH<br>
+            <span class="text-primary">CONFIDENCE</span>
+          </h1>
+          <p class="text-gray-300 text-lg md:text-xl mb-8 max-w-xl">
+            Complete hardware and construction supplies for contractors, builders, and homeowners. Quality materials at competitive prices.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="products.html" class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white font-bold px-8 py-4 rounded-lg transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/30">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+              </svg>
+              View Products
+            </a>
+            <a href="contact.html" class="inline-flex items-center justify-center gap-2 border-2 border-white text-white hover:bg-white hover:text-dark font-bold px-8 py-4 rounded-lg transition-all">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              Visit Our Store
+            </a>
+          </div>
+        </div>
+        <div class="hidden lg:block" data-scroll="fade-left" data-scroll-delay="200">
+          <div class="relative">
+            <div class="absolute -inset-4 bg-primary/20 rounded-2xl blur-2xl"></div>
+            <img
+              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80"
+              alt="Hardware store products display"
+              class="relative rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
+              onerror="this.src='https://images.unsplash.com/photo-1504148455328-c376907d081c?w=800&h=600&fit=crop';this.onerror=null;"
+            >
+            <div class="absolute -bottom-6 -left-6 bg-accent text-dark px-6 py-4 rounded-xl shadow-lg">
+              <div class="font-display text-2xl">26+</div>
+              <div class="text-sm font-semibold">Years Serving Zamboanga City</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Diagonal cut -->
+    <div class="absolute bottom-0 left-0 right-0 h-16 bg-white" style="clip-path: polygon(0 100%, 100% 100%, 100% 0);"></div>
+  </section>
+
+  <!-- Product Categories -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16" data-scroll="fade-up">
+        <h2 class="font-display text-3xl md:text-4xl text-dark mb-4">PRODUCT CATEGORIES</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Everything you need for construction, renovation, and maintenance projects. Bulk orders welcome.</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+        <!-- Cement & Concrete -->
+        <a href="products.html#cement" class="group" data-scroll="scale-up" data-scroll-delay="100">
+          <div class="bg-concrete rounded-xl p-6 text-center hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div class="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center group-hover:bg-white/20">
+              <svg class="w-8 h-8 text-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+            </div>
+            <h3 class="font-bold text-sm md:text-base">Cement & Concrete</h3>
+          </div>
+        </a>
+
+        <!-- Steel & Metals -->
+        <a href="products.html#steel" class="group" data-scroll="scale-up" data-scroll-delay="150">
+          <div class="bg-concrete rounded-xl p-6 text-center hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div class="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center group-hover:bg-white/20">
+              <svg class="w-8 h-8 text-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+              </svg>
+            </div>
+            <h3 class="font-bold text-sm md:text-base">Steel & Metals</h3>
+          </div>
+        </a>
+
+        <!-- Electrical -->
+        <a href="products.html#electrical" class="group" data-scroll="scale-up" data-scroll-delay="200">
+          <div class="bg-concrete rounded-xl p-6 text-center hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div class="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center group-hover:bg-white/20">
+              <svg class="w-8 h-8 text-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h3 class="font-bold text-sm md:text-base">Electrical</h3>
+          </div>
+        </a>
+
+        <!-- Plumbing -->
+        <a href="products.html#plumbing" class="group" data-scroll="scale-up" data-scroll-delay="250">
+          <div class="bg-concrete rounded-xl p-6 text-center hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div class="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center group-hover:bg-white/20">
+              <svg class="w-8 h-8 text-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+              </svg>
+            </div>
+            <h3 class="font-bold text-sm md:text-base">Plumbing</h3>
+          </div>
+        </a>
+
+        <!-- Paint & Finishes -->
+        <a href="products.html#paint" class="group" data-scroll="scale-up" data-scroll-delay="300">
+          <div class="bg-concrete rounded-xl p-6 text-center hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div class="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center group-hover:bg-white/20">
+              <svg class="w-8 h-8 text-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+              </svg>
+            </div>
+            <h3 class="font-bold text-sm md:text-base">Paint & Finishes</h3>
+          </div>
+        </a>
+
+        <!-- Tools -->
+        <a href="products.html#tools" class="group" data-scroll="scale-up" data-scroll-delay="350">
+          <div class="bg-concrete rounded-xl p-6 text-center hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div class="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center group-hover:bg-white/20">
+              <svg class="w-8 h-8 text-primary group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <h3 class="font-bold text-sm md:text-base">Tools</h3>
+          </div>
+        </a>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="products.html" class="inline-flex items-center gap-2 text-primary font-bold hover:text-primary-dark transition-colors">
+          View All Products
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-20 bg-dark stripe-pattern relative">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16" data-scroll="fade-up">
+        <h2 class="font-display text-3xl md:text-4xl text-white mb-4">WHY CHOOSE US</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Trusted by contractors and homeowners across Zamboanga City for reliable service and quality materials.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Complete Stocks -->
+        <div class="bg-dark-light border border-gray-700 rounded-xl p-8 text-center hover:border-primary transition-colors" data-scroll="fade-up" data-scroll-delay="100">
+          <div class="w-16 h-16 mx-auto mb-6 bg-primary/20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-lg text-white mb-3">COMPLETE STOCKS</h3>
+          <p class="text-gray-400">Everything you need under one roof. From cement to finishing materials.</p>
+        </div>
+
+        <!-- Competitive Prices -->
+        <div class="bg-dark-light border border-gray-700 rounded-xl p-8 text-center hover:border-primary transition-colors" data-scroll="fade-up" data-scroll-delay="200">
+          <div class="w-16 h-16 mx-auto mb-6 bg-accent/20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-lg text-white mb-3">COMPETITIVE PRICES</h3>
+          <p class="text-gray-400">Special contractor pricing for bulk orders. We beat competitor quotes.</p>
+        </div>
+
+        <!-- Delivery Available -->
+        <div class="bg-dark-light border border-gray-700 rounded-xl p-8 text-center hover:border-primary transition-colors" data-scroll="fade-up" data-scroll-delay="300">
+          <div class="w-16 h-16 mx-auto mb-6 bg-primary/20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-lg text-white mb-3">DELIVERY AVAILABLE</h3>
+          <p class="text-gray-400">Fast delivery to your job site. We serve all areas of Zamboanga City and nearby towns.</p>
+        </div>
+
+        <!-- Expert Advice -->
+        <div class="bg-dark-light border border-gray-700 rounded-xl p-8 text-center hover:border-primary transition-colors" data-scroll="fade-up" data-scroll-delay="400">
+          <div class="w-16 h-16 mx-auto mb-6 bg-accent/20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-lg text-white mb-3">EXPERT ADVICE</h3>
+          <p class="text-gray-400">Our experienced staff can help with material estimates and product recommendations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brands Carried -->
+  <section class="py-20 bg-concrete">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12" data-scroll="fade-up">
+        <h2 class="font-display text-2xl md:text-3xl text-dark mb-4">TRUSTED BRANDS WE CARRY</h2>
+        <p class="text-gray-600">Only the best quality materials from leading manufacturers.</p>
+      </div>
+
+      <div class="grid grid-cols-3 md:grid-cols-6 gap-8 items-center" data-scroll="fade-up">
+        <!-- Brand placeholders -->
+        <div class="bg-white rounded-lg p-6 flex items-center justify-center grayscale hover:grayscale-0 transition-all">
+          <span class="font-display text-xl text-gray-400">[BRAND_1]</span>
+        </div>
+        <div class="bg-white rounded-lg p-6 flex items-center justify-center grayscale hover:grayscale-0 transition-all">
+          <span class="font-display text-xl text-gray-400">[BRAND_2]</span>
+        </div>
+        <div class="bg-white rounded-lg p-6 flex items-center justify-center grayscale hover:grayscale-0 transition-all">
+          <span class="font-display text-xl text-gray-400">[BRAND_3]</span>
+        </div>
+        <div class="bg-white rounded-lg p-6 flex items-center justify-center grayscale hover:grayscale-0 transition-all">
+          <span class="font-display text-xl text-gray-400">[BRAND_4]</span>
+        </div>
+        <div class="bg-white rounded-lg p-6 flex items-center justify-center grayscale hover:grayscale-0 transition-all">
+          <span class="font-display text-xl text-gray-400">[BRAND_5]</span>
+        </div>
+        <div class="bg-white rounded-lg p-6 flex items-center justify-center grayscale hover:grayscale-0 transition-all">
+          <span class="font-display text-xl text-gray-400">[BRAND_6]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Store Location & Hours -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div data-scroll="fade-right">
+          <h2 class="font-display text-3xl md:text-4xl text-dark mb-6">VISIT OUR STORE</h2>
+          <p class="text-gray-600 mb-8">Come see our complete inventory in person. Our friendly staff is ready to assist you with your construction and hardware needs.</p>
+
+          <div class="space-y-6">
+            <!-- Address -->
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-dark mb-1">Address</h3>
+                <p class="text-gray-600">789 Gov. Alvarez Ave.<br>Zamboanga City, Zamboanga del Sur 7000</p>
+              </div>
+            </div>
+
+            <!-- Hours -->
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-dark mb-1">Store Hours</h3>
+                <div class="text-gray-600">
+                  <p class="flex justify-between gap-8"><span>Mon - Sat:</span> <span class="font-semibold text-dark">6:00 AM - 6:00 PM</span></p>
+                  <p class="flex justify-between gap-8"><span>Sunday:</span> <span class="font-semibold text-dark">7:00 AM - 12:00 PM</span></p>
+                </div>
+                <p class="text-primary font-semibold mt-2 text-sm">We open early for contractors!</p>
+              </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-bold text-dark mb-1">Contact</h3>
+                <p class="text-gray-600">
+                  Phone: <a href="tel:(062) 991-5678" class="text-primary hover:text-primary-dark">(062) 991-5678</a><br>
+                  Mobile: <a href="tel:0917 891 5678" class="text-primary hover:text-primary-dark">0917 891 5678</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-4">
+            <a href="contact.html" class="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white font-bold px-6 py-3 rounded-lg transition-all">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+              </svg>
+              Request Quote
+            </a>
+            <a href="https://maps.google.com/?q=Builders+Central+Hardware+Zamboanga+City" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 border-2 border-dark text-dark hover:bg-dark hover:text-white font-bold px-6 py-3 rounded-lg transition-all">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+              </svg>
+              Get Directions
+            </a>
+          </div>
+        </div>
+
+        <div data-scroll="fade-left" data-scroll-delay="200">
+          <div class="bg-concrete rounded-2xl p-2">
+            <!-- Map embed placeholder -->
+            <div class="aspect-[4/3] bg-gray-300 rounded-xl overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63399.455098873345!2d122.0248!3d6.9071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x325041b0a83f48c3%3A0x9b0eb7f0c7c5e6a1!2sZamboanga%20City!5e0!3m2!1sen!2sph!4v1699999999999!5m2!1sen!2sph"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Store location map"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="bg-primary py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="font-display text-2xl md:text-3xl text-white mb-4">NEED A BULK ORDER QUOTE?</h2>
+      <p class="text-white/90 mb-8 max-w-2xl mx-auto">Get special contractor pricing on large orders. We offer volume discounts and can arrange delivery to your job site.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="contact.html" class="inline-flex items-center justify-center gap-2 bg-white text-primary font-bold px-8 py-4 rounded-lg hover:bg-gray-100 transition-all">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          Request Quotation
+        </a>
+        <a href="tel:(062) 991-5678" class="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-bold px-8 py-4 rounded-lg hover:bg-white hover:text-primary transition-all">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          Call Us Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark-light text-gray-400 py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <!-- About -->
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+              </svg>
+            </div>
+            <span class="font-display text-white">Builders Central Hardware</span>
+          </div>
+          <p class="text-sm leading-relaxed">
+            Your trusted hardware and construction supply partner in Zamboanga City. Serving contractors and homeowners since 1998.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="font-display text-white mb-6">QUICK LINKS</h3>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
+            <li><a href="products.html" class="hover:text-primary transition-colors">Products</a></li>
+            <li><a href="contact.html" class="hover:text-primary transition-colors">Contact Us</a></li>
+            <li><a href="contact.html" class="hover:text-primary transition-colors">Request Quote</a></li>
+          </ul>
+        </div>
+
+        <!-- Categories -->
+        <div>
+          <h3 class="font-display text-white mb-6">CATEGORIES</h3>
+          <ul class="space-y-3">
+            <li><a href="products.html#cement" class="hover:text-primary transition-colors">Cement & Concrete</a></li>
+            <li><a href="products.html#steel" class="hover:text-primary transition-colors">Steel & Metals</a></li>
+            <li><a href="products.html#electrical" class="hover:text-primary transition-colors">Electrical</a></li>
+            <li><a href="products.html#plumbing" class="hover:text-primary transition-colors">Plumbing</a></li>
+            <li><a href="products.html#paint" class="hover:text-primary transition-colors">Paint & Finishes</a></li>
+            <li><a href="products.html#tools" class="hover:text-primary transition-colors">Tools</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h3 class="font-display text-white mb-6">CONTACT US</h3>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              789 Gov. Alvarez Ave., Zamboanga City
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+              <a href="tel:(062) 991-5678" class="hover:text-primary">(062) 991-5678</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Mon-Sat: 6AM-6PM
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 mt-12 pt-8 text-center text-sm">
+        <p>&copy; <span id="currentYear"></span> Builders Central Hardware. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a
+    href="#"
+    class="whatsapp-float"
+    data-whatsapp="639178915678"
+    data-message="Hi! I'm interested in your hardware products. Can you help me?"
+    aria-label="Contact us on WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
+
+  <!-- Shared Scripts -->
+  <script src="../../shared/js/common.js"></script>
+  <script>
+    // Set current year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

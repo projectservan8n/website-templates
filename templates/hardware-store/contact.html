@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Builders Central Hardware for bulk orders, quotations, and inquiries. We deliver to Zamboanga City and surrounding areas.">
+  <title>Contact Us | Builders Central Hardware - Hardware & Construction Supplies</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#EA580C',
+            'primary-dark': '#C2410C',
+            accent: '#EAB308',
+            'accent-dark': '#CA8A04',
+            danger: '#DC2626',
+            concrete: '#E5E7EB',
+            'concrete-dark': '#D1D5DB',
+            dark: '#111827',
+            'dark-light': '#1F2937'
+          },
+          fontFamily: {
+            display: ['Archivo Black', 'sans-serif'],
+            body: ['Archivo', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Shared Styles -->
+  <link rel="stylesheet" href="../../shared/css/base.css">
+
+  <style>
+    :root {
+      --color-primary: #EA580C;
+      --color-primary-dark: #C2410C;
+      --color-primary-rgb: 234, 88, 12;
+    }
+    body {
+      font-family: 'Archivo', sans-serif;
+    }
+    .font-display {
+      font-family: 'Archivo Black', sans-serif;
+    }
+    .input-error {
+      border-color: #DC2626 !important;
+    }
+  </style>
+</head>
+<body class="bg-concrete text-dark font-body" data-scroll-theme="sturdy">
+
+  <!-- Header -->
+  <header class="bg-dark sticky top-0 z-50 shadow-lg">
+    <!-- Top Bar -->
+    <div class="bg-primary text-white text-sm py-2">
+      <div class="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-2">
+        <div class="flex items-center gap-4">
+          <span class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Open 6AM - 6PM Daily
+          </span>
+          <span class="hidden sm:flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            (062) 991-5678
+          </span>
+        </div>
+        <div class="font-semibold">Contractor Discounts Available!</div>
+      </div>
+    </div>
+
+    <!-- Main Nav -->
+    <nav class="container mx-auto px-4 py-4">
+      <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+            </svg>
+          </div>
+          <div>
+            <span class="font-display text-xl text-white block leading-tight">Builders Central Hardware</span>
+            <span class="text-gray-400 text-sm">Hardware & Construction</span>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="index.html" class="text-gray-300 hover:text-primary transition-colors">Home</a>
+          <a href="products.html" class="text-gray-300 hover:text-primary transition-colors">Products</a>
+          <a href="contact.html" class="text-white font-semibold hover:text-primary transition-colors">Contact / Quote</a>
+        </div>
+
+        <!-- CTA & Mobile Toggle -->
+        <div class="flex items-center gap-4">
+          <a href="tel:(062) 991-5678" class="hidden sm:inline-flex bg-primary hover:bg-primary-dark text-white font-semibold px-5 py-2.5 rounded-lg transition-all hover:-translate-y-0.5">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            Call Now
+          </a>
+          <button data-menu-toggle class="lg:hidden text-white p-2" aria-label="Toggle menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div data-menu-overlay class="mobile-menu-overlay"></div>
+  <div data-mobile-menu class="mobile-menu bg-dark-light">
+    <div class="p-6">
+      <div class="flex justify-between items-center mb-8">
+        <span class="font-display text-white text-lg">Builders Central Hardware</span>
+        <button data-menu-close class="text-gray-400 hover:text-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <nav class="space-y-4">
+        <a href="index.html" class="block text-gray-300 hover:text-white py-2 border-b border-gray-700">Home</a>
+        <a href="products.html" class="block text-gray-300 hover:text-white py-2 border-b border-gray-700">Products</a>
+        <a href="contact.html" class="block text-white font-semibold py-2 border-b border-gray-700">Contact / Quote</a>
+      </nav>
+      <a href="tel:(062) 991-5678" class="mt-8 block bg-primary text-white text-center font-semibold py-3 rounded-lg">
+        Call Now
+      </a>
+    </div>
+  </div>
+
+  <!-- Page Header -->
+  <section class="bg-dark py-12">
+    <div class="container mx-auto px-4">
+      <div class="text-center">
+        <h1 class="font-display text-3xl md:text-4xl text-white mb-2">CONTACT US</h1>
+        <p class="text-gray-400 max-w-2xl mx-auto">Get in touch for quotations, bulk orders, or product inquiries. We're here to help with your construction needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-5 gap-12">
+
+        <!-- Contact Form -->
+        <div class="lg:col-span-3" data-scroll="fade-up">
+          <div class="bg-white rounded-2xl shadow-lg p-8">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="font-display text-xl text-dark">REQUEST A QUOTATION</h2>
+                <p class="text-gray-500 text-sm">For bulk orders and contractor pricing</p>
+              </div>
+            </div>
+
+            <form action="#" method="POST" data-validate class="space-y-6">
+              <!-- Name -->
+              <div>
+                <label for="name" class="block font-semibold text-dark mb-2">
+                  Full Name <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="Juan Dela Cruz"
+                  class="w-full px-4 py-3 border-2 border-concrete rounded-lg focus:border-primary focus:outline-none transition-colors"
+                >
+              </div>
+
+              <!-- Company (Optional) -->
+              <div>
+                <label for="company" class="block font-semibold text-dark mb-2">
+                  Company / Business Name <span class="text-gray-400 text-sm font-normal">(Optional)</span>
+                </label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  placeholder="ABC Construction"
+                  class="w-full px-4 py-3 border-2 border-concrete rounded-lg focus:border-primary focus:outline-none transition-colors"
+                >
+              </div>
+
+              <!-- Phone -->
+              <div>
+                <label for="phone" class="block font-semibold text-dark mb-2">
+                  Phone Number <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  placeholder="0917 123 4567"
+                  class="w-full px-4 py-3 border-2 border-concrete rounded-lg focus:border-primary focus:outline-none transition-colors"
+                >
+              </div>
+
+              <!-- Items Needed -->
+              <div>
+                <label for="items" class="block font-semibold text-dark mb-2">
+                  Items Needed <span class="text-danger">*</span>
+                </label>
+                <textarea
+                  id="items"
+                  name="items"
+                  required
+                  rows="5"
+                  placeholder="Please list the items you need with quantities. Example:&#10;- 50 bags Portland Cement&#10;- 100 pcs 10mm Rebar (6m)&#10;- 5 gallons Latex Paint (White)"
+                  class="w-full px-4 py-3 border-2 border-concrete rounded-lg focus:border-primary focus:outline-none transition-colors resize-none"
+                ></textarea>
+                <p class="text-gray-500 text-sm mt-2">Include brand preferences if any. We'll provide best available options.</p>
+              </div>
+
+              <!-- Delivery Address (Optional) -->
+              <div>
+                <label for="address" class="block font-semibold text-dark mb-2">
+                  Delivery Address <span class="text-gray-400 text-sm font-normal">(Optional - for delivery quote)</span>
+                </label>
+                <textarea
+                  id="address"
+                  name="address"
+                  rows="2"
+                  placeholder="123 Sample Street, Barangay, Zamboanga City"
+                  class="w-full px-4 py-3 border-2 border-concrete rounded-lg focus:border-primary focus:outline-none transition-colors resize-none"
+                ></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-4 px-6 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-lg flex items-center justify-center gap-2"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                </svg>
+                Submit Quotation Request
+              </button>
+
+              <p class="text-gray-500 text-sm text-center">
+                We'll respond within 24 hours during business days.
+              </p>
+            </form>
+          </div>
+        </div>
+
+        <!-- Contact Info & Map -->
+        <div class="lg:col-span-2 space-y-8" data-scroll="fade-up" data-scroll-delay="200">
+
+          <!-- Store Hours -->
+          <div class="bg-white rounded-2xl shadow-lg p-6">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 bg-accent/20 rounded-lg flex items-center justify-center">
+                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <h3 class="font-display text-lg text-dark">STORE HOURS</h3>
+            </div>
+
+            <div class="space-y-3">
+              <div class="flex justify-between items-center py-2 border-b border-concrete">
+                <span class="text-gray-600">Monday - Saturday</span>
+                <span class="font-bold text-dark">6:00 AM - 6:00 PM</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-concrete">
+                <span class="text-gray-600">Sunday</span>
+                <span class="font-bold text-dark">7:00 AM - 12:00 PM</span>
+              </div>
+              <div class="flex justify-between items-center py-2">
+                <span class="text-gray-600">Holidays</span>
+                <span class="text-gray-500">Call to confirm</span>
+              </div>
+            </div>
+
+            <div class="mt-4 bg-primary/10 rounded-lg p-4">
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <p class="text-sm text-dark">
+                  <strong>Early bird?</strong> We open at 6AM to serve contractors heading to job sites!
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Details -->
+          <div class="bg-white rounded-2xl shadow-lg p-6">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+              </div>
+              <h3 class="font-display text-lg text-dark">CONTACT DETAILS</h3>
+            </div>
+
+            <ul class="space-y-4">
+              <li>
+                <p class="text-gray-500 text-sm mb-1">Store Phone</p>
+                <a href="tel:(062) 991-5678" class="text-dark font-bold text-lg hover:text-primary transition-colors">(062) 991-5678</a>
+              </li>
+              <li>
+                <p class="text-gray-500 text-sm mb-1">Mobile / WhatsApp</p>
+                <a href="tel:0917 891 5678" class="text-dark font-bold text-lg hover:text-primary transition-colors">0917 891 5678</a>
+              </li>
+              <li>
+                <p class="text-gray-500 text-sm mb-1">Email</p>
+                <a href="mailto:sales@builderscentralhw.ph" class="text-dark font-bold hover:text-primary transition-colors break-all">sales@builderscentralhw.ph</a>
+              </li>
+            </ul>
+
+            <div class="mt-6 pt-6 border-t border-concrete">
+              <a
+                href="#"
+                class="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition-colors w-full"
+                data-whatsapp="639178915678"
+                data-message="Hi! I'd like to inquire about your products and get a quotation."
+              >
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Chat on WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- Store Location -->
+          <div class="bg-white rounded-2xl shadow-lg p-6">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <h3 class="font-display text-lg text-dark">STORE LOCATION</h3>
+            </div>
+
+            <p class="text-dark mb-4">
+              789 Gov. Alvarez Ave.<br>
+              Zamboanga City, Zamboanga del Sur 7000
+            </p>
+
+            <div class="aspect-video bg-concrete rounded-lg overflow-hidden mb-4">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63399.455098873345!2d122.0248!3d6.9071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x325041b0a83f48c3%3A0x9b0eb7f0c7c5e6a1!2sZamboanga%20City!5e0!3m2!1sen!2sph!4v1699999999999!5m2!1sen!2sph"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Store location map"
+              ></iframe>
+            </div>
+
+            <a
+              href="https://maps.google.com/?q=Builders+Central+Hardware+Zamboanga+City"
+              target="_blank"
+              rel="noopener"
+              class="flex items-center justify-center gap-2 border-2 border-dark text-dark hover:bg-dark hover:text-white font-bold py-3 px-4 rounded-lg transition-colors w-full"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+              </svg>
+              Get Directions
+            </a>
+          </div>
+
+          <!-- Delivery Areas -->
+          <div class="bg-dark rounded-2xl p-6">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                </svg>
+              </div>
+              <h3 class="font-display text-lg text-white">DELIVERY AREAS</h3>
+            </div>
+
+            <p class="text-gray-400 mb-4 text-sm">We deliver to the following areas. Delivery fees vary by location and order size.</p>
+
+            <ul class="grid grid-cols-2 gap-2">
+              <li class="flex items-center gap-2 text-gray-300 text-sm">
+                <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                [DELIVERY_AREA_1]
+              </li>
+              <li class="flex items-center gap-2 text-gray-300 text-sm">
+                <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                [DELIVERY_AREA_2]
+              </li>
+              <li class="flex items-center gap-2 text-gray-300 text-sm">
+                <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                [DELIVERY_AREA_3]
+              </li>
+              <li class="flex items-center gap-2 text-gray-300 text-sm">
+                <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                [DELIVERY_AREA_4]
+              </li>
+              <li class="flex items-center gap-2 text-gray-300 text-sm">
+                <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                [DELIVERY_AREA_5]
+              </li>
+              <li class="flex items-center gap-2 text-gray-300 text-sm">
+                <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                [DELIVERY_AREA_6]
+              </li>
+            </ul>
+
+            <p class="text-gray-500 text-sm mt-4">
+              Other areas? Contact us to discuss delivery options.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FAQ Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-2xl md:text-3xl text-dark mb-4">FREQUENTLY ASKED QUESTIONS</h2>
+        <p class="text-gray-600">Common questions about orders and delivery</p>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-4">
+        <!-- FAQ Item 1 -->
+        <div class="bg-concrete rounded-xl p-6">
+          <h3 class="font-bold text-dark mb-2">Do you offer contractor discounts?</h3>
+          <p class="text-gray-600">Yes! We offer special pricing for contractors and bulk orders. The more you buy, the better the price. Contact us with your requirements for a custom quote.</p>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="bg-concrete rounded-xl p-6">
+          <h3 class="font-bold text-dark mb-2">What is the minimum order for delivery?</h3>
+          <p class="text-gray-600">Minimum order for free delivery within Zamboanga City is ₱5,000. Smaller orders can be delivered for a fee. Contact us for specific rates.</p>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="bg-concrete rounded-xl p-6">
+          <h3 class="font-bold text-dark mb-2">Can you source items not in your inventory?</h3>
+          <p class="text-gray-600">Absolutely! We have connections with multiple suppliers. If you need something specific, let us know and we'll try to source it for you at competitive prices.</p>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="bg-concrete rounded-xl p-6">
+          <h3 class="font-bold text-dark mb-2">What payment methods do you accept?</h3>
+          <p class="text-gray-600">We accept cash, bank transfer, GCash, and major credit cards. For large orders, we can discuss payment terms. Terms are available for qualified contractors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark-light text-gray-400 py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <!-- About -->
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+              </svg>
+            </div>
+            <span class="font-display text-white">Builders Central Hardware</span>
+          </div>
+          <p class="text-sm leading-relaxed">
+            Your trusted hardware and construction supply partner in Zamboanga City. Serving contractors and homeowners since 1998.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="font-display text-white mb-6">QUICK LINKS</h3>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
+            <li><a href="products.html" class="hover:text-primary transition-colors">Products</a></li>
+            <li><a href="contact.html" class="hover:text-primary transition-colors">Contact Us</a></li>
+            <li><a href="contact.html" class="hover:text-primary transition-colors">Request Quote</a></li>
+          </ul>
+        </div>
+
+        <!-- Categories -->
+        <div>
+          <h3 class="font-display text-white mb-6">CATEGORIES</h3>
+          <ul class="space-y-3">
+            <li><a href="products.html#cement" class="hover:text-primary transition-colors">Cement & Concrete</a></li>
+            <li><a href="products.html#steel" class="hover:text-primary transition-colors">Steel & Metals</a></li>
+            <li><a href="products.html#electrical" class="hover:text-primary transition-colors">Electrical</a></li>
+            <li><a href="products.html#plumbing" class="hover:text-primary transition-colors">Plumbing</a></li>
+            <li><a href="products.html#paint" class="hover:text-primary transition-colors">Paint & Finishes</a></li>
+            <li><a href="products.html#tools" class="hover:text-primary transition-colors">Tools</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h3 class="font-display text-white mb-6">CONTACT US</h3>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              789 Gov. Alvarez Ave., Zamboanga City
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+              <a href="tel:(062) 991-5678" class="hover:text-primary">(062) 991-5678</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Mon-Sat: 6AM-6PM
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 mt-12 pt-8 text-center text-sm">
+        <p>&copy; <span id="currentYear"></span> Builders Central Hardware. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a
+    href="#"
+    class="whatsapp-float"
+    data-whatsapp="639178915678"
+    data-message="Hi! I'm interested in your hardware products. Can you help me?"
+    aria-label="Contact us on WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
+
+  <!-- Shared Scripts -->
+  <script src="../../shared/js/common.js"></script>
+  <script>
+    // Set current year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

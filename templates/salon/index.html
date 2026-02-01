@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bella Vida Salon & Spa - Premium hair salon, barbershop & spa in Zamboanga City. Expert stylists, luxurious treatments, and personalized beauty services. Book your transformation today.">
+  <meta name="keywords" content="hair salon, barbershop, spa, Zamboanga City, haircut, hair color, beauty salon, nail salon, massage">
+  <meta name="author" content="Bella Vida Salon & Spa">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bella Vida Salon & Spa | Luxury Salon & Spa">
+  <meta property="og:description" content="Where beauty meets artistry. Premium hair, nail, and spa services in Zamboanga City.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200&q=80">
+  <meta property="og:url" content="https://bellavidasalon.ph">
+  <meta property="og:type" content="website">
+
+  <title>Bella Vida Salon & Spa | Luxury Salon & Spa in Zamboanga City</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#7C3AED',
+            'primary-dark': '#6D28D9',
+            accent: '#B76E79',
+            gold: '#D4AF37',
+            lavender: '#F3E8FF',
+            'lavender-light': '#FAF5FF',
+            dark: '#1F2937',
+            'dark-light': '#374151'
+          },
+          fontFamily: {
+            display: ['Italiana', 'serif'],
+            body: ['Raleway', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Base Styles -->
+  <link rel="stylesheet" href="../../shared/css/base.css">
+
+  <style>
+    :root {
+      --color-primary: #7C3AED;
+      --color-primary-rgb: 124, 58, 237;
+      --color-primary-dark: #6D28D9;
+      --gradient-start: #7C3AED;
+      --gradient-end: #B76E79;
+    }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .font-display {
+      font-family: 'Italiana', serif;
+    }
+
+    /* Hero Overlay */
+    .hero-overlay {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.85) 0%, rgba(183, 110, 121, 0.75) 100%);
+    }
+
+    /* Decorative Line */
+    .line-accent {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, #D4AF37, #B76E79);
+    }
+
+    /* Service Card Hover */
+    .service-card:hover .service-icon {
+      background: #7C3AED;
+      color: white;
+    }
+
+    /* Team Member Hover */
+    .team-member:hover .team-overlay {
+      opacity: 1;
+    }
+
+    /* Instagram Grid */
+    .instagram-item:hover img {
+      transform: scale(1.1);
+    }
+
+    /* Gold Accent Text */
+    .text-gold-gradient {
+      background: linear-gradient(135deg, #D4AF37, #B76E79);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Testimonial Card */
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      font-size: 80px;
+      font-family: 'Italiana', serif;
+      color: #F3E8FF;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-white text-dark font-body" data-scroll-theme="elegant">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+    <div class="container mx-auto px-4">
+      <nav class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
+            <span class="text-white font-display text-xl">BV</span>
+          </div>
+          <div>
+            <span class="font-display text-2xl text-dark">Bella Vida</span>
+            <span class="block text-xs text-accent tracking-widest uppercase">Salon & Spa</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <ul class="hidden lg:flex items-center gap-8">
+          <li><a href="index.html" class="text-primary font-medium">Home</a></li>
+          <li><a href="services.html" class="text-dark-light hover:text-primary transition-colors">Services</a></li>
+          <li><a href="#team" class="text-dark-light hover:text-primary transition-colors">Our Team</a></li>
+          <li><a href="#gallery" class="text-dark-light hover:text-primary transition-colors">Gallery</a></li>
+          <li><a href="#contact" class="text-dark-light hover:text-primary transition-colors">Contact</a></li>
+        </ul>
+
+        <!-- CTA & Mobile Menu -->
+        <div class="flex items-center gap-4">
+          <a href="booking.html" class="hidden sm:inline-flex btn btn-primary text-sm">
+            Book Now
+          </a>
+
+          <!-- Mobile Menu Button -->
+          <button data-menu-toggle class="lg:hidden p-2 text-dark" aria-label="Toggle menu" aria-expanded="false">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div data-menu-overlay class="mobile-menu-overlay"></div>
+
+  <!-- Mobile Menu -->
+  <div data-mobile-menu class="mobile-menu bg-white">
+    <div class="p-6">
+      <div class="flex items-center justify-between mb-8">
+        <span class="font-display text-xl text-dark">Bella Vida</span>
+        <button data-menu-close class="p-2 text-dark-light hover:text-dark">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <ul class="space-y-4">
+        <li><a href="index.html" class="block py-2 text-primary font-medium text-lg">Home</a></li>
+        <li><a href="services.html" class="block py-2 text-dark-light hover:text-primary text-lg">Services</a></li>
+        <li><a href="#team" class="block py-2 text-dark-light hover:text-primary text-lg">Our Team</a></li>
+        <li><a href="#gallery" class="block py-2 text-dark-light hover:text-primary text-lg">Gallery</a></li>
+        <li><a href="#contact" class="block py-2 text-dark-light hover:text-primary text-lg">Contact</a></li>
+      </ul>
+
+      <div class="mt-8 pt-8 border-t border-gray-100">
+        <a href="booking.html" class="btn btn-primary w-full justify-center">
+          Book Appointment
+        </a>
+        <a href="tel:(062) 991-5555" class="flex items-center justify-center gap-2 mt-4 text-dark-light">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          (062) 991-5555
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center pt-20">
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=80"
+        alt="Bella Vida Salon & Spa Interior"
+        class="w-full h-full object-cover"
+        onerror="this.src='https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=80'"
+      >
+      <div class="hero-overlay absolute inset-0"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative container mx-auto px-4 py-20">
+      <div class="max-w-3xl">
+        <div class="line-accent mb-6" data-scroll="fade-up"></div>
+        <p class="text-gold font-medium tracking-widest uppercase mb-4" data-scroll="fade-up" data-scroll-delay="100">
+          Welcome to Bella Vida
+        </p>
+        <h1 class="font-display text-5xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight" data-scroll="fade-up" data-scroll-delay="200">
+          Where Beauty<br>
+          <span class="text-gold">Meets Relaxation</span>
+        </h1>
+        <p class="text-xl text-white/90 mb-8 max-w-xl leading-relaxed" data-scroll="fade-up" data-scroll-delay="300">
+          Experience transformative beauty services in a luxurious, relaxing atmosphere.
+          Our expert stylists craft personalized looks that enhance your natural radiance.
+        </p>
+        <div class="flex flex-wrap gap-4" data-scroll="fade-up" data-scroll-delay="400">
+          <a href="booking.html" class="btn bg-gold text-dark hover:bg-gold/90 font-semibold">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            Book Your Visit
+          </a>
+          <a href="services.html" class="btn bg-white/20 text-white hover:bg-white/30 backdrop-blur-sm border border-white/30">
+            View Services
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/80 text-center">
+      <p class="text-sm tracking-widest uppercase mb-2">Scroll to Explore</p>
+      <svg class="w-6 h-6 mx-auto animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Services Preview -->
+  <section class="py-20 bg-lavender-light">
+    <div class="container mx-auto px-4">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16" data-scroll="fade-up">
+        <p class="text-accent font-medium tracking-widest uppercase mb-3">Our Expertise</p>
+        <h2 class="font-display text-4xl md:text-5xl text-dark mb-4">Signature Services</h2>
+        <div class="line-accent mx-auto mb-6"></div>
+        <p class="text-dark-light">
+          From precision cuts to rejuvenating treatments, we offer a complete range of
+          beauty services tailored to your unique style.
+        </p>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Service 1 -->
+        <div class="service-card bg-white rounded-2xl p-8 text-center shadow-soft hover-lift" data-scroll="fade-up" data-scroll-delay="100">
+          <div class="service-icon w-16 h-16 mx-auto mb-6 bg-lavender rounded-full flex items-center justify-center text-primary transition-all duration-300">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl text-dark mb-3">Haircuts & Styling</h3>
+          <p class="text-dark-light text-sm mb-4">Expert cuts and styles tailored to enhance your features and personality.</p>
+          <span class="text-gold font-medium">From P150</span>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card bg-white rounded-2xl p-8 text-center shadow-soft hover-lift" data-scroll="fade-up" data-scroll-delay="200">
+          <div class="service-icon w-16 h-16 mx-auto mb-6 bg-lavender rounded-full flex items-center justify-center text-primary transition-all duration-300">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl text-dark mb-3">Hair Coloring</h3>
+          <p class="text-dark-light text-sm mb-4">Vibrant colors, elegant highlights, and seamless balayage techniques.</p>
+          <span class="text-gold font-medium">From P1,200</span>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card bg-white rounded-2xl p-8 text-center shadow-soft hover-lift" data-scroll="fade-up" data-scroll-delay="300">
+          <div class="service-icon w-16 h-16 mx-auto mb-6 bg-lavender rounded-full flex items-center justify-center text-primary transition-all duration-300">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl text-dark mb-3">Nail Artistry</h3>
+          <p class="text-dark-light text-sm mb-4">Manicures, pedicures, and stunning nail art that makes a statement.</p>
+          <span class="text-gold font-medium">From P150</span>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card bg-white rounded-2xl p-8 text-center shadow-soft hover-lift" data-scroll="fade-up" data-scroll-delay="400">
+          <div class="service-icon w-16 h-16 mx-auto mb-6 bg-lavender rounded-full flex items-center justify-center text-primary transition-all duration-300">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl text-dark mb-3">Spa & Wellness</h3>
+          <p class="text-dark-light text-sm mb-4">Relaxing massages and rejuvenating treatments for body and soul.</p>
+          <span class="text-gold font-medium">From P500</span>
+        </div>
+      </div>
+
+      <!-- View All -->
+      <div class="text-center mt-12" data-scroll="fade-up" data-scroll-delay="500">
+        <a href="services.html" class="btn btn-primary">
+          View All Services
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Images -->
+        <div class="relative" data-scroll="fade-right">
+          <div class="relative z-10">
+            <img
+              src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80"
+              alt="Salon Interior"
+              class="rounded-2xl shadow-strong w-full"
+              onerror="this.src='https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80'"
+            >
+          </div>
+          <div class="absolute -bottom-8 -right-8 w-48 h-48 bg-gradient-to-br from-primary to-accent rounded-2xl -z-10"></div>
+          <div class="absolute top-8 -left-4 bg-white rounded-xl shadow-medium p-4 z-20">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center">
+                <span class="text-gold font-display text-xl">12</span>
+              </div>
+              <div>
+                <p class="font-semibold text-dark">Years of</p>
+                <p class="text-sm text-dark-light">Excellence</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div data-scroll="fade-left">
+          <p class="text-accent font-medium tracking-widest uppercase mb-3">Our Story</p>
+          <h2 class="font-display text-4xl md:text-5xl text-dark mb-4">
+            A Passion for<br>
+            <span class="text-gold-gradient">Timeless Beauty</span>
+          </h2>
+          <div class="line-accent mb-6"></div>
+
+          <p class="text-dark-light mb-6 leading-relaxed">
+            Founded in 2012, Bella Vida Salon & Spa has been Zamboanga City's premier destination for beauty and wellness. Our name, meaning "Beautiful Life" in Spanish, reflects our mission to help every client feel confident and radiant in their own skin.
+          </p>
+          <p class="text-dark-light mb-8 leading-relaxed">
+            Our team of skilled professionals combines international training with local expertise, using only premium products to deliver exceptional results. From classic cuts to trending styles, from relaxing spa treatments to stunning nail art, we create personalized experiences that leave you looking and feeling your absolute best.
+          </p>
+
+          <!-- Features -->
+          <div class="grid sm:grid-cols-2 gap-4 mb-8">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 bg-lavender rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-dark">Premium Products</h4>
+                <p class="text-sm text-dark-light">Only the finest brands</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 bg-lavender rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-dark">Expert Stylists</h4>
+                <p class="text-sm text-dark-light">Trained professionals</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 bg-lavender rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-dark">Hygienic Environment</h4>
+                <p class="text-sm text-dark-light">Sanitized equipment</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 bg-lavender rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-dark">Personalized Care</h4>
+                <p class="text-sm text-dark-light">Tailored to you</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="booking.html" class="btn btn-primary">
+            Book a Consultation
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="py-20 bg-dark">
+    <div class="container mx-auto px-4">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16" data-scroll="fade-up">
+        <p class="text-gold font-medium tracking-widest uppercase mb-3">Meet the Artists</p>
+        <h2 class="font-display text-4xl md:text-5xl text-white mb-4">Our Talented Team</h2>
+        <div class="line-accent mx-auto mb-6"></div>
+        <p class="text-gray-400">
+          Each of our stylists brings unique expertise and passion to create your perfect look.
+        </p>
+      </div>
+
+      <!-- Team Grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Team Member 1 -->
+        <div class="team-member group relative overflow-hidden rounded-2xl" data-scroll="fade-up" data-scroll-delay="100">
+          <img
+            src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=400&q=80"
+            alt="Maria Santos"
+            class="w-full aspect-[3/4] object-cover"
+            onerror="this.src='https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=400&q=80'"
+          >
+          <div class="team-overlay absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
+            <h3 class="font-display text-2xl text-white">Maria Santos</h3>
+            <p class="text-gold">Senior Stylist & Owner</p>
+            <p class="text-white/80 text-sm mt-2">Balayage & Creative Color Specialist</p>
+            <div class="flex gap-3 mt-4">
+              <a href="https://instagram.com/mariasantos_hair" class="text-white hover:text-gold transition-colors">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="team-member group relative overflow-hidden rounded-2xl" data-scroll="fade-up" data-scroll-delay="200">
+          <img
+            src="https://images.unsplash.com/photo-1595959183082-7b570b7e1dfa?w=400&q=80"
+            alt="Jasmine Cruz"
+            class="w-full aspect-[3/4] object-cover"
+            onerror="this.src='https://images.unsplash.com/photo-1595959183082-7b570b7e1dfa?w=400&q=80'"
+          >
+          <div class="team-overlay absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
+            <h3 class="font-display text-2xl text-white">Jasmine Cruz</h3>
+            <p class="text-gold">Hair Color Expert</p>
+            <p class="text-white/80 text-sm mt-2">Highlights & Ombre Techniques</p>
+            <div class="flex gap-3 mt-4">
+              <a href="https://instagram.com/jasminecruz_color" class="text-white hover:text-gold transition-colors">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="team-member group relative overflow-hidden rounded-2xl" data-scroll="fade-up" data-scroll-delay="300">
+          <img
+            src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400&q=80"
+            alt="Angela Reyes"
+            class="w-full aspect-[3/4] object-cover"
+            onerror="this.src='https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400&q=80'"
+          >
+          <div class="team-overlay absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
+            <h3 class="font-display text-2xl text-white">Angela Reyes</h3>
+            <p class="text-gold">Nail Artist</p>
+            <p class="text-white/80 text-sm mt-2">Nail Art & Gel Extensions</p>
+            <div class="flex gap-3 mt-4">
+              <a href="https://instagram.com/angelareyes_nails" class="text-white hover:text-gold transition-colors">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Member 4 -->
+        <div class="team-member group relative overflow-hidden rounded-2xl" data-scroll="fade-up" data-scroll-delay="400">
+          <img
+            src="https://images.unsplash.com/photo-1559599076-9c61d8e1b77c?w=400&q=80"
+            alt="Patricia Mendoza"
+            class="w-full aspect-[3/4] object-cover"
+            onerror="this.src='https://images.unsplash.com/photo-1559599076-9c61d8e1b77c?w=400&q=80'"
+          >
+          <div class="team-overlay absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
+            <h3 class="font-display text-2xl text-white">Patricia Mendoza</h3>
+            <p class="text-gold">Spa Therapist</p>
+            <p class="text-white/80 text-sm mt-2">Massage & Facial Treatments</p>
+            <div class="flex gap-3 mt-4">
+              <a href="https://instagram.com/patriciamendoza_spa" class="text-white hover:text-gold transition-colors">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-20 bg-lavender-light">
+    <div class="container mx-auto px-4">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16" data-scroll="fade-up">
+        <p class="text-accent font-medium tracking-widest uppercase mb-3">Client Love</p>
+        <h2 class="font-display text-4xl md:text-5xl text-dark mb-4">What They Say</h2>
+        <div class="line-accent mx-auto mb-6"></div>
+        <p class="text-dark-light">
+          Real stories from clients who experienced their transformation with us.
+        </p>
+      </div>
+
+      <!-- Testimonials Grid -->
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card relative bg-white rounded-2xl p-8 shadow-soft" data-scroll="fade-up" data-scroll-delay="100">
+          <div class="flex items-center gap-1 text-gold mb-4 pt-8">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-dark-light mb-6 leading-relaxed">
+            "Maria transformed my hair completely! I came in with damaged, dull hair and left with the most gorgeous balayage. The whole team is so welcoming and professional. This is now my go-to salon!"
+          </p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-semibold">
+              RC
+            </div>
+            <div>
+              <h4 class="font-semibold text-dark">Rica Castillo</h4>
+              <p class="text-sm text-dark-light">Balayage & Treatment</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card relative bg-white rounded-2xl p-8 shadow-soft" data-scroll="fade-up" data-scroll-delay="200">
+          <div class="flex items-center gap-1 text-gold mb-4 pt-8">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-dark-light mb-6 leading-relaxed">
+            "Best spa experience in Zamboanga! Patricia's massage technique is incredible - I felt completely rejuvenated after my session. The ambiance is so relaxing. Will definitely be back!"
+          </p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-semibold">
+              JL
+            </div>
+            <div>
+              <h4 class="font-semibold text-dark">Jenny Lim</h4>
+              <p class="text-sm text-dark-light">Full Body Massage</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card relative bg-white rounded-2xl p-8 shadow-soft" data-scroll="fade-up" data-scroll-delay="300">
+          <div class="flex items-center gap-1 text-gold mb-4 pt-8">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-dark-light mb-6 leading-relaxed">
+            "Angela's nail art is absolutely stunning! She recreated my Pinterest inspiration perfectly. My gel nails lasted for weeks without chipping. The attention to detail here is unmatched!"
+          </p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-semibold">
+              MT
+            </div>
+            <div>
+              <h4 class="font-semibold text-dark">Michelle Torres</h4>
+              <p class="text-sm text-dark-light">Gel Manicure with Nail Art</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram Section -->
+  <section id="gallery" class="py-20">
+    <div class="container mx-auto px-4">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-12" data-scroll="fade-up">
+        <p class="text-accent font-medium tracking-widest uppercase mb-3">Follow Our Journey</p>
+        <h2 class="font-display text-4xl md:text-5xl text-dark mb-4">
+          <span class="text-gold-gradient">@bellavidazc</span>
+        </h2>
+        <div class="line-accent mx-auto mb-6"></div>
+        <p class="text-dark-light">
+          See our latest transformations, behind-the-scenes moments, and beauty inspiration.
+          Tag us to be featured!
+        </p>
+      </div>
+
+      <!-- Instagram Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <!-- Instagram Item 1 -->
+        <a href="https://instagram.com/bellavidazc" target="_blank" rel="noopener noreferrer" class="instagram-item group relative overflow-hidden rounded-xl aspect-square">
+          <img
+            src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&q=80"
+            alt="Instagram post"
+            class="w-full h-full object-cover transition-transform duration-500"
+            onerror="this.src='https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&q=80'"
+          >
+          <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </div>
+        </a>
+
+        <!-- Instagram Items 2-6 (repeat structure) -->
+        <a href="https://instagram.com/bellavidazc" target="_blank" rel="noopener noreferrer" class="instagram-item group relative overflow-hidden rounded-xl aspect-square">
+          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&q=80" alt="Instagram post" class="w-full h-full object-cover transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&q=80'">
+          <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+        </a>
+
+        <a href="https://instagram.com/bellavidazc" target="_blank" rel="noopener noreferrer" class="instagram-item group relative overflow-hidden rounded-xl aspect-square">
+          <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=400&q=80" alt="Instagram post" class="w-full h-full object-cover transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=400&q=80'">
+          <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+        </a>
+
+        <a href="https://instagram.com/bellavidazc" target="_blank" rel="noopener noreferrer" class="instagram-item group relative overflow-hidden rounded-xl aspect-square">
+          <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400&q=80" alt="Instagram post" class="w-full h-full object-cover transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400&q=80'">
+          <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+        </a>
+
+        <a href="https://instagram.com/bellavidazc" target="_blank" rel="noopener noreferrer" class="instagram-item group relative overflow-hidden rounded-xl aspect-square">
+          <img src="https://images.unsplash.com/photo-1595959183082-7b570b7e1dfa?w=400&q=80" alt="Instagram post" class="w-full h-full object-cover transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1595959183082-7b570b7e1dfa?w=400&q=80'">
+          <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+        </a>
+
+        <a href="https://instagram.com/bellavidazc" target="_blank" rel="noopener noreferrer" class="instagram-item group relative overflow-hidden rounded-xl aspect-square">
+          <img src="https://images.unsplash.com/photo-1559599076-9c61d8e1b77c?w=400&q=80" alt="Instagram post" class="w-full h-full object-cover transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1559599076-9c61d8e1b77c?w=400&q=80'">
+          <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+        </a>
+      </div>
+
+      <!-- Follow CTA -->
+      <div class="text-center mt-10" data-scroll="fade-up">
+        <a href="https://instagram.com/bellavidazc" target="_blank" rel="noopener noreferrer" class="btn bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white hover:opacity-90">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          Follow @bellavidazc
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Location Section -->
+  <section id="contact" class="py-20 bg-dark">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <!-- Contact Info -->
+        <div data-scroll="fade-right">
+          <p class="text-gold font-medium tracking-widest uppercase mb-3">Visit Us</p>
+          <h2 class="font-display text-4xl md:text-5xl text-white mb-6">Find Your Way to Beauty</h2>
+          <div class="w-16 h-0.5 bg-gradient-to-r from-gold to-accent mb-8"></div>
+
+          <!-- Address -->
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold mb-1">Our Location</h4>
+              <p class="text-gray-400">55 Veterans Ave., Zamboanga City, Zamboanga del Sur 7000</p>
+              <a href="https://maps.google.com/?q=55+Veterans+Ave+Zamboanga+City" target="_blank" rel="noopener noreferrer" class="text-gold text-sm hover:underline">Get Directions</a>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold mb-1">Call Us</h4>
+              <a href="tel:(062) 991-5555" class="text-gray-400 hover:text-gold transition-colors">(062) 991-5555</a>
+            </div>
+          </div>
+
+          <!-- Hours -->
+          <div class="flex items-start gap-4 mb-8">
+            <div class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-white font-semibold mb-1">Business Hours</h4>
+              <div class="text-gray-400 text-sm space-y-1">
+                <p><span class="text-white">Mon - Fri:</span> 9:00 AM - 8:00 PM</p>
+                <p><span class="text-white">Saturday:</span> 9:00 AM - 9:00 PM</p>
+                <p><span class="text-white">Sunday:</span> 10:00 AM - 6:00 PM</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div class="flex items-center gap-4">
+            <a href="https://facebook.com/bellavidazc" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center text-gray-400 hover:text-gold hover:bg-primary/30 transition-all">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="https://instagram.com/bellavidazc" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center text-gray-400 hover:text-gold hover:bg-primary/30 transition-all">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <a href="https://tiktok.com/@bellavidazc" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center text-gray-400 hover:text-gold hover:bg-primary/30 transition-all">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Map -->
+        <div class="rounded-2xl overflow-hidden shadow-strong h-80 lg:h-auto" data-scroll="fade-left">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.123456789!2d122.0731234!3d6.9170896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNTUnMDEuNSJOIDEyMsKwMDQnMjMuMiJF!5e0!3m2!1sen!2sph!4v1234567890"
+            width="100%"
+            height="100%"
+            style="border:0; min-height: 400px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Bella Vida Salon & Spa Location"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="py-16 bg-gradient-to-r from-primary to-accent">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="font-display text-3xl md:text-4xl text-white mb-4" data-scroll="fade-up">
+        Ready for Your Transformation?
+      </h2>
+      <p class="text-white/90 mb-8 max-w-xl mx-auto" data-scroll="fade-up" data-scroll-delay="100">
+        Book your appointment today and let our expert stylists create your perfect look.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4" data-scroll="fade-up" data-scroll-delay="200">
+        <a href="booking.html" class="btn bg-gold text-dark hover:bg-gold/90 font-semibold">
+          Book Appointment
+        </a>
+        <a href="tel:(062) 991-5555" class="btn bg-white/20 text-white hover:bg-white/30 backdrop-blur-sm border border-white/30">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          Call Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark-light py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <!-- Brand -->
+        <div class="md:col-span-2">
+          <a href="index.html" class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
+              <span class="text-white font-display text-lg">BV</span>
+            </div>
+            <span class="font-display text-xl text-white">Bella Vida</span>
+          </a>
+          <p class="text-gray-400 mb-4 max-w-sm">
+            Where beauty meets relaxation. Experience premium salon and spa services in the heart of Zamboanga City.
+          </p>
+          <div class="flex items-center gap-3">
+            <a href="https://facebook.com/bellavidazc" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gold transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://instagram.com/bellavidazc" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gold transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://tiktok.com/@bellavidazc" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gold transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="services.html" class="text-gray-400 hover:text-gold transition-colors">Services</a></li>
+            <li><a href="booking.html" class="text-gray-400 hover:text-gold transition-colors">Book Now</a></li>
+            <li><a href="#team" class="text-gray-400 hover:text-gold transition-colors">Our Team</a></li>
+            <li><a href="#gallery" class="text-gray-400 hover:text-gold transition-colors">Gallery</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="text-white font-semibold mb-4">Contact</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li>(062) 991-5555</li>
+            <li>book@bellavidasalon.ph</li>
+            <li class="text-sm">55 Veterans Ave., Zamboanga City</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 pt-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2024 Bella Vida Salon & Spa. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a
+    href="#"
+    data-whatsapp="639175555555"
+    data-message="Hi! I'd like to book an appointment at Bella Vida Salon & Spa. Can you help me?"
+    class="whatsapp-float no-print"
+    aria-label="Chat on WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top no-print" aria-label="Back to top">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
+
+  <!-- Common JS -->
+  <script src="../../shared/js/common.js"></script>
+</body>
+</html>

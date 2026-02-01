@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Prime Properties Zamboanga for real estate inquiries. Buy, sell, or rent properties in Zamboanga City. Call or message us today!">
+  <title>Contact Us - Prime Properties Zamboanga</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              DEFAULT: '#1E3A5F',
+              dark: '#152B47',
+              light: '#2A4A73'
+            },
+            gold: {
+              DEFAULT: '#B8860B',
+              light: '#D4A017',
+              dark: '#9A7209'
+            },
+            success: '#28A745',
+            light: '#F8F9FA'
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'serif'],
+            body: ['Karla', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Shared Base Styles -->
+  <link rel="stylesheet" href="../../shared/css/base.css">
+
+  <style>
+    :root {
+      --color-primary: #1E3A5F;
+      --color-primary-dark: #152B47;
+      --color-primary-rgb: 30, 58, 95;
+      --color-accent: #B8860B;
+      --gradient-start: #1E3A5F;
+      --gradient-end: #B8860B;
+    }
+
+    body {
+      font-family: 'Karla', sans-serif;
+    }
+
+    .font-display {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .input-error {
+      border-color: #EF4444 !important;
+    }
+  </style>
+</head>
+<body class="font-body text-gray-700 bg-light" data-scroll-theme="professional">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md shadow-sm z-50">
+    <div class="container mx-auto px-4">
+      <nav class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-navy rounded-lg flex items-center justify-center">
+            <svg class="w-7 h-7 text-gold" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+            </svg>
+          </div>
+          <div>
+            <span class="block text-lg font-display font-bold text-navy">Prime Properties Zamboanga</span>
+            <span class="block text-xs text-gray-500 tracking-wide">REAL ESTATE</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-gray-600 hover:text-navy transition-colors">Home</a>
+          <a href="listings.html" class="text-gray-600 hover:text-navy transition-colors">Listings</a>
+          <a href="index.html#services" class="text-gray-600 hover:text-navy transition-colors">Services</a>
+          <a href="index.html#about" class="text-gray-600 hover:text-navy transition-colors">About</a>
+          <a href="contact.html" class="text-navy font-semibold border-b-2 border-gold pb-1">Contact</a>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="hidden md:block">
+          <a href="tel:(062) 993-1234" class="bg-gold hover:bg-gold-dark text-white px-6 py-3 rounded-lg font-semibold transition-all hover:shadow-lg inline-flex items-center gap-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            Call Now
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button data-menu-toggle class="md:hidden p-2 text-navy" aria-label="Toggle menu" aria-expanded="false">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div data-menu-overlay class="mobile-menu-overlay"></div>
+
+  <!-- Mobile Menu -->
+  <div data-mobile-menu class="mobile-menu">
+    <div class="p-6">
+      <div class="flex items-center justify-between mb-8">
+        <span class="text-lg font-display font-bold text-navy">Prime Properties Zamboanga</span>
+        <button data-menu-close class="p-2 text-gray-500 hover:text-navy">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <nav class="space-y-4">
+        <a href="index.html" class="block py-3 text-gray-600 border-b border-gray-100">Home</a>
+        <a href="listings.html" class="block py-3 text-gray-600 border-b border-gray-100">Listings</a>
+        <a href="index.html#services" class="block py-3 text-gray-600 border-b border-gray-100">Services</a>
+        <a href="index.html#about" class="block py-3 text-gray-600 border-b border-gray-100">About</a>
+        <a href="contact.html" class="block py-3 text-navy font-semibold border-b border-gray-100">Contact</a>
+      </nav>
+      <div class="mt-8">
+        <a href="tel:(062) 993-1234" class="block w-full bg-gold text-white text-center py-3 rounded-lg font-semibold">
+          Call Now
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Header -->
+  <section class="pt-28 pb-12 bg-navy">
+    <div class="container mx-auto px-4">
+      <div class="text-center">
+        <h1 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">Contact Us</h1>
+        <p class="text-gray-300 max-w-xl mx-auto">
+          Ready to find your dream property or have questions? Get in touch with us today.
+        </p>
+        <nav class="mt-4 text-sm">
+          <a href="index.html" class="text-gray-400 hover:text-gold transition-colors">Home</a>
+          <span class="text-gray-500 mx-2">/</span>
+          <span class="text-gold">Contact</span>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Content -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <!-- Agent Profile & Contact Info -->
+        <div class="lg:col-span-1">
+          <!-- Agent Card -->
+          <div class="bg-white rounded-xl p-8 shadow-soft mb-8">
+            <div class="text-center mb-6">
+              <img
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&q=80"
+                alt="Ricardo Santos"
+                class="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-gold"
+              >
+              <h2 class="text-xl font-display font-bold text-navy">Ricardo Santos</h2>
+              <p class="text-gray-500">Licensed Real Estate Broker</p>
+              <p class="text-sm text-gold mt-1">PRC License No. 0012345</p>
+            </div>
+
+            <p class="text-gray-600 text-center mb-6">
+              Helping families find their perfect home since 2005. Specializing in residential properties in Zamboanga City and the surrounding Zamboanga Peninsula region.
+            </p>
+
+            <div class="space-y-4">
+              <!-- Phone -->
+              <a href="tel:(062) 993-1234" class="flex items-center gap-4 p-4 bg-light rounded-xl hover:bg-navy hover:text-white transition-all group">
+                <div class="w-12 h-12 bg-navy group-hover:bg-gold rounded-lg flex items-center justify-center transition-colors">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500 group-hover:text-gray-300">Call Directly</p>
+                  <p class="font-semibold text-navy group-hover:text-white">(062) 993-1234</p>
+                </div>
+              </a>
+
+              <!-- WhatsApp -->
+              <a href="#" class="flex items-center gap-4 p-4 bg-light rounded-xl hover:bg-green-500 hover:text-white transition-all group" data-whatsapp="639172345678" data-message="Hi! I'm visiting your website and would like to inquire about your real estate services.">
+                <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500 group-hover:text-white/80">WhatsApp</p>
+                  <p class="font-semibold text-navy group-hover:text-white">Send a Message</p>
+                </div>
+              </a>
+
+              <!-- Email -->
+              <a href="mailto:info@primepropertieszc.ph" class="flex items-center gap-4 p-4 bg-light rounded-xl hover:bg-navy hover:text-white transition-all group">
+                <div class="w-12 h-12 bg-navy group-hover:bg-gold rounded-lg flex items-center justify-center transition-colors">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500 group-hover:text-gray-300">Email</p>
+                  <p class="font-semibold text-navy group-hover:text-white">info@primepropertieszc.ph</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Office Info -->
+          <div class="bg-white rounded-xl p-8 shadow-soft">
+            <h3 class="text-lg font-display font-bold text-navy mb-4">Office Location</h3>
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-gold mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <p class="text-gray-600">321 La Purisima St., Zamboanga City, Zamboanga del Sur 7000</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                </svg>
+                <p class="text-gray-600">Mon-Sat: 9AM - 6PM</p>
+              </div>
+            </div>
+
+            <!-- Mini Map -->
+            <div class="mt-6 bg-gray-200 rounded-xl h-48 relative overflow-hidden">
+              <div class="absolute inset-0 flex items-center justify-center bg-light">
+                <div class="text-center">
+                  <svg class="w-12 h-12 mx-auto text-gray-400 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  </svg>
+                  <p class="text-sm text-gray-500">321 La Purisima St., Zamboanga City</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="lg:col-span-2">
+          <div class="bg-white rounded-xl p-8 md:p-10 shadow-soft">
+            <h2 class="text-2xl font-display font-bold text-navy mb-2">Send Us a Message</h2>
+            <p class="text-gray-500 mb-8">Fill out the form below and we'll get back to you as soon as possible.</p>
+
+            <form action="#" method="POST" class="space-y-6" data-validate id="contactForm">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Full Name -->
+                <div>
+                  <label for="fullName" class="form-label">Full Name <span class="text-red-500">*</span></label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    placeholder="Juan dela Cruz"
+                    required
+                    class="form-input"
+                  >
+                </div>
+
+                <!-- Email -->
+                <div>
+                  <label for="email" class="form-label">Email Address <span class="text-red-500">*</span></label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="juan@example.com"
+                    required
+                    class="form-input"
+                  >
+                </div>
+
+                <!-- Phone -->
+                <div>
+                  <label for="phone" class="form-label">Phone Number <span class="text-red-500">*</span></label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="0917 123 4567"
+                    required
+                    class="form-input"
+                  >
+                </div>
+
+                <!-- Service Type -->
+                <div>
+                  <label for="service" class="form-label">I'm Looking To <span class="text-red-500">*</span></label>
+                  <select
+                    id="service"
+                    name="service"
+                    required
+                    class="form-input"
+                  >
+                    <option value="">Select an option</option>
+                    <option value="buy">Buy a Property</option>
+                    <option value="sell">Sell a Property</option>
+                    <option value="rent">Rent a Property</option>
+                    <option value="invest">Invest in Real Estate</option>
+                    <option value="appraisal">Get Property Appraisal</option>
+                    <option value="other">Other Inquiry</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Property Type Preference -->
+              <div>
+                <label class="form-label">Property Type Preference (Optional)</label>
+                <div class="flex flex-wrap gap-4 mt-2">
+                  <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" name="propertyType[]" value="house" class="w-5 h-5 text-gold rounded focus:ring-gold">
+                    <span>House & Lot</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" name="propertyType[]" value="lot" class="w-5 h-5 text-gold rounded focus:ring-gold">
+                    <span>Lot Only</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" name="propertyType[]" value="condo" class="w-5 h-5 text-gold rounded focus:ring-gold">
+                    <span>Condominium</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" name="propertyType[]" value="commercial" class="w-5 h-5 text-gold rounded focus:ring-gold">
+                    <span>Commercial</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Budget Range -->
+              <div>
+                <label for="budget" class="form-label">Budget Range (Optional)</label>
+                <select
+                  id="budget"
+                  name="budget"
+                  class="form-input"
+                >
+                  <option value="">Select budget range</option>
+                  <option value="under-1m">Under P1,000,000</option>
+                  <option value="1m-3m">P1,000,000 - P3,000,000</option>
+                  <option value="3m-5m">P3,000,000 - P5,000,000</option>
+                  <option value="5m-10m">P5,000,000 - P10,000,000</option>
+                  <option value="10m-20m">P10,000,000 - P20,000,000</option>
+                  <option value="above-20m">Above P20,000,000</option>
+                </select>
+              </div>
+
+              <!-- Preferred Location -->
+              <div>
+                <label for="location" class="form-label">Preferred Location (Optional)</label>
+                <input
+                  type="text"
+                  id="location"
+                  name="location"
+                  placeholder="e.g., Near schools, downtown area, subdivision"
+                  class="form-input"
+                >
+              </div>
+
+              <!-- Message -->
+              <div>
+                <label for="message" class="form-label">Message <span class="text-red-500">*</span></label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Tell us more about what you're looking for..."
+                  required
+                  class="form-input resize-none"
+                ></textarea>
+              </div>
+
+              <!-- How Did You Hear About Us -->
+              <div>
+                <label for="source" class="form-label">How Did You Hear About Us? (Optional)</label>
+                <select
+                  id="source"
+                  name="source"
+                  class="form-input"
+                >
+                  <option value="">Select an option</option>
+                  <option value="google">Google Search</option>
+                  <option value="facebook">Facebook</option>
+                  <option value="instagram">Instagram</option>
+                  <option value="referral">Friend/Family Referral</option>
+                  <option value="sign">Property Sign/Banner</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <!-- Privacy Agreement -->
+              <div class="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  id="privacy"
+                  name="privacy"
+                  required
+                  class="w-5 h-5 text-gold rounded focus:ring-gold mt-0.5"
+                >
+                <label for="privacy" class="text-sm text-gray-600">
+                  I agree to the <a href="#" class="text-gold hover:underline">Privacy Policy</a> and consent to being contacted regarding my inquiry. <span class="text-red-500">*</span>
+                </label>
+              </div>
+
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                class="w-full bg-navy hover:bg-navy-dark text-white py-4 rounded-lg font-semibold transition-all text-lg flex items-center justify-center gap-2"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                </svg>
+                Send Message
+              </button>
+            </form>
+
+            <!-- Success Message (hidden by default) -->
+            <div id="successMessage" class="hidden text-center py-12">
+              <div class="w-20 h-20 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-10 h-10 text-success" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-display font-bold text-navy mb-2">Message Sent!</h3>
+              <p class="text-gray-600 mb-6">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+              <button onclick="resetForm()" class="bg-gold hover:bg-gold-dark text-white px-6 py-3 rounded-lg font-semibold transition-all">
+                Send Another Message
+              </button>
+            </div>
+          </div>
+
+          <!-- Quick Contact CTA -->
+          <div class="mt-8 bg-navy rounded-xl p-8 text-center">
+            <h3 class="text-xl font-display font-bold text-white mb-2">Need Immediate Assistance?</h3>
+            <p class="text-gray-300 mb-6">Call us directly or send a WhatsApp message for faster response.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+              <a href="tel:(062) 993-1234" class="bg-white text-navy hover:bg-gold hover:text-white px-6 py-3 rounded-lg font-semibold transition-all inline-flex items-center gap-2">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+                (062) 993-1234
+              </a>
+              <a href="#" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-all inline-flex items-center gap-2" data-whatsapp="639172345678" data-message="Hi! I need immediate assistance regarding a property inquiry.">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
+                </svg>
+                WhatsApp Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-2xl md:text-3xl font-display font-bold text-navy text-center mb-12">Frequently Asked Questions</h2>
+
+        <div class="space-y-4">
+          <!-- FAQ 1 -->
+          <details class="bg-light rounded-xl p-6 group">
+            <summary class="flex items-center justify-between cursor-pointer font-semibold text-navy">
+              What documents do I need to buy a property in the Philippines?
+              <svg class="w-5 h-5 text-gold transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-600">
+              For Philippine property purchases, you'll typically need valid government-issued IDs, TIN (Tax Identification Number), proof of income or financial capacity, and if married, your spouse's consent. For foreign buyers, additional requirements apply including proof of residency status. Contact us for a detailed checklist tailored to your situation.
+            </p>
+          </details>
+
+          <!-- FAQ 2 -->
+          <details class="bg-light rounded-xl p-6 group">
+            <summary class="flex items-center justify-between cursor-pointer font-semibold text-navy">
+              Do you offer financing options or bank loan assistance?
+              <svg class="w-5 h-5 text-gold transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-600">
+              Yes! We work with major banks including BDO, BPI, Metrobank, and Pag-IBIG to help you secure the best financing options. We can also assist with in-house financing for select developer properties. Our team will guide you through the loan application process.
+            </p>
+          </details>
+
+          <!-- FAQ 3 -->
+          <details class="bg-light rounded-xl p-6 group">
+            <summary class="flex items-center justify-between cursor-pointer font-semibold text-navy">
+              How long does the property buying process take?
+              <svg class="w-5 h-5 text-gold transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-600">
+              The timeline varies depending on the transaction type. Cash purchases can close in 2-4 weeks, while bank-financed purchases typically take 1-3 months for loan approval and processing. We guide you through every step to ensure a smooth and efficient process.
+            </p>
+          </details>
+
+          <!-- FAQ 4 -->
+          <details class="bg-light rounded-xl p-6 group">
+            <summary class="flex items-center justify-between cursor-pointer font-semibold text-navy">
+              Do you help with property title transfers and documentation?
+              <svg class="w-5 h-5 text-gold transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <p class="mt-4 text-gray-600">
+              Absolutely! We assist with all documentation including title transfers at the Registry of Deeds, tax declarations at the Assessor's Office, and deed of sale preparation. Our team works with trusted lawyers and notaries to ensure all legal requirements are properly handled.
+            </p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-navy-dark text-gray-300 py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 bg-navy rounded-lg flex items-center justify-center">
+              <svg class="w-7 h-7 text-gold" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+              </svg>
+            </div>
+            <span class="text-lg font-display font-bold text-white">Prime Properties Zamboanga</span>
+          </div>
+          <p class="text-gray-400 mb-6">Your trusted partner in finding the perfect property in Zamboanga City and surrounding areas. Serving the community since 2005.</p>
+          <div class="flex gap-4">
+            <a href="https://facebook.com/primepropertieszc" class="w-10 h-10 bg-navy rounded-lg flex items-center justify-center hover:bg-gold transition-colors" aria-label="Facebook">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+            <a href="https://instagram.com/primepropertieszc" class="w-10 h-10 bg-navy rounded-lg flex items-center justify-center hover:bg-gold transition-colors" aria-label="Instagram">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-white font-semibold mb-6">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="hover:text-gold transition-colors">Home</a></li>
+            <li><a href="listings.html" class="hover:text-gold transition-colors">All Listings</a></li>
+            <li><a href="contact.html" class="hover:text-gold transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h3 class="text-white font-semibold mb-6">Services</h3>
+          <ul class="space-y-3">
+            <li><a href="contact.html?service=buy" class="hover:text-gold transition-colors">Buying Assistance</a></li>
+            <li><a href="contact.html?service=sell" class="hover:text-gold transition-colors">Selling Assistance</a></li>
+            <li><a href="contact.html?service=rent" class="hover:text-gold transition-colors">Rental Services</a></li>
+            <li><a href="contact.html?service=appraisal" class="hover:text-gold transition-colors">Property Appraisal</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h3 class="text-white font-semibold mb-6">Contact Info</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-gold mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              <span>321 La Purisima St., Zamboanga City, Zamboanga del Sur 7000</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
+              <a href="tel:(062) 993-1234" class="hover:text-gold transition-colors">(062) 993-1234</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+              <a href="mailto:info@primepropertieszc.ph" class="hover:text-gold transition-colors">info@primepropertieszc.ph</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+        <p>&copy; <span id="currentYear"></span> Prime Properties Zamboanga. All rights reserved.</p>
+        <p class="mt-2 text-sm">PRC License No. 0012345</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a
+    href="#"
+    class="whatsapp-float no-print"
+    data-whatsapp="639172345678"
+    data-message="Hi! I'm visiting your contact page and would like to inquire about your real estate services."
+    aria-label="Chat on WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top no-print" aria-label="Back to top">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
+
+  <!-- Shared Common JS -->
+  <script src="../../shared/js/common.js"></script>
+
+  <script>
+    // Set current year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Pre-fill service dropdown from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const service = urlParams.get('service');
+    if (service) {
+      const serviceSelect = document.getElementById('service');
+      if (serviceSelect) {
+        // Map URL params to select values
+        const serviceMap = {
+          'buying': 'buy',
+          'selling': 'sell',
+          'renting': 'rent',
+          'buy': 'buy',
+          'sell': 'sell',
+          'rent': 'rent',
+          'appraisal': 'appraisal',
+          'consultation': 'other',
+          'invest': 'invest'
+        };
+        const mappedValue = serviceMap[service.toLowerCase()] || service;
+        serviceSelect.value = mappedValue;
+      }
+    }
+
+    // Form submission handler (for demo - would connect to backend)
+    const contactForm = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // In production, this would send data to your backend
+      // For MVP, we'll just show the success message
+
+      // Simulate form submission
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Sending...';
+      submitBtn.disabled = true;
+
+      setTimeout(function() {
+        contactForm.style.display = 'none';
+        successMessage.classList.remove('hidden');
+      }, 1500);
+    });
+
+    // Reset form function
+    function resetForm() {
+      contactForm.reset();
+      contactForm.style.display = 'block';
+      successMessage.classList.add('hidden');
+
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      submitBtn.innerHTML = '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg> Send Message';
+      submitBtn.disabled = false;
+    }
+  </script>
+</body>
+</html>

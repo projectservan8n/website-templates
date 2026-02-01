@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse available properties for sale and rent in Zamboanga City. Houses, lots, condos, and commercial spaces from Prime Properties Zamboanga.">
+  <title>Property Listings - Prime Properties Zamboanga</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              DEFAULT: '#1E3A5F',
+              dark: '#152B47',
+              light: '#2A4A73'
+            },
+            gold: {
+              DEFAULT: '#B8860B',
+              light: '#D4A017',
+              dark: '#9A7209'
+            },
+            success: '#28A745',
+            light: '#F8F9FA'
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'serif'],
+            body: ['Karla', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Shared Base Styles -->
+  <link rel="stylesheet" href="../../shared/css/base.css">
+
+  <style>
+    :root {
+      --color-primary: #1E3A5F;
+      --color-primary-dark: #152B47;
+      --color-primary-rgb: 30, 58, 95;
+      --color-accent: #B8860B;
+      --gradient-start: #1E3A5F;
+      --gradient-end: #B8860B;
+    }
+
+    body {
+      font-family: 'Karla', sans-serif;
+    }
+
+    .font-display {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .filter-btn.active {
+      background-color: #1E3A5F;
+      color: white;
+    }
+
+    .property-badge-house { background-color: #1E3A5F; }
+    .property-badge-lot { background-color: #28A745; }
+    .property-badge-condo { background-color: #B8860B; }
+    .property-badge-commercial { background-color: #6B7280; }
+  </style>
+</head>
+<body class="font-body text-gray-700 bg-light" data-scroll-theme="professional">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md shadow-sm z-50">
+    <div class="container mx-auto px-4">
+      <nav class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-navy rounded-lg flex items-center justify-center">
+            <svg class="w-7 h-7 text-gold" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+            </svg>
+          </div>
+          <div>
+            <span class="block text-lg font-display font-bold text-navy">Prime Properties Zamboanga</span>
+            <span class="block text-xs text-gray-500 tracking-wide">REAL ESTATE</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-gray-600 hover:text-navy transition-colors">Home</a>
+          <a href="listings.html" class="text-navy font-semibold border-b-2 border-gold pb-1">Listings</a>
+          <a href="index.html#services" class="text-gray-600 hover:text-navy transition-colors">Services</a>
+          <a href="index.html#about" class="text-gray-600 hover:text-navy transition-colors">About</a>
+          <a href="contact.html" class="text-gray-600 hover:text-navy transition-colors">Contact</a>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="hidden md:block">
+          <a href="contact.html" class="bg-gold hover:bg-gold-dark text-white px-6 py-3 rounded-lg font-semibold transition-all hover:shadow-lg">
+            Free Consultation
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button data-menu-toggle class="md:hidden p-2 text-navy" aria-label="Toggle menu" aria-expanded="false">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div data-menu-overlay class="mobile-menu-overlay"></div>
+
+  <!-- Mobile Menu -->
+  <div data-mobile-menu class="mobile-menu">
+    <div class="p-6">
+      <div class="flex items-center justify-between mb-8">
+        <span class="text-lg font-display font-bold text-navy">Prime Properties Zamboanga</span>
+        <button data-menu-close class="p-2 text-gray-500 hover:text-navy">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <nav class="space-y-4">
+        <a href="index.html" class="block py-3 text-gray-600 border-b border-gray-100">Home</a>
+        <a href="listings.html" class="block py-3 text-navy font-semibold border-b border-gray-100">Listings</a>
+        <a href="index.html#services" class="block py-3 text-gray-600 border-b border-gray-100">Services</a>
+        <a href="index.html#about" class="block py-3 text-gray-600 border-b border-gray-100">About</a>
+        <a href="contact.html" class="block py-3 text-gray-600 border-b border-gray-100">Contact</a>
+      </nav>
+      <div class="mt-8">
+        <a href="contact.html" class="block w-full bg-gold text-white text-center py-3 rounded-lg font-semibold">
+          Free Consultation
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Header -->
+  <section class="pt-28 pb-8 bg-navy">
+    <div class="container mx-auto px-4">
+      <div class="text-center">
+        <h1 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">Property Listings</h1>
+        <p class="text-gray-300">Find your perfect property from our curated selection</p>
+        <nav class="mt-4 text-sm">
+          <a href="index.html" class="text-gray-400 hover:text-gold transition-colors">Home</a>
+          <span class="text-gray-500 mx-2">/</span>
+          <span class="text-gold">Listings</span>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Bar -->
+  <section class="py-6 bg-white shadow-sm sticky top-20 z-40">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap items-center gap-4">
+        <!-- Property Type Filter -->
+        <div class="flex-1 min-w-[200px]">
+          <label class="block text-xs text-gray-500 mb-1">Property Type</label>
+          <select id="filterType" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none text-sm">
+            <option value="">All Types</option>
+            <option value="house">House & Lot</option>
+            <option value="lot">Lot Only</option>
+            <option value="condo">Condominium</option>
+            <option value="commercial">Commercial</option>
+          </select>
+        </div>
+
+        <!-- Location Filter -->
+        <div class="flex-1 min-w-[200px]">
+          <label class="block text-xs text-gray-500 mb-1">Location</label>
+          <select id="filterLocation" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none text-sm">
+            <option value="">All Locations</option>
+            <option value="Sta. Maria">Sta. Maria</option>
+            <option value="Tetuan">Tetuan</option>
+            <option value="Canelar">Canelar</option>
+            <option value="Pasonanca">Pasonanca</option>
+          </select>
+        </div>
+
+        <!-- Price Range Filter -->
+        <div class="flex-1 min-w-[200px]">
+          <label class="block text-xs text-gray-500 mb-1">Price Range</label>
+          <select id="filterPrice" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none text-sm">
+            <option value="">Any Price</option>
+            <option value="0-1000000">Under P1,000,000</option>
+            <option value="1000000-3000000">P1M - P3M</option>
+            <option value="3000000-5000000">P3M - P5M</option>
+            <option value="5000000-10000000">P5M - P10M</option>
+            <option value="10000000+">Above P10M</option>
+          </select>
+        </div>
+
+        <!-- Status Filter -->
+        <div class="flex-1 min-w-[150px]">
+          <label class="block text-xs text-gray-500 mb-1">Status</label>
+          <select id="filterStatus" class="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none text-sm">
+            <option value="">All Status</option>
+            <option value="sale">For Sale</option>
+            <option value="rent">For Rent</option>
+          </select>
+        </div>
+
+        <!-- Search Button -->
+        <div class="flex-shrink-0 self-end">
+          <button id="searchBtn" class="bg-navy hover:bg-navy-dark text-white px-6 py-2.5 rounded-lg font-semibold transition-all flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            Search
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Type Filters -->
+      <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-100">
+        <button class="filter-btn active px-4 py-2 rounded-full text-sm font-medium border border-gray-200 transition-all hover:bg-navy hover:text-white hover:border-navy" data-type="">
+          All Properties
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-200 transition-all hover:bg-navy hover:text-white hover:border-navy" data-type="house">
+          House & Lot
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-200 transition-all hover:bg-navy hover:text-white hover:border-navy" data-type="lot">
+          Lot Only
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-200 transition-all hover:bg-navy hover:text-white hover:border-navy" data-type="condo">
+          Condominium
+        </button>
+        <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium border border-gray-200 transition-all hover:bg-navy hover:text-white hover:border-navy" data-type="commercial">
+          Commercial
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Property Grid -->
+  <section class="py-12">
+    <div class="container mx-auto px-4">
+      <!-- Results Count -->
+      <div class="flex items-center justify-between mb-8">
+        <p class="text-gray-600">
+          Showing <span class="font-semibold text-navy">6</span> properties
+        </p>
+        <div class="flex items-center gap-2">
+          <label class="text-sm text-gray-500">Sort by:</label>
+          <select class="px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-gold focus:border-gold outline-none">
+            <option value="newest">Newest First</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="size">Size: Largest</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Properties Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Property Card 1 -->
+        <div class="card hover-lift" data-scroll="fade-up" data-scroll-delay="100" data-type="house">
+          <div class="relative img-zoom">
+            <img
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
+              alt="Villa Esperanza Modern Home"
+              class="w-full h-64 object-cover"
+            >
+            <span class="absolute top-4 left-4 property-badge-house text-white px-3 py-1 rounded-full text-sm font-semibold">House & Lot</span>
+            <span class="absolute top-4 right-4 bg-success text-white px-3 py-1 rounded-full text-sm font-semibold">For Sale</span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 text-gray-500 text-sm mb-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              <span>Sta. Maria, Zamboanga City</span>
+            </div>
+            <h3 class="text-xl font-display font-bold text-navy mb-2">Villa Esperanza Modern Home</h3>
+            <p class="text-2xl font-bold text-gold mb-4">P4,500,000</p>
+            <div class="flex items-center gap-4 text-gray-500 text-sm border-t border-gray-100 pt-4">
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M7 14c1.66 0 3-1.34 3-3S8.66 8 7 8s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v8H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/>
+                </svg>
+                <span>3 Beds</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M7 7c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z"/>
+                </svg>
+                <span>2 Baths</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+                </svg>
+                <span>150 sqm</span>
+              </div>
+            </div>
+            <a href="property-detail.html" class="mt-4 block w-full bg-navy hover:bg-navy-dark text-white text-center py-3 rounded-lg font-semibold transition-all">
+              View Details
+            </a>
+          </div>
+        </div>
+
+        <!-- Property Card 2 -->
+        <div class="card hover-lift" data-scroll="fade-up" data-scroll-delay="150" data-type="condo">
+          <div class="relative img-zoom">
+            <img
+              src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80"
+              alt="Paraiso Heights Unit 12B"
+              class="w-full h-64 object-cover"
+            >
+            <span class="absolute top-4 left-4 property-badge-condo text-white px-3 py-1 rounded-full text-sm font-semibold">Condominium</span>
+            <span class="absolute top-4 right-4 bg-success text-white px-3 py-1 rounded-full text-sm font-semibold">For Sale</span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 text-gray-500 text-sm mb-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              <span>Tetuan, Zamboanga City</span>
+            </div>
+            <h3 class="text-xl font-display font-bold text-navy mb-2">Paraiso Heights Unit 12B</h3>
+            <p class="text-2xl font-bold text-gold mb-4">P2,800,000</p>
+            <div class="flex items-center gap-4 text-gray-500 text-sm border-t border-gray-100 pt-4">
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M7 14c1.66 0 3-1.34 3-3S8.66 8 7 8s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v8H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/>
+                </svg>
+                <span>2 Beds</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M7 7c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z"/>
+                </svg>
+                <span>1 Bath</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+                </svg>
+                <span>65 sqm</span>
+              </div>
+            </div>
+            <a href="property-detail.html" class="mt-4 block w-full bg-navy hover:bg-navy-dark text-white text-center py-3 rounded-lg font-semibold transition-all">
+              View Details
+            </a>
+          </div>
+        </div>
+
+        <!-- Property Card 3 -->
+        <div class="card hover-lift" data-scroll="fade-up" data-scroll-delay="200" data-type="lot">
+          <div class="relative img-zoom">
+            <img
+              src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=800&q=80"
+              alt="Hacienda del Sol Lot"
+              class="w-full h-64 object-cover"
+            >
+            <span class="absolute top-4 left-4 property-badge-lot text-white px-3 py-1 rounded-full text-sm font-semibold">Lot Only</span>
+            <span class="absolute top-4 right-4 bg-success text-white px-3 py-1 rounded-full text-sm font-semibold">For Sale</span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 text-gray-500 text-sm mb-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              <span>Canelar, Zamboanga City</span>
+            </div>
+            <h3 class="text-xl font-display font-bold text-navy mb-2">Hacienda del Sol Lot</h3>
+            <p class="text-2xl font-bold text-gold mb-4">P1,800,000</p>
+            <div class="flex items-center gap-4 text-gray-500 text-sm border-t border-gray-100 pt-4">
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+                </svg>
+                <span>300 sqm lot area</span>
+              </div>
+            </div>
+            <a href="property-detail.html" class="mt-4 block w-full bg-navy hover:bg-navy-dark text-white text-center py-3 rounded-lg font-semibold transition-all">
+              View Details
+            </a>
+          </div>
+        </div>
+
+        <!-- Property Card 4 -->
+        <div class="card hover-lift" data-scroll="fade-up" data-scroll-delay="250" data-type="house">
+          <div class="relative img-zoom">
+            <img
+              src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80"
+              alt="Casa Bonita Executive House"
+              class="w-full h-64 object-cover"
+            >
+            <span class="absolute top-4 left-4 property-badge-house text-white px-3 py-1 rounded-full text-sm font-semibold">House & Lot</span>
+            <span class="absolute top-4 right-4 bg-gold text-white px-3 py-1 rounded-full text-sm font-semibold">For Rent</span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 text-gray-500 text-sm mb-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              <span>Pasonanca, Zamboanga City</span>
+            </div>
+            <h3 class="text-xl font-display font-bold text-navy mb-2">Casa Bonita Executive House</h3>
+            <p class="text-2xl font-bold text-gold mb-4">P35,000<span class="text-sm font-normal text-gray-500">/month</span></p>
+            <div class="flex items-center gap-4 text-gray-500 text-sm border-t border-gray-100 pt-4">
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M7 14c1.66 0 3-1.34 3-3S8.66 8 7 8s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v8H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/>
+                </svg>
+                <span>4 Beds</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M7 7c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z"/>
+                </svg>
+                <span>3 Baths</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+                </svg>
+                <span>200 sqm</span>
+              </div>
+            </div>
+            <a href="property-detail.html" class="mt-4 block w-full bg-navy hover:bg-navy-dark text-white text-center py-3 rounded-lg font-semibold transition-all">
+              View Details
+            </a>
+          </div>
+        </div>
+
+        <!-- Property Card 5 -->
+        <div class="card hover-lift" data-scroll="fade-up" data-scroll-delay="300" data-type="commercial">
+          <div class="relative img-zoom">
+            <img
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80"
+              alt="Prime Commercial Space - Tetuan"
+              class="w-full h-64 object-cover"
+            >
+            <span class="absolute top-4 left-4 property-badge-commercial text-white px-3 py-1 rounded-full text-sm font-semibold">Commercial</span>
+            <span class="absolute top-4 right-4 bg-gold text-white px-3 py-1 rounded-full text-sm font-semibold">For Rent</span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 text-gray-500 text-sm mb-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              <span>Tetuan, Zamboanga City</span>
+            </div>
+            <h3 class="text-xl font-display font-bold text-navy mb-2">Prime Commercial Space - Tetuan</h3>
+            <p class="text-2xl font-bold text-gold mb-4">P85,000<span class="text-sm font-normal text-gray-500">/month</span></p>
+            <div class="flex items-center gap-4 text-gray-500 text-sm border-t border-gray-100 pt-4">
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+                </svg>
+                <span>120 sqm floor area</span>
+              </div>
+            </div>
+            <a href="property-detail.html" class="mt-4 block w-full bg-navy hover:bg-navy-dark text-white text-center py-3 rounded-lg font-semibold transition-all">
+              View Details
+            </a>
+          </div>
+        </div>
+
+        <!-- Property Card 6 -->
+        <div class="card hover-lift" data-scroll="fade-up" data-scroll-delay="350" data-type="condo">
+          <div class="relative img-zoom">
+            <img
+              src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80"
+              alt="Sunrise Studio Condo"
+              class="w-full h-64 object-cover"
+            >
+            <span class="absolute top-4 left-4 property-badge-condo text-white px-3 py-1 rounded-full text-sm font-semibold">Condominium</span>
+            <span class="absolute top-4 right-4 bg-success text-white px-3 py-1 rounded-full text-sm font-semibold">For Sale</span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 text-gray-500 text-sm mb-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              <span>Sta. Maria, Zamboanga City</span>
+            </div>
+            <h3 class="text-xl font-display font-bold text-navy mb-2">Sunrise Studio Condo</h3>
+            <p class="text-2xl font-bold text-gold mb-4">P1,450,000</p>
+            <div class="flex items-center gap-4 text-gray-500 text-sm border-t border-gray-100 pt-4">
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M7 14c1.66 0 3-1.34 3-3S8.66 8 7 8s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v8H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/>
+                </svg>
+                <span>1 Bed</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M7 7c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2z"/>
+                </svg>
+                <span>1 Bath</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+                </svg>
+                <span>35 sqm</span>
+              </div>
+            </div>
+            <a href="property-detail.html" class="mt-4 block w-full bg-navy hover:bg-navy-dark text-white text-center py-3 rounded-lg font-semibold transition-all">
+              View Details
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex justify-center items-center gap-2 mt-12">
+        <button class="w-10 h-10 rounded-lg border border-gray-200 flex items-center justify-center hover:bg-navy hover:text-white hover:border-navy transition-all" disabled>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <button class="w-10 h-10 rounded-lg bg-navy text-white font-semibold">1</button>
+        <button class="w-10 h-10 rounded-lg border border-gray-200 hover:bg-navy hover:text-white hover:border-navy transition-all font-semibold">2</button>
+        <button class="w-10 h-10 rounded-lg border border-gray-200 hover:bg-navy hover:text-white hover:border-navy transition-all font-semibold">3</button>
+        <span class="px-2 text-gray-400">...</span>
+        <button class="w-10 h-10 rounded-lg border border-gray-200 hover:bg-navy hover:text-white hover:border-navy transition-all font-semibold">10</button>
+        <button class="w-10 h-10 rounded-lg border border-gray-200 flex items-center justify-center hover:bg-navy hover:text-white hover:border-navy transition-all">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-navy">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-2xl md:text-3xl font-display font-bold text-white mb-4">
+          Can't Find What You're Looking For?
+        </h2>
+        <p class="text-gray-300 mb-8">
+          Tell us your requirements and we'll find the perfect property for you.
+        </p>
+        <a href="contact.html" class="bg-gold hover:bg-gold-dark text-white px-8 py-4 rounded-lg font-semibold transition-all inline-flex items-center gap-2">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-navy-dark text-gray-300 py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 bg-navy rounded-lg flex items-center justify-center">
+              <svg class="w-7 h-7 text-gold" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+              </svg>
+            </div>
+            <span class="text-lg font-display font-bold text-white">Prime Properties Zamboanga</span>
+          </div>
+          <p class="text-gray-400 mb-6">
+            Your trusted partner in finding the perfect property in Zamboanga City and surrounding areas. Serving the community since 2005.
+          </p>
+          <div class="flex gap-4">
+            <a href="https://facebook.com/primepropertieszc" class="w-10 h-10 bg-navy rounded-lg flex items-center justify-center hover:bg-gold transition-colors" aria-label="Facebook">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+            <a href="https://instagram.com/primepropertieszc" class="w-10 h-10 bg-navy rounded-lg flex items-center justify-center hover:bg-gold transition-colors" aria-label="Instagram">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-white font-semibold mb-6">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="hover:text-gold transition-colors">Home</a></li>
+            <li><a href="listings.html" class="hover:text-gold transition-colors">All Listings</a></li>
+            <li><a href="contact.html" class="hover:text-gold transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Property Types -->
+        <div>
+          <h3 class="text-white font-semibold mb-6">Property Types</h3>
+          <ul class="space-y-3">
+            <li><a href="listings.html?type=house" class="hover:text-gold transition-colors">House & Lot</a></li>
+            <li><a href="listings.html?type=lot" class="hover:text-gold transition-colors">Lot Only</a></li>
+            <li><a href="listings.html?type=condo" class="hover:text-gold transition-colors">Condominium</a></li>
+            <li><a href="listings.html?type=commercial" class="hover:text-gold transition-colors">Commercial</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h3 class="text-white font-semibold mb-6">Contact Info</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-gold mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              <span>321 La Purisima St., Zamboanga City, Zamboanga del Sur 7000</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
+              <a href="tel:(062) 993-1234" class="hover:text-gold transition-colors">(062) 993-1234</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+              <a href="mailto:info@primepropertieszc.ph" class="hover:text-gold transition-colors">info@primepropertieszc.ph</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+        <p>&copy; <span id="currentYear"></span> Prime Properties Zamboanga. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a
+    href="#"
+    class="whatsapp-float no-print"
+    data-whatsapp="639172345678"
+    data-message="Hi! I'm browsing your property listings and would like more information."
+    aria-label="Chat on WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top no-print" aria-label="Back to top">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
+
+  <!-- Shared Common JS -->
+  <script src="../../shared/js/common.js"></script>
+
+  <script>
+    // Set current year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Quick filter buttons
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const typeSelect = document.getElementById('filterType');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Update active state
+        filterBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        // Update type select
+        const type = this.dataset.type;
+        typeSelect.value = type;
+
+        // In a real implementation, this would filter the property cards
+        // For MVP, this is just a visual demo
+        console.log('Filter by type:', type || 'all');
+      });
+    });
+
+    // Search button handler (MVP - just logs for now)
+    document.getElementById('searchBtn').addEventListener('click', function() {
+      const filters = {
+        type: document.getElementById('filterType').value,
+        location: document.getElementById('filterLocation').value,
+        price: document.getElementById('filterPrice').value,
+        status: document.getElementById('filterStatus').value
+      };
+      console.log('Search with filters:', filters);
+      // In production, this would filter/reload the listings
+    });
+  </script>
+</body>
+</html>

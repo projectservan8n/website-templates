@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services - Bliss & Bloom Events | Wedding & Events Supplier</title>
+  <meta name="description" content="Explore our complete range of event services: catering, decor, coordination, photography, entertainment, and more. Bliss & Bloom Events makes your celebration perfect.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rose: {
+              primary: '#BE185D',
+              light: '#DB2777',
+              dark: '#9D174D'
+            },
+            gold: {
+              DEFAULT: '#D4AF37',
+              light: '#E5C158',
+              dark: '#B8962E'
+            },
+            burgundy: {
+              DEFAULT: '#7C2D12',
+              light: '#9A3412',
+              dark: '#5C1F0B'
+            },
+            blush: {
+              50: '#FDF2F8',
+              100: '#FCE7F3',
+              200: '#FBCFE8'
+            }
+          },
+          fontFamily: {
+            display: ['Cormorant', 'serif'],
+            body: ['Jost', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Shared Base Styles -->
+  <link rel="stylesheet" href="../../shared/css/base.css">
+
+  <style>
+    :root {
+      --color-primary: #BE185D;
+      --color-primary-rgb: 190, 24, 93;
+      --color-primary-dark: #9D174D;
+      --gradient-start: #BE185D;
+      --gradient-end: #D4AF37;
+    }
+
+    body {
+      font-family: 'Jost', sans-serif;
+    }
+
+    .font-display {
+      font-family: 'Cormorant', serif;
+    }
+
+    /* Service card styling */
+    .service-detail-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-detail-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 0;
+      background: linear-gradient(180deg, #BE185D, #D4AF37);
+      transition: height 0.4s ease;
+    }
+
+    .service-detail-card:hover::before {
+      height: 100%;
+    }
+
+    /* Checklist styling */
+    .service-checklist li::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background: linear-gradient(135deg, #BE185D, #D4AF37);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .service-checklist li::after {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+      width: 5px;
+      height: 9px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+    }
+  </style>
+</head>
+<body data-scroll-theme="dramatic" class="bg-blush-50 text-gray-800 font-body">
+
+  <!-- Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+    <nav class="container mx-auto px-4 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-rose-primary to-gold flex items-center justify-center">
+            <span class="text-white font-display text-xl font-bold">B</span>
+          </div>
+          <div>
+            <span class="block font-display text-xl font-semibold text-burgundy">Bliss & Bloom Events</span>
+            <span class="block text-xs text-rose-primary tracking-widest uppercase">Events & Celebrations</span>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="index.html" class="text-gray-700 hover:text-rose-primary transition-colors">Home</a>
+          <a href="services.html" class="text-rose-primary font-medium">Services</a>
+          <a href="gallery.html" class="text-gray-700 hover:text-rose-primary transition-colors">Gallery</a>
+          <a href="packages.html" class="text-gray-700 hover:text-rose-primary transition-colors">Packages</a>
+          <a href="index.html#contact" class="text-gray-700 hover:text-rose-primary transition-colors">Contact</a>
+        </div>
+
+        <!-- CTA & Mobile Toggle -->
+        <div class="flex items-center gap-4">
+          <a href="index.html#contact" class="hidden sm:inline-flex px-6 py-2.5 bg-rose-primary hover:bg-rose-dark text-white rounded-full font-medium transition-all hover:shadow-lg">
+            Get Quote
+          </a>
+          <button data-menu-toggle class="lg:hidden p-2 text-gray-700" aria-label="Toggle menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div data-menu-overlay class="mobile-menu-overlay"></div>
+    <div data-mobile-menu class="mobile-menu bg-white">
+      <div class="p-6">
+        <div class="flex items-center justify-between mb-8">
+          <span class="font-display text-xl font-semibold text-burgundy">Bliss & Bloom Events</span>
+          <button data-menu-close class="p-2 text-gray-500 hover:text-gray-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+        <nav class="space-y-4">
+          <a href="index.html" class="block py-3 text-lg text-gray-700 hover:text-rose-primary border-b border-blush-200">Home</a>
+          <a href="services.html" class="block py-3 text-lg text-rose-primary font-medium border-b border-blush-200">Services</a>
+          <a href="gallery.html" class="block py-3 text-lg text-gray-700 hover:text-rose-primary border-b border-blush-200">Gallery</a>
+          <a href="packages.html" class="block py-3 text-lg text-gray-700 hover:text-rose-primary border-b border-blush-200">Packages</a>
+          <a href="index.html#contact" class="block py-3 text-lg text-gray-700 hover:text-rose-primary border-b border-blush-200">Contact</a>
+        </nav>
+        <a href="index.html#contact" class="mt-8 w-full inline-flex justify-center px-6 py-3 bg-rose-primary text-white rounded-full font-medium">
+          Get Quote
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="pt-32 pb-20 bg-gradient-to-br from-burgundy via-rose-dark to-rose-primary relative overflow-hidden">
+    <!-- Decorative Elements -->
+    <div class="absolute top-20 right-10 w-64 h-64 bg-gold/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 left-10 w-48 h-48 bg-white/5 rounded-full blur-2xl"></div>
+
+    <div class="container mx-auto px-4 lg:px-8 relative z-10">
+      <div class="max-w-3xl">
+        <nav class="flex items-center gap-2 text-white/60 text-sm mb-6">
+          <a href="index.html" class="hover:text-white transition-colors">Home</a>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+          <span class="text-gold">Our Services</span>
+        </nav>
+
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+          Everything You Need for an <span class="text-gold italic">Unforgettable</span> Event
+        </h1>
+        <p class="text-white/80 text-lg max-w-2xl">
+          From delicious catering to stunning decor, professional coordination to memorable entertainment - we offer comprehensive event services tailored to your vision.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Navigation -->
+  <section class="bg-white sticky top-20 z-40 border-b border-blush-200 shadow-sm">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="flex items-center gap-4 lg:gap-8 py-4 overflow-x-auto hide-scrollbar">
+        <a href="#catering" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-600 hover:text-rose-primary transition-colors">Catering</a>
+        <a href="#decor" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-600 hover:text-rose-primary transition-colors">Event Styling</a>
+        <a href="#coordination" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-600 hover:text-rose-primary transition-colors">Coordination</a>
+        <a href="#media" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-600 hover:text-rose-primary transition-colors">Photo & Video</a>
+        <a href="#entertainment" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-600 hover:text-rose-primary transition-colors">Entertainment</a>
+        <a href="#cakes" class="flex-shrink-0 px-4 py-2 text-sm font-medium text-gray-600 hover:text-rose-primary transition-colors">Cakes & Desserts</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service 1: Catering -->
+  <section id="catering" class="py-20 lg:py-28 bg-white scroll-mt-36">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Image -->
+        <div class="relative" data-scroll="fade-right">
+          <div class="rounded-2xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1555244162-803834f70033?w=600&h=400&fit=crop"
+              alt="Catering service"
+              class="w-full aspect-[4/3] object-cover"
+              onerror="this.src='https://images.unsplash.com/photo-1555244162-803834f70033?w=800&q=80'"
+            >
+          </div>
+          <!-- Floating Badge -->
+          <div class="absolute -bottom-4 -right-4 lg:bottom-8 lg:-right-8 bg-gold text-burgundy-dark px-6 py-3 rounded-xl shadow-lg">
+            <span class="font-display text-xl font-bold">Starting at</span>
+            <span class="block text-2xl font-bold">₱650/head</span>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div data-scroll="fade-left">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-blush-100 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-rose-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+            </div>
+            <span class="text-rose-primary font-medium uppercase tracking-wide text-sm">Premier Service</span>
+          </div>
+
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-burgundy mb-6">
+            Catering & <span class="text-rose-primary italic">Menu Design</span>
+          </h2>
+
+          <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+            Delight your guests with exquisite Filipino and international cuisine crafted by our expert culinary team. From traditional favorites to modern fusion dishes, we customize every menu to match your taste and theme.
+          </p>
+
+          <!-- What's Included -->
+          <h3 class="font-semibold text-burgundy mb-4">What's Included:</h3>
+          <ul class="grid sm:grid-cols-2 gap-3 mb-8">
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Customized menu planning
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Food tasting session
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Professional service staff
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Complete table setup
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Buffet or plated options
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Dietary accommodations
+            </li>
+          </ul>
+
+          <a href="index.html#contact" class="inline-flex items-center px-8 py-3 bg-rose-primary hover:bg-rose-dark text-white rounded-full font-semibold transition-all hover:shadow-lg">
+            Get a Quote
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service 2: Event Styling & Decor -->
+  <section id="decor" class="py-20 lg:py-28 bg-blush-50 scroll-mt-36">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Content (reversed order on desktop) -->
+        <div class="order-2 lg:order-1" data-scroll="fade-right">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
+              <svg class="w-6 h-6 text-rose-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+              </svg>
+            </div>
+            <span class="text-rose-primary font-medium uppercase tracking-wide text-sm">Transform Your Venue</span>
+          </div>
+
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-burgundy mb-6">
+            Event Styling & <span class="text-rose-primary italic">Decor</span>
+          </h2>
+
+          <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+            Transform any venue into a breathtaking celebration space. Our design team creates stunning environments with florals, lighting, drapery, and custom installations that bring your vision to life.
+          </p>
+
+          <!-- What's Included -->
+          <h3 class="font-semibold text-burgundy mb-4">What's Included:</h3>
+          <ul class="grid sm:grid-cols-2 gap-3 mb-8">
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Theme conceptualization
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Fresh floral arrangements
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Table centerpieces
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Stage & backdrop design
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Ambient lighting
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Chair covers & sashes
+            </li>
+          </ul>
+
+          <div class="flex flex-wrap gap-4">
+            <a href="index.html#contact" class="inline-flex items-center px-8 py-3 bg-rose-primary hover:bg-rose-dark text-white rounded-full font-semibold transition-all hover:shadow-lg">
+              Get a Quote
+            </a>
+            <a href="gallery.html" class="inline-flex items-center px-8 py-3 border-2 border-rose-primary text-rose-primary rounded-full font-semibold hover:bg-rose-primary hover:text-white transition-all">
+              View Gallery
+            </a>
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div class="relative order-1 lg:order-2" data-scroll="fade-left">
+          <div class="rounded-2xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=400&fit=crop"
+              alt="Event styling and decor"
+              class="w-full aspect-[4/3] object-cover"
+              onerror="this.src='https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&q=80'"
+            >
+          </div>
+          <!-- Floating Badge -->
+          <div class="absolute -bottom-4 -left-4 lg:bottom-8 lg:-left-8 bg-burgundy text-white px-6 py-3 rounded-xl shadow-lg">
+            <span class="block font-display text-xl font-bold">Starting at</span>
+            <span class="block text-2xl font-bold">₱35,000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service 3: Event Coordination -->
+  <section id="coordination" class="py-20 lg:py-28 bg-white scroll-mt-36">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Image -->
+        <div class="relative" data-scroll="fade-right">
+          <div class="rounded-2xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=600&h=400&fit=crop"
+              alt="Event coordination"
+              class="w-full aspect-[4/3] object-cover"
+              onerror="this.src='https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80'"
+            >
+          </div>
+          <!-- Floating Badge -->
+          <div class="absolute -bottom-4 -right-4 lg:bottom-8 lg:-right-8 bg-gold text-burgundy-dark px-6 py-3 rounded-xl shadow-lg">
+            <span class="block font-display text-xl font-bold">Starting at</span>
+            <span class="block text-2xl font-bold">₱25,000</span>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div data-scroll="fade-left">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-blush-100 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-rose-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+              </svg>
+            </div>
+            <span class="text-rose-primary font-medium uppercase tracking-wide text-sm">Stress-Free Planning</span>
+          </div>
+
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-burgundy mb-6">
+            Event <span class="text-rose-primary italic">Coordination</span>
+          </h2>
+
+          <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+            Let our experienced coordinators handle every detail while you enjoy your special day. From initial planning meetings to the final send-off, we ensure everything runs smoothly and on schedule.
+          </p>
+
+          <!-- What's Included -->
+          <h3 class="font-semibold text-burgundy mb-4">What's Included:</h3>
+          <ul class="grid sm:grid-cols-2 gap-3 mb-8">
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Full event planning
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Vendor coordination
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Timeline management
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Day-of coordination
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Guest management
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Emergency backup plans
+            </li>
+          </ul>
+
+          <a href="index.html#contact" class="inline-flex items-center px-8 py-3 bg-rose-primary hover:bg-rose-dark text-white rounded-full font-semibold transition-all hover:shadow-lg">
+            Get a Quote
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service 4: Photo & Video -->
+  <section id="media" class="py-20 lg:py-28 bg-blush-50 scroll-mt-36">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Content -->
+        <div class="order-2 lg:order-1" data-scroll="fade-right">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
+              <svg class="w-6 h-6 text-rose-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <span class="text-rose-primary font-medium uppercase tracking-wide text-sm">Capture Every Moment</span>
+          </div>
+
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-burgundy mb-6">
+            Photo & <span class="text-rose-primary italic">Videography</span>
+          </h2>
+
+          <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+            Preserve your precious memories with our professional photography and cinematic videography services. Our talented team captures every emotion, detail, and candid moment of your celebration.
+          </p>
+
+          <!-- What's Included -->
+          <h3 class="font-semibold text-burgundy mb-4">What's Included:</h3>
+          <ul class="grid sm:grid-cols-2 gap-3 mb-8">
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Pre-event consultation
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Full event coverage
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Same-day edit (SDE)
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Edited photos & video
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Online gallery
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Photo album options
+            </li>
+          </ul>
+
+          <a href="index.html#contact" class="inline-flex items-center px-8 py-3 bg-rose-primary hover:bg-rose-dark text-white rounded-full font-semibold transition-all hover:shadow-lg">
+            Get a Quote
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Image -->
+        <div class="relative order-1 lg:order-2" data-scroll="fade-left">
+          <div class="rounded-2xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=600&h=400&fit=crop"
+              alt="Photography and videography"
+              class="w-full aspect-[4/3] object-cover"
+              onerror="this.src='https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80'"
+            >
+          </div>
+          <!-- Floating Badge -->
+          <div class="absolute -bottom-4 -left-4 lg:bottom-8 lg:-left-8 bg-burgundy text-white px-6 py-3 rounded-xl shadow-lg">
+            <span class="block font-display text-xl font-bold">Starting at</span>
+            <span class="block text-2xl font-bold">₱35,000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service 5: Entertainment -->
+  <section id="entertainment" class="py-20 lg:py-28 bg-white scroll-mt-36">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Image -->
+        <div class="relative" data-scroll="fade-right">
+          <div class="rounded-2xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=600&h=400&fit=crop"
+              alt="Entertainment services"
+              class="w-full aspect-[4/3] object-cover"
+              onerror="this.src='https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80'"
+            >
+          </div>
+          <!-- Floating Badge -->
+          <div class="absolute -bottom-4 -right-4 lg:bottom-8 lg:-right-8 bg-gold text-burgundy-dark px-6 py-3 rounded-xl shadow-lg">
+            <span class="block font-display text-xl font-bold">Starting at</span>
+            <span class="block text-2xl font-bold">₱15,000</span>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div data-scroll="fade-left">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-blush-100 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-rose-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
+              </svg>
+            </div>
+            <span class="text-rose-primary font-medium uppercase tracking-wide text-sm">Keep Guests Engaged</span>
+          </div>
+
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-burgundy mb-6">
+            Entertainment & <span class="text-rose-primary italic">Music</span>
+          </h2>
+
+          <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+            Keep your guests entertained throughout the celebration with our network of talented performers, bands, DJs, and hosts. We match the entertainment to your event style and preferences.
+          </p>
+
+          <!-- What's Included -->
+          <h3 class="font-semibold text-burgundy mb-4">Services Available:</h3>
+          <ul class="grid sm:grid-cols-2 gap-3 mb-8">
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Live bands
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Professional DJs
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Acoustic performers
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Event hosts/MCs
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Sound & lighting
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Special performers
+            </li>
+          </ul>
+
+          <a href="index.html#contact" class="inline-flex items-center px-8 py-3 bg-rose-primary hover:bg-rose-dark text-white rounded-full font-semibold transition-all hover:shadow-lg">
+            Get a Quote
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service 6: Cakes & Desserts -->
+  <section id="cakes" class="py-20 lg:py-28 bg-blush-50 scroll-mt-36">
+    <div class="container mx-auto px-4 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Content -->
+        <div class="order-2 lg:order-1" data-scroll="fade-right">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
+              <svg class="w-6 h-6 text-rose-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"/>
+              </svg>
+            </div>
+            <span class="text-rose-primary font-medium uppercase tracking-wide text-sm">Sweet Perfection</span>
+          </div>
+
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-burgundy mb-6">
+            Cakes & <span class="text-rose-primary italic">Desserts</span>
+          </h2>
+
+          <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+            Complete your celebration with stunning custom cakes and delectable desserts from our partner bakeries. From elegant wedding cakes to elaborate debut towers, we create edible masterpieces.
+          </p>
+
+          <!-- What's Included -->
+          <h3 class="font-semibold text-burgundy mb-4">Options Available:</h3>
+          <ul class="grid sm:grid-cols-2 gap-3 mb-8">
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Custom wedding cakes
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Debut cake towers
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Cupcake displays
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Dessert tables
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Cake tasting sessions
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <svg class="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Delivery & setup
+            </li>
+          </ul>
+
+          <a href="index.html#contact" class="inline-flex items-center px-8 py-3 bg-rose-primary hover:bg-rose-dark text-white rounded-full font-semibold transition-all hover:shadow-lg">
+            Get a Quote
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Image -->
+        <div class="relative order-1 lg:order-2" data-scroll="fade-left">
+          <div class="rounded-2xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=600&h=400&fit=crop"
+              alt="Cakes and desserts"
+              class="w-full aspect-[4/3] object-cover"
+              onerror="this.src='https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=800&q=80'"
+            >
+          </div>
+          <!-- Floating Badge -->
+          <div class="absolute -bottom-4 -left-4 lg:bottom-8 lg:-left-8 bg-burgundy text-white px-6 py-3 rounded-xl shadow-lg">
+            <span class="block font-display text-xl font-bold">Starting at</span>
+            <span class="block text-2xl font-bold">₱8,000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 lg:py-28 bg-gradient-to-br from-rose-primary via-rose-dark to-burgundy relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-2xl"></div>
+
+    <div class="container mx-auto px-4 lg:px-8 text-center relative z-10">
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+        Need a <span class="text-gold italic">Custom Package?</span>
+      </h2>
+      <p class="text-white/80 text-lg max-w-2xl mx-auto mb-10">
+        Mix and match our services to create your perfect celebration. We'll help you build a package that fits your vision and budget.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="packages.html" class="inline-flex items-center px-8 py-4 bg-white text-rose-primary rounded-full font-semibold hover:bg-blush-50 transition-all hover:shadow-xl">
+          View Packages
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        <a href="index.html#contact" class="inline-flex items-center px-8 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-rose-primary transition-all">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-burgundy-dark text-white">
+    <div class="container mx-auto px-4 lg:px-8 py-16">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <!-- Brand -->
+        <div class="lg:col-span-1">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-rose-primary to-gold flex items-center justify-center">
+              <span class="text-white font-display text-lg font-bold">B</span>
+            </div>
+            <span class="font-display text-xl font-semibold">Bliss & Bloom Events</span>
+          </div>
+          <p class="text-white/70 text-sm mb-6">
+            Creating unforgettable celebrations in Zamboanga City since 2018. Your dream event is our passion.
+          </p>
+          <div class="flex items-center gap-3">
+            <a href="https://facebook.com/blissandbloomzambo" target="_blank" rel="noopener noreferrer" class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-rose-primary transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://instagram.com/blissandbloom_zambo" target="_blank" rel="noopener noreferrer" class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-rose-primary transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://tiktok.com/@blissandbloomzambo" target="_blank" rel="noopener noreferrer" class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-rose-primary transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-display text-lg font-semibold mb-4">Quick Links</h4>
+          <nav class="space-y-2">
+            <a href="index.html" class="block text-white/70 hover:text-gold transition-colors">Home</a>
+            <a href="services.html" class="block text-white/70 hover:text-gold transition-colors">Our Services</a>
+            <a href="gallery.html" class="block text-white/70 hover:text-gold transition-colors">Gallery</a>
+            <a href="packages.html" class="block text-white/70 hover:text-gold transition-colors">Packages</a>
+            <a href="index.html#contact" class="block text-white/70 hover:text-gold transition-colors">Contact Us</a>
+          </nav>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h4 class="font-display text-lg font-semibold mb-4">Our Services</h4>
+          <nav class="space-y-2">
+            <a href="#catering" class="block text-white/70 hover:text-gold transition-colors">Catering</a>
+            <a href="#decor" class="block text-white/70 hover:text-gold transition-colors">Event Styling</a>
+            <a href="#coordination" class="block text-white/70 hover:text-gold transition-colors">Coordination</a>
+            <a href="#media" class="block text-white/70 hover:text-gold transition-colors">Photo & Video</a>
+            <a href="#entertainment" class="block text-white/70 hover:text-gold transition-colors">Entertainment</a>
+          </nav>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="font-display text-lg font-semibold mb-4">Contact Us</h4>
+          <div class="space-y-3 text-sm">
+            <p class="text-white/70">
+              <span class="text-gold">Phone:</span><br>
+              <a href="tel:(062) 992-4455" class="hover:text-gold transition-colors">(062) 992-4455</a>
+            </p>
+            <p class="text-white/70">
+              <span class="text-gold">Email:</span><br>
+              <a href="mailto:hello@blissandbloomevents.ph" class="hover:text-gold transition-colors">hello@blissandbloomevents.ph</a>
+            </p>
+            <p class="text-white/70">
+              <span class="text-gold">Address:</span><br>
+              3rd Floor, City Plaza Mall, Gov. Alvarez Ave., Zamboanga City
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-white/10">
+      <div class="container mx-auto px-4 lg:px-8 py-6">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/60">
+          <p>&copy; 2024 Bliss & Bloom Events. All rights reserved.</p>
+          <p>Crafted with love for celebrations.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float Button -->
+  <a
+    href="#"
+    data-whatsapp="639924455678"
+    data-message="Hi! I'm interested in your events services. I'd like to inquire about booking."
+    class="whatsapp-float no-print"
+    aria-label="Chat on WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top no-print" aria-label="Back to top">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
+
+  <!-- Shared JavaScript -->
+  <script src="../../shared/js/common.js"></script>
+
+  <!-- Template-Specific Config -->
+  <script src="config.example.js"></script>
+
+  <style>
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</body>
+</html>

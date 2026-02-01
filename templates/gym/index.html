@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iron Forge Fitness - Transform Your Body, Transform Your Life | Zamboanga City</title>
+  <meta name="description" content="Iron Forge Fitness is Zamboanga City's premier fitness center. State-of-the-art equipment, expert trainers, group classes, and a supportive community. Start your transformation today!">
+  <meta name="keywords" content="gym, fitness center, Zamboanga City, weight training, crossfit, personal training, zumba, yoga">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Iron Forge Fitness - Transform Your Body, Transform Your Life">
+  <meta property="og:description" content="Zamboanga City's premier fitness center with world-class equipment, expert trainers, and a community that pushes you to be your best.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'energy-red': '#DC2626',
+            'power-orange': '#EA580C',
+            'electric-blue': '#3B82F6',
+            'charcoal': '#1F2937',
+            'charcoal-dark': '#111827',
+          },
+          fontFamily: {
+            'display': ['Bebas Neue', 'sans-serif'],
+            'body': ['Barlow', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Shared Base Styles -->
+  <link rel="stylesheet" href="../../shared/css/base.css">
+
+  <style>
+    :root {
+      --color-primary: #DC2626;
+      --color-primary-dark: #B91C1C;
+      --color-primary-rgb: 220, 38, 38;
+      --gradient-start: #DC2626;
+      --gradient-end: #EA580C;
+    }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background-color: #1F2937;
+      color: white;
+    }
+
+    .font-display {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(31, 41, 55, 0.95) 0%, rgba(17, 24, 39, 0.85) 100%);
+    }
+
+    .red-glow {
+      box-shadow: 0 0 40px rgba(220, 38, 38, 0.4);
+    }
+
+    .orange-glow {
+      box-shadow: 0 0 40px rgba(234, 88, 12, 0.4);
+    }
+
+    .stat-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .program-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .program-card:hover {
+      border-color: #DC2626;
+      transform: translateY(-4px);
+    }
+
+    .trainer-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .trainer-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60%;
+      background: linear-gradient(to top, rgba(17, 24, 39, 0.95), transparent);
+    }
+
+    .mobile-menu {
+      background: #111827;
+    }
+  </style>
+</head>
+<body class="bg-charcoal" data-scroll-theme="energetic">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-charcoal-dark/95 backdrop-blur-md border-b border-white/10">
+    <div class="container mx-auto px-4">
+      <nav class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-energy-red rounded-lg flex items-center justify-center red-glow">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"/>
+            </svg>
+          </div>
+          <span class="font-display text-2xl text-white tracking-wider">Iron Forge Fitness</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="index.html" class="text-white font-semibold hover:text-energy-red transition-colors">Home</a>
+          <a href="programs.html" class="text-gray-300 hover:text-energy-red transition-colors">Programs</a>
+          <a href="membership.html" class="text-gray-300 hover:text-energy-red transition-colors">Membership</a>
+          <a href="#facilities" class="text-gray-300 hover:text-energy-red transition-colors">Facilities</a>
+          <a href="#trainers" class="text-gray-300 hover:text-energy-red transition-colors">Trainers</a>
+          <a href="#contact" class="text-gray-300 hover:text-energy-red transition-colors">Contact</a>
+        </div>
+
+        <!-- CTA & Mobile Menu -->
+        <div class="flex items-center gap-4">
+          <a href="#free-trial" class="hidden md:inline-flex bg-energy-red hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition-all hover:red-glow">
+            Free Trial
+          </a>
+
+          <!-- Mobile Menu Button -->
+          <button data-menu-toggle class="lg:hidden text-white p-2" aria-label="Toggle menu" aria-expanded="false">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div data-menu-overlay class="mobile-menu-overlay"></div>
+
+  <!-- Mobile Menu -->
+  <div data-mobile-menu class="mobile-menu">
+    <div class="p-6">
+      <div class="flex items-center justify-between mb-8">
+        <span class="font-display text-xl text-white">Iron Forge Fitness</span>
+        <button data-menu-close class="text-gray-400 hover:text-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-4">
+        <a href="index.html" class="text-white font-semibold py-3 border-b border-white/10">Home</a>
+        <a href="programs.html" class="text-gray-300 py-3 border-b border-white/10">Programs</a>
+        <a href="membership.html" class="text-gray-300 py-3 border-b border-white/10">Membership</a>
+        <a href="#facilities" class="text-gray-300 py-3 border-b border-white/10">Facilities</a>
+        <a href="#trainers" class="text-gray-300 py-3 border-b border-white/10">Trainers</a>
+        <a href="#contact" class="text-gray-300 py-3 border-b border-white/10">Contact</a>
+      </nav>
+
+      <a href="#free-trial" class="mt-8 block w-full bg-energy-red hover:bg-red-700 text-white font-bold py-4 px-6 rounded-lg text-center transition-colors">
+        Start Free Trial
+      </a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center pt-20">
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80"
+        alt="Fitness training at Iron Forge Fitness"
+        class="w-full h-full object-cover"
+        onerror="this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80'"
+      >
+      <div class="hero-gradient absolute inset-0"></div>
+    </div>
+
+    <!-- Decorative Elements -->
+    <div class="absolute top-1/4 right-10 w-64 h-64 bg-energy-red/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 left-10 w-48 h-48 bg-power-orange/20 rounded-full blur-3xl"></div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6" data-scroll="bounce-in">
+          <span class="w-2 h-2 bg-energy-red rounded-full animate-pulse"></span>
+          <span class="text-sm text-gray-300">Zamboanga City's Premier Fitness Center</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="font-display text-6xl md:text-7xl lg:text-8xl text-white leading-none mb-6" data-scroll="bounce-in" data-scroll-delay="100">
+          TRANSFORM<br>
+          <span class="text-energy-red">YOUR BODY</span><br>
+          TRANSFORM<br>
+          <span class="text-power-orange">YOUR LIFE</span>
+        </h1>
+
+        <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl" data-scroll="bounce-in" data-scroll-delay="200">
+          Join Iron Forge Fitness and become part of a community that pushes limits, breaks barriers, and achieves the impossible. Your transformation starts today.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-4" data-scroll="bounce-in" data-scroll-delay="300">
+          <a href="#free-trial" class="bg-energy-red hover:bg-red-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all hover:red-glow flex items-center gap-2">
+            <span>Start Your Journey</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+          <a href="membership.html" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all">
+            View Memberships
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16" data-scroll="bounce-in" data-scroll-delay="400">
+          <div class="stat-card rounded-xl p-6 text-center">
+            <div class="font-display text-4xl text-energy-red">2,500+</div>
+            <div class="text-gray-400 text-sm mt-1">Active Members</div>
+          </div>
+          <div class="stat-card rounded-xl p-6 text-center">
+            <div class="font-display text-4xl text-power-orange">15+</div>
+            <div class="text-gray-400 text-sm mt-1">Expert Trainers</div>
+          </div>
+          <div class="stat-card rounded-xl p-6 text-center">
+            <div class="font-display text-4xl text-electric-blue">8+</div>
+            <div class="text-gray-400 text-sm mt-1">Years of Excellence</div>
+          </div>
+          <div class="stat-card rounded-xl p-6 text-center">
+            <div class="font-display text-4xl text-white">100+</div>
+            <div class="text-gray-400 text-sm mt-1">Equipment Pieces</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <svg class="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Facilities Section -->
+  <section id="facilities" class="py-24 bg-charcoal-dark">
+    <div class="container mx-auto px-4">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <span class="text-energy-red font-semibold tracking-wider uppercase">World-Class Facilities</span>
+        <h2 class="font-display text-5xl md:text-6xl text-white mt-2">EVERYTHING YOU NEED</h2>
+        <p class="text-gray-400 text-lg mt-4 max-w-2xl mx-auto">
+          Our 5,000 sq ft facility is equipped with the latest fitness technology and amenities to support every aspect of your fitness journey.
+        </p>
+      </div>
+
+      <!-- Facilities Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Facility 1: Weight Training Area -->
+        <div class="group relative overflow-hidden rounded-2xl aspect-[4/3]" data-scroll="bounce-in">
+          <img
+            src="https://images.unsplash.com/photo-1581009146145-b5ef050c149a?w=600&h=400&fit=crop"
+            alt="Weight Training Area"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            onerror="this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80'"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-charcoal-dark via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 bg-energy-red rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+              </div>
+              <h3 class="font-display text-2xl text-white">Weight Training Zone</h3>
+            </div>
+            <p class="text-gray-400 text-sm">Free weights, cable machines, and Olympic lifting platforms</p>
+          </div>
+        </div>
+
+        <!-- Facility 2: Cardio Area -->
+        <div class="group relative overflow-hidden rounded-2xl aspect-[4/3]" data-scroll="bounce-in" data-scroll-delay="100">
+          <img
+            src="https://images.unsplash.com/photo-1576678927484-cc907957088c?w=600&h=400&fit=crop"
+            alt="Cardio Area"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            onerror="this.src='https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600&q=80'"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-charcoal-dark via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 bg-power-orange rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              </div>
+              <h3 class="font-display text-2xl text-white">Cardio Center</h3>
+            </div>
+            <p class="text-gray-400 text-sm">Treadmills, bikes, ellipticals with personal screens</p>
+          </div>
+        </div>
+
+        <!-- Facility 3: Group Class Studio -->
+        <div class="group relative overflow-hidden rounded-2xl aspect-[4/3]" data-scroll="bounce-in" data-scroll-delay="200">
+          <img
+            src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&h=400&fit=crop"
+            alt="Group Class Studio"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            onerror="this.src='https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80'"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-charcoal-dark via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 bg-electric-blue rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+              </div>
+              <h3 class="font-display text-2xl text-white">Group Class Studio</h3>
+            </div>
+            <p class="text-gray-400 text-sm">Spacious studios for Zumba, yoga, and group fitness</p>
+          </div>
+        </div>
+
+        <!-- Facility 4: Functional Training -->
+        <div class="group relative overflow-hidden rounded-2xl aspect-[4/3]" data-scroll="bounce-in" data-scroll-delay="300">
+          <img
+            src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=600&h=400&fit=crop"
+            alt="Functional Training Area"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            onerror="this.src='https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=600&q=80'"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-charcoal-dark via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 bg-energy-red rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+              </div>
+              <h3 class="font-display text-2xl text-white">Functional Zone</h3>
+            </div>
+            <p class="text-gray-400 text-sm">CrossFit equipment, battle ropes, and plyometric area</p>
+          </div>
+        </div>
+
+        <!-- Facility 5: Locker Rooms -->
+        <div class="group relative overflow-hidden rounded-2xl aspect-[4/3]" data-scroll="bounce-in" data-scroll-delay="400">
+          <img
+            src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=600&h=400&fit=crop"
+            alt="Premium Locker Rooms"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            onerror="this.src='https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600&q=80'"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-charcoal-dark via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 bg-power-orange rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                </svg>
+              </div>
+              <h3 class="font-display text-2xl text-white">Premium Amenities</h3>
+            </div>
+            <p class="text-gray-400 text-sm">Locker rooms, showers, and towel service</p>
+          </div>
+        </div>
+
+        <!-- Facility 6: Recovery Area -->
+        <div class="group relative overflow-hidden rounded-2xl aspect-[4/3]" data-scroll="bounce-in" data-scroll-delay="500">
+          <img
+            src="https://images.unsplash.com/photo-1544367567-0f2fcb009e067?w=600&h=400&fit=crop"
+            alt="Recovery Zone"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            onerror="this.src='https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80'"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-charcoal-dark via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 bg-electric-blue rounded-lg flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </div>
+              <h3 class="font-display text-2xl text-white">Recovery Zone</h3>
+            </div>
+            <p class="text-gray-400 text-sm">Stretching area, foam rollers, and massage guns</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Preview Section -->
+  <section class="py-24 bg-charcoal">
+    <div class="container mx-auto px-4">
+      <!-- Section Header -->
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
+        <div>
+          <span class="text-energy-red font-semibold tracking-wider uppercase">Our Programs</span>
+          <h2 class="font-display text-5xl md:text-6xl text-white mt-2">FIND YOUR STRENGTH</h2>
+          <p class="text-gray-400 text-lg mt-4 max-w-2xl">
+            From high-intensity training to mindful movement, we have programs designed for every fitness level and goal.
+          </p>
+        </div>
+        <a href="programs.html" class="inline-flex items-center gap-2 text-energy-red hover:text-red-400 font-semibold transition-colors">
+          <span>View All Programs</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Programs Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Program 1: Weight Training -->
+        <div class="program-card rounded-2xl p-8" data-scroll="bounce-in">
+          <div class="w-14 h-14 bg-energy-red/20 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-energy-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl text-white mb-3">Weight Training</h3>
+          <p class="text-gray-400 mb-6">Build muscle, increase strength, and sculpt your physique with our comprehensive weight training programs.</p>
+          <div class="flex items-center gap-4 text-sm">
+            <span class="text-energy-red font-semibold">All Levels</span>
+            <span class="text-gray-500">|</span>
+            <span class="text-gray-400">45-60 min</span>
+          </div>
+        </div>
+
+        <!-- Program 2: CrossFit -->
+        <div class="program-card rounded-2xl p-8" data-scroll="bounce-in" data-scroll-delay="100">
+          <div class="w-14 h-14 bg-power-orange/20 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-power-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl text-white mb-3">CrossFit / Functional</h3>
+          <p class="text-gray-400 mb-6">High-intensity functional movements that will challenge your limits and transform your conditioning.</p>
+          <div class="flex items-center gap-4 text-sm">
+            <span class="text-power-orange font-semibold">Intermediate+</span>
+            <span class="text-gray-500">|</span>
+            <span class="text-gray-400">60 min</span>
+          </div>
+        </div>
+
+        <!-- Program 3: Group Classes -->
+        <div class="program-card rounded-2xl p-8" data-scroll="bounce-in" data-scroll-delay="200">
+          <div class="w-14 h-14 bg-electric-blue/20 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-electric-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl text-white mb-3">Group Classes</h3>
+          <p class="text-gray-400 mb-6">Zumba, yoga, pilates, and more. Energizing classes led by certified instructors in a motivating group setting.</p>
+          <div class="flex items-center gap-4 text-sm">
+            <span class="text-electric-blue font-semibold">All Levels</span>
+            <span class="text-gray-500">|</span>
+            <span class="text-gray-400">45-60 min</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transformation Stories Section -->
+  <section class="py-24 bg-charcoal-dark relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-0 left-0 w-full h-full" style="background-image: url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"1\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <span class="text-energy-red font-semibold tracking-wider uppercase">Success Stories</span>
+        <h2 class="font-display text-5xl md:text-6xl text-white mt-2">REAL TRANSFORMATIONS</h2>
+        <p class="text-gray-400 text-lg mt-4 max-w-2xl mx-auto">
+          Our members don't just lose weight - they gain confidence, strength, and a whole new outlook on life. Here are some of their stories.
+        </p>
+      </div>
+
+      <!-- Testimonials Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8" data-scroll="bounce-in">
+          <div class="flex items-center gap-4 mb-6">
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
+              alt="Marco Reyes"
+              class="w-16 h-16 rounded-full object-cover border-2 border-energy-red"
+              onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80'"
+            >
+            <div>
+              <div class="font-display text-xl text-white">Marco Reyes</div>
+              <div class="text-energy-red text-sm font-semibold">Lost 25 kg in 6 months</div>
+            </div>
+          </div>
+          <p class="text-gray-300 italic mb-4">"Iron Forge changed my life. The trainers pushed me beyond what I thought possible. I've never felt stronger or more confident. Best decision I ever made!"</p>
+          <div class="flex gap-1">
+            <svg class="w-5 h-5 text-energy-red" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-energy-red" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-energy-red" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-energy-red" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-energy-red" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8" data-scroll="bounce-in" data-scroll-delay="100">
+          <div class="flex items-center gap-4 mb-6">
+            <img
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80"
+              alt="Angela Santos"
+              class="w-16 h-16 rounded-full object-cover border-2 border-power-orange"
+              onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80'"
+            >
+            <div>
+              <div class="font-display text-xl text-white">Angela Santos</div>
+              <div class="text-power-orange text-sm font-semibold">Completed first marathon</div>
+            </div>
+          </div>
+          <p class="text-gray-300 italic mb-4">"Started as a complete beginner 2 years ago. The group classes kept me motivated, and now I've run my first marathon! The community here is unmatched."</p>
+          <div class="flex gap-1">
+            <svg class="w-5 h-5 text-power-orange" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-power-orange" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-power-orange" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-power-orange" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-power-orange" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8" data-scroll="bounce-in" data-scroll-delay="200">
+          <div class="flex items-center gap-4 mb-6">
+            <img
+              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80"
+              alt="Jerome Villanueva"
+              class="w-16 h-16 rounded-full object-cover border-2 border-electric-blue"
+              onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80'"
+            >
+            <div>
+              <div class="font-display text-xl text-white">Jerome Villanueva</div>
+              <div class="text-electric-blue text-sm font-semibold">Gained 15 kg muscle</div>
+            </div>
+          </div>
+          <p class="text-gray-300 italic mb-4">"As a skinny guy, I never thought I could build muscle. Coach Ricky designed a program just for me. Now I'm stronger than ever and feel great!"</p>
+          <div class="flex gap-1">
+            <svg class="w-5 h-5 text-electric-blue" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-electric-blue" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-electric-blue" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-electric-blue" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5 text-electric-blue" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trainers Section -->
+  <section id="trainers" class="py-24 bg-charcoal">
+    <div class="container mx-auto px-4">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <span class="text-energy-red font-semibold tracking-wider uppercase">Expert Guidance</span>
+        <h2 class="font-display text-5xl md:text-6xl text-white mt-2">MEET YOUR TRAINERS</h2>
+        <p class="text-gray-400 text-lg mt-4 max-w-2xl mx-auto">
+          Our certified trainers bring passion, expertise, and dedication to help you achieve your fitness goals.
+        </p>
+      </div>
+
+      <!-- Trainers Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Trainer 1 -->
+        <div class="trainer-card rounded-2xl aspect-[3/4]" data-scroll="bounce-in">
+          <img
+            src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=400&q=80"
+            alt="Coach Ricky Mendoza"
+            class="w-full h-full object-cover"
+            onerror="this.src='https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=400&q=80'"
+          >
+          <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+            <h3 class="font-display text-2xl text-white">Coach Ricky Mendoza</h3>
+            <p class="text-energy-red font-semibold">Strength & Conditioning</p>
+            <p class="text-gray-400 text-sm mt-2">NSCA-CPT, CrossFit L2</p>
+          </div>
+        </div>
+
+        <!-- Trainer 2 -->
+        <div class="trainer-card rounded-2xl aspect-[3/4]" data-scroll="bounce-in" data-scroll-delay="100">
+          <img
+            src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&q=80"
+            alt="Coach Marie Gonzales"
+            class="w-full h-full object-cover"
+            onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&q=80'"
+          >
+          <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+            <h3 class="font-display text-2xl text-white">Coach Marie Gonzales</h3>
+            <p class="text-power-orange font-semibold">Zumba & Dance Fitness</p>
+            <p class="text-gray-400 text-sm mt-2">ZIN™ Certified, ACE-GFI</p>
+          </div>
+        </div>
+
+        <!-- Trainer 3 -->
+        <div class="trainer-card rounded-2xl aspect-[3/4]" data-scroll="bounce-in" data-scroll-delay="200">
+          <img
+            src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400&q=80"
+            alt="Coach Jasmine Torres"
+            class="w-full h-full object-cover"
+            onerror="this.src='https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400&q=80'"
+          >
+          <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+            <h3 class="font-display text-2xl text-white">Coach Jasmine Torres</h3>
+            <p class="text-electric-blue font-semibold">Yoga & Pilates</p>
+            <p class="text-gray-400 text-sm mt-2">RYT-500, BASI Pilates</p>
+          </div>
+        </div>
+
+        <!-- Trainer 4 -->
+        <div class="trainer-card rounded-2xl aspect-[3/4]" data-scroll="bounce-in" data-scroll-delay="300">
+          <img
+            src="https://images.unsplash.com/photo-1597347316205-36f6c451902a?w=400&q=80"
+            alt="Coach Bryan Lacson"
+            class="w-full h-full object-cover"
+            onerror="this.src='https://images.unsplash.com/photo-1597347316205-36f6c451902a?w=400&q=80'"
+          >
+          <div class="absolute bottom-0 left-0 right-0 p-6 z-10">
+            <h3 class="font-display text-2xl text-white">Coach Bryan Lacson</h3>
+            <p class="text-energy-red font-semibold">Boxing & MMA</p>
+            <p class="text-gray-400 text-sm mt-2">WAKO Certified, MMA Coach</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location & Hours Section -->
+  <section id="contact" class="py-24 bg-charcoal-dark">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Map / Location Image -->
+        <div class="relative rounded-2xl overflow-hidden aspect-video lg:aspect-square" data-scroll="fade-right">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63399.455098873345!2d122.0248!3d6.9071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x325041b0a83f48c3%3A0x9b0eb7f0c7c5e6a1!2sZamboanga%20City!5e0!3m2!1sen!2sph!4v1699999999999!5m2!1sen!2sph"
+            class="w-full h-full"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <!-- Fallback if no embed URL -->
+          <div class="absolute inset-0 bg-charcoal flex items-center justify-center" style="display: none;">
+            <p class="text-gray-400">Map location coming soon</p>
+          </div>
+        </div>
+
+        <!-- Location Info -->
+        <div data-scroll="fade-left">
+          <span class="text-energy-red font-semibold tracking-wider uppercase">Visit Us</span>
+          <h2 class="font-display text-5xl md:text-6xl text-white mt-2 mb-8">LOCATION & HOURS</h2>
+
+          <!-- Address -->
+          <div class="flex items-start gap-4 mb-8">
+            <div class="w-12 h-12 bg-energy-red/20 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-energy-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-display text-xl text-white mb-1">Address</h3>
+              <p class="text-gray-400">456 Gov. Lim Ave.</p>
+              <p class="text-gray-400">Zamboanga City, Zamboanga del Sur 7000</p>
+            </div>
+          </div>
+
+          <!-- Hours -->
+          <div class="flex items-start gap-4 mb-8">
+            <div class="w-12 h-12 bg-power-orange/20 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-power-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-display text-xl text-white mb-1">Operating Hours</h3>
+              <div class="space-y-1 text-gray-400">
+                <p><span class="text-white">Mon - Fri:</span> 5:00 AM - 10:00 PM</p>
+                <p><span class="text-white">Saturday:</span> 6:00 AM - 9:00 PM</p>
+                <p><span class="text-white">Sunday:</span> 7:00 AM - 8:00 PM</p>
+                <p><span class="text-white">Holidays:</span> 8:00 AM - 6:00 PM</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact -->
+          <div class="flex items-start gap-4 mb-8">
+            <div class="w-12 h-12 bg-electric-blue/20 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-electric-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-display text-xl text-white mb-1">Contact</h3>
+              <p class="text-gray-400">Phone: <a href="tel:(062) 992-3344" class="text-white hover:text-energy-red">(062) 992-3344</a></p>
+              <p class="text-gray-400">Email: <a href="mailto:info@ironforgefitness.ph" class="text-white hover:text-energy-red">info@ironforgefitness.ph</a></p>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="flex flex-wrap gap-4">
+            <a href="#free-trial" class="bg-energy-red hover:bg-red-700 text-white font-bold py-4 px-8 rounded-lg transition-all hover:red-glow">
+              Book Free Trial
+            </a>
+            <a
+              href="https://wa.me/639929923344?text=Hi!%20I%27m%20interested%20in%20joining%20Iron Forge Fitness"
+              target="_blank"
+              class="bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-4 px-8 rounded-lg transition-all flex items-center gap-2"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              <span>WhatsApp Us</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Free Trial CTA Section -->
+  <section id="free-trial" class="py-24 bg-energy-red relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+      <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <defs>
+          <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)"/>
+      </svg>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="font-display text-5xl md:text-7xl text-white mb-6" data-scroll="bounce-in">
+          START YOUR<br>FREE TRIAL TODAY
+        </h2>
+        <p class="text-white/90 text-xl mb-8 max-w-2xl mx-auto" data-scroll="bounce-in" data-scroll-delay="100">
+          Experience Iron Forge Fitness for free. No commitment, no pressure. Just show up and see what you're capable of.
+        </p>
+
+        <!-- Trial Form -->
+        <form class="max-w-xl mx-auto" data-validate data-scroll="bounce-in" data-scroll-delay="200">
+          <div class="flex flex-col sm:flex-row gap-4">
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              required
+              class="flex-1 px-6 py-4 rounded-lg bg-white/10 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:border-white focus:bg-white/20 transition-all"
+            >
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              required
+              class="flex-1 px-6 py-4 rounded-lg bg-white/10 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:border-white focus:bg-white/20 transition-all"
+            >
+          </div>
+          <button
+            type="submit"
+            class="mt-4 w-full bg-charcoal-dark hover:bg-charcoal text-white font-bold py-4 px-8 rounded-lg text-lg transition-all hover:shadow-strong"
+          >
+            Claim Your Free Trial
+          </button>
+          <p class="text-white/70 text-sm mt-4">
+            Limited slots available. We'll contact you within 24 hours to schedule your visit.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-charcoal-dark border-t border-white/10 py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <!-- Brand -->
+        <div>
+          <a href="index.html" class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 bg-energy-red rounded-lg flex items-center justify-center">
+              <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"/>
+              </svg>
+            </div>
+            <span class="font-display text-2xl text-white">Iron Forge Fitness</span>
+          </a>
+          <p class="text-gray-400 mb-6">
+            Transform your body, transform your life. Join Zamboanga City's premier fitness community today.
+          </p>
+          <div class="flex gap-4">
+            <a href="https://facebook.com/ironforgefitnesszc" target="_blank" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:bg-energy-red hover:text-white transition-all">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.77,7.46H14.5v-1.9c0-.9.6-1.1,1-1.1h3V.5h-4.33C10.24.5,9.5,3.44,9.5,5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4Z"/></svg>
+            </a>
+            <a href="https://instagram.com/ironforgefitnesszc" target="_blank" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:bg-energy-red hover:text-white transition-all">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2.16c3.2,0,3.58,0,4.85.07,3.25.15,4.77,1.69,4.92,4.92.06,1.27.07,1.65.07,4.85s0,3.58-.07,4.85c-.15,3.23-1.66,4.77-4.92,4.92-1.27.06-1.65.07-4.85.07s-3.58,0-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s0-3.58.07-4.85C2.38,3.92,3.9,2.38,7.15,2.23,8.42,2.18,8.8,2.16,12,2.16ZM12,0C8.74,0,8.33,0,7.05.07c-4.27.2-6.78,2.71-7,7C0,8.33,0,8.74,0,12s0,3.67.07,4.95c.2,4.27,2.71,6.78,7,7C8.33,24,8.74,24,12,24s3.67,0,4.95-.07c4.27-.2,6.78-2.71,7-7C24,15.67,24,15.26,24,12s0-3.67-.07-4.95c-.2-4.27-2.71-6.78-7-7C15.67,0,15.26,0,12,0Zm0,5.84A6.16,6.16,0,1,0,18.16,12,6.16,6.16,0,0,0,12,5.84ZM12,16a4,4,0,1,1,4-4A4,4,0,0,1,12,16ZM18.41,4.15a1.44,1.44,0,1,0,1.44,1.44A1.44,1.44,0,0,0,18.41,4.15Z"/></svg>
+            </a>
+            <a href="https://youtube.com/@ironforgefitnesszc" target="_blank" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:bg-energy-red hover:text-white transition-all">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5,6.19a3.02,3.02,0,0,0-2.12-2.14C19.55,3.5,12,3.5,12,3.5s-7.55,0-9.38.55A3.02,3.02,0,0,0,.5,6.19,31.68,31.68,0,0,0,0,12a31.68,31.68,0,0,0,.5,5.81,3.02,3.02,0,0,0,2.12,2.14c1.83.55,9.38.55,9.38.55s7.55,0,9.38-.55a3.02,3.02,0,0,0,2.12-2.14A31.68,31.68,0,0,0,24,12,31.68,31.68,0,0,0,23.5,6.19ZM9.55,15.57V8.43L15.82,12Z"/></svg>
+            </a>
+            <a href="https://tiktok.com/@ironforgefitnesszc" target="_blank" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-gray-400 hover:bg-energy-red hover:text-white transition-all">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59,6.69a4.83,4.83,0,0,1-3.77-4.25V2h-3.45V15.94a2.91,2.91,0,0,1-5.14,1.9,2.87,2.87,0,0,1-.65-2.17,2.91,2.91,0,0,1,3.91-2.39V9.76a6.29,6.29,0,0,0-7.14,5.12,6.28,6.28,0,0,0,5.6,7.29,6.29,6.29,0,0,0,6.88-6.26V9.4a8.11,8.11,0,0,0,4.76,1.53V7.47A4.86,4.86,0,0,1,19.59,6.69Z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="font-display text-xl text-white mb-6">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="text-gray-400 hover:text-energy-red transition-colors">Home</a></li>
+            <li><a href="programs.html" class="text-gray-400 hover:text-energy-red transition-colors">Programs</a></li>
+            <li><a href="membership.html" class="text-gray-400 hover:text-energy-red transition-colors">Membership</a></li>
+            <li><a href="#facilities" class="text-gray-400 hover:text-energy-red transition-colors">Facilities</a></li>
+            <li><a href="#trainers" class="text-gray-400 hover:text-energy-red transition-colors">Trainers</a></li>
+          </ul>
+        </div>
+
+        <!-- Programs -->
+        <div>
+          <h3 class="font-display text-xl text-white mb-6">Programs</h3>
+          <ul class="space-y-3">
+            <li><a href="programs.html#weight-training" class="text-gray-400 hover:text-energy-red transition-colors">Weight Training</a></li>
+            <li><a href="programs.html#crossfit" class="text-gray-400 hover:text-energy-red transition-colors">CrossFit</a></li>
+            <li><a href="programs.html#zumba" class="text-gray-400 hover:text-energy-red transition-colors">Zumba & Dance</a></li>
+            <li><a href="programs.html#yoga" class="text-gray-400 hover:text-energy-red transition-colors">Yoga & Pilates</a></li>
+            <li><a href="programs.html#boxing" class="text-gray-400 hover:text-energy-red transition-colors">Boxing & MMA</a></li>
+            <li><a href="programs.html#personal-training" class="text-gray-400 hover:text-energy-red transition-colors">Personal Training</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h3 class="font-display text-xl text-white mb-6">Contact Us</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-energy-red mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              <span class="text-gray-400">456 Gov. Lim Ave., Zamboanga City</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-energy-red flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+              <a href="tel:(062) 992-3344" class="text-gray-400 hover:text-energy-red transition-colors">(062) 992-3344</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-energy-red flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <a href="mailto:info@ironforgefitness.ph" class="text-gray-400 hover:text-energy-red transition-colors">info@ironforgefitness.ph</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-gray-500 text-sm">
+          &copy; 2024 Iron Forge Fitness. All rights reserved.
+        </p>
+        <div class="flex gap-6 text-sm">
+          <a href="#" class="text-gray-500 hover:text-energy-red transition-colors">Privacy Policy</a>
+          <a href="#" class="text-gray-500 hover:text-energy-red transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a
+    href="https://wa.me/639929923344?text=Hi!%20I%27m%20interested%20in%20joining%20Iron Forge Fitness"
+    target="_blank"
+    class="whatsapp-float"
+    data-whatsapp="639929923344"
+    data-message="Hi! I'm interested in joining Iron Forge Fitness. Can you tell me more about your membership options?"
+    aria-label="Chat on WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" aria-label="Back to top">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
+
+  <!-- Shared JavaScript -->
+  <script src="../../shared/js/common.js"></script>
+</body>
+</html>
