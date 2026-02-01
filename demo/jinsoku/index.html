@@ -606,6 +606,20 @@
       border-color: rgba(212, 43, 43, 0.3);
     }
 
+    .menu-section {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .menu-section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* ===== GALLERY SECTION ===== */
     .gallery {
       padding: 8rem 2rem;
@@ -1023,16 +1037,17 @@
         <div class="section-label fade-up" style="justify-content: center;">品書</div>
         <h2 class="section-title fade-up">Our <span>Menu</span></h2>
         <div class="menu-categories fade-up">
-          <button class="menu-tab active">Noodles</button>
-          <button class="menu-tab">Donburi</button>
-          <button class="menu-tab">Specials</button>
-          <button class="menu-tab">Add-ons</button>
+          <button class="menu-tab active" data-category="noodles">Noodles</button>
+          <button class="menu-tab" data-category="donburi">Donburi</button>
+          <button class="menu-tab" data-category="specials">Specials</button>
+          <button class="menu-tab" data-category="addons">Add-ons</button>
         </div>
       </div>
 
       <!-- NOODLES -->
-      <h3 style="font-family: var(--font-jp); text-align: center; margin: 0 0 2rem; font-size: 1.5rem; color: var(--gold);">麺 Noodles</h3>
-      <div class="menu-grid">
+      <div class="menu-section active" data-section="noodles">
+        <h3 style="font-family: var(--font-jp); text-align: center; margin: 0 0 2rem; font-size: 1.5rem; color: var(--gold);">麺 Noodles</h3>
+        <div class="menu-grid">
         <div class="menu-card fade-up">
           <div class="menu-card-header">
             <div>
@@ -1117,11 +1132,13 @@
             <span class="menu-tag">Curry</span>
           </div>
         </div>
+        </div>
       </div>
 
       <!-- DONBURI -->
-      <h3 style="font-family: var(--font-jp); text-align: center; margin: 4rem 0 2rem; font-size: 1.5rem; color: var(--gold);">丼 Donburi (Rice Bowls)</h3>
-      <div class="menu-grid">
+      <div class="menu-section" data-section="donburi">
+        <h3 style="font-family: var(--font-jp); text-align: center; margin: 0 0 2rem; font-size: 1.5rem; color: var(--gold);">丼 Donburi (Rice Bowls)</h3>
+        <div class="menu-grid">
         <div class="menu-card fade-up">
           <div class="menu-card-header">
             <div>
@@ -1204,11 +1221,13 @@
           </div>
           <p class="menu-item-desc">Sliced pork stir-fried with ginger and soy, a Japanese homestyle favorite.</p>
         </div>
+        </div>
       </div>
 
       <!-- SPECIALS (Per Piece Items) -->
-      <h3 style="font-family: var(--font-jp); text-align: center; margin: 4rem 0 2rem; font-size: 1.5rem; color: var(--gold);">一品 Specials (Per Piece)</h3>
-      <div class="menu-grid">
+      <div class="menu-section" data-section="specials">
+        <h3 style="font-family: var(--font-jp); text-align: center; margin: 0 0 2rem; font-size: 1.5rem; color: var(--gold);">一品 Specials (Per Piece)</h3>
+        <div class="menu-grid">
         <div class="menu-card fade-up">
           <div class="menu-card-header">
             <div>
@@ -1324,11 +1343,11 @@
           </div>
           <p class="menu-item-desc">Beef and crab combination. Premium flavor pairing.</p>
         </div>
-      </div>
+        </div>
 
-      <!-- CHEF SPECIAL -->
-      <h3 style="font-family: var(--font-jp); text-align: center; margin: 4rem 0 2rem; font-size: 1.5rem; color: var(--gold);">シェフスペシャル Chef Special</h3>
-      <div class="menu-grid">
+        <!-- CHEF SPECIAL (part of specials) -->
+        <h3 style="font-family: var(--font-jp); text-align: center; margin: 4rem 0 2rem; font-size: 1.5rem; color: var(--gold);">シェフスペシャル Chef Special</h3>
+        <div class="menu-grid">
         <div class="menu-card fade-up">
           <div class="menu-card-header">
             <div>
@@ -1371,11 +1390,13 @@
             <span class="menu-tag">Fresh</span>
           </div>
         </div>
+        </div>
       </div>
 
       <!-- ADD-ONS -->
-      <h3 style="font-family: var(--font-jp); text-align: center; margin: 4rem 0 2rem; font-size: 1.5rem; color: var(--gold);">追加 Add-ons</h3>
-      <div class="menu-grid">
+      <div class="menu-section" data-section="addons">
+        <h3 style="font-family: var(--font-jp); text-align: center; margin: 0 0 2rem; font-size: 1.5rem; color: var(--gold);">追加 Add-ons</h3>
+        <div class="menu-grid">
         <div class="menu-card fade-up">
           <div class="menu-card-header">
             <div>
@@ -1418,6 +1439,7 @@
             <div class="menu-item-price">₱50</div>
           </div>
           <p class="menu-item-desc">More noodles for your bowl. Because one serving isn't enough.</p>
+        </div>
         </div>
       </div>
     </div>
@@ -1661,10 +1683,28 @@
 
     // ===== MENU TABS =====
     const menuTabs = document.querySelectorAll('.menu-tab');
+    const menuSections = document.querySelectorAll('.menu-section');
+
+    // Show first section by default
+    if (menuSections.length > 0) {
+      menuSections[0].classList.add('active');
+    }
+
     menuTabs.forEach(tab => {
       tab.addEventListener('click', () => {
+        // Update active tab
         menuTabs.forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
+
+        // Show corresponding section
+        const category = tab.dataset.category;
+        menuSections.forEach(section => {
+          if (section.dataset.section === category) {
+            section.classList.add('active');
+          } else {
+            section.classList.remove('active');
+          }
+        });
       });
     });
 
