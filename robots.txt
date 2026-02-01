@@ -1,0 +1,10 @@
+# Robots.txt for tonyfyp.com
+
+User-agent: *
+Allow: /
+
+# Block demo previews from being indexed
+Disallow: /demo/
+
+# Block other private directories
+Disallow: /.claude/

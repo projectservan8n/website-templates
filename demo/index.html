@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Demo Hub | Tony FYP</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: #1a1a24;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent: #10b981;
+      --accent-cyan: #06b6d4;
+      --border: #1f2937;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-sans: 'Poppins', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 1rem;
+    }
+
+    .demos-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .demo-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .demo-card:hover {
+      border-color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    .demo-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .demo-type {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--accent);
+    }
+
+    .demo-name {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .demo-date {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .demo-link {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .demo-link:hover {
+      background: var(--accent);
+      color: var(--bg-primary);
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: var(--bg-secondary);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      color: var(--text-muted);
+    }
+
+    .empty-state h3 {
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 3rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    /* Add new demo hint */
+    .add-hint {
+      margin-top: 2rem;
+      padding: 1rem 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .add-hint code {
+      color: var(--accent-cyan);
+      background: var(--bg-secondary);
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo"><span>tony</span>@fyp:~/demo$</div>
+      <h1>Client Demos</h1>
+      <p class="subtitle">Preview sites for prospective clients</p>
+    </header>
+
+    <div class="demos-grid">
+      <!-- Sample Demo -->
+      <div class="demo-card">
+        <div class="demo-info">
+          <span class="demo-type">Restaurant</span>
+          <div>
+            <div class="demo-name">Sample Restaurant Demo</div>
+            <div class="demo-date">Example template</div>
+          </div>
+        </div>
+        <a href="sample-restaurant/" class="demo-link">View →</a>
+      </div>
+
+      <!-- Add more demos here as you create them -->
+      <!--
+      <div class="demo-card">
+        <div class="demo-info">
+          <span class="demo-type">Clinic</span>
+          <div>
+            <div class="demo-name">Client Name Here</div>
+            <div class="demo-date">2025-02-01</div>
+          </div>
+        </div>
+        <a href="client-folder/" class="demo-link">View →</a>
+      </div>
+      -->
+    </div>
+
+    <div class="add-hint">
+      <strong>Adding a new demo:</strong><br>
+      Create folder at <code>/demo/client-name/</code> and copy a template. Add entry above.
+    </div>
+
+    <a href="/" class="back-link">← Back to Portfolio</a>
+  </div>
+</body>
+</html>
