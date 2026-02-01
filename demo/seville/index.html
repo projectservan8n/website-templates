@@ -90,7 +90,7 @@
       top: 48px;
       left: 0;
       right: 0;
-      z-index: 10000;
+      z-index: 10004;
       background: var(--cream);
       border-bottom: 3px solid var(--orange);
       transition: all 0.3s ease;
@@ -173,7 +173,8 @@
       border: none;
       cursor: pointer;
       padding: 0.5rem;
-      z-index: 10002;
+      z-index: 10005;
+      position: relative;
     }
 
     .mobile-toggle span {
@@ -182,14 +183,16 @@
       background: var(--orange);
       border-radius: 2px;
       transition: all 0.3s ease;
+      transform-origin: center;
     }
 
     .mobile-toggle.active span:nth-child(1) {
-      transform: rotate(45deg) translate(6px, 6px);
+      transform: rotate(45deg) translate(5px, 5px);
     }
 
     .mobile-toggle.active span:nth-child(2) {
       opacity: 0;
+      transform: scaleX(0);
     }
 
     .mobile-toggle.active span:nth-child(3) {
@@ -197,22 +200,35 @@
     }
 
     .mobile-menu {
-      display: none;
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background: var(--cream);
-      z-index: 10001;
-      padding: 120px 2rem 2rem;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%);
+      z-index: 10003;
+      padding: 140px 2rem 2rem;
       flex-direction: column;
       align-items: center;
-      gap: 2rem;
+      justify-content: flex-start;
+      gap: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(-20px);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      overflow-y: auto;
     }
 
     .mobile-menu.active {
-      display: flex;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
     }
 
     .mobile-menu a {
@@ -220,11 +236,48 @@
       font-size: 1.8rem;
       color: var(--text-dark);
       text-decoration: none;
-      transition: color 0.3s ease;
+      transition: all 0.3s ease;
+      padding: 0.5rem 2rem;
+      border-radius: 50px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
     }
 
+    .mobile-menu.active a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mobile-menu a:nth-child(1) { transition-delay: 0s; }
+    .mobile-menu a:nth-child(2) { transition-delay: 0s; }
+    .mobile-menu a:nth-child(3) { transition-delay: 0s; }
+    .mobile-menu a:nth-child(4) { transition-delay: 0s; }
+    .mobile-menu a:nth-child(5) { transition-delay: 0s; }
+
+    .mobile-menu.active a:nth-child(1) { transition-delay: 0.1s; }
+    .mobile-menu.active a:nth-child(2) { transition-delay: 0.15s; }
+    .mobile-menu.active a:nth-child(3) { transition-delay: 0.2s; }
+    .mobile-menu.active a:nth-child(4) { transition-delay: 0.25s; }
+    .mobile-menu.active a:nth-child(5) { transition-delay: 0.3s; }
+
     .mobile-menu a:hover {
-      color: var(--orange);
+      color: white;
+      background: var(--orange);
+      transform: scale(1.05);
+    }
+
+    .mobile-menu-cta {
+      margin-top: 1rem;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+      color: white !important;
+      padding: 1rem 2.5rem !important;
+      font-size: 1.2rem !important;
+      box-shadow: 4px 4px 0 var(--brown);
+    }
+
+    .mobile-menu-cta:hover {
+      background: linear-gradient(135deg, var(--yellow), var(--orange)) !important;
     }
 
     @media (max-width: 768px) {
@@ -1017,9 +1070,28 @@
 
     .footer-top {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 3rem;
       margin-bottom: 3rem;
+    }
+
+    @media (max-width: 900px) {
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer-top {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .footer-brand p {
+        max-width: 100%;
+      }
+      .footer-social {
+        justify-content: center;
+      }
     }
 
     .footer-brand img {
@@ -1117,7 +1189,24 @@
       color: rgba(255,255,255,0.8);
     }
 
-    .demo-cta a {
+    .demo-cta .demo-phone {
+      color: var(--yellow);
+      text-decoration: none;
+      font-weight: 700;
+      background: none;
+      padding: 0;
+      box-shadow: none;
+      display: inline;
+    }
+
+    .demo-cta .demo-phone:hover {
+      color: white;
+      text-decoration: underline;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .demo-cta .demo-cta-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
@@ -1131,7 +1220,7 @@
       box-shadow: 3px 3px 0 var(--yellow);
     }
 
-    .demo-cta a:hover {
+    .demo-cta .demo-cta-btn:hover {
       transform: translate(1px, 1px);
       box-shadow: 2px 2px 0 var(--yellow);
     }
@@ -1186,6 +1275,7 @@
     <a href="#menu" onclick="closeMobileMenu()">Menu</a>
     <a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
     <a href="#location" onclick="closeMobileMenu()">Visit Us</a>
+    <a href="#menu" onclick="closeMobileMenu()" class="mobile-menu-cta">See Our Menu</a>
   </div>
 
   <!-- HERO SECTION -->
@@ -2024,6 +2114,12 @@
           <a href="#menu">Milk Tea</a>
           <a href="#menu">Food</a>
         </div>
+
+        <div class="footer-links">
+          <h4>Contact Us</h4>
+          <a href="https://www.facebook.com/sevilleph" target="_blank">Facebook</a>
+          <a href="https://www.instagram.com/seville_ph/" target="_blank">Instagram</a>
+        </div>
       </div>
 
       <div class="footer-bottom">
@@ -2034,8 +2130,8 @@
 
   <!-- DEMO CTA -->
   <div class="demo-cta">
-    <p>Like this website demo?</p>
-    <a href="https://wa.me/639559918754?text=Hi%20Tony!%20I%20love%20the%20Seville%20demo%20site!%20Let's%20make%20it%20live!" target="_blank">
+    <p>Like this website demo? <strong>Contact Tony:</strong> <a href="tel:+639559918754" class="demo-phone">0955 991 8754</a></p>
+    <a href="https://wa.me/639559918754?text=Hi%20Tony!%20I%20love%20the%20Seville%20demo%20site!%20Let's%20make%20it%20live!" target="_blank" class="demo-cta-btn">
       <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Make This My Website!
     </a>
