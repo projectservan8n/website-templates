@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Jinsoku 迅速 | Authentic Japanese Ramen - Zamboanga City</title>
+  <meta name="description" content="Experience authentic Japanese ramen at Jinsoku. Rich tonkotsu broth, handmade noodles, and traditional flavors in the heart of Zamboanga City.">
+
+  <!-- Fonts: Noto Serif JP + DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    :root {
+      --red: #D42B2B;
+      --red-dark: #B82424;
+      --black: #111111;
+      --black-light: #1a1a1a;
+      --wood: #B8773D;
+      --wood-light: #C98B4E;
+      --cream: #F5F0E8;
+      --cream-dark: #E8E0D4;
+      --gold: #E8922A;
+
+      --font-jp: 'Noto Serif JP', serif;
+      --font-sans: 'DM Sans', sans-serif;
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--black);
+      color: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ===== DEMO BANNER ===== */
+    .demo-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10000;
+      background: linear-gradient(135deg, var(--red), var(--gold));
+      padding: 0.75rem 1rem;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    .demo-banner a {
+      color: white;
+      text-decoration: underline;
+      margin-left: 0.5rem;
+    }
+
+    /* ===== PRELOADER ===== */
+    .preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .preloader-kanji {
+      font-family: var(--font-jp);
+      font-size: 5rem;
+      color: var(--red);
+      opacity: 0;
+    }
+
+    .preloader-text {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--cream);
+      opacity: 0;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .nav {
+      position: fixed;
+      top: 44px;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.4s var(--ease-out);
+    }
+
+    .nav.scrolled {
+      background: rgba(17, 17, 17, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 0.75rem 2rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 50px;
+      background: white;
+      border-radius: 6px;
+      padding: 4px;
+      transition: transform 0.3s var(--ease-out);
+    }
+
+    .nav-logo:hover img {
+      transform: scale(1.05);
+    }
+
+    .nav-logo-text {
+      font-family: var(--font-jp);
+      font-size: 1.5rem;
+      color: var(--cream);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: width 0.3s var(--ease-out);
+    }
+
+    .nav-links a:hover {
+      color: var(--red);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: var(--red);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s var(--ease-out);
+    }
+
+    .nav-cta:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(212, 43, 43, 0.3);
+    }
+
+    /* Mobile Nav */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--cream);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links, .nav-cta {
+        display: none;
+      }
+      .nav-toggle {
+        display: block;
+      }
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      min-height: 100vh;
+      padding-top: 44px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('assets/hero-ramen.png') center/cover no-repeat;
+      filter: brightness(0.4);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(17, 17, 17, 0.3) 0%,
+        rgba(17, 17, 17, 0.6) 50%,
+        rgba(17, 17, 17, 1) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      text-align: center;
+    }
+
+    .hero-kanji {
+      font-family: var(--font-jp);
+      font-size: clamp(4rem, 15vw, 10rem);
+      color: var(--red);
+      line-height: 1;
+      margin-bottom: 1rem;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .hero-title {
+      font-family: var(--font-jp);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .hero-tagline {
+      font-size: 1.1rem;
+      color: var(--cream-dark);
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.3s var(--ease-out);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--red-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(212, 43, 43, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--cream);
+      border: 2px solid var(--cream);
+    }
+
+    .btn-secondary:hover {
+      background: var(--cream);
+      color: var(--black);
+      transform: translateY(-3px);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--cream);
+      opacity: 0;
+    }
+
+    .hero-scroll span {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--cream), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(0.5); }
+      50% { opacity: 1; transform: scaleY(1); }
+    }
+
+    /* ===== ABOUT SECTION ===== */
+    .about {
+      padding: 8rem 2rem;
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .about-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
+
+    .about-image {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease-out);
+    }
+
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .about-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid var(--wood);
+      border-radius: 8px;
+      transform: translate(15px, 15px);
+      z-index: -1;
+    }
+
+    .about-content {
+      padding: 2rem 0;
+    }
+
+    .section-label {
+      font-family: var(--font-jp);
+      font-size: 0.9rem;
+      color: var(--red);
+      letter-spacing: 0.2em;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 40px;
+      height: 2px;
+      background: var(--red);
+    }
+
+    .section-title {
+      font-family: var(--font-jp);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .section-title span {
+      color: var(--gold);
+    }
+
+    .about-text {
+      color: var(--cream-dark);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(245, 240, 232, 0.1);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-family: var(--font-jp);
+      font-size: 2.5rem;
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--cream-dark);
+      margin-top: 0.25rem;
+    }
+
+    /* ===== MENU SECTION ===== */
+    .menu {
+      padding: 8rem 2rem;
+      background: url('assets/woodwall.png') center/cover no-repeat fixed;
+      position: relative;
+    }
+
+    .menu::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(17, 17, 17, 0.92);
+    }
+
+    .menu-container {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .menu-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .menu-categories {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .menu-tab {
+      background: transparent;
+      border: 1px solid var(--cream);
+      color: var(--cream);
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-out);
+    }
+
+    .menu-tab:hover,
+    .menu-tab.active {
+      background: var(--red);
+      border-color: var(--red);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .menu-card {
+      background: rgba(26, 26, 26, 0.8);
+      border: 1px solid rgba(184, 119, 61, 0.2);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: all 0.4s var(--ease-out);
+    }
+
+    .menu-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--wood);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    .menu-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .menu-item-name {
+      font-family: var(--font-jp);
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+
+    .menu-item-jp {
+      font-family: var(--font-jp);
+      font-size: 0.9rem;
+      color: var(--gold);
+      margin-top: 0.25rem;
+    }
+
+    .menu-item-price {
+      font-family: var(--font-jp);
+      font-size: 1.3rem;
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    .menu-item-desc {
+      color: var(--cream-dark);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .menu-item-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .menu-tag {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.75rem;
+      background: rgba(232, 146, 42, 0.15);
+      color: var(--gold);
+      border-radius: 20px;
+      border: 1px solid rgba(232, 146, 42, 0.3);
+    }
+
+    .menu-tag.spicy {
+      background: rgba(212, 43, 43, 0.15);
+      color: var(--red);
+      border-color: rgba(212, 43, 43, 0.3);
+    }
+
+    /* ===== GALLERY SECTION ===== */
+    .gallery {
+      padding: 8rem 2rem;
+      background: var(--black);
+    }
+
+    .gallery-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease-out);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(17, 17, 17, 0.8), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover::after {
+      opacity: 1;
+    }
+
+    /* ===== LOCATION SECTION ===== */
+    .location {
+      padding: 8rem 2rem;
+      background: linear-gradient(135deg, var(--black-light), var(--black));
+    }
+
+    .location-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .location-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .location-info h3 {
+      font-family: var(--font-jp);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .location-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      color: var(--cream-dark);
+    }
+
+    .location-icon {
+      width: 24px;
+      height: 24px;
+      color: var(--red);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .location-hours {
+      background: rgba(184, 119, 61, 0.1);
+      border: 1px solid rgba(184, 119, 61, 0.2);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .location-hours h4 {
+      font-family: var(--font-jp);
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(245, 240, 232, 0.05);
+      font-size: 0.95rem;
+    }
+
+    .hours-row:last-child {
+      border-bottom: none;
+    }
+
+    .location-map {
+      border-radius: 8px;
+      overflow: hidden;
+      height: 400px;
+      background: var(--black-light);
+      border: 1px solid rgba(245, 240, 232, 0.1);
+    }
+
+    .location-map iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(80%) invert(92%) contrast(90%);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--black);
+      padding: 4rem 2rem 2rem;
+      border-top: 1px solid rgba(245, 240, 232, 0.1);
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+      }
+    }
+
+    .footer-brand img {
+      height: 60px;
+      margin-bottom: 1rem;
+      background: white;
+      border-radius: 6px;
+      padding: 4px;
+    }
+
+    .footer-brand p {
+      color: var(--cream-dark);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      max-width: 300px;
+    }
+
+    .footer-links h4 {
+      font-family: var(--font-jp);
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      color: var(--cream-dark);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--red);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 3rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(245, 240, 232, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      color: var(--cream-dark);
+      font-size: 0.85rem;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(245, 240, 232, 0.05);
+      border: 1px solid rgba(245, 240, 232, 0.1);
+      border-radius: 50%;
+      color: var(--cream);
+      text-decoration: none;
+      transition: all 0.3s var(--ease-out);
+    }
+
+    .footer-social a:hover {
+      background: var(--red);
+      border-color: var(--red);
+      transform: translateY(-3px);
+    }
+
+    /* ===== DEMO CTA FIXED ===== */
+    .demo-cta-fixed {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 9000;
+      background: linear-gradient(135deg, var(--black-light), var(--black));
+      border-top: 2px solid var(--red);
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .demo-cta-text {
+      font-size: 1rem;
+      color: var(--cream);
+    }
+
+    .demo-cta-text strong {
+      color: var(--gold);
+    }
+
+    .demo-cta-btn {
+      background: var(--red);
+      color: white;
+      padding: 0.875rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s var(--ease-out);
+    }
+
+    .demo-cta-btn:hover {
+      background: var(--red-dark);
+      transform: scale(1.05);
+    }
+
+    /* Add padding to body for fixed elements */
+    body {
+      padding-bottom: 80px;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .fade-in {
+      opacity: 0;
+    }
+
+    .slide-left {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+
+    .slide-right {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+  </style>
+</head>
+<body>
+  <!-- Demo Banner -->
+  <div class="demo-banner">
+    🍜 This is a DEMO PREVIEW for Jinsoku Ramen
+    <a href="https://wa.me/639559918754?text=Hi%20Tony!%20I%20saw%20the%20Jinsoku%20demo%20and%20I'm%20interested!" target="_blank">Contact Tony →</a>
+  </div>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-kanji">迅速</div>
+    <div class="preloader-text">Jinsoku Ramen</div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo">
+      <img src="assets/Jinsoku.png" alt="Jinsoku">
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#location">Location</a></li>
+    </ul>
+
+    <a href="https://wa.me/639XXXXXXXXX?text=Hi!%20I'd%20like%20to%20reserve%20a%20table%20at%20Jinsoku" class="nav-cta" target="_blank">Reserve Table</a>
+
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <h1 class="hero-kanji">迅速</h1>
+      <h2 class="hero-title">JINSOKU RAMEN</h2>
+      <p class="hero-tagline">Authentic Japanese ramen crafted with tradition. Rich tonkotsu broth, handmade noodles, and bold flavors in the heart of Zamboanga City.</p>
+      <div class="hero-ctas">
+        <a href="#menu" class="btn btn-primary">View Menu</a>
+        <a href="https://wa.me/639XXXXXXXXX" class="btn btn-secondary" target="_blank">Reserve Now</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="about-container">
+      <div class="about-image fade-up">
+        <img src="assets/interior.png" alt="Jinsoku Interior">
+      </div>
+      <div class="about-content">
+        <div class="section-label fade-up">Our Story</div>
+        <h2 class="section-title fade-up">A Taste of <span>Japan</span> in Zamboanga</h2>
+        <p class="about-text fade-up">
+          Jinsoku (迅速) means "swift" in Japanese—reflecting our commitment to serving authentic, soul-warming ramen without the wait. Every bowl is crafted with care, from our rich 12-hour simmered tonkotsu broth to our springy, house-made noodles.
+        </p>
+        <p class="about-text fade-up">
+          Located at L'Arcada Complex, we bring the art of Japanese ramen to Zamboanga City. Whether you're craving classic tonkotsu or our signature Jinsoku Special, each dish is a journey to the streets of Tokyo.
+        </p>
+        <div class="about-stats fade-up">
+          <div class="stat-item">
+            <div class="stat-value">12+</div>
+            <div class="stat-label">Hour Broth</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Authentic</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">5★</div>
+            <div class="stat-label">Rated</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section class="menu" id="menu">
+    <div class="menu-container">
+      <div class="menu-header">
+        <div class="section-label fade-up" style="justify-content: center;">品書</div>
+        <h2 class="section-title fade-up">Our <span>Menu</span></h2>
+        <div class="menu-categories fade-up">
+          <button class="menu-tab active">Signature Ramen</button>
+          <button class="menu-tab">Sides</button>
+          <button class="menu-tab">Drinks</button>
+        </div>
+      </div>
+
+      <div class="menu-grid">
+        <!-- Signature Ramen -->
+        <div class="menu-card fade-up">
+          <div class="menu-card-header">
+            <div>
+              <div class="menu-item-name">Jinsoku Special</div>
+              <div class="menu-item-jp">迅速スペシャル</div>
+            </div>
+            <div class="menu-item-price">₱299</div>
+          </div>
+          <p class="menu-item-desc">Our signature bowl. Rich tonkotsu broth, chashu pork, ajitama egg, bamboo shoots, nori, and green onions. The complete experience.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Chef's Pick</span>
+            <span class="menu-tag">Bestseller</span>
+          </div>
+        </div>
+
+        <div class="menu-card fade-up">
+          <div class="menu-card-header">
+            <div>
+              <div class="menu-item-name">Classic Tonkotsu</div>
+              <div class="menu-item-jp">とんこつラーメン</div>
+            </div>
+            <div class="menu-item-price">₱249</div>
+          </div>
+          <p class="menu-item-desc">Traditional pork bone broth simmered for 12 hours. Creamy, rich, and deeply satisfying. Topped with chashu and green onions.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Classic</span>
+          </div>
+        </div>
+
+        <div class="menu-card fade-up">
+          <div class="menu-card-header">
+            <div>
+              <div class="menu-item-name">Spicy Miso Ramen</div>
+              <div class="menu-item-jp">辛味噌ラーメン</div>
+            </div>
+            <div class="menu-item-price">₱269</div>
+          </div>
+          <p class="menu-item-desc">Bold miso base with our house-made chili oil. Topped with ground pork, corn, butter, and bean sprouts. A fiery kick!</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag spicy">Spicy 🔥</span>
+          </div>
+        </div>
+
+        <div class="menu-card fade-up">
+          <div class="menu-card-header">
+            <div>
+              <div class="menu-item-name">Shoyu Ramen</div>
+              <div class="menu-item-jp">醤油ラーメン</div>
+            </div>
+            <div class="menu-item-price">₱239</div>
+          </div>
+          <p class="menu-item-desc">Light yet flavorful soy sauce-based broth. Clean taste with depth. Topped with menma, nori, and soft-boiled egg.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Light</span>
+          </div>
+        </div>
+
+        <div class="menu-card fade-up">
+          <div class="menu-card-header">
+            <div>
+              <div class="menu-item-name">Black Garlic Ramen</div>
+              <div class="menu-item-jp">黒にんにくラーメン</div>
+            </div>
+            <div class="menu-item-price">₱279</div>
+          </div>
+          <p class="menu-item-desc">Tonkotsu base enhanced with aromatic black garlic oil (mayu). Rich, savory, and unforgettable. Topped with chashu and egg.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Premium</span>
+          </div>
+        </div>
+
+        <div class="menu-card fade-up">
+          <div class="menu-card-header">
+            <div>
+              <div class="menu-item-name">Veggie Ramen</div>
+              <div class="menu-item-jp">野菜ラーメン</div>
+            </div>
+            <div class="menu-item-price">₱229</div>
+          </div>
+          <p class="menu-item-desc">Plant-based miso broth loaded with seasonal vegetables, tofu, and mushrooms. Hearty and meat-free.</p>
+          <div class="menu-item-tags">
+            <span class="menu-tag">Vegetarian</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sides -->
+      <h3 style="font-family: var(--font-jp); text-align: center; margin: 4rem 0 2rem; font-size: 1.5rem;">Sides & Extras</h3>
+      <div class="menu-grid">
+        <div class="menu-card fade-up">
+          <div class="menu-card-header">
+            <div>
+              <div class="menu-item-name">Gyoza (6 pcs)</div>
+              <div class="menu-item-jp">餃子</div>
+            </div>
+            <div class="menu-item-price">₱129</div>
+          </div>
+          <p class="menu-item-desc">Pan-fried pork dumplings. Crispy bottom, juicy filling. Served with our house ponzu dipping sauce.</p>
+        </div>
+
+        <div class="menu-card fade-up">
+          <div class="menu-card-header">
+            <div>
+              <div class="menu-item-name">Karaage</div>
+              <div class="menu-item-jp">唐揚げ</div>
+            </div>
+            <div class="menu-item-price">₱149</div>
+          </div>
+          <p class="menu-item-desc">Japanese fried chicken. Marinated, double-fried for extra crunch. Served with kewpie mayo.</p>
+        </div>
+
+        <div class="menu-card fade-up">
+          <div class="menu-card-header">
+            <div>
+              <div class="menu-item-name">Extra Chashu</div>
+              <div class="menu-item-jp">チャーシュー</div>
+            </div>
+            <div class="menu-item-price">₱79</div>
+          </div>
+          <p class="menu-item-desc">Additional slices of our slow-braised pork belly. Melt-in-your-mouth tender.</p>
+        </div>
+
+        <div class="menu-card fade-up">
+          <div class="menu-card-header">
+            <div>
+              <div class="menu-item-name">Ajitama Egg</div>
+              <div class="menu-item-jp">味玉</div>
+            </div>
+            <div class="menu-item-price">₱49</div>
+          </div>
+          <p class="menu-item-desc">Marinated soft-boiled egg. Jammy center, savory soy-mirin glaze.</p>
+        </div>
+      </div>
+
+      <!-- Drinks -->
+      <h3 style="font-family: var(--font-jp); text-align: center; margin: 4rem 0 2rem; font-size: 1.5rem;">Drinks</h3>
+      <div class="menu-grid">
+        <div class="menu-card fade-up">
+          <div class="menu-card-header">
+            <div>
+              <div class="menu-item-name">Ramune Soda</div>
+              <div class="menu-item-jp">ラムネ</div>
+            </div>
+            <div class="menu-item-price">₱79</div>
+          </div>
+          <p class="menu-item-desc">Classic Japanese marble soda. Original, strawberry, or melon flavors available.</p>
+        </div>
+
+        <div class="menu-card fade-up">
+          <div class="menu-card-header">
+            <div>
+              <div class="menu-item-name">Iced Matcha Latte</div>
+              <div class="menu-item-jp">抹茶ラテ</div>
+            </div>
+            <div class="menu-item-price">₱99</div>
+          </div>
+          <p class="menu-item-desc">Premium Japanese matcha, creamy milk, served over ice. Balanced and refreshing.</p>
+        </div>
+
+        <div class="menu-card fade-up">
+          <div class="menu-card-header">
+            <div>
+              <div class="menu-item-name">Japanese Beer</div>
+              <div class="menu-item-jp">ビール</div>
+            </div>
+            <div class="menu-item-price">₱149</div>
+          </div>
+          <p class="menu-item-desc">Asahi or Sapporo. Ice cold. The perfect ramen companion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery" id="gallery">
+    <div class="gallery-container">
+      <div class="gallery-header">
+        <div class="section-label fade-up" style="justify-content: center;">写真</div>
+        <h2 class="section-title fade-up" style="text-align: center;">Gallery</h2>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item fade-up">
+          <img src="assets/hero-ramen.png" alt="Jinsoku Ramen Bowl">
+        </div>
+        <div class="gallery-item fade-up">
+          <img src="assets/interior.png" alt="Restaurant Interior">
+        </div>
+        <div class="gallery-item fade-up">
+          <img src="assets/ramen-closeup.png" alt="Ramen Closeup">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location Section -->
+  <section class="location" id="location">
+    <div class="location-container">
+      <div class="location-info">
+        <div class="section-label fade-up">Visit Us</div>
+        <h2 class="section-title fade-up">Find <span>Jinsoku</span></h2>
+
+        <div class="location-detail fade-up">
+          <svg class="location-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          <div>
+            <strong>L'Arcada Complex</strong><br>
+            Veterans Avenue, Zamboanga City<br>
+            7000 Philippines
+          </div>
+        </div>
+
+        <div class="location-detail fade-up">
+          <svg class="location-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          <div>
+            <strong>Call Us</strong><br>
+            +63 9XX XXX XXXX
+          </div>
+        </div>
+
+        <div class="location-hours fade-up">
+          <h4>営業時間 Opening Hours</h4>
+          <div class="hours-row">
+            <span>Monday - Thursday</span>
+            <span>11:00 AM - 9:00 PM</span>
+          </div>
+          <div class="hours-row">
+            <span>Friday - Saturday</span>
+            <span>11:00 AM - 10:00 PM</span>
+          </div>
+          <div class="hours-row">
+            <span>Sunday</span>
+            <span>12:00 PM - 9:00 PM</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-map fade-up">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.123456789!2d122.0123456!3d6.9123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNTQnNDQuNCJOIDEyMsKwMDAnNDQuNCJF!5e0!3m2!1sen!2sph!4v1234567890"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <img src="assets/Jinsoku.png" alt="Jinsoku">
+        <p>Authentic Japanese ramen in the heart of Zamboanga City. Tradition meets flavor in every bowl.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#menu">Our Menu</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#location">Location</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+639XXXXXXXXX">+63 9XX XXX XXXX</a></li>
+          <li><a href="mailto:hello@jinsoku.ph">hello@jinsoku.ph</a></li>
+          <li><a href="https://wa.me/639XXXXXXXXX" target="_blank">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Jinsoku Ramen. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="TikTok">TT</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Demo CTA Fixed -->
+  <div class="demo-cta-fixed">
+    <span class="demo-cta-text">Like what you see? <strong>Get a website like this for your business!</strong></span>
+    <a href="https://wa.me/639559918754?text=Hi%20Tony!%20I%20saw%20the%20Jinsoku%20demo%20and%20I'm%20interested%20in%20getting%20a%20website!" class="demo-cta-btn" target="_blank">
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Contact Tony
+    </a>
+  </div>
+
+  <script>
+    // Register GSAP plugins
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ===== PRELOADER =====
+    const preloader = document.getElementById('preloader');
+    const preloaderKanji = preloader.querySelector('.preloader-kanji');
+    const preloaderText = preloader.querySelector('.preloader-text');
+
+    // Preloader animation
+    const preloaderTL = gsap.timeline();
+
+    preloaderTL
+      .to(preloaderKanji, {
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power2.out'
+      })
+      .to(preloaderText, {
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power2.out'
+      }, '-=0.3')
+      .to(preloader, {
+        yPercent: -100,
+        duration: 1,
+        ease: 'power4.inOut',
+        delay: 0.5
+      })
+      .set(preloader, { display: 'none' });
+
+    // ===== HERO ANIMATIONS =====
+    preloaderTL.add(() => {
+      gsap.to('.hero-kanji', {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power3.out'
+      });
+      gsap.to('.hero-title', {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: 0.2,
+        ease: 'power3.out'
+      });
+      gsap.to('.hero-tagline', {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: 0.4,
+        ease: 'power3.out'
+      });
+      gsap.to('.hero-ctas', {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: 0.6,
+        ease: 'power3.out'
+      });
+      gsap.to('.hero-scroll', {
+        opacity: 1,
+        duration: 1,
+        delay: 1.2,
+        ease: 'power2.out'
+      });
+    });
+
+    // ===== SCROLL ANIMATIONS =====
+    // Fade up elements
+    gsap.utils.toArray('.fade-up').forEach(el => {
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
+      });
+    });
+
+    // ===== NAV SCROLL EFFECT =====
+    const nav = document.getElementById('nav');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // ===== SMOOTH SCROLL =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offsetTop = target.offsetTop - 100;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // ===== MENU TABS =====
+    const menuTabs = document.querySelectorAll('.menu-tab');
+    menuTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        menuTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+
+    // ===== PARALLAX HERO =====
+    gsap.to('.hero-bg', {
+      yPercent: 30,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
+
+    // ===== STAT COUNTER ANIMATION =====
+    gsap.utils.toArray('.stat-value').forEach(stat => {
+      const endValue = stat.textContent;
+
+      ScrollTrigger.create({
+        trigger: stat,
+        start: 'top 85%',
+        onEnter: () => {
+          if (endValue.includes('+')) {
+            const num = parseInt(endValue);
+            gsap.from(stat, {
+              textContent: 0,
+              duration: 2,
+              ease: 'power2.out',
+              snap: { textContent: 1 },
+              onUpdate: function() {
+                stat.textContent = Math.round(this.targets()[0].textContent) + '+';
+              }
+            });
+          }
+        },
+        once: true
+      });
+    });
+  </script>
+</body>
+</html>
