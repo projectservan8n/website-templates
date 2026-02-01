@@ -23,6 +23,10 @@
   <!-- Shared Scroll Animation Styles -->
   <link rel="stylesheet" href="shared/css/base.css">
 
+  <!-- GSAP for premium animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
   <style>
     /* ===== CSS VARIABLES ===== */
     :root {
@@ -35,11 +39,10 @@
       --text-muted: #6b7280;
       --accent: #10b981;
       --accent-cyan: #06b6d4;
-      --accent-purple: #a855f7;
-      --accent-yellow: #fbbf24;
-      --accent-pink: #ec4899;
+      --accent-gold: #D4AF37;
       --border: #1f2937;
       --border-glow: rgba(16, 185, 129, 0.3);
+      --accent-glow: rgba(16, 185, 129, 0.4);
 
       --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
       --font-sans: 'Poppins', system-ui, sans-serif;
@@ -131,89 +134,98 @@
       box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent-cyan);
     }
 
-    /* ===== SCANLINES EFFECT ===== */
-    .scanlines {
+    /* ===== NOISE TEXTURE OVERLAY ===== */
+    body::after {
+      content: '';
       position: fixed;
       inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      opacity: 0.02;
       pointer-events: none;
-      z-index: 9999;
-      background: repeating-linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.03) 0px,
-        rgba(0, 0, 0, 0.03) 1px,
-        transparent 1px,
-        transparent 2px
-      );
+      z-index: 9998;
     }
 
-    /* ===== FLOATING PARTICLES ===== */
-    .particles {
+    /* ===== PRELOADER ===== */
+    .preloader {
       position: fixed;
       inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
+      z-index: 99999;
+      background: var(--bg-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
     }
 
-    .particle {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: var(--accent);
-      border-radius: 50%;
+    .preloader-inner {
+      text-align: center;
+    }
+
+    .preloader-logo {
+      font-family: var(--font-mono);
+      font-size: clamp(3rem, 10vw, 5rem);
+      font-weight: 700;
       opacity: 0;
-      animation: float-particle 15s infinite;
+      margin-bottom: 1rem;
     }
 
-    .particle:nth-child(1) { left: 10%; animation-delay: 0s; background: var(--accent); }
-    .particle:nth-child(2) { left: 20%; animation-delay: 2s; background: var(--accent-cyan); }
-    .particle:nth-child(3) { left: 30%; animation-delay: 4s; background: var(--accent-purple); }
-    .particle:nth-child(4) { left: 40%; animation-delay: 1s; background: var(--accent-yellow); }
-    .particle:nth-child(5) { left: 50%; animation-delay: 3s; background: var(--accent); }
-    .particle:nth-child(6) { left: 60%; animation-delay: 5s; background: var(--accent-cyan); }
-    .particle:nth-child(7) { left: 70%; animation-delay: 2.5s; background: var(--accent-pink); }
-    .particle:nth-child(8) { left: 80%; animation-delay: 4.5s; background: var(--accent-purple); }
-    .particle:nth-child(9) { left: 90%; animation-delay: 1.5s; background: var(--accent); }
-    .particle:nth-child(10) { left: 15%; animation-delay: 3.5s; background: var(--accent-cyan); }
-    .particle:nth-child(11) { left: 25%; animation-delay: 0.5s; background: var(--accent-yellow); }
-    .particle:nth-child(12) { left: 75%; animation-delay: 6s; background: var(--accent-pink); }
+    .preloader-logo .t { color: var(--accent-cyan); }
+    .preloader-logo .colon { color: var(--accent); }
+    .preloader-logo .f { color: var(--accent-gold); }
 
-    @keyframes float-particle {
-      0% {
-        transform: translateY(100vh) scale(0);
-        opacity: 0;
-      }
-      10% {
-        opacity: 0.6;
-      }
-      90% {
-        opacity: 0.6;
-      }
-      100% {
-        transform: translateY(-100vh) scale(1);
-        opacity: 0;
-      }
+    .preloader-text {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      opacity: 0;
+    }
+
+    .preloader-line {
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-cyan));
+      margin: 1.5rem auto 0;
+      transform: scaleX(0);
+      transform-origin: center;
     }
 
     /* ===== CURSOR GLOW FOLLOWER ===== */
+    /* ===== CUSTOM CURSOR ===== */
+    @media (pointer: fine) {
+      body { cursor: none; }
+
+      .cursor {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        border: 2px solid var(--accent);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 99999;
+        transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+        mix-blend-mode: difference;
+      }
+
+      .cursor.hover {
+        transform: scale(1.5);
+        background: var(--accent);
+      }
+    }
+
     .cursor-glow {
       position: fixed;
-      width: 180px;
-      height: 180px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-      filter: blur(60px);
-      opacity: 0.15;
+      filter: blur(40px);
+      opacity: 0.08;
       pointer-events: none;
       z-index: 1;
       transform: translate(-50%, -50%);
-      transition: left 0.15s var(--ease-out), top 0.15s var(--ease-out), width 0.3s var(--ease-out), height 0.3s var(--ease-out), opacity 0.3s ease;
-    }
-
-    .cursor-glow.hovering {
-      width: 220px;
-      height: 220px;
-      opacity: 0.25;
+      transition: left 0.2s var(--ease-out), top 0.2s var(--ease-out);
     }
 
     /* Glass effect for cards */
@@ -326,15 +338,153 @@
       transition: transform 0.3s var(--ease-out);
     }
 
+    /* Mobile Nav Toggle - Animated Hamburger */
     .nav-toggle {
       display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10005;
+      padding: 0.5rem;
+      position: relative;
+      width: 44px;
+      height: 44px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: all 0.4s var(--ease-out);
+      position: absolute;
+    }
+
+    .nav-toggle span:nth-child(1) { top: 14px; }
+    .nav-toggle span:nth-child(2) { top: 21px; }
+    .nav-toggle span:nth-child(3) { top: 28px; }
+
+    .nav-toggle.active span:nth-child(1) {
+      top: 21px;
+      transform: rotate(45deg);
+      background: var(--accent);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+      top: 21px;
+      transform: rotate(-45deg);
+      background: var(--accent);
+    }
+
+    /* Mobile Menu Overlay */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+      z-index: 10001;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: all 0.5s var(--ease-out);
+      overflow-y: auto;
+      padding: 2rem;
+    }
+
+    .mobile-menu::before {
+      content: 't:f';
+      position: absolute;
+      font-family: var(--font-mono);
+      font-size: clamp(8rem, 30vw, 15rem);
+      color: var(--accent);
+      opacity: 0.03;
+      font-weight: 700;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .mobile-menu.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .mobile-menu a {
+      font-family: var(--font-mono);
+      font-size: clamp(1.25rem, 4vw, 1.5rem);
       color: var(--text-primary);
-      font-size: 1.5rem;
+      text-decoration: none;
+      padding: 0.75rem 2rem;
+      transition: all 0.4s var(--ease-out);
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      border-radius: 6px;
+    }
+
+    .mobile-menu.active a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mobile-menu a:nth-child(1) { transition-delay: 0s; }
+    .mobile-menu a:nth-child(2) { transition-delay: 0s; }
+    .mobile-menu a:nth-child(3) { transition-delay: 0s; }
+    .mobile-menu a:nth-child(4) { transition-delay: 0s; }
+    .mobile-menu a:nth-child(5) { transition-delay: 0s; }
+    .mobile-menu a:nth-child(6) { transition-delay: 0s; }
+    .mobile-menu a:nth-child(7) { transition-delay: 0s; }
+
+    .mobile-menu.active a:nth-child(1) { transition-delay: 0.1s; }
+    .mobile-menu.active a:nth-child(2) { transition-delay: 0.15s; }
+    .mobile-menu.active a:nth-child(3) { transition-delay: 0.2s; }
+    .mobile-menu.active a:nth-child(4) { transition-delay: 0.25s; }
+    .mobile-menu.active a:nth-child(5) { transition-delay: 0.3s; }
+    .mobile-menu.active a:nth-child(6) { transition-delay: 0.35s; }
+    .mobile-menu.active a:nth-child(7) { transition-delay: 0.4s; }
+
+    .mobile-menu a:hover {
+      color: var(--accent);
+      background: rgba(16, 185, 129, 0.1);
+    }
+
+    .mobile-menu .mobile-cta {
+      margin-top: 1rem;
+      background: var(--accent);
+      color: var(--bg-primary) !important;
+      padding: 1rem 2rem;
+      font-weight: 600;
+    }
+
+    .mobile-menu .mobile-cta:hover {
+      background: #0d9668;
+      transform: translateY(-2px);
     }
 
     @media (max-width: 768px) {
       .nav-links, .nav-cta { display: none; }
-      .nav-toggle { display: block; }
+      .nav-toggle { display: flex; }
     }
 
     /* ===== HERO ===== */
@@ -540,52 +690,6 @@
       display: inline-block;
     }
 
-    /* Text glitch effect on hover */
-    .glitch-text {
-      position: relative;
-      display: inline-block;
-    }
-
-    .glitch-text::before,
-    .glitch-text::after {
-      content: attr(data-text);
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .glitch-text:hover::before {
-      animation: glitch-1 0.3s ease-in-out;
-      color: var(--accent-cyan);
-      opacity: 0.8;
-    }
-
-    .glitch-text:hover::after {
-      animation: glitch-2 0.3s ease-in-out;
-      color: var(--accent-pink);
-      opacity: 0.8;
-    }
-
-    @keyframes glitch-1 {
-      0%, 100% { transform: translate(0); opacity: 0; }
-      20% { transform: translate(-3px, 3px); opacity: 0.8; }
-      40% { transform: translate(3px, -3px); opacity: 0.8; }
-      60% { transform: translate(-3px, -3px); opacity: 0.8; }
-      80% { transform: translate(3px, 3px); opacity: 0.8; }
-    }
-
-    @keyframes glitch-2 {
-      0%, 100% { transform: translate(0); opacity: 0; }
-      20% { transform: translate(3px, -3px); opacity: 0.8; }
-      40% { transform: translate(-3px, 3px); opacity: 0.8; }
-      60% { transform: translate(3px, 3px); opacity: 0.8; }
-      80% { transform: translate(-3px, -3px); opacity: 0.8; }
-    }
-
     .hero-description {
       font-size: 1.1rem;
       color: var(--text-secondary);
@@ -614,16 +718,18 @@
     .btn-primary {
       background: var(--accent);
       color: var(--bg-primary);
+      box-shadow: 4px 4px 0 var(--accent-gold);
     }
 
     .btn-primary:hover {
       background: #0d9668;
-      box-shadow: 0 0 30px var(--border-glow), 0 0 60px rgba(16, 185, 129, 0.2);
-      transform: translateY(-3px) scale(1.02);
+      box-shadow: 6px 6px 0 var(--accent-gold), 0 0 30px var(--border-glow);
+      transform: translate(-2px, -2px);
     }
 
     .btn-primary:active {
-      transform: translateY(0) scale(0.98);
+      box-shadow: 2px 2px 0 var(--accent-gold);
+      transform: translate(2px, 2px);
     }
 
     /* Ripple effect */
@@ -659,16 +765,18 @@
       background: var(--bg-secondary);
       color: var(--text-primary);
       border: 1px solid var(--border);
+      box-shadow: 4px 4px 0 var(--border);
     }
 
     .btn-secondary:hover {
       border-color: var(--accent);
-      box-shadow: 0 0 20px var(--border-glow);
-      transform: translateY(-2px);
+      box-shadow: 6px 6px 0 var(--accent), 0 0 20px var(--border-glow);
+      transform: translate(-2px, -2px);
     }
 
     .btn-secondary:active {
-      transform: translateY(0) scale(0.98);
+      box-shadow: 2px 2px 0 var(--border);
+      transform: translate(2px, 2px);
     }
 
     /* ===== SECTION HEADER ===== */
@@ -1705,30 +1813,81 @@
         transform: none !important;
       }
     }
+
+    /* ===== SCROLL ANIMATIONS ===== */
+    [data-scroll] {
+      opacity: 0;
+      transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    }
+
+    [data-scroll].is-visible {
+      opacity: 1;
+    }
+
+    [data-scroll="fade-up"] {
+      transform: translateY(40px);
+    }
+
+    [data-scroll="fade-up"].is-visible {
+      transform: translateY(0);
+    }
+
+    [data-scroll="fade-down"] {
+      transform: translateY(-40px);
+    }
+
+    [data-scroll="fade-down"].is-visible {
+      transform: translateY(0);
+    }
+
+    [data-scroll="fade-left"] {
+      transform: translateX(40px);
+    }
+
+    [data-scroll="fade-left"].is-visible {
+      transform: translateX(0);
+    }
+
+    [data-scroll="fade-right"] {
+      transform: translateX(-40px);
+    }
+
+    [data-scroll="fade-right"].is-visible {
+      transform: translateX(0);
+    }
+
+    [data-scroll="scale-up"] {
+      transform: scale(0.9);
+    }
+
+    [data-scroll="scale-up"].is-visible {
+      transform: scale(1);
+    }
+
+    [data-scroll="fade-in"] {
+      transform: none;
+    }
+
+    [data-scroll="fade-in"].is-visible {
+      transform: none;
+    }
   </style>
 </head>
 <body data-scroll-theme="tech">
-  <!-- Scroll Progress Bar -->
-  <div class="scroll-progress" id="scrollProgress"></div>
-
-  <!-- Floating Particles -->
-  <div class="particles" aria-hidden="true">
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo"><span class="t">t</span><span class="colon">:</span><span class="f">f</span></div>
+      <div class="preloader-text">Loading</div>
+      <div class="preloader-line"></div>
+    </div>
   </div>
 
-  <!-- Scanlines overlay -->
-  <div class="scanlines"></div>
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
 
   <!-- Cursor glow follower -->
   <div class="cursor-glow" id="cursorGlow"></div>
@@ -1751,9 +1910,24 @@
 
       <a href="#contact" class="nav-cta">./start_chat.sh</a>
 
-      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" class="mobile-link">about</a>
+    <a href="#work" class="mobile-link">projects</a>
+    <a href="#templates" class="mobile-link">websites</a>
+    <a href="#services" class="mobile-link">services</a>
+    <a href="#skills" class="mobile-link">skills</a>
+    <a href="#contact" class="mobile-link">contact</a>
+    <a href="#contact" class="mobile-cta">./start_chat.sh</a>
+  </div>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -2376,46 +2550,6 @@
       });
     });
 
-    // ===== SUBTLE GLITCH EFFECT =====
-    // Quick, subtle glitch on hover - just a brief flicker
-    document.querySelectorAll('.nav-link, .project-link').forEach(el => {
-      const originalText = el.getAttribute('data-text') || el.textContent;
-      const glitchChars = '!<>-_\\/[]{}—=+*^?#';
-
-      el.addEventListener('mouseenter', () => {
-        // Quick glitch: just 2-3 rapid flickers then restore
-        let flickers = 0;
-        const maxFlickers = 3;
-
-        const glitch = setInterval(() => {
-          if (flickers >= maxFlickers) {
-            clearInterval(glitch);
-            el.textContent = originalText;
-            return;
-          }
-
-          // Glitch only 1-2 random characters
-          el.textContent = originalText
-            .split('')
-            .map((char, i) => {
-              // 20% chance to glitch each character
-              if (Math.random() < 0.2 && char !== ' ') {
-                return glitchChars[Math.floor(Math.random() * glitchChars.length)];
-              }
-              return char;
-            })
-            .join('');
-
-          flickers++;
-        }, 50);
-
-        // Safety: always restore after 200ms
-        setTimeout(() => {
-          el.textContent = originalText;
-        }, 200);
-      });
-    });
-
     // ===== STAGGERED REVEAL FOR GRIDS =====
     const observerOptions = {
       threshold: 0.1,
@@ -2512,18 +2646,155 @@
     }, { passive: true });
 
     // ===== TYPING CURSOR BLINK ENHANCEMENT =====
-    const cursor = document.querySelector('.nav-logo .cursor');
-    if (cursor) {
+    const navCursor = document.querySelector('.nav-logo .cursor');
+    if (navCursor) {
       setInterval(() => {
-        cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
+        navCursor.style.opacity = navCursor.style.opacity === '0' ? '1' : '0';
       }, 530);
     }
 
-    // ===== INITIAL ANIMATIONS =====
-    window.addEventListener('load', () => {
-      document.body.classList.add('loaded');
-      updateScrollProgress();
+    // ===== GSAP PRELOADER & HERO ANIMATIONS =====
+    gsap.registerPlugin(ScrollTrigger);
+
+    const preloader = document.getElementById('preloader');
+    const preloaderLogo = document.querySelector('.preloader-logo');
+    const preloaderText = document.querySelector('.preloader-text');
+    const preloaderLine = document.querySelector('.preloader-line');
+
+    // Preloader timeline
+    const preloaderTL = gsap.timeline({
+      onComplete: () => {
+        document.body.classList.add('loaded');
+        heroEntrance();
+      }
     });
+
+    preloaderTL
+      .to(preloaderLogo, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' })
+      .to(preloaderText, { opacity: 1, duration: 0.4, ease: 'power2.out' }, '-=0.2')
+      .to(preloaderLine, { scaleX: 1, duration: 0.8, ease: 'power2.inOut' }, '-=0.2')
+      .to(preloaderText, { opacity: 0, duration: 0.2 }, '+=0.3')
+      .to(preloaderLine, { opacity: 0, duration: 0.2 }, '<')
+      .to(preloaderLogo, { opacity: 0, scale: 0.8, duration: 0.3 }, '<')
+      .to(preloader, { yPercent: -100, duration: 0.8, ease: 'power4.inOut' }, '-=0.1')
+      .set(preloader, { display: 'none' });
+
+    // Hero entrance after preloader
+    function heroEntrance() {
+      const heroTL = gsap.timeline();
+
+      heroTL
+        .from('.nav', { y: -100, opacity: 0, duration: 0.8, ease: 'power3.out' })
+        .from('.terminal-window', {
+          scale: 0.9,
+          opacity: 0,
+          duration: 0.8,
+          ease: 'back.out(1.7)'
+        }, '-=0.4')
+        .from('.hero-title', {
+          y: 60,
+          opacity: 0,
+          duration: 0.8,
+          ease: 'power3.out'
+        }, '-=0.4')
+        .from('.hero-description', {
+          y: 30,
+          opacity: 0,
+          duration: 0.6,
+          ease: 'power3.out'
+        }, '-=0.4')
+        .from('.hero-ctas .btn', {
+          y: 30,
+          opacity: 0,
+          duration: 0.5,
+          stagger: 0.1,
+          ease: 'power3.out'
+        }, '-=0.3');
+
+      updateScrollProgress();
+    }
+
+    // ===== GSAP STATS COUNTER =====
+    gsap.utils.toArray('.stat-value').forEach(stat => {
+      const endValue = parseInt(stat.textContent);
+      stat.textContent = '0';
+
+      ScrollTrigger.create({
+        trigger: stat,
+        start: 'top 85%',
+        onEnter: () => {
+          gsap.to(stat, {
+            duration: 2,
+            ease: 'power2.out',
+            onUpdate: function() {
+              const progress = this.progress();
+              stat.textContent = Math.round(endValue * progress) + '+';
+            }
+          });
+        },
+        once: true
+      });
+    });
+
+    // Contact section
+    // ===== CUSTOM CURSOR =====
+    const cursor = document.querySelector('.cursor');
+    if (cursor && window.matchMedia('(pointer: fine)').matches) {
+      let mouseX = 0, mouseY = 0;
+      let cursorX = 0, cursorY = 0;
+
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      function animateCursorDot() {
+        cursorX += (mouseX - cursorX) * 0.15;
+        cursorY += (mouseY - cursorY) * 0.15;
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+        requestAnimationFrame(animateCursorDot);
+      }
+      animateCursorDot();
+
+      // Hover states
+      const interactiveEls = document.querySelectorAll('a, button, .project-card, .template-card, .service-card, input, textarea, select');
+      interactiveEls.forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+      });
+    }
+
+    // ===== MOBILE MENU =====
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link, .mobile-cta');
+
+    if (navToggle && mobileMenu) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = navToggle.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+
+      // Close menu on link click
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          navToggle.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+
+      // Close on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+          navToggle.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    }
   </script>
 </body>
 </html>
