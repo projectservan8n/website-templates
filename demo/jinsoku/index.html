@@ -206,8 +206,9 @@
       color: var(--cream);
       font-size: 1.5rem;
       cursor: pointer;
-      z-index: 1002;
+      z-index: 10002;
       padding: 0.5rem;
+      position: relative;
     }
 
     /* Mobile Menu Overlay */
@@ -218,7 +219,7 @@
       right: 0;
       bottom: 0;
       background: rgba(17, 17, 17, 0.98);
-      z-index: 1001;
+      z-index: 10001;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -226,12 +227,32 @@
       gap: 2rem;
       opacity: 0;
       visibility: hidden;
+      pointer-events: none;
       transition: all 0.4s var(--ease-out);
     }
 
     .mobile-menu.active {
       opacity: 1;
       visibility: visible;
+      pointer-events: auto;
+    }
+
+    /* Close button inside mobile menu */
+    .mobile-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--cream);
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 10003;
+    }
+
+    .mobile-close:hover {
+      color: var(--red);
     }
 
     .mobile-menu a {
@@ -1190,6 +1211,7 @@
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
     <a href="#about" class="mobile-link">About</a>
     <a href="#menu" class="mobile-link">Menu</a>
     <a href="#gallery" class="mobile-link">Gallery</a>
@@ -1890,29 +1912,35 @@
     // ===== MOBILE MENU =====
     const navToggle = document.getElementById('navToggle');
     const mobileMenu = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
     let menuOpen = false;
 
+    function openMenu() {
+      menuOpen = true;
+      mobileMenu.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      menuOpen = false;
+      mobileMenu.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
     navToggle.addEventListener('click', () => {
-      menuOpen = !menuOpen;
       if (menuOpen) {
-        mobileMenu.classList.add('active');
-        navToggle.innerHTML = '✕';
-        document.body.style.overflow = 'hidden';
+        closeMenu();
       } else {
-        mobileMenu.classList.remove('active');
-        navToggle.innerHTML = '☰';
-        document.body.style.overflow = '';
+        openMenu();
       }
     });
 
+    // Close button inside menu
+    mobileClose.addEventListener('click', closeMenu);
+
     // Close mobile menu when clicking a link
     document.querySelectorAll('.mobile-link').forEach(link => {
-      link.addEventListener('click', () => {
-        menuOpen = false;
-        mobileMenu.classList.remove('active');
-        navToggle.innerHTML = '☰';
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeMenu);
     });
 
     // ===== SMOOTH SCROLL =====
