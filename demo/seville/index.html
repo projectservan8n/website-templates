@@ -13,6 +13,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;500;600;700;800&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
   <style>
     :root {
       --orange: #E85D04;
@@ -47,6 +50,49 @@
       color: var(--text-dark);
       overflow-x: hidden;
       padding-top: 48px;
+    }
+
+    /* ===== PRELOADER ===== */
+    .preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .preloader-inner {
+      position: relative;
+      text-align: center;
+    }
+
+    .preloader-logo {
+      opacity: 0;
+      max-width: 200px;
+      width: 80vw;
+      height: auto;
+    }
+
+    .preloader-text {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      color: var(--text-light);
+      opacity: 0;
+      margin-top: 1rem;
+    }
+
+    .preloader-line {
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--orange), var(--pink));
+      margin: 1rem auto 0;
+      transform: scaleX(0);
+      transform-origin: center;
+      border-radius: 2px;
     }
 
     /* Demo Banner */
@@ -1239,6 +1285,15 @@
 </head>
 <body>
 
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <img src="assets/Seville.png" alt="Seville Café" class="preloader-logo">
+      <div class="preloader-text">Good Vibes, Great Drinks</div>
+      <div class="preloader-line"></div>
+    </div>
+  </div>
+
   <!-- DEMO BANNER -->
   <div class="demo-banner">
     This is a <strong>DEMO PREVIEW</strong> of your potential website.
@@ -2138,6 +2193,38 @@
   </div>
 
   <script>
+    // ===== PRELOADER =====
+    const preloader = document.getElementById('preloader');
+    const preloaderLogo = preloader.querySelector('.preloader-logo');
+    const preloaderText = preloader.querySelector('.preloader-text');
+    const preloaderLine = preloader.querySelector('.preloader-line');
+
+    const preloaderTL = gsap.timeline();
+
+    preloaderTL
+      .to(preloaderLogo, {
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out'
+      })
+      .to(preloaderText, {
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power2.out'
+      }, '-=0.4')
+      .to(preloaderLine, {
+        scaleX: 1,
+        duration: 0.8,
+        ease: 'power2.inOut'
+      }, '-=0.3')
+      .to(preloader, {
+        yPercent: -100,
+        duration: 1.2,
+        ease: 'power4.inOut',
+        delay: 0.3
+      })
+      .set(preloader, { display: 'none' });
+
     // Mobile Menu Toggle
     function toggleMobileMenu() {
       const toggle = document.querySelector('.mobile-toggle');
