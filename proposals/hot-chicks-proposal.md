@@ -27,18 +27,18 @@
 - They DON'T accept Messenger orders, advance orders, or pick-up requests
 - But customers keep messaging them on Facebook asking to order
 - Their FAQ literally answers the same ordering questions over and over
-- A website puts the ordering policy front and center - less wasted time replying "walk-in or Maxim only"
+- A website puts the ordering policy front and center so there's less wasted time replying "walk-in or Maxim only"
 
 ### 2. Discoverability
 - When someone searches "chicken Zamboanga" or "Nashville hot chicken Zamboanga City", does Hot Chicks show up?
-- They're in QNS Building, Veterans Ave Ext. - not exactly a main road location
+- They're in QNS Building, Veterans Ave Ext. which is not exactly a main road location
 - People near Al-Jaharah Village or HK1 Apartment might not even know they exist
 - A website with proper SEO means people searching for food nearby actually find them
 
 ### 3. Menu Access
 - Full menu with 30+ items, heat levels, limited daily specials
 - Customers scroll through Facebook posts or have to message asking for prices
-- Limited daily items (Cheesy Hot Chicken Noodles, Nacho Flame, Chicken Skin) sell out - customers need to know what's available before going
+- Limited daily items (Cheesy Hot Chicken Noodles, Nacho Flame, Chicken Skin) sell out so customers need to know what's available before going
 - A website puts the entire menu one tap away, 24/7
 
 ### 4. They Answer the Same Questions Every Day
@@ -47,13 +47,13 @@
 - "Do you accept GCash?"
 - "Are you on Food Panda?"
 - "Can I reserve a table?"
-- Their FAQ section proves it - they already KNOW these are repeated questions
+- Their FAQ section proves it, they already KNOW these are repeated questions
 - A website answers all of this automatically, saving staff time
 
 ### 5. They Have a Strong Brand But No Home for It
 - "Asian-American fusion chicken" is a unique concept in Zamboanga
 - 5.0 rating on Facebook with loyal customers
-- The 6 heat levels, the Nashville sandwich, the loaded fries - it's all scattered across Facebook posts
+- The 6 heat levels, the Nashville sandwich, the loaded fries, it's all scattered across Facebook posts
 - A website becomes the ONE place that tells their whole story
 
 ---
@@ -66,7 +66,7 @@
 - No more "how much is the Nashville sandwich?" messages
 
 ### 2. Ordering Policy is Clear
-- Walk-in and Maxim delivery ONLY - displayed prominently
+- Walk-in and Maxim delivery ONLY, displayed prominently
 - No more wasted time explaining "we don't take Messenger orders"
 - Maxim ordering instructions right on the site
 
@@ -81,9 +81,9 @@
 - First-time visitors preview the vibe, menu, and heat levels before coming
 
 ### 5. Less Staff Time on Repetitive Questions
-- FAQ, location, hours, payment methods, corkage policy - all on the site
-- Staff focuses on cooking and serving, not answering Messenger
-- Even delivery instructions (Maxim → Pabili → search "Hot Chicks ZC") are clearly laid out
+- FAQ, location, hours, payment methods, corkage policy, all on the site
+- Staff focuses on cooking and serving instead of answering Messenger
+- Even delivery instructions (Maxim, Pabili, search "Hot Chicks ZC") are clearly laid out
 
 ---
 
@@ -109,7 +109,7 @@ If website brings just 1 extra Maxim delivery order/day:
 → That's 8x the maintenance cost
 ```
 
-**The question:** "If your website brought just 4 extra customers a month - that's one per week - would ₱1,200 be worth it?"
+**The question:** "If your website brought just 4 extra customers a month, that's one per week, would ₱1,200 be worth it?"
 
 ---
 
@@ -119,50 +119,50 @@ If website brings just 1 extra Maxim delivery order/day:
 
 ---
 
-Hi Hot Chicks! I'm Tony - super regular customer here. I lose count how many times I get your tenders and loaded fries every month. Honestly my go-to spot for protein, and it tastes so good every single time.
+Hi Hot Chicks! Super regular customer here haha. I honestly can't count how many times I get your tenders and loaded fries every month. It's my go-to for protein and it just hits every single time.
 
-Anyway, I make websites for local businesses here in Zamboanga, and I actually loved your place so much that I went ahead and built a sample website for Hot Chicks:
+So I actually make websites for local businesses here in Zamboanga, and I loved your place so much that I went ahead and built a sample website for you guys:
 
 👉 tonyfyp.com/hot-chicks/
 
-It's got your full menu with all the heat levels, your location with the map, a gallery, and even a reviews section with your actual Facebook reviews. I also included your ordering policy and FAQ so customers can see "walk-in and Maxim only" without having to message you.
+It has your full menu with the heat levels, location with the map, gallery, and even a reviews section with your actual Facebook reviews. I also put in your ordering policy and FAQ so customers can see "walk-in and Maxim only" without having to message you about it.
 
-Check it out on your phone too - it's mobile-friendly!
+Try checking it out on your phone too, it works really well on mobile!
 
-I was thinking - you guys probably get the same questions every day on Messenger: "Where are you?" "Can I order through chat?" "Are you on Food Panda?" A website answers all of that automatically. Plus, when people search "chicken Zamboanga" on Google, a website helps you actually show up.
+I noticed you guys probably get the same questions every day on Messenger like "Where are you?" or "Can I order through chat?" or "Are you on Food Panda?" A website answers all of that for you automatically. And when people search "chicken Zamboanga" on Google, having a website actually helps you show up.
 
-No pressure at all! Just wanted to show you what's possible. If you're ever interested, let me know.
+No pressure at all! Just wanted to show you what's possible. If you're ever interested just let me know.
 
-Either way, I'll be back for more tenders soon. 🔥
+I'll be back for more tenders soon for sure 🔥
 
-- Tony
+Tony
 📱 0955 991 8754
 
 ---
 
 ## Follow-up (if they respond positively)
 
-"Glad you liked it! Here's a quick breakdown:
+"Glad you liked it! So here's a quick breakdown:
 
 **One-time setup:** ₱5,000
-- Custom design (like the demo, but we can tweak anything)
+- Custom design (like the demo but we can tweak anything you want)
 - Full menu page with all items, prices, and heat levels
-- Your ordering policy clearly displayed (walk-in + Maxim only)
+- Your ordering policy displayed clearly (walk-in + Maxim only)
 - Gallery section
 - Reviews from your actual Facebook customers
 - Google Maps location embedded
-- FAQ section - no more answering the same Messenger questions
-- Mobile-friendly - looks great on phones
+- FAQ section so you don't have to keep answering the same Messenger questions
+- Mobile-friendly, looks great on phones
 - Links to your Facebook and Instagram
 
 **Monthly maintenance:** ₱1,200
 - Hosting included
-- Updates whenever you need (menu changes, new items, limited specials)
+- Updates whenever you need them (menu changes, new items, limited specials)
 - I handle all the technical stuff
 
-The way I see it - you guys already answer the same questions every day on Messenger. The website handles that automatically. And if it brings just 4 extra customers a month, it already pays for itself. That's less than one customer per week.
+The way I see it, you guys already answer the same questions every day on Messenger. The website handles that for you automatically. And if it brings just 4 extra customers a month it already pays for itself. That's less than one customer per week.
 
-Domain name is separate - .com is around ₱600-800/year, .com.ph is more.
+Domain name is separate, .com is around ₱600-800/year and .com.ph is a bit more.
 
 Want to meet up? I'll swing by for tenders and we can talk about it 😄"
 
@@ -170,15 +170,15 @@ Want to meet up? I'll swing by for tenders and we can talk about it 😄"
 
 ## If They Say "We're Good with Facebook"
 
-"I totally get it! Your Facebook page is solid - 5.0 rating, loyal customers. But here's the thing:
+"I totally get it! Your Facebook page is solid, 5.0 rating and loyal customers. But here's the thing though.
 
-Facebook reach is down to 2-5% now. Most of your followers don't even see your posts. And your biggest pain point - people messaging to order through chat when you only do walk-in and Maxim - that doesn't go away with Facebook alone.
+Facebook reach is down to like 2-5% now. Most of your followers don't even see your posts. And that thing where people keep messaging to order through chat even though you only do walk-in and Maxim, that doesn't go away with just Facebook.
 
-A website is different. It shows up when NEW customers search for food in Zamboanga. And it puts your ordering policy, menu, and FAQ front and center so people stop asking the same questions.
+A website is different because it shows up when NEW customers search for food in Zamboanga. And it puts your ordering policy, menu, and FAQ right there so people stop asking the same questions.
 
-Think about it - how many times a week does someone message asking 'where are you located?' or 'can I order through Messenger?' A website answers that before they even have to ask.
+Think about it, how many times a week does someone message asking 'where are you located?' or 'can I order through Messenger?' A website answers that before they even have to ask.
 
-It works alongside your Facebook, not instead of it. Your social media brings people back, your website brings new people in and stops the repetitive questions.
+It works alongside your Facebook, not instead of it. Your social media brings people back and your website brings new people in while stopping the repetitive questions.
 
 The demo's there whenever you want to check it out!"
 
@@ -186,25 +186,25 @@ The demo's there whenever you want to check it out!"
 
 ## If They Say "We Don't Need More Customers, We're Already Busy"
 
-"That's actually a great problem to have! But here's where a website helps even more for a busy restaurant:
+"That's actually a great problem to have! But honestly here's where a website helps even more for a busy restaurant:
 
-1. **Less Messenger spam** - Your FAQ and ordering policy are right on the site. No more explaining 'we don't take chat orders' ten times a day.
-2. **Filter out time-wasters** - People who check the website come in already knowing the menu, prices, and ordering policy. Smoother operations for your staff.
-3. **Credibility** - You're the only Nashville hot chicken spot in Zamboanga. A website cements that position before a competitor copies the concept.
+1. **Less Messenger spam.** Your FAQ and ordering policy are right on the site. No more explaining 'we don't take chat orders' ten times a day.
+2. **Filters out time-wasters.** People who check the website come in already knowing the menu, prices, and ordering policy. Way smoother for your staff.
+3. **Credibility.** You're the only Nashville hot chicken spot in Zamboanga. A website cements that position before a competitor copies the concept.
 
-It's not just about getting more customers - it's about making your current operations smoother and protecting your brand."
+It's not just about getting more customers, it's about making your current operations smoother and protecting your brand."
 
 ---
 
 ## Notes
-- **Lead with the personal connection** - I'm a genuine regular, not just pitching cold
-- The tenders + loaded fries angle is authentic - use it
-- **Key pain point:** They explicitly DON'T take Messenger orders but customers keep trying - the website solves this
+- **Lead with the personal connection.** I'm a genuine regular, not just pitching cold
+- The tenders + loaded fries angle is authentic, use it
+- **Key pain point:** They explicitly DON'T take Messenger orders but customers keep trying. The website solves this
 - Their FAQ proves they're already tired of answering the same questions
-- They have a unique concept (Asian-American fusion chicken) in Zamboanga - no real competitors yet
-- QNS Building location is slightly hidden - discoverability is a real issue
-- 5.0 Facebook rating is impressive - showcase it
+- They have a unique concept (Asian-American fusion chicken) in Zamboanga with no real competitors yet
+- QNS Building location is slightly hidden so discoverability is a real issue
+- 5.0 Facebook rating is impressive, showcase it
 - Demo link is `tonyfyp.com/hot-chicks/` (NOT /demo/hot-chicks/)
 - Don't mention pricing until they show interest
-- They're a walk-in + Maxim only operation - respect that in the pitch
+- They're a walk-in + Maxim only operation, respect that in the pitch
 - **ROI hook:** "4 extra customers per week pays for it" or "your website stops the 'can I order on Messenger?' question forever"
