@@ -1458,6 +1458,190 @@
       flex-wrap: wrap;
     }
 
+    /* ===== REVIEWS ===== */
+    .reviews {
+      padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 4vw, 3rem);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .reviews__header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .reviews__header .section-tag {
+      justify-content: center;
+    }
+
+    .reviews__header .section-tag::before { display: none; }
+
+    .reviews__rating {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .reviews__stars {
+      display: flex;
+      gap: 0.2rem;
+      color: var(--yellow);
+    }
+
+    .reviews__stars svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .reviews__count {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .reviews__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .review-card {
+      background: var(--black-card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .review-card:hover {
+      border-color: rgba(229, 34, 34, 0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+
+    .review-card__header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .review-card__avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--charcoal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--red);
+      flex-shrink: 0;
+    }
+
+    .review-card__info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .review-card__name {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .review-card__date {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .review-card__stars {
+      display: flex;
+      gap: 0.15rem;
+      color: var(--yellow);
+      margin-bottom: 0.75rem;
+    }
+
+    .review-card__stars svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .review-card__text {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    .review-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+
+    .review-card__tag {
+      font-size: 0.65rem;
+      font-weight: 500;
+      padding: 0.25rem 0.6rem;
+      background: rgba(229, 34, 34, 0.08);
+      color: var(--orange-light);
+      border-radius: 20px;
+      border: 1px solid rgba(229, 34, 34, 0.12);
+    }
+
+    .review-card__fb {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      color: var(--text-muted);
+      opacity: 0.4;
+    }
+
+    .reviews__cta {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+
+    .reviews__cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 0.65rem 1.5rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .reviews__cta a:hover {
+      color: var(--text);
+      border-color: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.03);
+    }
+
+    @media (max-width: 900px) {
+      .reviews__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 580px) {
+      .reviews__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* ===== FOOTER ===== */
     .footer {
       padding: 3rem clamp(1.5rem, 4vw, 3rem) 2rem;
@@ -1699,6 +1883,7 @@
         <li><a href="#menu">Menu</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#faq">FAQ</a></li>
+        <li><a href="#reviews">Reviews</a></li>
         <li><a href="#location">Visit Us</a></li>
       </ul>
       <a href="https://www.facebook.com/hotchickszc" class="nav__cta" target="_blank" rel="noopener">
@@ -2297,6 +2482,231 @@
     </div>
   </section>
 
+  <!-- ===== REVIEWS ===== -->
+  <section class="reviews" id="reviews">
+    <div class="reviews__header">
+      <div class="section-tag">WHAT THEY SAY</div>
+      <h2 class="section-title">THE <span class="red">PEOPLE</span> HAVE SPOKEN</h2>
+      <div class="reviews__rating">
+        <div class="reviews__stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span class="reviews__count">5.0 on Facebook</span>
+      </div>
+    </div>
+
+    <div class="reviews__grid">
+
+      <!-- Review 1 -->
+      <div class="review-card">
+        <svg class="review-card__fb" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <div class="review-card__header">
+          <div class="review-card__avatar">FA</div>
+          <div class="review-card__info">
+            <div class="review-card__name">Farah Khalil</div>
+            <div class="review-card__date">November 2024</div>
+          </div>
+        </div>
+        <div class="review-card__stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-card__text">Chicken&mdash;The best I've ever had. Fries&mdash;they've changed the fries itself, and that alone upped the quality and taste to 10. Drinks&mdash;Great and not over priced.</p>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="review-card">
+        <svg class="review-card__fb" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <div class="review-card__header">
+          <div class="review-card__avatar">MO</div>
+          <div class="review-card__info">
+            <div class="review-card__name">Moiscel Sanchez</div>
+            <div class="review-card__date">September 2024</div>
+          </div>
+        </div>
+        <div class="review-card__stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-card__text">Tried eating here last 2023 and I have been going back ever since. The staff is friendly, the service is top-notch and the food is really worth your money.</p>
+        <div class="review-card__tags">
+          <span class="review-card__tag">Great food</span>
+          <span class="review-card__tag">Friendly staff</span>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="review-card">
+        <svg class="review-card__fb" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <div class="review-card__header">
+          <div class="review-card__avatar">AM</div>
+          <div class="review-card__info">
+            <div class="review-card__name">Amor Atilano</div>
+            <div class="review-card__date">September 2024</div>
+          </div>
+        </div>
+        <div class="review-card__stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-card__text">The Sandwich is so very veryyyy delicious. You can tell it in your first bite! The staffs is so very kind, beautiful and friendly. And the owner also. Come come na!!</p>
+      </div>
+
+      <!-- Review 4 -->
+      <div class="review-card">
+        <svg class="review-card__fb" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <div class="review-card__header">
+          <div class="review-card__avatar">KR</div>
+          <div class="review-card__info">
+            <div class="review-card__name">Krisha Ariston</div>
+            <div class="review-card__date">October 2024</div>
+          </div>
+        </div>
+        <div class="review-card__stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-card__text">Hot chicks is our go-to food place! Any food in the menu is good but my faves are the buffalo chicken tenders and loaded fries. 10/10!!!</p>
+        <div class="review-card__tags">
+          <span class="review-card__tag">Great food</span>
+          <span class="review-card__tag">Large portions</span>
+        </div>
+      </div>
+
+      <!-- Review 5 -->
+      <div class="review-card">
+        <svg class="review-card__fb" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <div class="review-card__header">
+          <div class="review-card__avatar">JE</div>
+          <div class="review-card__info">
+            <div class="review-card__name">Jeanna Renee Doroja Araneta</div>
+            <div class="review-card__date">September 2022</div>
+          </div>
+        </div>
+        <div class="review-card__stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-card__text">SO GOOD! Thank you for being generous with the chicken&mdash;di kuripot yay. Chicken isn't dry!!! Love the spice levels. Fam will buy again!</p>
+      </div>
+
+      <!-- Review 6 -->
+      <div class="review-card">
+        <svg class="review-card__fb" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <div class="review-card__header">
+          <div class="review-card__avatar">ST</div>
+          <div class="review-card__info">
+            <div class="review-card__name">Steph</div>
+            <div class="review-card__date">December 2024</div>
+          </div>
+        </div>
+        <div class="review-card__stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-card__text">The food is soooo worth it and wait did not take too long even tho the place was packed. Would recommend!</p>
+        <div class="review-card__tags">
+          <span class="review-card__tag">Cosy atmosphere</span>
+          <span class="review-card__tag">Indoor Dining</span>
+        </div>
+      </div>
+
+      <!-- Review 7 -->
+      <div class="review-card">
+        <svg class="review-card__fb" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <div class="review-card__header">
+          <div class="review-card__avatar">EM</div>
+          <div class="review-card__info">
+            <div class="review-card__name">Emjay Emjay</div>
+            <div class="review-card__date">October 2024</div>
+          </div>
+        </div>
+        <div class="review-card__stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-card__text">One of the best comfort foods out here in the Zamboanga City. The price speaks loudly for the quality of food.</p>
+        <div class="review-card__tags">
+          <span class="review-card__tag">Great food</span>
+          <span class="review-card__tag">Comfort food</span>
+        </div>
+      </div>
+
+      <!-- Review 8 -->
+      <div class="review-card">
+        <svg class="review-card__fb" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <div class="review-card__header">
+          <div class="review-card__avatar">JU</div>
+          <div class="review-card__info">
+            <div class="review-card__name">Justin Bejerano</div>
+            <div class="review-card__date">February 2023</div>
+          </div>
+        </div>
+        <div class="review-card__stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-card__text">Most definitely the best hot chicken sandwich I have tried! Quality is 100 and the best part about it is the spice. Keep it up, keep it hot.</p>
+      </div>
+
+      <!-- Review 9 -->
+      <div class="review-card">
+        <svg class="review-card__fb" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <div class="review-card__header">
+          <div class="review-card__avatar">DP</div>
+          <div class="review-card__info">
+            <div class="review-card__name">Daphne Pollisco</div>
+            <div class="review-card__date">October 2024</div>
+          </div>
+        </div>
+        <div class="review-card__stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-card__text">FOOD QUALITY IS THE BEST!!! SULIT NA SULIT</p>
+      </div>
+
+    </div>
+
+    <div class="reviews__cta">
+      <a href="https://www.facebook.com/hotchickszc/reviews" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        See all reviews on Facebook
+      </a>
+    </div>
+  </section>
+
   <!-- ===== LOCATION ===== -->
   <section class="location" id="location">
     <div class="location__inner">
@@ -2543,6 +2953,24 @@
     gsap.from('.cta-banner__content', {
       scrollTrigger: { trigger: '.cta-banner', start: 'top 75%' },
       opacity: 0, y: 30, duration: 0.7, ease: 'power3.out'
+    });
+
+    // ===== REVIEW CARDS ANIMATION =====
+    gsap.set('.review-card', { opacity: 0, y: 40 });
+    gsap.set('.reviews__header', { opacity: 0, y: 30 });
+
+    ScrollTrigger.create({
+      trigger: '.reviews',
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        gsap.to('.reviews__header', {
+          opacity: 1, y: 0, duration: 0.7, ease: 'power3.out'
+        });
+        gsap.to('.review-card', {
+          opacity: 1, y: 0, duration: 0.6, stagger: 0.08, ease: 'power3.out', delay: 0.2
+        });
+      }
     });
 
     // ===== FAQ ACCORDION (GSAP) =====
