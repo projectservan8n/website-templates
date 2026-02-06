@@ -3,8 +3,13 @@
 User-agent: *
 Allow: /
 
-# Block demo previews from being indexed
+# Block demo sites from being indexed
 Disallow: /demo/
+Disallow: /hot-chicks/
+Disallow: /jinsoku/
+Disallow: /seville/
 
 # Block other private directories
 Disallow: /.claude/
+Disallow: /proposals/
+Disallow: /docs/
