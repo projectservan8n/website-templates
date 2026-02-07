@@ -272,53 +272,63 @@
       transition: all 0.3s;
     }
 
-    /* ===== HERO ===== */
+    /* ===== HERO (Fullscreen Dip Experience) ===== */
     .hero {
       position: relative;
-      min-height: 100vh;
+      height: 500vh;
+      background: var(--black);
+    }
+
+    .hero__sticky {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 100vh;
       display: flex;
       align-items: center;
-      padding: clamp(8rem, 15vh, 12rem) clamp(1.5rem, 4vw, 3rem) clamp(4rem, 8vh, 6rem);
+      justify-content: center;
       overflow: hidden;
     }
 
-    .hero__bg {
+    .hero__canvas {
       position: absolute;
       inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
       z-index: 0;
     }
 
-    .hero__bg-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.25;
-      filter: saturate(0.6);
-    }
-
-    .hero__bg::after {
-      content: '';
+    .hero__overlay {
       position: absolute;
       inset: 0;
+      pointer-events: none;
       background:
-        linear-gradient(180deg, rgba(12,10,9,0.3) 0%, rgba(12,10,9,0.6) 50%, var(--black) 100%),
-        radial-gradient(ellipse at 20% 80%, var(--red-glow), transparent 60%);
+        radial-gradient(ellipse 70% 60% at 50% 50%, transparent 30%, var(--black) 100%);
+      z-index: 1;
     }
 
     .hero__content {
-      position: relative;
-      z-index: 1;
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
       align-items: center;
+      justify-content: space-between;
+      padding: clamp(6rem, 10vh, 8rem) clamp(2rem, 4vw, 4rem) clamp(2rem, 4vh, 3rem);
+      pointer-events: none;
     }
 
-    .hero__text {
-      max-width: 600px;
+    .hero__content > * { pointer-events: auto; }
+
+    .hero__text-left {
+      max-width: 520px;
+      text-align: left;
+    }
+
+    .hero__text-right {
+      max-width: 460px;
+      text-align: right;
     }
 
     .hero__badge {
@@ -326,14 +336,14 @@
       align-items: center;
       gap: 0.5rem;
       font-family: var(--font-body);
-      font-size: 0.75rem;
+      font-size: 0.85rem;
       font-weight: 600;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--red);
       background: rgba(229, 34, 34, 0.1);
       border: 1px solid rgba(229, 34, 34, 0.25);
-      padding: 0.4rem 1rem;
+      padding: 0.5rem 1.25rem;
       border-radius: 50px;
       margin-bottom: 1.5rem;
       opacity: 0;
@@ -342,7 +352,7 @@
 
     .hero__title {
       font-family: var(--font-display);
-      font-size: clamp(4rem, 10vw, 8rem);
+      font-size: clamp(3.5rem, 8vw, 7rem);
       line-height: 0.9;
       letter-spacing: 0.04em;
       color: var(--white);
@@ -367,18 +377,19 @@
 
     .hero__subtitle {
       font-family: var(--font-accent);
-      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-size: clamp(1.3rem, 3vw, 2rem);
       color: var(--orange-light);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       transform: rotate(-2deg);
       opacity: 0;
     }
 
     .hero__desc {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       color: var(--text-secondary);
       max-width: 440px;
-      margin-bottom: 2rem;
+      margin: 0 0 2rem;
+      margin-left: auto;
       line-height: 1.7;
       opacity: 0;
       transform: translateY(20px);
@@ -387,6 +398,7 @@
     .hero__actions {
       display: flex;
       align-items: center;
+      justify-content: flex-end;
       gap: 1rem;
       opacity: 0;
       transform: translateY(20px);
@@ -394,9 +406,9 @@
 
     .btn {
       font-family: var(--font-display);
-      font-size: 1rem;
+      font-size: 1.05rem;
       letter-spacing: 0.1em;
-      padding: 0.85rem 2rem;
+      padding: 1rem 2.25rem;
       border-radius: 4px;
       cursor: pointer;
       transition: all 0.3s var(--ease-out);
@@ -429,52 +441,77 @@
       transform: translateY(-3px);
     }
 
-    .hero__image {
-      position: relative;
+    /* Hero end text ("DIP IT. OWN IT.") */
+    .hero__end-text {
+      position: absolute;
+      bottom: 15%;
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: 3;
       opacity: 0;
-      transform: translateX(40px);
+      transform: translateY(20px);
     }
 
-    .hero__image img {
-      border-radius: 12px;
-      box-shadow: var(--shadow-deep);
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
-    }
-
-    .hero__image-badge {
-      position: absolute;
-      bottom: -15px;
-      left: -15px;
-      background: var(--red);
-      color: var(--white);
+    .hero__end-text h2 {
       font-family: var(--font-display);
-      font-size: 1.1rem;
-      letter-spacing: 0.08em;
-      padding: 0.75rem 1.25rem;
-      border-radius: 8px;
-      transform: rotate(-3deg);
-      box-shadow: var(--shadow-deep);
+      font-size: clamp(3rem, 7vw, 6rem);
+      letter-spacing: 0.06em;
+      color: var(--white);
     }
 
-    .hero__image-flame {
+    .hero__end-text h2 .red { color: var(--red); }
+
+    .hero__end-text p {
+      font-family: var(--font-accent);
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      color: var(--orange-light);
+      margin-top: 0.5rem;
+      transform: rotate(-2deg);
+    }
+
+    /* Hero scroll prompt + progress */
+    .hero__progress {
       position: absolute;
-      top: -20px;
-      right: -20px;
-      font-size: 3rem;
-      animation: flame-float 2s ease-in-out infinite;
+      bottom: 8%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      opacity: 0;
     }
 
-    @keyframes flame-float {
-      0%, 100% { transform: translateY(0) rotate(-5deg); }
-      50% { transform: translateY(-8px) rotate(5deg); }
+    .hero__progress-label {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      letter-spacing: 0.25em;
+      color: var(--white);
+      animation: scroll-bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes scroll-bounce {
+      0%, 100% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(8px); opacity: 0.5; }
+    }
+
+    .hero__progress-arrow {
+      width: 1px;
+      height: 32px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.4), transparent);
+      animation: scroll-bounce 2s ease-in-out infinite;
+    }
+
+    .hero__progress-bar {
+      display: none;
     }
 
     /* ===== HEAT METER DIVIDER ===== */
     .heat-divider {
       position: relative;
-      padding: 5rem clamp(1.5rem, 4vw, 3rem);
+      padding: 8rem clamp(1.5rem, 4vw, 3rem) 5rem;
       background: var(--black);
       overflow: hidden;
     }
@@ -563,11 +600,8 @@
       flex-direction: column;
       align-items: center;
       cursor: pointer;
-      transition: all 0.5s var(--ease-out);
       position: relative;
       flex: 1;
-      opacity: 0;
-      transform: translateY(15px);
     }
 
     .heat-divider__level:first-child { align-items: flex-start; }
@@ -663,7 +697,6 @@
         #7F1D1D 100%
       );
       width: 0%;
-      transition: width 2s var(--ease-out);
     }
 
     .heat-divider__bar-bg {
@@ -1783,14 +1816,71 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
-      .hero__content {
-        grid-template-columns: 1fr;
-        gap: 3rem;
+      .hero {
+        height: 400vh;
       }
 
-      .hero__image {
-        max-width: 400px;
-        margin: 0 auto;
+      .hero__canvas {
+        object-fit: cover;
+      }
+
+      .hero__overlay {
+        background:
+          linear-gradient(180deg, transparent 15%, rgba(12,10,9,0.7) 45%, rgba(12,10,9,0.95) 65%, var(--black) 100%);
+      }
+
+      .hero__content {
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 0 1.25rem 7rem;
+        gap: 0;
+      }
+
+      .hero__text-left,
+      .hero__text-right {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .hero__title {
+        font-size: clamp(2.4rem, 10vw, 3.5rem);
+        margin-bottom: 0.25rem;
+      }
+
+      .hero__badge {
+        margin: 0 auto 0.5rem;
+        font-size: 0.65rem;
+        padding: 0.3rem 0.75rem;
+      }
+
+      .hero__subtitle {
+        transform: none;
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        margin-bottom: 0.75rem;
+      }
+
+      /* Hide description on mobile — title + subtitle is enough */
+      .hero__desc {
+        display: none;
+      }
+
+      .hero__actions {
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .hero__actions .btn {
+        font-size: 0.85rem;
+        padding: 0.85rem 2rem;
+      }
+
+      .hero__end-text h2 {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+      }
+
+      .hero__progress {
+        bottom: 4%;
       }
 
       .about__inner {
@@ -1848,10 +1938,11 @@
       }
 
       .heat-divider {
-        padding: 3rem 1rem;
+        padding: 6rem 1rem 3rem;
       }
 
       .heat-divider__heading {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
         margin-bottom: 1.5rem;
       }
 
@@ -1864,7 +1955,7 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 1.25rem;
         padding: 0;
         height: auto;
         overflow: visible;
@@ -1975,14 +2066,9 @@
         font-size: 0.65rem;
         padding: 0.35rem 0.65rem;
       }
-      .hero__actions {
-        flex-direction: column;
-        width: 100%;
-      }
-
       .hero__actions .btn {
-        width: 100%;
-        justify-content: center;
+        font-size: 0.85rem;
+        padding: 0.75rem 1.75rem;
       }
 
       .about__stats {
@@ -2051,40 +2137,55 @@
     </div>
   </nav>
 
-  <!-- ===== HERO ===== -->
+  <!-- ===== HERO (Fullscreen Dip Experience) ===== -->
   <section class="hero" id="hero">
-    <div class="hero__bg">
-      <img src="assets/food-spread.jpg" alt="" class="hero__bg-img">
-    </div>
-    <div class="hero__content">
-      <div class="hero__text">
-        <div class="hero__badge" id="heroBadge">
-          <span>&#x1F525;</span> Asian-American Fusion Chicken
+    <div class="hero__sticky">
+      <canvas class="hero__canvas" id="heroCanvas"></canvas>
+      <div class="hero__overlay"></div>
+
+      <!-- Hero text content — split left/right of animation -->
+      <div class="hero__content" id="heroContent">
+        <div class="hero__text-left">
+          <div class="hero__badge" id="heroBadge">
+            <span>&#x1F525;</span> Asian-American Fusion Chicken
+          </div>
+          <h1 class="hero__title">
+            <span class="hero__title-line">
+              <span class="hero__title-word">THIS IS</span>
+            </span>
+            <span class="hero__title-line">
+              <span class="hero__title-word">WHERE THE</span>
+            </span>
+            <span class="hero__title-line">
+              <span class="hero__title-word highlight">FIRE BEGINS</span>
+            </span>
+          </h1>
         </div>
-        <h1 class="hero__title">
-          <span class="hero__title-line">
-            <span class="hero__title-word">THIS IS</span>
-          </span>
-          <span class="hero__title-line">
-            <span class="hero__title-word">WHERE THE</span>
-          </span>
-          <span class="hero__title-line">
-            <span class="hero__title-word highlight">FIRE BEGINS</span>
-          </span>
-        </h1>
-        <p class="hero__subtitle" id="heroSub">En La Fantasia Caliente</p>
-        <p class="hero__desc" id="heroDesc">
-          From Nashville hot chicken to loaded fries, every bite is a scorching experience. Choose your heat &mdash; from The OG to the deadly Reaper.
-        </p>
-        <div class="hero__actions" id="heroActions">
-          <a href="#menu" class="btn btn--fire">VIEW MENU</a>
-          <a href="#location" class="btn btn--outline">FIND US</a>
+        <div class="hero__text-right">
+          <p class="hero__subtitle" id="heroSub">En La Fantasia Caliente</p>
+          <p class="hero__desc" id="heroDesc">
+            From Nashville hot chicken to loaded fries, every bite is a scorching experience. Choose your heat &mdash; from The OG to the deadly Reaper.
+          </p>
+          <div class="hero__actions" id="heroActions">
+            <a href="#menu" class="btn btn--fire">VIEW MENU</a>
+            <a href="#location" class="btn btn--outline">FIND US</a>
+          </div>
         </div>
       </div>
-      <div class="hero__image" id="heroImage">
-        <img src="assets/food-tender-dip.jpg" alt="Hot Chicks Tender dipped in sauce">
-        <div class="hero__image-badge">BEST SELLER</div>
-        <div class="hero__image-flame">&#x1F525;</div>
+
+      <!-- End text: appears when dip completes -->
+      <div class="hero__end-text" id="heroEndText">
+        <h2>DIP IT. <span class="red">OWN IT.</span></h2>
+        <p>Every tender deserves the sauce</p>
+      </div>
+
+      <!-- Scroll prompt + progress -->
+      <div class="hero__progress" id="heroProgress">
+        <span class="hero__progress-label">SCROLL</span>
+        <div class="hero__progress-arrow"></div>
+        <div class="hero__progress-bar">
+          <div class="hero__progress-fill" id="heroProgressFill"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -3021,19 +3122,180 @@
       .to([preloaderLogo, preloaderText], { opacity: 0, duration: 0.2 }, '-=0.4')
       .to(preloader, { opacity: 0, duration: 0.3 });
 
-    // ===== HERO ENTRANCE =====
+    // ===== HERO ENTRANCE (scroll-driven, bit by bit) =====
     function heroEnter() {
-      const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
-
-      tl.to('#heroBadge', { opacity: 1, y: 0, duration: 0.6 })
-        .to('.hero__title-word', {
-          opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power4.out'
-        }, '-=0.3')
-        .to('#heroSub', { opacity: 1, duration: 0.5 }, '-=0.3')
-        .to('#heroDesc', { opacity: 1, y: 0, duration: 0.5 }, '-=0.2')
-        .to('#heroActions', { opacity: 1, y: 0, duration: 0.5 }, '-=0.2')
-        .to('#heroImage', { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out' }, '-=0.5');
+      // After preloader, only show the scroll prompt — everything else reveals on scroll
+      gsap.to('#heroProgress', { opacity: 1, duration: 0.8 });
     }
+
+    // ===== FRAME PRELOADER =====
+    const dipFrames = [];
+    const dipFrameCount = 125;
+    const dipFrameNames = [
+      'frame_000_delay-0.042s.jpg','frame_001_delay-0.041s.jpg','frame_002_delay-0.042s.jpg',
+      'frame_003_delay-0.042s.jpg','frame_004_delay-0.041s.jpg','frame_005_delay-0.042s.jpg',
+      'frame_006_delay-0.042s.jpg','frame_007_delay-0.041s.jpg','frame_008_delay-0.042s.jpg',
+      'frame_009_delay-0.042s.jpg','frame_010_delay-0.041s.jpg','frame_011_delay-0.042s.jpg',
+      'frame_012_delay-0.042s.jpg','frame_013_delay-0.041s.jpg','frame_014_delay-0.042s.jpg',
+      'frame_015_delay-0.042s.jpg','frame_016_delay-0.041s.jpg','frame_017_delay-0.042s.jpg',
+      'frame_018_delay-0.042s.jpg','frame_019_delay-0.041s.jpg','frame_020_delay-0.042s.jpg',
+      'frame_021_delay-0.042s.jpg','frame_022_delay-0.041s.jpg','frame_023_delay-0.042s.jpg',
+      'frame_024_delay-0.042s.jpg','frame_025_delay-0.041s.jpg','frame_026_delay-0.042s.jpg',
+      'frame_027_delay-0.042s.jpg','frame_028_delay-0.041s.jpg','frame_029_delay-0.042s.jpg',
+      'frame_030_delay-0.042s.jpg','frame_031_delay-0.041s.jpg','frame_032_delay-0.042s.jpg',
+      'frame_033_delay-0.042s.jpg','frame_034_delay-0.041s.jpg','frame_035_delay-0.042s.jpg',
+      'frame_036_delay-0.042s.jpg','frame_037_delay-0.041s.jpg','frame_038_delay-0.042s.jpg',
+      'frame_039_delay-0.042s.jpg','frame_040_delay-0.041s.jpg','frame_041_delay-0.042s.jpg',
+      'frame_042_delay-0.042s.jpg','frame_043_delay-0.041s.jpg','frame_044_delay-0.042s.jpg',
+      'frame_045_delay-0.042s.jpg','frame_046_delay-0.041s.jpg','frame_047_delay-0.042s.jpg',
+      'frame_048_delay-0.042s.jpg','frame_049_delay-0.041s.jpg','frame_050_delay-0.042s.jpg',
+      'frame_051_delay-0.042s.jpg','frame_052_delay-0.041s.jpg','frame_053_delay-0.042s.jpg',
+      'frame_054_delay-0.042s.jpg','frame_055_delay-0.041s.jpg','frame_056_delay-0.042s.jpg',
+      'frame_057_delay-0.042s.jpg','frame_058_delay-0.041s.jpg','frame_059_delay-0.042s.jpg',
+      'frame_060_delay-0.042s.jpg','frame_061_delay-0.041s.jpg','frame_062_delay-0.042s.jpg',
+      'frame_063_delay-0.042s.jpg','frame_064_delay-0.041s.jpg','frame_065_delay-0.042s.jpg',
+      'frame_066_delay-0.042s.jpg','frame_067_delay-0.041s.jpg','frame_068_delay-0.042s.jpg',
+      'frame_069_delay-0.042s.jpg','frame_070_delay-0.041s.jpg','frame_071_delay-0.042s.jpg',
+      'frame_072_delay-0.042s.jpg','frame_073_delay-0.041s.jpg','frame_074_delay-0.042s.jpg',
+      'frame_075_delay-0.042s.jpg','frame_076_delay-0.041s.jpg','frame_077_delay-0.042s.jpg',
+      'frame_078_delay-0.042s.jpg','frame_079_delay-0.041s.jpg','frame_080_delay-0.042s.jpg',
+      'frame_081_delay-0.042s.jpg','frame_082_delay-0.041s.jpg','frame_083_delay-0.042s.jpg',
+      'frame_084_delay-0.042s.jpg','frame_085_delay-0.041s.jpg','frame_086_delay-0.042s.jpg',
+      'frame_087_delay-0.042s.jpg','frame_088_delay-0.041s.jpg','frame_089_delay-0.042s.jpg',
+      'frame_090_delay-0.042s.jpg','frame_091_delay-0.041s.jpg','frame_092_delay-0.042s.jpg',
+      'frame_093_delay-0.042s.jpg','frame_094_delay-0.041s.jpg','frame_095_delay-0.042s.jpg',
+      'frame_096_delay-0.042s.jpg','frame_097_delay-0.041s.jpg','frame_098_delay-0.042s.jpg',
+      'frame_099_delay-0.042s.jpg','frame_100_delay-0.041s.jpg','frame_101_delay-0.042s.jpg',
+      'frame_102_delay-0.042s.jpg','frame_103_delay-0.041s.jpg','frame_104_delay-0.042s.jpg',
+      'frame_105_delay-0.042s.jpg','frame_106_delay-0.041s.jpg','frame_107_delay-0.042s.jpg',
+      'frame_108_delay-0.042s.jpg','frame_109_delay-0.041s.jpg','frame_110_delay-0.042s.jpg',
+      'frame_111_delay-0.042s.jpg','frame_112_delay-0.041s.jpg','frame_113_delay-0.042s.jpg',
+      'frame_114_delay-0.042s.jpg','frame_115_delay-0.041s.jpg','frame_116_delay-0.042s.jpg',
+      'frame_117_delay-0.042s.jpg','frame_118_delay-0.041s.jpg','frame_119_delay-0.042s.jpg',
+      'frame_120_delay-0.042s.jpg','frame_121_delay-0.041s.jpg','frame_122_delay-0.042s.jpg',
+      'frame_123_delay-0.042s.jpg','frame_124_delay-0.042s.jpg'
+    ];
+
+    function drawDipFrame(ctx, canvas, index) {
+      const img = dipFrames[index];
+      if (!img || !img.complete) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0);
+    }
+
+    // Preload frames
+    const heroCanvas = document.getElementById('heroCanvas');
+    dipFrameNames.forEach((name, i) => {
+      const img = new Image();
+      img.src = 'assets/scroll-frames/' + name;
+      img.onload = () => {
+        if (i === 0) {
+          heroCanvas.width = img.naturalWidth;
+          heroCanvas.height = img.naturalHeight;
+          heroCanvas.getContext('2d').drawImage(img, 0, 0);
+        }
+      };
+      dipFrames[i] = img;
+    });
+
+    // ===== HERO FULLSCREEN SCRUBBER =====
+    (function() {
+      const canvas = heroCanvas;
+      const ctx = canvas.getContext('2d');
+      const scrub = { frame: 0 };
+
+      // Frame animation: scrubs from frame 0 to 124 across the full 500vh
+      gsap.to(scrub, {
+        frame: dipFrameCount - 1,
+        snap: 'frame',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#hero',
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 0.4,
+          onUpdate: (self) => {
+            drawDipFrame(ctx, canvas, Math.round(scrub.frame));
+            const fill = document.getElementById('heroProgressFill');
+            if (fill) fill.style.width = (self.progress * 100) + '%';
+          }
+        }
+      });
+
+      // --- Scroll-driven text reveals (bit by bit) ---
+
+      // Badge: 3-8%
+      gsap.fromTo('#heroBadge',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, ease: 'power3.out',
+          scrollTrigger: { trigger: '#hero', start: '3% top', end: '8% top', scrub: true }
+        });
+
+      // Title words: 5-18% (staggered via individual triggers)
+      document.querySelectorAll('.hero__title-word').forEach((word, i) => {
+        gsap.fromTo(word,
+          { opacity: 0, y: 60 },
+          { opacity: 1, y: 0, ease: 'power4.out',
+            scrollTrigger: { trigger: '#hero', start: (5 + i * 4) + '% top', end: (10 + i * 4) + '% top', scrub: true }
+          });
+      });
+
+      // Subtitle: 15-22%
+      gsap.fromTo('#heroSub',
+        { opacity: 0 },
+        { opacity: 1, ease: 'power3.out',
+          scrollTrigger: { trigger: '#hero', start: '15% top', end: '22% top', scrub: true }
+        });
+
+      // Description: 20-28%
+      gsap.fromTo('#heroDesc',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, ease: 'power3.out',
+          scrollTrigger: { trigger: '#hero', start: '20% top', end: '28% top', scrub: true }
+        });
+
+      // CTA buttons: 25-33%
+      gsap.fromTo('#heroActions',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, ease: 'power3.out',
+          scrollTrigger: { trigger: '#hero', start: '25% top', end: '33% top', scrub: true }
+        });
+
+      // Scroll prompt fades out once user starts scrolling: 2-10%
+      gsap.fromTo('#heroProgress',
+        { opacity: 1 },
+        { opacity: 0, ease: 'none',
+          scrollTrigger: { trigger: '#hero', start: '8% top', end: '15% top', scrub: true }
+        });
+
+      // Hero text fades out at 45-60% scroll progress
+      ScrollTrigger.create({
+        trigger: '#hero',
+        start: '45% top',
+        end: '60% top',
+        scrub: true,
+        onUpdate: (self) => {
+          gsap.set('#heroContent', { opacity: 1 - self.progress });
+        }
+      });
+
+      // "DIP IT. OWN IT." appears at 75-85% scroll progress
+      ScrollTrigger.create({
+        trigger: '#hero',
+        start: '75% top',
+        end: '85% top',
+        onEnter: () => gsap.to('#heroEndText', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }),
+        onLeaveBack: () => gsap.to('#heroEndText', { opacity: 0, y: 20, duration: 0.3 })
+      });
+
+      // Hide progress bar at end
+      ScrollTrigger.create({
+        trigger: '#hero',
+        start: 'bottom bottom',
+        onEnter: () => gsap.to('#heroProgress', { opacity: 0, duration: 0.3 }),
+        onLeaveBack: () => gsap.to('#heroProgress', { opacity: 1, duration: 0.4 })
+      });
+    })();
 
     // ===== NAV SCROLL =====
     const nav = document.getElementById('nav');
@@ -3044,26 +3306,46 @@
     // ===== SCROLL ANIMATIONS =====
     gsap.registerPlugin(ScrollTrigger);
 
-    // Heat meter animation
-    ScrollTrigger.create({
-      trigger: '.heat-divider',
-      start: 'top 75%',
-      onEnter: () => {
-        document.getElementById('heatFill').style.width = '100%';
-        document.querySelectorAll('.heat-divider__level').forEach((el, i) => {
-          setTimeout(() => {
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-          }, 600 + i * 120);
-        });
-      },
-      once: true
-    });
+    // Heat meter animation — pinned scrub on desktop, simple reveal on mobile
+    const isMobile = window.innerWidth <= 900;
 
-    gsap.from('.heat-divider__heading', {
-      scrollTrigger: { trigger: '.heat-divider', start: 'top 80%' },
-      opacity: 0, y: 30, duration: 0.7, ease: 'power3.out'
-    });
+    if (!isMobile) {
+      // Desktop: pinned & scrubbed
+      const heatTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.heat-divider',
+          start: 'top top',
+          end: '+=200%',
+          pin: true,
+          scrub: 0.5,
+          pinSpacing: true
+        }
+      });
+      heatTl.from('.heat-divider__title', { opacity: 0, y: 20, duration: 0.3 })
+        .from('.heat-divider__heading', { opacity: 0, y: 30, duration: 0.4 }, '-=0.1')
+        .fromTo('#heatFill', { width: '0%' }, { width: '100%', duration: 0.8, ease: 'power3.inOut' }, '+=0.1')
+        .from('.heat-divider__level', { opacity: 0, y: 20, duration: 0.3, stagger: 0.15 }, '-=0.4')
+        .from('.heat-divider__scoville', { opacity: 0, duration: 0.3 }, '-=0.1')
+        .to({}, { duration: 0.3 });
+    } else {
+      // Mobile: simple one-shot entrance animation
+      gsap.from('.heat-divider__title', {
+        scrollTrigger: { trigger: '.heat-divider', start: 'top 80%' },
+        opacity: 0, y: 20, duration: 0.5, ease: 'power3.out'
+      });
+      gsap.from('.heat-divider__heading', {
+        scrollTrigger: { trigger: '.heat-divider', start: 'top 75%' },
+        opacity: 0, y: 30, duration: 0.6, ease: 'power3.out'
+      });
+      gsap.from('.heat-divider__level', {
+        scrollTrigger: { trigger: '.heat-divider__levels', start: 'top 80%' },
+        opacity: 0, y: 20, duration: 0.5, stagger: 0.1, ease: 'power3.out'
+      });
+      gsap.from('.heat-divider__scoville', {
+        scrollTrigger: { trigger: '.heat-divider__scoville', start: 'top 90%' },
+        opacity: 0, duration: 0.5, ease: 'power3.out'
+      });
+    }
 
     // About section
     gsap.from('.about__images', {
@@ -3167,17 +3449,6 @@
       });
     });
 
-    // FAQ scroll-in entrance
-    gsap.from('.faq__header', {
-      scrollTrigger: { trigger: '.faq', start: 'top 80%' },
-      opacity: 0, y: 30, duration: 0.6, ease: 'power3.out'
-    });
-
-    gsap.from('.faq__item', {
-      scrollTrigger: { trigger: '.faq', start: 'top 70%' },
-      opacity: 0, y: 20, duration: 0.5, stagger: 0.08, ease: 'power3.out', delay: 0.2
-    });
-
     // ===== MENU TABS =====
     const tabs = document.querySelectorAll('.menu__tab');
     const grids = document.querySelectorAll('.menu__grid');
@@ -3189,6 +3460,17 @@
         tab.classList.add('menu__tab--active');
         document.getElementById('tab-' + tab.dataset.tab).classList.add('menu__grid--active');
       });
+    });
+
+    // FAQ scroll-in entrance
+    gsap.from('.faq__header', {
+      scrollTrigger: { trigger: '.faq', start: 'top 80%' },
+      opacity: 0, y: 30, duration: 0.6, ease: 'power3.out'
+    });
+
+    gsap.from('.faq__item', {
+      scrollTrigger: { trigger: '.faq', start: 'top 70%' },
+      opacity: 0, y: 20, duration: 0.5, stagger: 0.08, ease: 'power3.out', delay: 0.2
     });
 
     // ===== MOBILE NAV TOGGLE =====
