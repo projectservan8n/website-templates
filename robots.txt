@@ -5,6 +5,7 @@ Allow: /
 
 # Block demo sites from being indexed
 Disallow: /demo/
+Disallow: /buen-dia-cafe/
 Disallow: /hot-chicks/
 Disallow: /jinsoku/
 Disallow: /seville/
