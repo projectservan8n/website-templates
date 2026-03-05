@@ -139,4 +139,57 @@
 
   // Run initial stagger
   staggerMenuItems();
+
+  // Lightbox gallery modal
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    const item = galleryItems[index];
+    const img = item.querySelector('img');
+    const caption = item.querySelector('.gallery-overlay span');
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxCaption.textContent = caption ? caption.textContent : '';
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function navigateLightbox(direction) {
+    currentIndex = (currentIndex + direction + galleryItems.length) % galleryItems.length;
+    const item = galleryItems[currentIndex];
+    const img = item.querySelector('img');
+    const caption = item.querySelector('.gallery-overlay span');
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxCaption.textContent = caption ? caption.textContent : '';
+  }
+
+  galleryItems.forEach(function (item, i) {
+    item.addEventListener('click', function () { openLightbox(i); });
+  });
+
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  document.getElementById('lightboxPrev').addEventListener('click', function () { navigateLightbox(-1); });
+  document.getElementById('lightboxNext').addEventListener('click', function () { navigateLightbox(1); });
+
+  lightbox.addEventListener('click', function (e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navigateLightbox(-1);
+    if (e.key === 'ArrowRight') navigateLightbox(1);
+  });
 })();
