@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buen Di&aacute; Cafe &mdash; Start Your Day, the Buen D&iacute;a Way!</title>
+  <meta name="description" content="Buen Di&aacute; Cafe in Zamboanga City. Specialty coffee, silog meals, curry, pasta & more. Visit us at Jilron Complex, La Purisima St.">
+  <link rel="icon" type="image/png" href="assets/logo-buen-dia-cafe.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div class="loader" id="loader">
+    <img src="assets/logo-buen-dia-cafe.png" alt="" class="loader-logo">
+    <span class="loader-text">Buen Di&aacute; Cafe</span>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar" id="loaderBar"></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="assets/logo-buen-dia-cafe.png" alt="Buen Di&aacute; Cafe" class="nav-logo-img">
+        <span class="nav-logo-text">Buen Di&aacute; Cafe</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#menu" class="nav-link">Menu</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#location" class="nav-link">Visit Us</a>
+        <a href="#menu" class="nav-cta">Order Now</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-grain"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Free Iced Tea &bull; 8AM&ndash;10AM Daily</div>
+      <img src="assets/logo-buen-dia-cafe.png" alt="Buen Di&aacute; Cafe Logo" class="hero-logo">
+      <h1 class="hero-title">Buen Di&aacute; Cafe</h1>
+      <p class="hero-tagline">Start Your Day, the Buen D&iacute;a Way!</p>
+      <p class="hero-sub">Specialty coffee, hearty Filipino meals &amp; good vibes in the heart of Zamboanga City</p>
+      <div class="hero-buttons">
+        <a href="#menu" class="btn btn-primary">View Our Menu</a>
+        <a href="https://www.foodpanda.ph" target="_blank" rel="noopener" class="btn btn-outline">Order on Foodpanda</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text" data-reveal>
+          <span class="section-label">Our Story</span>
+          <h2 class="section-title">Where Every Morning<br>Feels Like <em>Buenos D&iacute;as</em></h2>
+          <p>Nestled in the vibrant streets of Zamboanga City, Buen Di&aacute; Cafe is your neighborhood escape for specialty coffee and comfort food that warms the soul. We blend Filipino breakfast traditions with creative cafe culture&mdash;from our signature Buen Di&aacute; Latte to hearty silog meals that fuel your day.</p>
+          <p>Whether you're grabbing your morning brew, catching up with friends over curry and pasta, or treating yourself to our famous Coffee + Doughnut combo, every visit is a good morning waiting to happen.</p>
+          <div class="about-features">
+            <div class="about-feature">
+              <div class="about-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg>
+              </div>
+              <div>
+                <strong>Free WiFi</strong>
+                <span>Stay connected while enjoying your favorite brew and heartwarming meals</span>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14l-3-3 1.41-1.41L11 13.17l4.59-4.58L17 10l-6 6z"/><line x1="8" y1="4" x2="8" y2="8"/><line x1="16" y1="4" x2="16" y2="8"/><path d="M3 10h18"/></svg>
+              </div>
+              <div>
+                <strong>Air-Conditioning</strong>
+                <span>Cool off, unwind, and savor comfort in every sip and bite</span>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              </div>
+              <div>
+                <strong>Charging Outlets</strong>
+                <span>Power up your day while you power through your work</span>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h4M6 12h8M6 16h6"/></svg>
+              </div>
+              <div>
+                <strong>Board Games</strong>
+                <span>UNO, Do or Drink &amp; more&mdash;hang out and play with friends</span>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <strong>Foodpanda Partner</strong>
+                <span>Can't visit? Order delivery straight to your door</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual" data-reveal>
+          <div class="about-img-wrap">
+            <img src="assets/gallery-cafe-interior-crowd.jpg" alt="Buen Di&aacute; Cafe interior" class="about-img">
+          </div>
+          <div class="about-badge">
+            <span class="about-badge-big">Est.</span>
+            <span class="about-badge-year">Zamboanga City</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promo Banner -->
+  <section class="promo">
+    <div class="promo-inner">
+      <div class="promo-text">
+        <span>Special Combo</span>
+        <strong>Coffee + Doughnut</strong>
+      </div>
+      <div class="promo-price">₱199 <small>only</small></div>
+      <div class="promo-divider"></div>
+      <div class="promo-text">
+        <span>Korean Favorite</span>
+        <strong>Ramyeon</strong>
+      </div>
+      <div class="promo-price">₱158 <small>only</small></div>
+    </div>
+  </section>
+
+  <!-- Happy Hour Promo -->
+  <section class="happy-hour" id="happyhour">
+    <div class="container">
+      <div class="happy-hour-grid" data-reveal>
+        <div class="happy-hour-img">
+          <img src="assets/promo-happy-hour-march.jpg" alt="Happy Hour Buy 2 Get 1 Free" loading="lazy">
+        </div>
+        <div class="happy-hour-content">
+          <span class="section-label">Limited Time Promo</span>
+          <h2 class="section-title">Happy Hour<br><em>Buy 2, Get 1 Free!</em></h2>
+          <p>Every day from <strong>2:00 PM &ndash; 5:00 PM</strong>, grab any two drinks and get your third one on the house. Valid March 3&ndash;31, 2026.</p>
+          <div class="happy-hour-drinks">
+            <span class="happy-hour-tag">Cafe Latte</span>
+            <span class="happy-hour-tag">Matcha Made From Heaven</span>
+            <span class="happy-hour-tag">Buen Dia Frappe</span>
+            <span class="happy-hour-tag">Flavored Soda</span>
+          </div>
+          <a href="#menu" class="btn btn-primary">See Full Menu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section class="menu" id="menu">
+    <div class="container">
+      <div class="menu-header" data-reveal>
+        <span class="section-label">Our Menu</span>
+        <h2 class="section-title">Crafted with Care,<br>Served with <em>Love</em></h2>
+        <p class="section-desc">From morning brews to hearty meals&mdash;there's something for every craving. All prices in Philippine Peso (₱).</p>
+      </div>
+
+      <div class="menu-tabs" data-reveal>
+        <button class="menu-tab active" data-tab="coffee">Coffee</button>
+        <button class="menu-tab" data-tab="specialty">Specialty</button>
+        <button class="menu-tab" data-tab="noncoffee">Non-Coffee</button>
+        <button class="menu-tab" data-tab="refreshers">Refreshers</button>
+        <button class="menu-tab" data-tab="silog">Silog Meals</button>
+        <button class="menu-tab" data-tab="entrantes">Entrantes</button>
+        <button class="menu-tab" data-tab="curry">Curry</button>
+        <button class="menu-tab" data-tab="pasta">Pasta</button>
+      </div>
+
+      <!-- Coffee -->
+      <div class="menu-panel active" id="panel-coffee">
+        <div class="menu-panel-header">
+          <h3>Coffee</h3>
+          <span class="menu-panel-note">Hot &bull; Iced &bull; Blended</span>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Espresso</h4>
+              <p>A single, concentrated shot &mdash; pure coffee at its boldest and most essential</p>
+            </div>
+            <div class="menu-item-prices">
+              <span class="price-tag">Hot ₱100</span>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Cafe Americano</h4>
+              <p>Espresso stretched with hot water for a clean, smooth cup with lingering depth</p>
+            </div>
+            <div class="menu-item-prices">
+              <span class="price-tag">Hot ₱120</span>
+              <span class="price-tag">Iced ₱130</span>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Cafe Latte</h4>
+              <p>Velvety steamed milk layered over espresso &mdash; creamy, comforting, classic</p>
+            </div>
+            <div class="menu-item-prices">
+              <span class="price-tag">Hot ₱140</span>
+              <span class="price-tag">Iced ₱150</span>
+            </div>
+          </div>
+          <div class="menu-item featured">
+            <div class="menu-item-badge">Signature</div>
+            <div class="menu-item-info">
+              <h4>Buen Di&aacute; Latte</h4>
+              <p>Our house specialty &mdash; a secret blend that's become every regular's go-to good morning</p>
+              <span class="menu-item-tag">Must Try</span>
+            </div>
+            <div class="menu-item-prices">
+              <span class="price-tag">Hot ₱150</span>
+              <span class="price-tag">Iced ₱160</span>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>La Chocolatina</h4>
+              <p>Rich Belgian-style chocolate meets espresso in a decadent fusion</p>
+            </div>
+            <div class="menu-item-prices">
+              <span class="price-tag">Hot ₱160</span>
+              <span class="price-tag">Iced ₱170</span>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Butterscotch Latte</h4>
+              <p>Sweet, buttery caramel warmth layered into every sip of espresso</p>
+            </div>
+            <div class="menu-item-prices">
+              <span class="price-tag">Hot ₱160</span>
+              <span class="price-tag">Iced ₱170</span>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Caramelo Latte</h4>
+              <p>Golden caramel swirled into a smooth espresso base &mdash; sweet without the guilt</p>
+            </div>
+            <div class="menu-item-prices">
+              <span class="price-tag">Hot ₱160</span>
+              <span class="price-tag">Iced ₱170</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Specialty -->
+      <div class="menu-panel" id="panel-specialty">
+        <div class="menu-panel-header">
+          <h3>Buen Dia Specialty</h3>
+          <span class="menu-panel-note">w/ espresso shot &bull; Hot or Iced</span>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-item featured">
+            <div class="menu-item-badge">Popular</div>
+            <div class="menu-item-info">
+              <h4>Biscoff Cream Latte</h4>
+              <p>Cookie butter crumble blended into cream &mdash; dangerously addictive</p>
+              <span class="menu-item-tag">Fan Favorite</span>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱180</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Black Sesame Latte</h4>
+              <p>Toasted sesame with a deep, earthy nuttiness you won't forget</p>
+              <span class="menu-item-tag">Unique</span>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱180</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Rock Salt Latte</h4>
+              <p>The perfect sweet-salty balance with a cloud of rock salt cream foam</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱180</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Matcha Cloud</h4>
+              <p>Japanese matcha folded into espresso with pillowy milk foam</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱180</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Dreamy Choco</h4>
+              <p>Layers of dark and milk chocolate swirled into a mocha dreamscape</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱180</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Pistachio Latte</h4>
+              <p>Creamy pistachio paste blended with espresso &mdash; nutty, rich, elevated</p>
+              <span class="menu-item-tag">Premium</span>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱180</span></div>
+          </div>
+        </div>
+
+        <div class="menu-section-divider"><span>Blended Frappes</span></div>
+
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Matcha Frappe</h4>
+              <p>Cool, creamy ceremonial-grade green tea blended to icy perfection</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱180</span></div>
+          </div>
+          <div class="menu-item featured">
+            <div class="menu-item-badge">Popular</div>
+            <div class="menu-item-info">
+              <h4>Cookies &amp; Cream</h4>
+              <p>Crushed Oreo-style cookies whipped into a thick, indulgent shake</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱180</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Double Chocolate</h4>
+              <p>For the serious choco fiend &mdash; dark cocoa meets milk chocolate bliss</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱180</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Strawberry Frappe</h4>
+              <p>Fresh berry sweetness blended with cream for summer in a cup</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱180</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Non-Coffee -->
+      <div class="menu-panel" id="panel-noncoffee">
+        <div class="menu-panel-header">
+          <h3>Non-Coffee</h3>
+          <span class="menu-panel-note">Caffeine-free &bull; Hot or Over Iced</span>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-item featured">
+            <div class="menu-item-badge">Best Seller</div>
+            <div class="menu-item-info">
+              <h4>Matcha Made in Heaven</h4>
+              <p>A match(a) made for matcha lovers &mdash; our #1 non-coffee drink for a reason</p>
+              <span class="menu-item-tag">Top Pick</span>
+            </div>
+            <div class="menu-item-prices">
+              <span class="price-tag">Hot ₱150</span>
+              <span class="price-tag">Iced ₱160</span>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Mocha Me Crazy</h4>
+              <p>All the chocolate-mocha madness without the caffeine kick</p>
+            </div>
+            <div class="menu-item-prices">
+              <span class="price-tag">Hot ₱150</span>
+              <span class="price-tag">Iced ₱160</span>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Biscoff Bliss</h4>
+              <p>Cookie butter heaven in every sip &mdash; pure comfort, no coffee needed</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">Iced ₱170</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Go Nuts Latte</h4>
+              <p>A nutty, creamy blend of roasted flavors for those who skip the beans</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">Iced ₱170</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Refreshers -->
+      <div class="menu-panel" id="panel-refreshers">
+        <div class="menu-panel-header">
+          <h3>Stir It Up</h3>
+          <span class="menu-panel-note">Over Iced &bull; Fruity Refreshers</span>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-item featured">
+            <div class="menu-item-badge">Popular</div>
+            <div class="menu-item-info">
+              <h4>Blush Rush</h4>
+              <p>Strawberry-kissed refresher bursting with berry sweetness</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱120</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Lychee Rush</h4>
+              <p>Fragrant lychee nectar over crushed ice &mdash; floral and refreshing</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱120</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Azure Fizz</h4>
+              <p>Crisp green apple with a sparkling citrus zing</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱120</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Morning Blue Sip</h4>
+              <p>Vibrant blueberry bliss to start your morning right</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱120</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Ocean Bloom</h4>
+              <p>Blue lemonade waves crashing over ice &mdash; tropical and tangy</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱120</span></div>
+          </div>
+        </div>
+
+        <div class="menu-section-divider"><span>Flavored Soda</span></div>
+
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Strawberry Soda</h4>
+              <p>Sweet strawberry fizz with a bubbly kick</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱140</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Lychee Soda</h4>
+              <p>Floral lychee meets sparkling soda water</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱140</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Blueberry Soda</h4>
+              <p>Deep berry flavor with effervescent bubbles</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱135</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Green Apple Soda</h4>
+              <p>Tart green apple with a fizzy, crisp finish</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱135</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Chill Blue Soda</h4>
+              <p>Cool blue raspberry sparkle &mdash; icy and vibrant</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱135</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Silog -->
+      <div class="menu-panel" id="panel-silog">
+        <div class="menu-panel-header">
+          <h3>Silog Meals</h3>
+          <span class="menu-panel-note">Free Iced Tea 8AM&ndash;10AM</span>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-item featured">
+            <div class="menu-item-badge">Best Seller</div>
+            <div class="menu-item-info">
+              <h4>Beef Tapa</h4>
+              <p>Tapa rice with Sukiyaki-marinated Buen Dia tapa cuts, sunny side-up egg &amp; pickled sides</p>
+              <span class="menu-item-tag">Top Pick</span>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱178</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Beef Salpicao</h4>
+              <p>Garlic rice topped with savory Sukiyaki-marinated beef, egg &amp; fresh sides</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱178</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Bacsilog</h4>
+              <p>Crispy beef bacon on garlic rice with a perfectly fried egg &amp; special sauce</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱168</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Spamsilog</h4>
+              <p>Pan-seared chicken spam slices on garlic rice with tomato catsup &amp; sides</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱158</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Chicksilog</h4>
+              <p>Golden fried chicken on plain rice with sunny-side egg &amp; catsup</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱178</span></div>
+          </div>
+          <div class="menu-item featured">
+            <div class="menu-item-badge">Signature</div>
+            <div class="menu-item-info">
+              <h4>La Salchicha</h4>
+              <p>Juicy Hungarian sausage on garlic rice with sunny-side egg, house special sauce &amp; sides</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱168</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Entrantes -->
+      <div class="menu-panel" id="panel-entrantes">
+        <div class="menu-panel-header">
+          <h3>Entrantes</h3>
+          <span class="menu-panel-note">Starters &amp; Sharing Plates</span>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-item featured">
+            <div class="menu-item-badge">Popular</div>
+            <div class="menu-item-info">
+              <h4>Beef Nachos</h4>
+              <p>Crispy corn chips loaded with seasoned ground beef, melted cheese &amp; salsa</p>
+              <span class="menu-item-tag">Great for Sharing</span>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱170</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Nacho Salad</h4>
+              <p>Crunchy tortilla chips tossed with fresh greens, tomatoes &amp; tangy dressing</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱200</span></div>
+          </div>
+          <div class="menu-item featured">
+            <div class="menu-item-badge">Popular</div>
+            <div class="menu-item-info">
+              <h4>Chicken Wings</h4>
+              <p>Choose your flavor: Honey Mustard, Garlic Parmesan, or fiery Buffalo</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱200</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Plain Fries</h4>
+              <p>Golden, crispy fries with your choice of Cheese, BBQ, or Sour Cream dip</p>
+            </div>
+            <div class="menu-item-prices">
+              <span class="price-tag">Regular ₱90</span>
+              <span class="price-tag">Large ₱100</span>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>La Patatas</h4>
+              <p>Our loaded potato creation &mdash; crispy wedges topped with all the good stuff</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱190</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Cheese Sticks</h4>
+              <p>Mozzarella wrapped &amp; fried golden &mdash; stretchy, crispy, irresistible</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱98</span></div>
+          </div>
+          <div class="menu-item featured">
+            <div class="menu-item-badge">Signature</div>
+            <div class="menu-item-info">
+              <h4>Buen Burger</h4>
+              <p>Our signature smash burger with secret sauce, pickles &amp; melted cheese</p>
+              <span class="menu-item-tag">Must Try</span>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱170</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Hungry Sausage</h4>
+              <p>A hearty sausage plate with mustard, sauerkraut &amp; fries on the side</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱160</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Chili Con Carne</h4>
+              <p>Slow-cooked spiced beef chili &mdash; rich, hearty &amp; warming</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱150</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Curry -->
+      <div class="menu-panel" id="panel-curry">
+        <div class="menu-panel-header">
+          <h3>Curry Special</h3>
+          <span class="menu-panel-note">Served with plain rice, curry sauce &amp; sides</span>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-item featured">
+            <div class="menu-item-badge">Popular</div>
+            <div class="menu-item-info">
+              <h4>Katsu Curry</h4>
+              <p>Panko-breaded chicken cutlet drizzled with rich Japanese-style curry &amp; steamed rice</p>
+              <span class="menu-item-tag">Top Pick</span>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱220</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Fried Tofu Curry</h4>
+              <p>Golden crispy tofu cubes swimming in aromatic, savory curry gravy</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱210</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Shrimp Curry</h4>
+              <p>Lightly breaded shrimp in a fragrant curry sauce &mdash; seafood meets spice</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱230</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pasta -->
+      <div class="menu-panel" id="panel-pasta">
+        <div class="menu-panel-header">
+          <h3>Pasta</h3>
+          <span class="menu-panel-note">Comfort in every twirl</span>
+        </div>
+        <div class="menu-grid">
+          <div class="menu-item featured">
+            <div class="menu-item-badge">Popular</div>
+            <div class="menu-item-info">
+              <h4>Pollo Carbonara</h4>
+              <p>Creamy parmesan sauce with tender chicken strips, bacon bits &amp; al dente pasta</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱190</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Beef Bacon Carbonara</h4>
+              <p>Crispy beef bacon folded into a luscious egg-cream sauce over spaghetti</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱190</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Italian Bolo&ntilde;esa</h4>
+              <p>Slow-simmered meat ragu over pasta &mdash; classic comfort, Buen Di&aacute; style</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱190</span></div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-info">
+              <h4>Aglio e Olio</h4>
+              <p>Spaghetti tossed in golden garlic, olive oil &amp; chili flakes &mdash; simple perfection</p>
+            </div>
+            <div class="menu-item-prices"><span class="price-tag">₱180</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add-Ons -->
+      <div class="addons-box" data-reveal>
+        <h4>Drink Add-Ons &amp; Upgrades</h4>
+        <div class="addons-grid">
+          <span>Extra Shot Espresso +₱40</span>
+          <span>Double Shot +₱50</span>
+          <span>Vanilla Syrup +₱15</span>
+          <span>Caramel Syrup +₱15</span>
+          <span>Hazelnut Syrup +₱15</span>
+          <span>Choco Sauce +₱15</span>
+          <span>White Choco Sauce +₱15</span>
+          <span>Caramel Sauce +₱15</span>
+          <span>Almond Milk +₱40</span>
+          <span>Sweet Cold Foam +₱40</span>
+          <span>Salted Cream Cheese +₱25</span>
+          <span>Black Pearls +₱20</span>
+          <span>Pure Honey +₱20</span>
+          <span>Nata de Coco +₱20</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="menu-header" data-reveal>
+        <span class="section-label">Gallery</span>
+        <h2 class="section-title">A Taste of the<br><em>Buen Di&aacute;</em> Experience</h2>
+      </div>
+      <div class="gallery-grid" data-reveal>
+        <div class="gallery-item gallery-item--tall">
+          <img src="assets/gallery-beef-tapa.jpg" alt="Beef Tapa silog meal" loading="lazy">
+          <div class="gallery-overlay"><span>Beef Tapa</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/gallery-storefront.jpg" alt="Buen Di&aacute; Cafe storefront" loading="lazy">
+          <div class="gallery-overlay"><span>Our Storefront</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/gallery-doughnut-and-coffee.jpg" alt="Coffee and doughnut combo" loading="lazy">
+          <div class="gallery-overlay"><span>Coffee + Doughnut</span></div>
+        </div>
+        <div class="gallery-item gallery-item--wide">
+          <img src="assets/gallery-cafe-interior-seating.jpg" alt="Buen Di&aacute; Cafe interior seating" loading="lazy">
+          <div class="gallery-overlay"><span>Good Vibes Inside</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/gallery-katsu-curry-and-matcha.jpg" alt="Katsu curry and matcha" loading="lazy">
+          <div class="gallery-overlay"><span>Katsu Curry &amp; Matcha</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/gallery-buen-dia-frappe.jpg" alt="Buen Dia frappe" loading="lazy">
+          <div class="gallery-overlay"><span>Buen Dia Frappe</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/gallery-nacho-salad.jpg" alt="Nacho salad" loading="lazy">
+          <div class="gallery-overlay"><span>Nacho Salad</span></div>
+        </div>
+        <div class="gallery-item gallery-item--wide">
+          <img src="assets/gallery-cafe-interior-crowd.jpg" alt="Busy day at Buen Di&aacute; Cafe" loading="lazy">
+          <div class="gallery-overlay"><span>The Buen Di&aacute; Crowd</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/gallery-buen-burger.jpg" alt="Buen Burger" loading="lazy">
+          <div class="gallery-overlay"><span>Buen Burger</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/gallery-chili-con-carne.jpg" alt="Chili con carne" loading="lazy">
+          <div class="gallery-overlay"><span>Chili Con Carne</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/gallery-pendant-lamps.jpg" alt="Rope pendant lamps decor" loading="lazy">
+          <div class="gallery-overlay"><span>Cafe Decor</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/gallery-hungry-sausage.jpg" alt="Hungry sausage plate" loading="lazy">
+          <div class="gallery-overlay"><span>Hungry Sausage</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location -->
+  <section class="location" id="location">
+    <div class="container">
+      <div class="location-grid">
+        <div class="location-info" data-reveal>
+          <span class="section-label">Find Us</span>
+          <h2 class="section-title">Visit<br><em>Buen Di&aacute; Cafe</em></h2>
+          <div class="location-details">
+            <div class="location-detail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div>
+                <strong>Address</strong>
+                <p>Jilron Complex, 147 La Purisima St,<br>Zamboanga City, Zamboanga del Sur</p>
+              </div>
+            </div>
+            <div class="location-detail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <div>
+                <strong>Hours</strong>
+                <p>Monday &ndash; Sunday<br>8:00 AM &ndash; 9:00 PM</p>
+              </div>
+            </div>
+            <div class="location-detail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              <div>
+                <strong>Connect With Us</strong>
+                <p><a href="https://www.facebook.com/buendiacafe2025" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline">Facebook</a> &bull; <a href="https://www.instagram.com/buendiacafe.zc" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline">Instagram</a></p>
+              </div>
+            </div>
+          </div>
+          <a href="https://www.google.com/maps/place/Jilron+Complex,+147+La+Purisima+St,+Zamboanga+City,+Zamboanga+del+Sur/" target="_blank" rel="noopener" class="btn btn-primary">Get Directions</a>
+        </div>
+        <div class="location-map" data-reveal>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497.0!2d122.0749685!3d6.9096338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x325041fc81062b93%3A0x7aade793ba338e4f!2sJilron%20Complex%2C%20147%20La%20Purisima%20St%2C%20Zamboanga%20City%2C%20Zamboanga%20del%20Sur!5e0!3m2!1sen!2sph!4v1709654400000"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Buen Di&aacute; Cafe Location"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo-buen-dia-cafe.png" alt="Buen Di&aacute; Cafe" class="footer-logo">
+          <p class="footer-tagline">Start Your Day,<br>the Buen D&iacute;a Way!</p>
+          <p class="footer-address">Jilron Complex, 147 La Purisima St,<br>Zamboanga City</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="#about">About Us</a>
+          <a href="#menu">Our Menu</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#location">Visit Us</a>
+        </div>
+        <div class="footer-links">
+          <h4>Menu Highlights</h4>
+          <a href="#menu">Specialty Coffee</a>
+          <a href="#menu">Silog Meals</a>
+          <a href="#menu">Curry Specials</a>
+          <a href="#menu">Fresh Pasta</a>
+        </div>
+        <div class="footer-links">
+          <h4>Order &amp; Connect</h4>
+          <a href="https://www.foodpanda.ph" target="_blank" rel="noopener">Foodpanda Delivery</a>
+          <a href="https://www.facebook.com/buendiacafe2025" target="_blank" rel="noopener">Facebook Page</a>
+          <a href="https://www.instagram.com/buendiacafe.zc" target="_blank" rel="noopener">Instagram</a>
+          <a href="#location">Get Directions</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Buen Di&aacute; Cafe. All rights reserved.</p>
+        <p class="footer-made">Made with love in Zamboanga City</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
