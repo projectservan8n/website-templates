@@ -8,6 +8,7 @@ Disallow: /demo/
 Disallow: /buen-dia-cafe/
 Disallow: /hot-chicks/
 Disallow: /jinsoku/
+Disallow: /nylas-cafe/
 Disallow: /seville/
 
 # Block other private directories
