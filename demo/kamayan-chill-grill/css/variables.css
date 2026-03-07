@@ -1,0 +1,30 @@
+/* ===== DESIGN TOKENS ===== */
+:root {
+  --ember: #E8640A;
+  --ember-dark: #B84F08;
+  --amber: #F5A623;
+  --amber-light: #FFC95C;
+  --gold: #D4A853;
+  --black: #0D0B09;
+  --black-warm: #1A1612;
+  --black-card: #221E1A;
+  --charcoal: #2C2520;
+  --brown: #3D2B1A;
+  --white: #FAF7F2;
+  --cream: #F5EDDB;
+  --text: #EDE8DF;
+  --text-secondary: #A89880;
+  --text-muted: #7A6A58;
+
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-body: 'Outfit', system-ui, sans-serif;
+  --font-accent: 'Playfair Display', Georgia, serif;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --shadow-ember: 0 0 60px rgba(232, 100, 10, 0.15);
+  --shadow-deep: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+
+  --banner-h: 36px;
+}

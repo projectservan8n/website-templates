@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>DEMO | Kamayan Chill & Grill — Zamboanga City</title>
+  <meta name="description" content="Kamayan Chill & Grill — Bar & Grill in Zamboanga City. Grilled favorites, live events, catering services. Phoenix Veterans Avenue.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+</head>
+<body>
+
+  <!-- ===== DEMO BANNER ===== -->
+  <div class="demo-banner">
+    This is a <strong>DEMO PREVIEW</strong> for Kamayan Chill &amp; Grill &nbsp;|&nbsp;
+    <a href="tel:+639559918754">0955 991 8754</a> &nbsp;|&nbsp;
+    <a href="https://wa.me/639559918754?text=Hi%20Tony!%20I%20saw%20the%20Kamayan%20Chill%20%26%20Grill%20demo%20and%20I'm%20interested!" target="_blank">WhatsApp Tony &rarr;</a>
+  </div>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">Kamayan <span>Chill &amp; Grill</span></div>
+    <ul class="nav__links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#catering">Catering</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://wa.me/639539867155" target="_blank" class="nav__cta">Reserve Now</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="nav__mobile" id="mobile-nav">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#catering">Catering</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://wa.me/639539867155" target="_blank" style="color: var(--amber);">📞 Reserve Now</a></li>
+    </ul>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero__bg" id="heroBg"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content" id="heroContent">
+      <div class="hero__badge">Bar &amp; Grill · Zamboanga City</div>
+      <h1 class="hero__title">
+        Kamayan<br><span class="accent">Chill &amp; Grill</span>
+      </h1>
+      <p class="hero__sub">Where good food meets great company</p>
+      <div class="hero__actions">
+        <a href="#menu" class="btn btn--primary">View Menu</a>
+        <a href="#catering" class="btn btn--ghost">Catering Services</a>
+      </div>
+    </div>
+    <div class="hero__info">
+      <div class="hero__info-item">
+        <strong>Phoenix Veterans Ave</strong>
+        Zamboanga City
+      </div>
+      <div class="hero__info-item">
+        <strong>+63 953 867 1552</strong>
+        Call or WhatsApp
+      </div>
+      <div class="hero__info-item">
+        <strong>8,000+ Followers</strong>
+        on Facebook
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about__inner">
+        <div class="about__image-grid">
+          <img src="assets/images/restaurant-interior-guests.jpg" alt="Kamayan interior with guests">
+          <img src="assets/images/outdoor-dining-night-crowd.jpg" alt="Outdoor dining at night">
+          <img src="assets/images/dining-group-restaurant.jpg" alt="Group dining">
+        </div>
+        <div class="about__text fade-up">
+          <p class="section-label">Our Story</p>
+          <h2 class="section-title">More Than Just a Meal</h2>
+          <p class="section-desc">
+            Kamayan Chill &amp; Grill is Zamboanga City's go-to bar and grill for authentic Filipino flavors, cold drinks, and a laid-back vibe. Whether you're here for a quick lunch, a night out with friends, or a full catering event — we've got you covered.
+          </p>
+          <p class="section-desc" style="margin-top: 1rem;">
+            Located along Phoenix Veterans Avenue, we bring the warmth of kamayan-style dining with the energy of a chill grill spot. Chicken inasal, grilled favorites, and ice-cold beers — always served fresh.
+          </p>
+          <div class="about__stats">
+            <div class="about__stat">
+              <strong>8K+</strong>
+              <span>Facebook Fans</span>
+            </div>
+            <div class="about__stat">
+              <strong>100+</strong>
+              <span>Events Catered</span>
+            </div>
+            <div class="about__stat">
+              <strong>ZC's</strong>
+              <span>Favorite Grill</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MENU ===== -->
+  <section class="menu" id="menu">
+    <div class="container">
+      <div class="menu__header">
+        <div>
+          <p class="section-label">Our Bestsellers</p>
+          <h2 class="section-title">Grill &amp; Chill Favorites</h2>
+        </div>
+        <a href="https://wa.me/639539867155?text=Hi!%20I'd%20like%20to%20know%20more%20about%20your%20menu" target="_blank" class="btn btn--ghost" style="flex-shrink:0;">Full Menu →</a>
+      </div>
+      <div class="menu__grid">
+        <div class="menu-card menu-card--featured fade-up">
+          <img src="assets/images/food-chicken-inasal-bestseller.jpg" alt="Chicken Inasal" class="menu-card__img">
+          <div class="menu-card__body">
+            <p class="menu-card__tag">⭐ Bestseller</p>
+            <h3 class="menu-card__name">Chicken Inasal</h3>
+            <p class="menu-card__desc">Our signature marinated chicken grilled over hot coals to perfection. Served with garlic rice, atchara, and our secret basting sauce. The dish Zamboanga keeps coming back for.</p>
+          </div>
+        </div>
+        <div class="menu-card fade-up">
+          <img src="assets/images/food-grilled-glazed-meat.jpg" alt="Grilled Specialties" class="menu-card__img">
+          <div class="menu-card__body">
+            <p class="menu-card__tag">🔥 Grill</p>
+            <h3 class="menu-card__name">Grilled Specialties</h3>
+            <p class="menu-card__desc">From pork to seafood, our grill brings out smoky, charred perfection every time.</p>
+          </div>
+        </div>
+        <div class="menu-card fade-up">
+          <img src="assets/images/food-beef-caldereta.jpg" alt="Beef Caldereta" class="menu-card__img">
+          <div class="menu-card__body">
+            <p class="menu-card__tag">🍲 Ulam</p>
+            <h3 class="menu-card__name">Beef Caldereta</h3>
+            <p class="menu-card__desc">Rich, hearty Filipino beef stew slow-cooked in tomato sauce with potatoes and bell peppers.</p>
+          </div>
+        </div>
+        <div class="menu-card fade-up">
+          <img src="assets/images/food-stir-fry-beef.jpg" alt="Stir Fry" class="menu-card__img">
+          <div class="menu-card__body">
+            <p class="menu-card__tag">🥢 Specialty</p>
+            <h3 class="menu-card__name">Beef Stir Fry</h3>
+            <p class="menu-card__desc">Tender beef strips with fresh vegetables, wok-tossed in savory sauce. Bold and satisfying.</p>
+          </div>
+        </div>
+        <div class="menu-card fade-up">
+          <img src="assets/images/promo-happy-hour-pizza.jpg" alt="Happy Hour" class="menu-card__img">
+          <div class="menu-card__body">
+            <p class="menu-card__tag">🍕 Happy Hour</p>
+            <h3 class="menu-card__name">Happy Hour Deals</h3>
+            <p class="menu-card__desc">Pizza, mojos, and drinks at special happy hour prices. Check our Facebook for current promos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATERING ===== -->
+  <section class="catering" id="catering">
+    <div class="container">
+      <div class="catering__inner">
+        <div class="fade-up">
+          <p class="section-label">Catering Services</p>
+          <h2 class="section-title">We Bring the Feast to You</h2>
+          <p class="section-desc">From intimate gatherings to large corporate events, Kamayan Chill &amp; Grill delivers full catering services across Zamboanga City.</p>
+          <div class="catering__features">
+            <div class="catering__feature">
+              <div class="catering__feature-icon">🍽️</div>
+              <div class="catering__feature-text">
+                <strong>Full Buffet Setup</strong>
+                <span>Chafing dishes, serving utensils, complete setup and breakdown included</span>
+              </div>
+            </div>
+            <div class="catering__feature">
+              <div class="catering__feature-icon">👥</div>
+              <div class="catering__feature-text">
+                <strong>Any Event Size</strong>
+                <span>From intimate family gatherings to corporate events with 200+ guests</span>
+              </div>
+            </div>
+            <div class="catering__feature">
+              <div class="catering__feature-icon">📋</div>
+              <div class="catering__feature-text">
+                <strong>Custom Menus</strong>
+                <span>Tailor your menu with grilled dishes and Filipino favorites</span>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: 2rem;">
+            <a href="https://wa.me/639539867155?text=Hi!%20I'd%20like%20to%20inquire%20about%20catering" target="_blank" class="btn btn--primary">Inquire About Catering</a>
+          </div>
+        </div>
+        <div class="catering__gallery fade-up">
+          <img src="assets/images/catering-buffet-line.jpg" alt="Catering buffet line">
+          <img src="assets/images/catering-service-event.jpg" alt="Catering event service">
+          <img src="assets/images/catering-guests-serving.jpg" alt="Guests at catering event">
+          <img src="assets/images/catering-buffet-setup.jpg" alt="Catering setup">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EVENTS ===== -->
+  <section class="events" id="events">
+    <div class="container">
+      <div class="fade-up">
+        <p class="section-label">Life at Kamayan</p>
+        <h2 class="section-title">Chill Nights, Great Vibes</h2>
+        <p class="section-desc">Live music, group dining, ladies' nights, and the best bar scene in Zamboanga. Follow us on Facebook for upcoming events.</p>
+      </div>
+      <div class="events__grid">
+        <div class="event-card fade-up">
+          <img src="assets/images/events-live-music-night.jpg" alt="Live music events">
+          <div class="event-card__overlay"></div>
+          <div class="event-card__content">
+            <p class="event-card__label">Live Events</p>
+            <h3 class="event-card__title">Live Music Nights</h3>
+          </div>
+        </div>
+        <div class="event-card fade-up">
+          <img src="assets/images/bar-group-party-drinks.jpg" alt="Group parties">
+          <div class="event-card__overlay"></div>
+          <div class="event-card__content">
+            <p class="event-card__label">Gatherings</p>
+            <h3 class="event-card__title">Group &amp; Barkada Nights</h3>
+          </div>
+        </div>
+        <div class="event-card fade-up">
+          <img src="assets/images/bar-ladies-night-beers.jpg" alt="Bar nights">
+          <div class="event-card__overlay"></div>
+          <div class="event-card__content">
+            <p class="event-card__label">Bar Vibes</p>
+            <h3 class="event-card__title">Chill Bar Nights</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="fade-up">
+        <p class="section-label">Gallery</p>
+        <h2 class="section-title">The Kamayan Experience</h2>
+      </div>
+      <div class="gallery__grid">
+        <div class="gallery__item"><img src="assets/images/outdoor-dining-night-crowd.jpg" alt="Outdoor dining crowd"></div>
+        <div class="gallery__item"><img src="assets/images/bar-neon-sign-vibes.jpg" alt="Neon bar vibes"></div>
+        <div class="gallery__item"><img src="assets/images/restaurant-interior-guests.jpg" alt="Restaurant interior"></div>
+        <div class="gallery__item"><img src="assets/images/dining-team-outdoor.jpg" alt="Team dining outdoor"></div>
+        <div class="gallery__item"><img src="assets/images/dining-group-restaurant.jpg" alt="Group dining"></div>
+        <div class="gallery__item"><img src="assets/images/bar-customer-drinks.jpg" alt="Bar customer"></div>
+        <div class="gallery__item"><img src="assets/images/catering-chafing-spread.jpg" alt="Catering spread"></div>
+        <div class="gallery__item"><img src="assets/images/catering-guests-serving.jpg" alt="Catering guests"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact__inner">
+        <div class="fade-up">
+          <p class="section-label">Find Us</p>
+          <h2 class="section-title">Come Chill With Us</h2>
+          <p class="section-desc">We're located along Phoenix Veterans Avenue in Zamboanga City. Drop by, call us, or message us on Facebook.</p>
+          <div class="contact__info">
+            <div class="contact__item">
+              <div class="contact__icon">📍</div>
+              <div>
+                <p class="contact__item-label">Address</p>
+                <p class="contact__item-value">Phoenix Veterans Avenue<br>Zamboanga City, Philippines 7000</p>
+              </div>
+            </div>
+            <div class="contact__item">
+              <div class="contact__icon">📞</div>
+              <div>
+                <p class="contact__item-label">Phone / WhatsApp</p>
+                <p class="contact__item-value"><a href="tel:+639539867155" style="color: var(--amber);">+63 953 867 1552</a></p>
+              </div>
+            </div>
+            <div class="contact__item">
+              <div class="contact__icon">📘</div>
+              <div>
+                <p class="contact__item-label">Facebook</p>
+                <p class="contact__item-value"><a href="https://www.facebook.com/kamayan.chillandgrill.ph" target="_blank" style="color: var(--amber);">@kamayan.chillandgrill.ph</a></p>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://wa.me/639539867155" target="_blank" class="btn btn--primary">WhatsApp Us</a>
+            <a href="https://www.facebook.com/kamayan.chillandgrill.ph" target="_blank" class="btn btn--ghost">Facebook Page</a>
+          </div>
+        </div>
+        <div class="contact__map fade-up">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3980.1!2d122.0!3d6.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNTQnMDAuMCJOIDEyMsKwMDAnMDAuMCJF!5e0!3m2!1sen!2sph!4v1"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Kamayan Chill and Grill location">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DEMO BAR ===== -->
+  <div class="demo-bar">
+    <div class="demo-bar__inner">
+      <p class="demo-bar__title">Want a Website Like This?</p>
+      <p class="demo-bar__sub">Built by Tony — web dev &amp; automation specialist from Zamboanga City. Fast turnaround, affordable rates.</p>
+      <div class="demo-bar__actions">
+        <a href="tel:+639559918754" class="btn btn--primary">📞 Call Tony: 0955 991 8754</a>
+        <a href="https://wa.me/639559918754?text=Hi%20Tony!%20I%20saw%20the%20Kamayan%20demo%20and%20I'm%20interested%20in%20a%20website!" target="_blank" class="btn btn--ghost">WhatsApp Tony →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer__logo">Kamayan Chill &amp; Grill</div>
+    <p class="footer__tagline">Phoenix Veterans Avenue · Zamboanga City · +63 953 867 1552</p>
+    <p style="font-size: 0.7rem; color: var(--text-muted); margin-top: 1rem;">Demo website built by <a href="https://tonyfyp.com" style="color: var(--ember);">Tony Herrera</a></p>
+  </footer>
+
+  <!-- JS -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
