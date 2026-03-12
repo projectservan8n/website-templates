@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>DEMO | Isabelle&rsquo;s Caf&eacute; &amp; Venue &mdash; Zamboanga City</title>
+  <meta name="description" content="Isabelle&rsquo;s Caf&eacute; &amp; Venue &mdash; A cozy caf&eacute; and elegant event venue at Filinvest, Tumaga Rd., Zamboanga City. Perfect for gatherings, celebrations, and great coffee.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    :root {
+      --cream: #FAF7F2;
+      --peach: #FDF3EB;
+      --blush: #F2D9CB;
+      --rose: #C4856A;
+      --rose-light: #E2A990;
+      --mocha: #7A4A3A;
+      --mocha-dark: #4A2C20;
+      --gold: #C9A96E;
+      --gold-dim: rgba(201,169,110,0.18);
+      --dark: #2C1810;
+      --text: #4A3528;
+      --muted: #9C8070;
+      --light-border: rgba(122,74,58,0.15);
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Lato', system-ui, sans-serif;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+      --banner-h: 32px;
+      --nav-h: 70px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: var(--rose) var(--cream);
+    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 3px; }
+    ::selection { background: var(--blush); color: var(--mocha-dark); }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== PRELOADER ===== */
+    .preloader {
+      position: fixed; inset: 0; z-index: 10000;
+      background: var(--mocha);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+    }
+    .preloader__name {
+      font-family: var(--font-display); font-style: italic;
+      font-size: clamp(2rem, 8vw, 4rem); color: var(--cream);
+      opacity: 0; transform: translateY(20px);
+      letter-spacing: 0.02em;
+    }
+    .preloader__divider {
+      width: 60px; height: 1px; background: var(--rose-light); opacity: 0;
+    }
+    .preloader__sub {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(250,247,242,0.5); opacity: 0;
+    }
+
+    /* ===== DEMO BANNER ===== */
+    .demo-banner {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9000;
+      background: var(--mocha-dark); color: var(--cream);
+      text-align: center; padding: 0.45rem 1rem;
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.04em;
+    }
+    .demo-banner a { color: var(--gold); text-decoration: underline; font-weight: 700; }
+    .demo-banner a:hover { opacity: 0.8; }
+
+    /* ===== NAV ===== */
+    .nav {
+      position: fixed; top: var(--banner-h); left: 0; right: 0; z-index: 8000;
+      height: var(--nav-h); display: flex; align-items: center; padding: 0 5%;
+      transition: background 0.4s ease, box-shadow 0.4s ease;
+    }
+    .nav.scrolled {
+      background: rgba(250,247,242,0.96);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 2px 24px rgba(44,24,16,0.08);
+    }
+    .nav__inner {
+      width: 100%; max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav__logo {
+      font-family: var(--font-display); font-style: italic;
+      font-size: 1.65rem; color: var(--cream);
+      transition: color 0.4s;
+    }
+    .nav.scrolled .nav__logo { color: var(--mocha); }
+    .nav__links { display: flex; align-items: center; gap: 2.5rem; }
+    .nav__link {
+      font-size: 0.82rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(250,247,242,0.75); transition: color 0.3s;
+    }
+    .nav.scrolled .nav__link { color: var(--muted); }
+    .nav__link:hover { color: var(--gold) !important; }
+    .nav__cta {
+      background: var(--rose); color: white;
+      padding: 0.6rem 1.6rem; border-radius: 50px;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: all 0.25s;
+    }
+    .nav__cta:hover { background: var(--mocha); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(122,74,58,0.3); }
+    .nav.scrolled .nav__cta { background: var(--rose); }
+    .nav__toggle {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .nav__toggle span {
+      display: block; width: 24px; height: 1.5px;
+      background: var(--cream); transition: all 0.3s; border-radius: 2px;
+    }
+    .nav.scrolled .nav__toggle span { background: var(--mocha); }
+    .nav__toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav__toggle.open span:nth-child(2) { opacity: 0; }
+    .nav__toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    @media (max-width: 768px) {
+      .nav__links {
+        position: fixed; top: calc(var(--banner-h) + var(--nav-h));
+        left: 0; right: 0; background: var(--cream);
+        flex-direction: column; padding: 2.5rem 2rem; gap: 1.75rem; align-items: flex-start;
+        transform: translateX(-100%); transition: transform 0.4s var(--ease-out);
+        box-shadow: 0 8px 32px rgba(44,24,16,0.12);
+      }
+      .nav__links.open { transform: translateX(0); }
+      .nav__toggle { display: flex; }
+      .nav__link { color: var(--muted) !important; }
+      .nav__cta { width: 100%; text-align: center; }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; overflow: hidden;
+    }
+    .hero__bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1600&q=80&fit=crop&auto=format');
+      background-size: cover; background-position: center; will-change: transform;
+    }
+    .hero__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(44,24,16,0.82) 0%, rgba(74,42,32,0.60) 60%, rgba(122,74,58,0.25) 100%);
+    }
+    .hero__content {
+      position: relative; z-index: 2;
+      max-width: 1200px; width: 100%; margin: 0 auto;
+      padding: calc(var(--banner-h) + var(--nav-h) + 5rem) 5% 6rem;
+    }
+    .hero__eyebrow {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.5rem; opacity: 0;
+    }
+    .hero__eyebrow-line { width: 48px; height: 1px; background: var(--gold); }
+    .hero__eyebrow-text {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold);
+    }
+    .hero__title {
+      font-family: var(--font-display); font-style: italic;
+      font-size: clamp(3.5rem, 10vw, 8rem); line-height: 1.05;
+      color: var(--cream); opacity: 0; transform: translateY(30px);
+    }
+    .hero__title strong { font-style: normal; font-weight: 700; }
+    .hero__tagline {
+      font-size: clamp(1rem, 2.2vw, 1.25rem); font-weight: 300;
+      color: rgba(250,247,242,0.72); margin: 1.5rem 0 0.75rem; opacity: 0;
+      font-style: italic;
+    }
+    .hero__sub {
+      font-size: 0.9rem; color: rgba(250,247,242,0.55); margin-bottom: 3rem; opacity: 0;
+      max-width: 460px; line-height: 1.8;
+    }
+    .hero__buttons { display: flex; gap: 1.25rem; flex-wrap: wrap; opacity: 0; }
+    .btn-primary {
+      background: var(--rose); color: white;
+      padding: 1rem 2.5rem; border-radius: 50px;
+      font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: all 0.28s; display: inline-block;
+    }
+    .btn-primary:hover { background: var(--mocha); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(122,74,58,0.35); }
+    .btn-outline {
+      border: 1.5px solid rgba(250,247,242,0.4); color: var(--cream);
+      padding: 1rem 2.5rem; border-radius: 50px;
+      font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: all 0.28s; display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+    .hero__scroll-hint {
+      position: absolute; bottom: 2.5rem; right: 5%;
+      display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+      color: rgba(250,247,242,0.35); font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+      opacity: 0;
+    }
+    .hero__scroll-hint::after {
+      content: ''; display: block; width: 1px; height: 52px; background: rgba(250,247,242,0.3);
+    }
+
+    /* ===== FEATURES STRIP ===== */
+    .features-strip { background: var(--mocha); padding: 2rem 5%; }
+    .features-strip__inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    }
+    .features-strip__item {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1.25rem 2rem; color: var(--cream);
+      border-right: 1px solid rgba(250,247,242,0.1);
+    }
+    .features-strip__item:last-child { border-right: none; }
+    .features-strip__icon { font-size: 1.6rem; flex-shrink: 0; }
+    .features-strip__label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rose-light); margin-bottom: 0.2rem; display: block; }
+    .features-strip__text { font-size: 0.88rem; color: rgba(250,247,242,0.7); }
+    @media (max-width: 640px) {
+      .features-strip__inner { grid-template-columns: 1fr; }
+      .features-strip__item { border-right: none; border-bottom: 1px solid rgba(250,247,242,0.1); }
+      .features-strip__item:last-child { border-bottom: none; }
+    }
+
+    /* ===== SECTION BASE ===== */
+    .section { padding: 6rem 5%; scroll-margin-top: calc(var(--banner-h) + var(--nav-h)); }
+    .section--alt { background: var(--peach); }
+    .section--dark { background: var(--mocha); }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--rose); display: block; margin-bottom: 1rem;
+    }
+    .section-label--light { color: var(--rose-light); }
+    .section-title {
+      font-family: var(--font-display); font-style: italic;
+      font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.15;
+      color: var(--mocha-dark); margin-bottom: 1.25rem;
+    }
+    .section-title--light { color: var(--cream); }
+    .section-title em { font-style: normal; color: var(--rose); }
+    .section-title--light em { color: var(--gold); }
+
+    /* ===== ABOUT ===== */
+    .about__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about__body { font-size: 1rem; color: var(--text); line-height: 1.95; margin-bottom: 1.25rem; }
+    .about__pillars {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem;
+    }
+    .about__pillar {
+      text-align: center; padding: 1.5rem 1rem;
+      background: var(--cream); border-radius: 8px;
+      box-shadow: 0 2px 16px rgba(122,74,58,0.08);
+      border: 1px solid var(--light-border);
+    }
+    .about__pillar-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .about__pillar-name { font-family: var(--font-display); font-size: 1rem; color: var(--mocha); font-style: italic; margin-bottom: 0.3rem; }
+    .about__pillar-text { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
+    .about__image-wrap { position: relative; }
+    .about__img { width: 100%; height: 560px; object-fit: cover; border-radius: 8px; }
+    .about__img-accent {
+      position: absolute; bottom: -2rem; left: -2rem;
+      width: 160px; height: 160px;
+      background: var(--blush); border-radius: 50%;
+      z-index: -1;
+    }
+    .about__img-badge {
+      position: absolute; top: 2rem; right: -1.5rem;
+      background: var(--mocha); color: var(--cream);
+      padding: 1.5rem; border-radius: 8px; text-align: center; width: 120px;
+      box-shadow: 0 8px 32px rgba(44,24,16,0.25);
+    }
+    .about__img-badge-num {
+      font-family: var(--font-display); font-size: 2.5rem; display: block;
+      line-height: 1; color: var(--gold); letter-spacing: 0.04em;
+    }
+    .about__img-badge-text { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; margin-top: 0.25rem; display: block; }
+    @media (max-width: 900px) {
+      .about__grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about__pillars { grid-template-columns: 1fr; }
+      .about__img { height: 320px; }
+      .about__img-badge { right: 1rem; }
+    }
+
+    /* ===== CAFE MENU ===== */
+    .menu__header { text-align: center; margin-bottom: 3.5rem; }
+    .menu__categories { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .menu__cat {
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.6rem 1.75rem; background: transparent; color: var(--muted);
+      border: 1.5px solid var(--light-border); border-radius: 50px;
+      cursor: pointer; transition: all 0.25s; font-family: var(--font-body);
+    }
+    .menu__cat:hover { color: var(--mocha); border-color: var(--rose); }
+    .menu__cat.active { background: var(--rose); color: white; border-color: transparent; }
+    .menu__panel { display: none; }
+    .menu__panel.active {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem; animation: fadeUp 0.4s ease;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .menu-card {
+      background: white; border-radius: 12px; overflow: hidden;
+      box-shadow: 0 4px 24px rgba(122,74,58,0.08); transition: all 0.3s var(--ease-smooth);
+      border: 1px solid var(--light-border);
+    }
+    .menu-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(122,74,58,0.16); }
+    .menu-card__img { width: 100%; height: 200px; object-fit: cover; transition: transform 0.5s ease; }
+    .menu-card:hover .menu-card__img { transform: scale(1.04); }
+    .menu-card__body { padding: 1.4rem; }
+    .menu-card__name {
+      font-family: var(--font-display); font-size: 1.2rem; color: var(--mocha-dark);
+      margin-bottom: 0.35rem;
+    }
+    .menu-card__desc { font-size: 0.82rem; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
+    .menu-card__footer { display: flex; align-items: center; justify-content: space-between; }
+    .menu-card__price { font-family: var(--font-display); font-size: 1.3rem; color: var(--rose); }
+    .menu-card__tag {
+      font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.25rem 0.7rem; border-radius: 50px;
+      background: var(--blush); color: var(--mocha);
+    }
+
+    /* ===== EVENTS / VENUE ===== */
+    .events__hero {
+      position: relative; min-height: 520px; border-radius: 16px; overflow: hidden;
+      display: flex; align-items: flex-end; margin-bottom: 4rem;
+    }
+    .events__hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1600&q=80&fit=crop&auto=format');
+      background-size: cover; background-position: center;
+    }
+    .events__hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(0deg, rgba(44,24,16,0.92) 0%, rgba(44,24,16,0.3) 60%, transparent 100%);
+    }
+    .events__hero-content { position: relative; z-index: 2; padding: 3rem; max-width: 600px; }
+    .events__hero-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; display: block; }
+    .events__hero-title { font-family: var(--font-display); font-style: italic; font-size: clamp(2rem, 5vw, 3.5rem); color: var(--cream); line-height: 1.1; margin-bottom: 1rem; }
+    .events__hero-desc { font-size: 0.95rem; color: rgba(250,247,242,0.72); line-height: 1.8; margin-bottom: 2rem; }
+
+    .events__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; }
+    .events__card {
+      background: var(--cream); border: 1px solid var(--light-border); border-radius: 12px;
+      padding: 2rem; text-align: center; transition: all 0.3s;
+    }
+    .events__card:hover { box-shadow: 0 12px 40px rgba(122,74,58,0.12); transform: translateY(-4px); }
+    .events__card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .events__card-name { font-family: var(--font-display); font-size: 1.1rem; color: var(--mocha-dark); margin-bottom: 0.5rem; font-style: italic; }
+    .events__card-text { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+    .events__features {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem; margin-top: 3rem;
+    }
+    .events__feature {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 1rem; background: white; border-radius: 8px;
+      border: 1px solid var(--light-border); font-size: 0.85rem; color: var(--text);
+    }
+    .events__feature::before { content: '&#10003;'; color: var(--rose); font-weight: 700; font-size: 1rem; }
+
+    /* ===== GALLERY ===== */
+    .gallery__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 260px);
+      gap: 0.75rem;
+    }
+    .gallery__item { position: relative; overflow: hidden; border-radius: 8px; }
+    .gallery__item:first-child { grid-row: span 2; }
+    .gallery__img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease-smooth); }
+    .gallery__item:hover .gallery__img { transform: scale(1.07); }
+    .gallery__overlay {
+      position: absolute; inset: 0; background: rgba(0,0,0,0); transition: background 0.3s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .gallery__item:hover .gallery__overlay { background: rgba(122,74,58,0.25); }
+    .gallery__plus {
+      font-family: var(--font-display); font-style: italic; font-size: 1.2rem; color: white;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .gallery__item:hover .gallery__plus { opacity: 1; }
+    @media (max-width: 768px) {
+      .gallery__grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gallery__item { height: 180px; }
+      .gallery__item:first-child { grid-row: span 1; grid-column: span 2; height: 240px; }
+    }
+
+    /* ===== CONTACT ===== */
+    .contact__grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: start; }
+    .contact__card {
+      background: white; border-radius: 16px; padding: 3rem;
+      box-shadow: 0 8px 40px rgba(122,74,58,0.1); border: 1px solid var(--light-border);
+    }
+    .contact__item { display: flex; gap: 1.25rem; align-items: flex-start; margin-bottom: 1.75rem; }
+    .contact__icon {
+      width: 46px; height: 46px; background: var(--blush);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .contact__icon svg { width: 20px; height: 20px; stroke: var(--mocha); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .contact__item-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--rose); display: block; margin-bottom: 0.3rem;
+    }
+    .contact__item-value { font-size: 0.95rem; color: var(--text); line-height: 1.6; }
+    .contact__item-value a { color: var(--mocha); transition: color 0.2s; }
+    .contact__item-value a:hover { color: var(--rose); }
+    .contact__cta {
+      background: var(--peach); border-radius: 12px; padding: 2rem;
+      border: 1px solid var(--light-border); text-align: center;
+    }
+    .contact__cta-title { font-family: var(--font-display); font-style: italic; font-size: 1.6rem; color: var(--mocha-dark); margin-bottom: 0.75rem; }
+    .contact__cta-text { font-size: 0.88rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.75rem; }
+    .contact__social { display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .contact__social-link {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.65rem 1.25rem; background: var(--peach); border: 1.5px solid var(--light-border);
+      border-radius: 50px; font-size: 0.8rem; font-weight: 700; color: var(--mocha); transition: all 0.25s;
+    }
+    .contact__social-link:hover { background: var(--blush); border-color: var(--rose); color: var(--rose); }
+    @media (max-width: 900px) { .contact__grid { grid-template-columns: 1fr; } }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--mocha-dark); padding: 3.5rem 5%; text-align: center;
+      border-top: 3px solid var(--gold);
+    }
+    .footer__inner { max-width: 1200px; margin: 0 auto; }
+    .footer__logo {
+      font-family: var(--font-display); font-style: italic;
+      font-size: 2rem; color: var(--cream); margin-bottom: 0.5rem;
+    }
+    .footer__copy { font-size: 0.82rem; color: rgba(250,247,242,0.5); margin-bottom: 0.4rem; }
+    .footer__demo { font-size: 0.72rem; color: rgba(250,247,242,0.3); }
+    .footer__demo a { color: var(--gold); text-decoration: underline; opacity: 0.8; }
+
+    /* ===== REVEAL ===== */
+    [data-reveal] { opacity: 0; transform: translateY(28px); }
+  </style>
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__name" id="preloaderName">Isabelle&rsquo;s</div>
+    <div class="preloader__divider" id="preloaderLine"></div>
+    <div class="preloader__sub" id="preloaderSub">Caf&eacute; &amp; Venue &bull; Zamboanga City</div>
+  </div>
+
+  <!-- DEMO BANNER -->
+  <div class="demo-banner">
+    This is a <strong>DEMO PREVIEW</strong> for Isabelle&rsquo;s Caf&eacute; &amp; Venue &nbsp;|&nbsp;
+    <a href="tel:+639559918754">0955 991 8754</a> &nbsp;|&nbsp;
+    <a href="https://wa.me/639559918754?text=Hi%20Tony!%20I%20saw%20the%20Isabelle%27s%20Cafe%20demo%20and%20I%27m%20interested!" target="_blank" rel="noopener">WhatsApp Tony &rarr;</a>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">Isabelle&rsquo;s</a>
+      <div class="nav__links" id="navLinks">
+        <a href="#about" class="nav__link">About</a>
+        <a href="#menu" class="nav__link">Caf&eacute;</a>
+        <a href="#events" class="nav__link">Events</a>
+        <a href="#gallery" class="nav__link">Gallery</a>
+        <a href="#contact" class="nav__cta">Book Now</a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="hero">
+    <div class="hero__bg" id="heroBg"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <div class="hero__eyebrow" id="heroEyebrow">
+        <div class="hero__eyebrow-line"></div>
+        <span class="hero__eyebrow-text">Caf&eacute; &amp; Event Venue &bull; Zamboanga City</span>
+      </div>
+      <h1 class="hero__title" id="heroTitle">
+        Isabelle&rsquo;s<br>
+        <strong>Caf&eacute; &amp; Venue</strong>
+      </h1>
+      <p class="hero__tagline" id="heroTagline">&ldquo;Where Every Moment Becomes a Memory&rdquo;</p>
+      <p class="hero__sub" id="heroSub">A warm caf&eacute; and elegant event space nestled at Filinvest, Tumaga Rd., Zamboanga City.</p>
+      <div class="hero__buttons" id="heroButtons">
+        <a href="#menu" class="btn-primary">Explore the Caf&eacute;</a>
+        <a href="#events" class="btn-outline">Book an Event &rarr;</a>
+      </div>
+    </div>
+    <div class="hero__scroll-hint" id="heroScroll">Scroll</div>
+  </header>
+
+  <!-- FEATURES STRIP -->
+  <div class="features-strip">
+    <div class="features-strip__inner">
+      <div class="features-strip__item">
+        <div class="features-strip__icon">&#9749;</div>
+        <div>
+          <span class="features-strip__label">Specialty Caf&eacute;</span>
+          <span class="features-strip__text">Hand-crafted drinks, pastries &amp; light meals daily</span>
+        </div>
+      </div>
+      <div class="features-strip__item">
+        <div class="features-strip__icon">&#127881;</div>
+        <div>
+          <span class="features-strip__label">Event Venue</span>
+          <span class="features-strip__text">Elegant space for parties, showers &amp; gatherings</span>
+        </div>
+      </div>
+      <div class="features-strip__item">
+        <div class="features-strip__icon">&#128205;</div>
+        <div>
+          <span class="features-strip__label">Location</span>
+          <span class="features-strip__text">Filinvest, Tumaga Rd., Zamboanga City</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div data-reveal>
+          <span class="section-label">Our Story</span>
+          <h2 class="section-title">A Place You&rsquo;ll Love<br><em>Coming Back To</em></h2>
+          <p class="about__body">Isabelle&rsquo;s was born from a simple dream: to create a corner of Zamboanga City where every cup of coffee is an occasion, and every occasion deserves a beautiful space. Nestled in the Filinvest area along Tumaga Road, our doors are open to anyone seeking warmth, comfort, and a little elegance in their day.</p>
+          <p class="about__body">Whether you&rsquo;re catching up over lattes, celebrating a milestone, or planning an intimate event, Isabelle&rsquo;s is designed to make you feel at home &mdash; with a touch of something special.</p>
+          <div class="about__pillars">
+            <div class="about__pillar">
+              <div class="about__pillar-icon">&#9749;</div>
+              <div class="about__pillar-name">Cozy Caf&eacute;</div>
+              <p class="about__pillar-text">Specialty drinks, pastries &amp; comfort food in a warm setting</p>
+            </div>
+            <div class="about__pillar">
+              <div class="about__pillar-icon">&#10024;</div>
+              <div class="about__pillar-name">Elegant Events</div>
+              <p class="about__pillar-text">A venue that elevates every celebration you plan</p>
+            </div>
+            <div class="about__pillar">
+              <div class="about__pillar-icon">&#127801;</div>
+              <div class="about__pillar-name">Warm Community</div>
+              <p class="about__pillar-text">A gathering place for Zamboanga&rsquo;s most special moments</p>
+            </div>
+          </div>
+        </div>
+        <div class="about__image-wrap" data-reveal>
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&q=80&fit=crop&auto=format" alt="Isabelle's cafe latte art" class="about__img" loading="lazy">
+          <div class="about__img-accent"></div>
+          <div class="about__img-badge">
+            <span class="about__img-badge-num">5K+</span>
+            <span class="about__img-badge-text">Fans &amp; Growing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAFE MENU -->
+  <section class="section section--alt" id="menu">
+    <div class="container">
+      <div class="menu__header" data-reveal>
+        <span class="section-label">What We Serve</span>
+        <h2 class="section-title">The Caf&eacute;<br><em>Menu</em></h2>
+        <p style="font-size: 0.95rem; color: var(--muted); max-width: 450px; margin: 0 auto; line-height: 1.8;">Crafted with care, served with warmth. Every item on our menu is made to be savored.</p>
+      </div>
+      <div class="menu__categories">
+        <button class="menu__cat active" data-tab="drinks">&#9749; Drinks</button>
+        <button class="menu__cat" data-tab="pastries">&#127850; Pastries</button>
+        <button class="menu__cat" data-tab="meals">&#127869; Meals</button>
+      </div>
+
+      <div class="menu__panel active" data-panel="drinks">
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=75&fit=crop&auto=format" alt="Isabelle Latte" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Signature Isabelle Latte</div>
+            <p class="menu-card__desc">Vanilla-infused double espresso with velvety oat milk foam and a dusting of cinnamon. Our signature creation.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;150</span>
+              <span class="menu-card__tag">House Special</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&q=75&fit=crop&auto=format" alt="Matcha Cream" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Iced Matcha Cream</div>
+            <p class="menu-card__desc">Premium ceremonial matcha over ice, crowned with a sweet cream cheese foam. Earthy, cool, and utterly addictive.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;140</span>
+              <span class="menu-card__tag">Fan Fave</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&q=75&fit=crop&auto=format" alt="Spanish Latte" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Spanish Latte</div>
+            <p class="menu-card__desc">Sweet condensed milk meets a bold double shot, poured over ice. Rich, smooth, and impossible to put down.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;145</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=75&fit=crop&auto=format" alt="Americano" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Classic Americano</div>
+            <p class="menu-card__desc">Clean, bold, and honest. Freshly pulled espresso diluted with hot or iced water to your preference.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;110</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu__panel" data-panel="pastries">
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=600&q=75&fit=crop&auto=format" alt="Butter Croissant" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Butter Croissant</div>
+            <p class="menu-card__desc">Flaky, golden layers of buttery perfection. Baked fresh daily and best paired with any coffee on our menu.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;85</span>
+              <span class="menu-card__tag">Daily Fresh</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=600&q=75&fit=crop&auto=format" alt="Blueberry Cheesecake" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Blueberry Cheesecake</div>
+            <p class="menu-card__desc">Creamy New York-style cheesecake on a buttery graham crust, finished with a generous blueberry compote.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;140</span>
+              <span class="menu-card__tag">Fan Fave</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&q=75&fit=crop&auto=format" alt="Crinkle Cookies" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Crinkle Cookies (3 pcs)</div>
+            <p class="menu-card__desc">Fudgy, powdery-soft chocolate crinkles with a crisp exterior and a gooey center. A classic done perfectly.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;65</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu__panel" data-panel="meals">
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&q=75&fit=crop&auto=format" alt="Chicken Pesto Pasta" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Chicken Pesto Pasta</div>
+            <p class="menu-card__desc">Al dente linguine tossed in a house-made basil pesto with grilled chicken, cherry tomatoes, and parmesan.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;195</span>
+              <span class="menu-card__tag">House Special</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=75&fit=crop&auto=format" alt="Breakfast Platter" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Isabelle&rsquo;s Breakfast Platter</div>
+            <p class="menu-card__desc">Eggs your way, toast, turkey ham, fresh fruit, and a side salad. The full morning experience on one plate.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;175</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=75&fit=crop&auto=format" alt="Club Sandwich" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Isabelle&rsquo;s Club Sandwich</div>
+            <p class="menu-card__desc">Triple-decker toasted sandwich with grilled chicken, crisp bacon, lettuce, tomato, and our house aioli.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;155</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS & VENUE -->
+  <section class="section" id="events">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3.5rem;" data-reveal>
+        <span class="section-label">Host Your Moment</span>
+        <h2 class="section-title">Events &amp; <em>Venue</em></h2>
+        <p style="font-size: 0.95rem; color: var(--muted); max-width: 500px; margin: 0 auto; line-height: 1.8;">From intimate gatherings to grand celebrations &mdash; Isabelle&rsquo;s sets the scene for your most special moments.</p>
+      </div>
+      <div class="events__hero" data-reveal>
+        <div class="events__hero-bg"></div>
+        <div class="events__hero-overlay"></div>
+        <div class="events__hero-content">
+          <span class="events__hero-label">Available for Booking</span>
+          <h3 class="events__hero-title">An Elegant Space<br>for Every Occasion</h3>
+          <p class="events__hero-desc">Our venue accommodates up to 60 guests and can be dressed to match any theme &mdash; from romantic blush tones to modern minimalism. Full catering coordination available.</p>
+          <a href="#contact" class="btn-primary">Inquire About Booking</a>
+        </div>
+      </div>
+      <div class="events__grid" data-reveal>
+        <div class="events__card">
+          <div class="events__card-icon">&#127882;</div>
+          <div class="events__card-name">Birthday Celebrations</div>
+          <p class="events__card-text">Make their special day unforgettable in an elegant space tailored to your theme and vision.</p>
+        </div>
+        <div class="events__card">
+          <div class="events__card-icon">&#128145;</div>
+          <div class="events__card-name">Bridal &amp; Baby Showers</div>
+          <p class="events__card-text">Soft, romantic settings perfect for the most intimate celebrations with your closest circle.</p>
+        </div>
+        <div class="events__card">
+          <div class="events__card-icon">&#128188;</div>
+          <div class="events__card-name">Corporate Events</div>
+          <p class="events__card-text">A professional yet welcoming venue for meetings, team lunches, and product launches.</p>
+        </div>
+        <div class="events__card">
+          <div class="events__card-icon">&#127775;</div>
+          <div class="events__card-name">Intimate Gatherings</div>
+          <p class="events__card-text">Family reunions, barkada nights, or small parties &mdash; we make any gathering feel special.</p>
+        </div>
+      </div>
+      <div class="events__features" data-reveal>
+        <div class="events__feature">&#10003;&nbsp; Capacity up to 60 guests</div>
+        <div class="events__feature">&#10003;&nbsp; Projector &amp; sound system</div>
+        <div class="events__feature">&#10003;&nbsp; In-house catering &amp; caf&eacute; service</div>
+        <div class="events__feature">&#10003;&nbsp; Custom decorations coordination</div>
+        <div class="events__feature">&#10003;&nbsp; Air-conditioned &amp; comfortable</div>
+        <div class="events__feature">&#10003;&nbsp; Flexible booking hours</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section section--alt" id="gallery">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3rem;" data-reveal>
+        <span class="section-label">A Peek Inside</span>
+        <h2 class="section-title">Our <em>Gallery</em></h2>
+      </div>
+      <div class="gallery__grid" data-reveal>
+        <div class="gallery__item">
+          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=900&q=75&fit=crop&auto=format" alt="Isabelle's cafe interior" class="gallery__img" loading="lazy">
+          <div class="gallery__overlay"><span class="gallery__plus">View</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=75&fit=crop&auto=format" alt="Latte art" class="gallery__img" loading="lazy">
+          <div class="gallery__overlay"><span class="gallery__plus">View</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600&q=75&fit=crop&auto=format" alt="Event venue" class="gallery__img" loading="lazy">
+          <div class="gallery__overlay"><span class="gallery__plus">View</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=600&q=75&fit=crop&auto=format" alt="Desserts" class="gallery__img" loading="lazy">
+          <div class="gallery__overlay"><span class="gallery__plus">View</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=75&fit=crop&auto=format" alt="Coffee" class="gallery__img" loading="lazy">
+          <div class="gallery__overlay"><span class="gallery__plus">View</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div style="margin-bottom: 3.5rem;" data-reveal>
+        <span class="section-label">Get in Touch</span>
+        <h2 class="section-title">Visit Us or<br><em>Book an Event</em></h2>
+      </div>
+      <div class="contact__grid">
+        <div class="contact__card" data-reveal>
+          <div class="contact__item">
+            <div class="contact__icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <span class="contact__item-label">Address</span>
+              <span class="contact__item-value">Filinvest, Tumaga Rd.<br>Zamboanga City</span>
+            </div>
+          </div>
+          <div class="contact__item">
+            <div class="contact__icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.09 6.09l1.27-.84a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <span class="contact__item-label">Phone</span>
+              <span class="contact__item-value"><a href="tel:+639543168579">+63 954 316 8579</a></span>
+            </div>
+          </div>
+          <div class="contact__item">
+            <div class="contact__icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <span class="contact__item-label">Hours</span>
+              <span class="contact__item-value">Daily &bull; 8:00 AM &ndash; 9:00 PM<br><span style="font-size: 0.82rem; color: var(--muted);">Event bookings by appointment</span></span>
+            </div>
+          </div>
+          <div class="contact__social">
+            <a href="https://www.facebook.com/profile.php?id=61567785604977" target="_blank" rel="noopener" class="contact__social-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+              Facebook Page
+            </a>
+            <a href="tel:+639543168579" class="contact__social-link">&#128222; Call</a>
+          </div>
+        </div>
+        <div data-reveal>
+          <div class="contact__cta">
+            <h3 class="contact__cta-title">Plan Your Event with Us</h3>
+            <p class="contact__cta-text">Interested in booking our venue for your next celebration? Reach out and let&rsquo;s make it something beautiful. We&rsquo;ll handle the space &mdash; you bring the people you love.</p>
+            <a href="tel:+639543168579" class="btn-primary" style="display: inline-block; width: 100%; text-align: center;">
+              &#128222; Call to Reserve
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61567785604977" target="_blank" rel="noopener" class="btn-outline" style="display: inline-block; width: 100%; text-align: center; margin-top: 0.75rem; border-color: var(--light-border); color: var(--mocha);">
+              Message on Facebook
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__logo">Isabelle&rsquo;s</div>
+      <p class="footer__copy">Filinvest, Tumaga Rd., Zamboanga City &bull; +63 954 316 8579</p>
+      <p class="footer__demo">
+        Demo website built by <a href="https://wa.me/639559918754" target="_blank" rel="noopener">Tony Herrera</a> &mdash; not the official Isabelle&rsquo;s website.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ===== PRELOADER =====
+    const tl = gsap.timeline({ onComplete: initPage });
+    tl.to('#preloaderName',  { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' })
+      .to('#preloaderLine',  { opacity: 1, scaleX: 1, duration: 0.4 }, '-=0.2')
+      .to('#preloaderSub',   { opacity: 1, duration: 0.4 }, '-=0.1')
+      .to('#preloader',      { yPercent: -100, duration: 1.0, delay: 0.5, ease: 'power3.inOut' });
+
+    function initPage() {
+      document.getElementById('preloader').style.display = 'none';
+
+      gsap.to('#heroEyebrow', { opacity: 1, duration: 0.6, delay: 0.1 });
+      gsap.to('#heroTitle',   { opacity: 1, y: 0, duration: 1.0, delay: 0.2, ease: 'power3.out' });
+      gsap.to('#heroTagline', { opacity: 1, duration: 0.7, delay: 0.5 });
+      gsap.to('#heroSub',     { opacity: 1, duration: 0.7, delay: 0.65 });
+      gsap.to('#heroButtons', { opacity: 1, duration: 0.7, delay: 0.8 });
+      gsap.to('#heroScroll',  { opacity: 1, duration: 0.7, delay: 1.1 });
+
+      gsap.to('#heroBg', {
+        yPercent: 18, ease: 'none',
+        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+      });
+
+      document.querySelectorAll('[data-reveal]').forEach((el) => {
+        gsap.fromTo(el,
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
+            scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' } }
+        );
+      });
+    }
+
+    // ===== NAV =====
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav__link, .nav__cta').forEach(l => {
+      l.addEventListener('click', () => { navLinks.classList.remove('open'); navToggle.classList.remove('open'); });
+    });
+
+    // ===== MENU TABS =====
+    document.querySelectorAll('.menu__cat').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.menu__cat').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.menu__panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelector(`[data-panel="${tab.dataset.tab}"]`).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>DEMO | Manolo&rsquo;s Halo-Halo &mdash; Zamboanga&rsquo;s Favorite Filipino Desserts</title>
+  <meta name="description" content="Manolo&rsquo;s Halo-Halo &mdash; Zamboanga City&rsquo;s beloved Filipino dessert spot. The best halo-halo, ice scramble, and merienda in town. 14,000+ fans!">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #0D0020;
+      --bg2: #150030;
+      --card: #1E0040;
+      --card2: #24004C;
+      --purple: #8B2FC9;
+      --purple-light: #A855F7;
+      --pink: #F72585;
+      --pink-light: #FF6BAE;
+      --yellow: #FFD60A;
+      --yellow-dim: rgba(255,214,10,0.12);
+      --teal: #00E5CC;
+      --orange: #FF7849;
+      --green: #39FF8E;
+      --white: #FFFFFF;
+      --text: #F0E6FF;
+      --muted: #9B82B5;
+      --border: rgba(139,47,201,0.25);
+      --font-display: 'Fredoka One', 'Impact', sans-serif;
+      --font-body: 'Nunito', system-ui, sans-serif;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --banner-h: 32px;
+      --nav-h: 66px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: var(--pink) var(--bg);
+    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(var(--pink), var(--purple)); border-radius: 3px; }
+    ::selection { background: var(--pink); color: white; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== PRELOADER ===== */
+    .preloader {
+      position: fixed; inset: 0; z-index: 10000;
+      background: var(--pink);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+    }
+    .preloader__icon { font-size: 5rem; opacity: 0; transform: scale(0.5); }
+    .preloader__name {
+      font-family: var(--font-display); font-size: clamp(2.5rem, 8vw, 4.5rem);
+      color: white; opacity: 0; transform: translateY(15px); letter-spacing: 0.03em;
+      text-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    }
+    .preloader__sub {
+      font-size: 0.82rem; font-weight: 800; letter-spacing: 0.25em; text-transform: uppercase;
+      color: rgba(255,255,255,0.65); opacity: 0;
+    }
+
+    /* ===== DEMO BANNER ===== */
+    .demo-banner {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9000;
+      background: var(--pink); color: white;
+      text-align: center; padding: 0.45rem 1rem;
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.02em;
+    }
+    .demo-banner a { color: var(--yellow); text-decoration: underline; font-weight: 800; }
+    .demo-banner a:hover { opacity: 0.8; }
+
+    /* ===== NAV ===== */
+    .nav {
+      position: fixed; top: var(--banner-h); left: 0; right: 0; z-index: 8000;
+      height: var(--nav-h); display: flex; align-items: center; padding: 0 5%;
+      transition: background 0.35s ease, backdrop-filter 0.35s ease;
+    }
+    .nav.scrolled {
+      background: rgba(13,0,32,0.94);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav__inner {
+      width: 100%; max-width: 1280px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav__logo {
+      font-family: var(--font-display); font-size: 1.85rem; letter-spacing: 0.03em;
+      background: linear-gradient(135deg, var(--pink), var(--yellow));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .nav__links { display: flex; align-items: center; gap: 2rem; }
+    .nav__link {
+      font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--muted); transition: color 0.2s;
+    }
+    .nav__link:hover { color: var(--yellow); }
+    .nav__cta {
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: white; padding: 0.6rem 1.6rem; border-radius: 50px;
+      font-size: 0.8rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+      transition: all 0.25s; box-shadow: 0 4px 16px rgba(247,37,133,0.35);
+    }
+    .nav__cta:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 8px 28px rgba(247,37,133,0.5); }
+    .nav__toggle {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .nav__toggle span {
+      display: block; width: 24px; height: 2px;
+      background: var(--text); transition: all 0.3s; border-radius: 2px;
+    }
+    .nav__toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav__toggle.open span:nth-child(2) { opacity: 0; }
+    .nav__toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media (max-width: 768px) {
+      .nav__links {
+        position: fixed; top: calc(var(--banner-h) + var(--nav-h));
+        left: 0; right: 0; background: var(--bg2);
+        flex-direction: column; padding: 2.5rem 2rem; gap: 1.75rem; align-items: flex-start;
+        transform: translateX(-100%); transition: transform 0.4s var(--ease-out);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav__links.open { transform: translateX(0); }
+      .nav__toggle { display: flex; }
+      .nav__cta { width: 100%; text-align: center; }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; overflow: hidden;
+      background: var(--bg);
+    }
+    /* Animated gradient blobs in hero */
+    .hero__blobs {
+      position: absolute; inset: 0; pointer-events: none;
+      overflow: hidden;
+    }
+    .blob {
+      position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.55;
+    }
+    .blob-1 { width: 500px; height: 500px; background: var(--purple); top: -100px; right: -100px; animation: float1 8s ease-in-out infinite; }
+    .blob-2 { width: 400px; height: 400px; background: var(--pink); bottom: -50px; left: -80px; animation: float2 10s ease-in-out infinite; }
+    .blob-3 { width: 300px; height: 300px; background: var(--teal); top: 40%; left: 50%; animation: float3 12s ease-in-out infinite; opacity: 0.3; }
+    @keyframes float1 { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-30px, 40px) scale(1.1); } }
+    @keyframes float2 { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(40px, -30px) scale(0.95); } }
+    @keyframes float3 { 0%, 100% { transform: translate(-50%, 0) scale(1); } 50% { transform: translate(-50%, 20px) scale(1.05); } }
+
+    .hero__content {
+      position: relative; z-index: 2;
+      max-width: 1280px; width: 100%; margin: 0 auto;
+      padding: calc(var(--banner-h) + var(--nav-h) + 5rem) 5% 6rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+    .hero__text {}
+    .hero__tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,214,10,0.12); border: 1.5px solid var(--yellow);
+      color: var(--yellow); padding: 0.4rem 1rem; border-radius: 50px;
+      font-size: 0.74rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;
+      margin-bottom: 1.5rem; opacity: 0;
+    }
+    .hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      line-height: 1.0; letter-spacing: 0.02em;
+      opacity: 0; transform: translateY(30px);
+    }
+    .hero__title-line1 { display: block; color: var(--white); }
+    .hero__title-line2 {
+      display: block;
+      background: linear-gradient(135deg, var(--pink), var(--yellow) 50%, var(--teal));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero__tagline {
+      font-size: clamp(1rem, 2.2vw, 1.3rem); font-weight: 600;
+      color: var(--muted); margin: 1.25rem 0 0.75rem; opacity: 0;
+    }
+    .hero__tagline strong { color: var(--yellow); }
+    .hero__sub { font-size: 0.92rem; color: var(--muted); margin-bottom: 2.5rem; opacity: 0; line-height: 1.8; }
+    .hero__buttons { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: white; padding: 1rem 2.5rem; border-radius: 50px;
+      font-weight: 800; font-size: 0.88rem; letter-spacing: 0.08em; text-transform: uppercase;
+      transition: all 0.25s; display: inline-block;
+      box-shadow: 0 6px 24px rgba(247,37,133,0.4);
+    }
+    .btn-primary:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 36px rgba(247,37,133,0.55); }
+    .btn-outline {
+      border: 2px solid var(--teal); color: var(--teal);
+      padding: 1rem 2.5rem; border-radius: 50px;
+      font-weight: 800; font-size: 0.88rem; letter-spacing: 0.06em; text-transform: uppercase;
+      transition: all 0.25s; display: inline-block;
+    }
+    .btn-outline:hover { background: var(--teal); color: var(--bg); }
+    .hero__image-wrap {
+      position: relative; display: flex; justify-content: center; opacity: 0;
+    }
+    .hero__img-main {
+      width: 100%; max-width: 460px; height: 500px; object-fit: cover;
+      border-radius: 24px; box-shadow: 0 24px 80px rgba(247,37,133,0.35);
+      border: 3px solid rgba(255,255,255,0.1);
+    }
+    .hero__img-badge {
+      position: absolute; top: -1rem; left: -1rem;
+      background: var(--yellow); color: var(--bg); border-radius: 50%;
+      width: 90px; height: 90px; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      box-shadow: 0 8px 24px rgba(255,214,10,0.5); animation: spin-slow 10s linear infinite;
+    }
+    @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .hero__img-badge-num { font-family: var(--font-display); font-size: 1.4rem; line-height: 1; }
+    .hero__img-badge-text { font-size: 0.56rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+    .hero__img-float {
+      position: absolute; bottom: 2rem; right: -1.5rem;
+      background: var(--card); border: 2px solid var(--teal);
+      border-radius: 16px; padding: 1rem 1.25rem; text-align: center;
+      box-shadow: 0 8px 32px rgba(0,229,204,0.2);
+    }
+    .hero__img-float-emoji { font-size: 1.8rem; display: block; }
+    .hero__img-float-label { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-top: 0.3rem; }
+
+    @media (max-width: 900px) {
+      .hero__content { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+      .hero__buttons { justify-content: center; }
+      .hero__img-main { height: 320px; }
+      .hero__img-float { right: 0; }
+    }
+
+    /* ===== WAVE DIVIDER ===== */
+    .wave { overflow: hidden; line-height: 0; }
+    .wave svg { display: block; width: 100%; }
+
+    /* ===== SECTION BASE ===== */
+    .section { padding: 6rem 5%; scroll-margin-top: calc(var(--banner-h) + var(--nav-h)); }
+    .section--alt { background: var(--bg2); }
+    .container { max-width: 1280px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase;
+      display: block; margin-bottom: 0.75rem;
+    }
+    .section-label--pink { color: var(--pink); }
+    .section-label--yellow { color: var(--yellow); }
+    .section-label--teal { color: var(--teal); }
+    .section-title {
+      font-family: var(--font-display); font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1.05; margin-bottom: 1.25rem;
+    }
+    .section-title--gradient {
+      background: linear-gradient(135deg, var(--pink) 0%, var(--yellow) 50%, var(--teal) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .section-title--white { color: var(--white); }
+
+    /* ===== ABOUT / STORY ===== */
+    .about__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about__body { font-size: 1rem; color: var(--muted); line-height: 1.95; margin-bottom: 1.25rem; }
+    .about__stats {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem;
+    }
+    .about__stat {
+      text-align: center; padding: 1.5rem 1rem;
+      background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+      transition: all 0.3s;
+    }
+    .about__stat:hover { transform: translateY(-4px); border-color: var(--pink); }
+    .about__stat-num {
+      font-family: var(--font-display); font-size: 2rem; display: block; margin-bottom: 0.25rem;
+    }
+    .about__stat:nth-child(1) .about__stat-num { color: var(--pink); }
+    .about__stat:nth-child(2) .about__stat-num { color: var(--yellow); }
+    .about__stat:nth-child(3) .about__stat-num { color: var(--teal); }
+    .about__stat-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .about__image-wrap { position: relative; }
+    .about__img { width: 100%; height: 500px; object-fit: cover; border-radius: 20px; border: 2px solid var(--border); }
+    .about__img-glow {
+      position: absolute; inset: -20px; border-radius: 28px;
+      background: radial-gradient(ellipse at center, rgba(247,37,133,0.2) 0%, transparent 70%);
+      z-index: -1;
+    }
+    @media (max-width: 900px) {
+      .about__grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about__img { height: 300px; }
+    }
+
+    /* ===== MENU ===== */
+    .menu__header { text-align: center; margin-bottom: 3.5rem; }
+    .menu__tabs { display: flex; justify-content: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .menu__tab {
+      font-family: var(--font-body); font-size: 0.82rem; font-weight: 800;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.65rem 1.6rem; background: transparent; color: var(--muted);
+      border: 2px solid var(--border); border-radius: 50px;
+      cursor: pointer; transition: all 0.25s;
+    }
+    .menu__tab:hover { color: var(--text); border-color: var(--purple-light); }
+    .menu__tab.active {
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: white; border-color: transparent;
+      box-shadow: 0 4px 20px rgba(247,37,133,0.35);
+    }
+    .menu__panel { display: none; }
+    .menu__panel.active {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem; animation: fadeUp 0.4s ease;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .menu-card {
+      background: var(--card); border: 1.5px solid var(--border); border-radius: 20px;
+      overflow: hidden; transition: all 0.35s var(--ease-out);
+    }
+    .menu-card:hover { transform: translateY(-8px); border-color: var(--pink); box-shadow: 0 20px 60px rgba(247,37,133,0.2); }
+    .menu-card__img-wrap { position: relative; overflow: hidden; }
+    .menu-card__img { width: 100%; height: 210px; object-fit: cover; transition: transform 0.5s ease; }
+    .menu-card:hover .menu-card__img { transform: scale(1.06); }
+    .menu-card__body { padding: 1.4rem; }
+    .menu-card__name { font-family: var(--font-display); font-size: 1.5rem; color: var(--white); margin-bottom: 0.35rem; letter-spacing: 0.02em; }
+    .menu-card__desc { font-size: 0.82rem; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
+    .menu-card__footer { display: flex; align-items: center; justify-content: space-between; }
+    .menu-card__price { font-family: var(--font-display); font-size: 1.6rem; }
+    .menu-card__price--pink { color: var(--pink); }
+    .menu-card__price--yellow { color: var(--yellow); }
+    .menu-card__price--teal { color: var(--teal); }
+    .menu-card__tag {
+      font-size: 0.66rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.3rem 0.8rem; border-radius: 50px;
+    }
+    .menu-card__tag--pink { background: rgba(247,37,133,0.15); color: var(--pink-light); }
+    .menu-card__tag--yellow { background: rgba(255,214,10,0.15); color: var(--yellow); }
+    .menu-card__tag--teal { background: rgba(0,229,204,0.12); color: var(--teal); }
+
+    /* ===== HALO HALO FEATURE CALLOUT ===== */
+    .hh-callout {
+      background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 50%, var(--bg2) 100%);
+      border-radius: 24px; padding: 4rem; text-align: center;
+      margin-bottom: 3rem; position: relative; overflow: hidden;
+    }
+    .hh-callout::before {
+      content: '&#127831;';
+      position: absolute; font-size: 12rem; opacity: 0.06; top: -2rem; right: -2rem;
+      pointer-events: none;
+    }
+    .hh-callout__emoji { font-size: 3.5rem; margin-bottom: 1rem; display: block; }
+    .hh-callout__title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.5rem); color: white; margin-bottom: 0.75rem; }
+    .hh-callout__text { font-size: 1rem; color: rgba(255,255,255,0.75); max-width: 540px; margin: 0 auto; line-height: 1.8; }
+
+    /* ===== GALLERY ===== */
+    .gallery__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 250px);
+      gap: 0.75rem;
+    }
+    .gallery__item { position: relative; overflow: hidden; border-radius: 16px; }
+    .gallery__item:first-child { grid-column: span 2; }
+    .gallery__item:nth-child(5) { grid-column: span 2; }
+    .gallery__img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .gallery__item:hover .gallery__img { transform: scale(1.08); }
+    .gallery__overlay {
+      position: absolute; inset: 0; background: rgba(0,0,0,0); transition: background 0.3s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .gallery__item:hover .gallery__overlay { background: rgba(247,37,133,0.2); }
+    .gallery__plus {
+      font-family: var(--font-display); font-size: 1.5rem; color: white;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .gallery__item:hover .gallery__plus { opacity: 1; }
+    @media (max-width: 768px) {
+      .gallery__grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gallery__item { height: 160px; }
+      .gallery__item:first-child { grid-column: span 2; height: 220px; }
+      .gallery__item:nth-child(5) { grid-column: span 1; }
+    }
+
+    /* ===== CONTACT ===== */
+    .contact__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
+    .contact__card {
+      background: var(--card); border: 1.5px solid var(--border); border-radius: 20px;
+      padding: 2.5rem;
+    }
+    .contact__item { display: flex; gap: 1.25rem; align-items: flex-start; margin-bottom: 1.75rem; }
+    .contact__icon {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, rgba(247,37,133,0.15), rgba(139,47,201,0.15));
+      border: 1.5px solid var(--border); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .contact__icon svg { width: 20px; height: 20px; stroke: var(--pink-light); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .contact__item-label {
+      font-size: 0.68rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--pink); display: block; margin-bottom: 0.3rem;
+    }
+    .contact__item-value { font-size: 0.95rem; color: var(--text); line-height: 1.6; }
+    .contact__item-value a { color: var(--text); transition: color 0.2s; }
+    .contact__item-value a:hover { color: var(--pink); }
+    .contact__social { display: flex; gap: 0.75rem; margin-top: 1rem; flex-wrap: wrap; }
+    .contact__social-link {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.65rem 1.4rem; background: var(--card2); border: 1.5px solid var(--border);
+      border-radius: 50px; font-size: 0.82rem; font-weight: 700; color: var(--text); transition: all 0.25s;
+    }
+    .contact__social-link:hover { border-color: var(--pink); color: var(--pink); }
+    .contact__fun {
+      background: linear-gradient(135deg, rgba(255,214,10,0.08), rgba(0,229,204,0.08));
+      border: 1.5px dashed rgba(255,214,10,0.3); border-radius: 20px;
+      padding: 2.5rem; text-align: center;
+    }
+    .contact__fun-emoji { font-size: 3.5rem; margin-bottom: 1rem; display: block; }
+    .contact__fun-title { font-family: var(--font-display); font-size: 1.8rem; color: var(--white); margin-bottom: 0.75rem; }
+    .contact__fun-text { font-size: 0.9rem; color: var(--muted); line-height: 1.8; margin-bottom: 2rem; }
+    @media (max-width: 900px) { .contact__grid { grid-template-columns: 1fr; } }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--bg2); border-top: 1px solid var(--border); padding: 3.5rem 5%;
+      text-align: center;
+    }
+    .footer__inner { max-width: 1280px; margin: 0 auto; }
+    .footer__logo {
+      font-family: var(--font-display); font-size: 2.2rem; letter-spacing: 0.03em;
+      background: linear-gradient(135deg, var(--pink), var(--yellow));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+    .footer__copy { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.4rem; }
+    .footer__demo { font-size: 0.72rem; color: rgba(155,130,181,0.45); }
+    .footer__demo a { color: var(--pink); text-decoration: underline; opacity: 0.7; }
+
+    /* ===== REVEAL ===== */
+    [data-reveal] { opacity: 0; transform: translateY(30px); }
+  </style>
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__icon" id="preloaderIcon">&#127831;</div>
+    <div class="preloader__name" id="preloaderName">Manolo&rsquo;s</div>
+    <div class="preloader__sub" id="preloaderSub">Halo-Halo &bull; Zamboanga City</div>
+  </div>
+
+  <!-- DEMO BANNER -->
+  <div class="demo-banner">
+    This is a <strong>DEMO PREVIEW</strong> for Manolo&rsquo;s Halo-Halo &nbsp;|&nbsp;
+    <a href="tel:+639559918754">0955 991 8754</a> &nbsp;|&nbsp;
+    <a href="https://wa.me/639559918754?text=Hi%20Tony!%20I%20saw%20the%20Manolo%20Halo-Halo%20demo%20and%20I%27m%20interested!" target="_blank" rel="noopener">WhatsApp Tony &rarr;</a>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">Manolo&rsquo;s &#127831;</a>
+      <div class="nav__links" id="navLinks">
+        <a href="#about" class="nav__link">Our Story</a>
+        <a href="#menu" class="nav__link">Menu</a>
+        <a href="#gallery" class="nav__link">Gallery</a>
+        <a href="#contact" class="nav__link">Find Us</a>
+        <a href="#menu" class="nav__cta">Order Now</a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="hero">
+    <div class="hero__blobs">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+    <div class="hero__content">
+      <div class="hero__text">
+        <div class="hero__tag" id="heroTag">&#10024; Zamboanga City&rsquo;s #1 Halo-Halo</div>
+        <h1 class="hero__title" id="heroTitle">
+          <span class="hero__title-line1">Manolo&rsquo;s</span>
+          <span class="hero__title-line2">Halo-Halo!</span>
+        </h1>
+        <p class="hero__tagline" id="heroTagline">Life is sweeter with <strong>every spoonful</strong> &#127831;</p>
+        <p class="hero__sub" id="heroSub">Zamboanga City&rsquo;s most beloved Filipino dessert destination. Shaved ice, leche flan, ube, and all the good stuff &mdash; piled high and served with a smile.</p>
+        <div class="hero__buttons" id="heroButtons">
+          <a href="#menu" class="btn-primary">&#127831; See the Menu</a>
+          <a href="#contact" class="btn-outline">Find Us &rarr;</a>
+        </div>
+      </div>
+      <div class="hero__image-wrap" id="heroImageWrap">
+        <img
+          src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800&q=80&fit=crop&auto=format"
+          alt="Colorful halo-halo dessert" class="hero__img-main" loading="eager">
+        <div class="hero__img-badge">
+          <span class="hero__img-badge-num">14K</span>
+          <span class="hero__img-badge-text">Fans!</span>
+        </div>
+        <div class="hero__img-float">
+          <span class="hero__img-float-emoji">&#127831;</span>
+          <span class="hero__img-float-label">Fresh Daily</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT / STORY -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div data-reveal>
+          <span class="section-label section-label--pink">Our Story</span>
+          <h2 class="section-title section-title--gradient">Born from a<br>Love of Filipino<br>Desserts</h2>
+          <p class="about__body">Manolo&rsquo;s Halo-Halo started with one dream: bring the full joy of Filipino dessert culture to every corner of Zamboanga City. What began as a passion project has grown into one of the city&rsquo;s most-loved dessert stops, with over 14,000 fans cheering us on.</p>
+          <p class="about__body">Every cup of halo-halo we serve is packed with house-made leche flan, creamy ube ice cream, coconut strips, sweet beans, and a mountain of shaved ice. We don&rsquo;t cut corners &mdash; we just pile it higher.</p>
+          <div class="about__stats">
+            <div class="about__stat">
+              <span class="about__stat-num">14K+</span>
+              <span class="about__stat-label">Facebook Fans</span>
+            </div>
+            <div class="about__stat">
+              <span class="about__stat-num">10+</span>
+              <span class="about__stat-label">Menu Items</span>
+            </div>
+            <div class="about__stat">
+              <span class="about__stat-num">&#9733;&#9733;&#9733;</span>
+              <span class="about__stat-label">Zamboanga Fave</span>
+            </div>
+          </div>
+        </div>
+        <div class="about__image-wrap" data-reveal>
+          <img
+            src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=900&q=80&fit=crop&auto=format"
+            alt="Colorful Filipino desserts" class="about__img" loading="lazy">
+          <div class="about__img-glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="section section--alt" id="menu">
+    <div class="container">
+      <div class="menu__header" data-reveal>
+        <span class="section-label section-label--yellow">What We&rsquo;ve Got</span>
+        <h2 class="section-title section-title--white">The <span style="color: var(--pink);">Sweet</span> Menu</h2>
+        <p style="font-size: 0.95rem; color: var(--muted); max-width: 480px; margin: 0 auto; line-height: 1.8;">Colorful, delicious, and made fresh every day. Pick your flavor, pick your smile.</p>
+      </div>
+
+      <div class="hh-callout" data-reveal>
+        <span class="hh-callout__emoji">&#127831;</span>
+        <h3 class="hh-callout__title">Our Famous Halo-Halo</h3>
+        <p class="hh-callout__text">Layers of shaved ice, sweet beans, nata de coco, jackfruit, macapuno, sago, leche flan, and a generous scoop of ube ice cream. This is the one that started it all.</p>
+      </div>
+
+      <div class="menu__tabs">
+        <button class="menu__tab active" data-tab="halohalo">&#127831; Halo-Halo</button>
+        <button class="menu__tab" data-tab="scramble">&#10052; Ice Scramble</button>
+        <button class="menu__tab" data-tab="merienda">&#127859; Merienda</button>
+        <button class="menu__tab" data-tab="drinks">&#129380; Drinks</button>
+      </div>
+
+      <div class="menu__panel active" data-panel="halohalo">
+        <div class="menu-card">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=75&fit=crop&auto=format" alt="Classic Manolo Halo-Halo" class="menu-card__img" loading="lazy">
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__name">Classic Manolo</div>
+            <p class="menu-card__desc">Shaved ice mountain loaded with leche flan, ube ice cream, mixed sweet beans, macapuno, sago, and nata de coco.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price menu-card__price--pink">&#8369;85</span>
+              <span class="menu-card__tag menu-card__tag--pink">Signature</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&q=75&fit=crop&auto=format" alt="Supreme Halo-Halo" class="menu-card__img" loading="lazy">
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__name">Supreme Halo-Halo</div>
+            <p class="menu-card__desc">Everything in the Classic &mdash; but extra. Two scoops of ube ice cream, double leche flan, and all toppings doubled. Go big.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price menu-card__price--yellow">&#8369;120</span>
+              <span class="menu-card__tag menu-card__tag--yellow">King Size</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=75&fit=crop&auto=format" alt="Buko Pandan Special" class="menu-card__img" loading="lazy">
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__name">Buko Pandan Special</div>
+            <p class="menu-card__desc">Shaved ice with fresh buko strips, chewy pandan jelly, macapuno, cream, and a pandan-flavored syrup drizzle.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price menu-card__price--teal">&#8369;95</span>
+              <span class="menu-card__tag menu-card__tag--teal">Tropical</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=600&q=75&fit=crop&auto=format" alt="Strawberry Dream" class="menu-card__img" loading="lazy">
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__name">Strawberry Dream</div>
+            <p class="menu-card__desc">A blush-pink halo-halo creation with strawberry jam, fresh strawberry bits, white jelly, and strawberry ice cream.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price menu-card__price--pink">&#8369;110</span>
+              <span class="menu-card__tag menu-card__tag--pink">Fan Fave</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu__panel" data-panel="scramble">
+        <div class="menu-card">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1560023907-5f339617ea30?w=600&q=75&fit=crop&auto=format" alt="Classic Ice Scramble" class="menu-card__img" loading="lazy">
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__name">Classic Ice Scramble</div>
+            <p class="menu-card__desc">Finely shaved ice with sweet condensed milk, chocolate syrup, marshmallows, and rainbow sprinkles. Childhood in a cup.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price menu-card__price--pink">&#8369;35</span>
+              <span class="menu-card__tag menu-card__tag--pink">Classic</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600&q=75&fit=crop&auto=format" alt="Ube Scramble" class="menu-card__img" loading="lazy">
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__name">Ube Scramble</div>
+            <p class="menu-card__desc">Purple ube-flavored shaved ice with sweet milk and ube halaya. A Filipino flavor that never goes out of style.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price menu-card__price--yellow">&#8369;45</span>
+              <span class="menu-card__tag menu-card__tag--yellow">Purple Power</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1497534446932-c925b458314e?w=600&q=75&fit=crop&auto=format" alt="Strawberry Scramble" class="menu-card__img" loading="lazy">
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__name">Strawberry Scramble</div>
+            <p class="menu-card__desc">Pink and refreshing &mdash; shaved ice with strawberry syrup, sweet milk, and strawberry-flavored treats on top.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price menu-card__price--teal">&#8369;45</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu__panel" data-panel="merienda">
+        <div class="menu-card">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=75&fit=crop&auto=format" alt="Banana Cue" class="menu-card__img" loading="lazy">
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__name">Banana Cue</div>
+            <p class="menu-card__desc">Deep-fried Saba banana rolled in caramelized brown sugar and skewered on a bamboo stick. A Filipino street merienda classic.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price menu-card__price--yellow">&#8369;20</span>
+              <span class="menu-card__tag menu-card__tag--yellow">Street Classic</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=75&fit=crop&auto=format" alt="Turon" class="menu-card__img" loading="lazy">
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__name">Turon</div>
+            <p class="menu-card__desc">Crispy banana spring rolls filled with Saba banana and langka (jackfruit), fried golden and drizzled with caramel.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price menu-card__price--pink">&#8369;20</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=75&fit=crop&auto=format" alt="Puto" class="menu-card__img" loading="lazy">
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__name">Puto (2 pcs)</div>
+            <p class="menu-card__desc">Soft and fluffy Filipino steamed rice cake, lightly sweet and perfect alongside a tall halo-halo or buko juice.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price menu-card__price--teal">&#8369;15</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu__panel" data-panel="drinks">
+        <div class="menu-card">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1560023907-5f339617ea30?w=600&q=75&fit=crop&auto=format" alt="Fresh Buko Juice" class="menu-card__img" loading="lazy">
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__name">Fresh Buko Juice</div>
+            <p class="menu-card__desc">Straight from the coconut &mdash; chilled young coconut water with soft buko strips. Pure, natural, and endlessly refreshing.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price menu-card__price--teal">&#8369;40</span>
+              <span class="menu-card__tag menu-card__tag--teal">Natural</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600&q=75&fit=crop&auto=format" alt="Gulaman at Sago" class="menu-card__img" loading="lazy">
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__name">Gulaman at Sago</div>
+            <p class="menu-card__desc">Chewy sago pearls and jiggly gulaman cubes in cold sweet brown sugar syrup. The OG Filipino street refresher.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price menu-card__price--pink">&#8369;35</span>
+              <span class="menu-card__tag menu-card__tag--pink">Street Fave</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=75&fit=crop&auto=format" alt="Samalamig" class="menu-card__img" loading="lazy">
+          </div>
+          <div class="menu-card__body">
+            <div class="menu-card__name">Samalamig (Mais/Melon)</div>
+            <p class="menu-card__desc">Sweet corn or melon-flavored cold drink, refreshingly light and sweet. Ask for your flavor of the day!</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price menu-card__price--yellow">&#8369;35</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3rem;" data-reveal>
+        <span class="section-label section-label--teal">Eye Candy</span>
+        <h2 class="section-title section-title--white">Our <span style="color: var(--yellow);">Gallery</span></h2>
+      </div>
+      <div class="gallery__grid" data-reveal>
+        <div class="gallery__item">
+          <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800&q=75&fit=crop&auto=format" alt="Halo-halo" class="gallery__img" loading="lazy">
+          <div class="gallery__overlay"><span class="gallery__plus">VIEW</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&q=75&fit=crop&auto=format" alt="Colorful sweets" class="gallery__img" loading="lazy">
+          <div class="gallery__overlay"><span class="gallery__plus">VIEW</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=75&fit=crop&auto=format" alt="Colorful drinks" class="gallery__img" loading="lazy">
+          <div class="gallery__overlay"><span class="gallery__plus">VIEW</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=600&q=75&fit=crop&auto=format" alt="Ice cream scoops" class="gallery__img" loading="lazy">
+          <div class="gallery__overlay"><span class="gallery__plus">VIEW</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="https://images.unsplash.com/photo-1560023907-5f339617ea30?w=800&q=75&fit=crop&auto=format" alt="Refreshing drinks" class="gallery__img" loading="lazy">
+          <div class="gallery__overlay"><span class="gallery__plus">VIEW</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=75&fit=crop&auto=format" alt="Filipino food" class="gallery__img" loading="lazy">
+          <div class="gallery__overlay"><span class="gallery__plus">VIEW</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section--alt" id="contact">
+    <div class="container">
+      <div style="margin-bottom: 3.5rem;" data-reveal>
+        <span class="section-label section-label--pink">Come Say Hi</span>
+        <h2 class="section-title section-title--gradient">Find Us &amp;<br>Get Your Fix</h2>
+      </div>
+      <div class="contact__grid">
+        <div class="contact__card" data-reveal>
+          <div class="contact__item">
+            <div class="contact__icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <span class="contact__item-label">Find Us At</span>
+              <span class="contact__item-value">Follow our Facebook page<br>for the latest location &amp; updates!</span>
+            </div>
+          </div>
+          <div class="contact__item">
+            <div class="contact__icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <span class="contact__item-label">When We&rsquo;re Open</span>
+              <span class="contact__item-value">Daily &bull; Afternoon to Evening<br><span style="font-size: 0.82rem; color: var(--muted);">Check Facebook for exact hours</span></span>
+            </div>
+          </div>
+          <div class="contact__item">
+            <div class="contact__icon">
+              <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            </div>
+            <div>
+              <span class="contact__item-label">Connect With Us</span>
+              <span class="contact__item-value">@manolo.halohalo on Facebook</span>
+            </div>
+          </div>
+          <div class="contact__social">
+            <a href="https://www.facebook.com/manolo.halohalo" target="_blank" rel="noopener" class="contact__social-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+              Facebook Page
+            </a>
+          </div>
+        </div>
+        <div data-reveal>
+          <div class="contact__fun">
+            <span class="contact__fun-emoji">&#127831;</span>
+            <h3 class="contact__fun-title">Life&rsquo;s Too Short<br>for Bad Halo-Halo</h3>
+            <p class="contact__fun-text">Come find us, grab a spoon, and dive into Zamboanga&rsquo;s most colorful dessert. With over 14,000 fans, there&rsquo;s a reason people keep coming back for more.</p>
+            <a href="https://www.facebook.com/manolo.halohalo" target="_blank" rel="noopener" class="btn-primary" style="display: inline-block; width: 100%; text-align: center;">
+              &#128140; Follow Us on Facebook
+            </a>
+            <a href="https://wa.me/639559918754?text=Hi%20Tony!%20I%27d%20like%20to%20learn%20more%20about%20a%20website%20for%20Manolo%20Halo-Halo!" target="_blank" rel="noopener" class="btn-outline" style="display: inline-block; width: 100%; text-align: center; margin-top: 0.75rem;">
+              &#128172; Want This Website? Chat Tony
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__logo">Manolo&rsquo;s Halo-Halo &#127831;</div>
+      <p class="footer__copy">Zamboanga City &bull; <a href="https://www.facebook.com/manolo.halohalo" target="_blank" rel="noopener" style="color: var(--pink);">@manolo.halohalo</a></p>
+      <p class="footer__demo">
+        Demo website built by <a href="https://wa.me/639559918754" target="_blank" rel="noopener">Tony Herrera</a> &mdash; not the official Manolo Halo-Halo website.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ===== PRELOADER =====
+    const tl = gsap.timeline({ onComplete: initPage });
+    tl.to('#preloaderIcon',  { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(1.7)' })
+      .to('#preloaderName',  { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.1')
+      .to('#preloaderSub',   { opacity: 1, duration: 0.4 }, '-=0.2')
+      .to('#preloader',      { yPercent: -100, duration: 0.9, delay: 0.5, ease: 'power3.inOut' });
+
+    function initPage() {
+      document.getElementById('preloader').style.display = 'none';
+
+      gsap.to('#heroTag',        { opacity: 1, duration: 0.5, delay: 0.1 });
+      gsap.to('#heroTitle',      { opacity: 1, y: 0, duration: 0.9, delay: 0.2, ease: 'power3.out' });
+      gsap.to('#heroTagline',    { opacity: 1, duration: 0.6, delay: 0.45 });
+      gsap.to('#heroSub',        { opacity: 1, duration: 0.6, delay: 0.6 });
+      gsap.to('#heroButtons',    { opacity: 1, duration: 0.6, delay: 0.75 });
+      gsap.to('#heroImageWrap',  { opacity: 1, x: 0, duration: 0.9, delay: 0.3, ease: 'power3.out' });
+
+      document.querySelectorAll('[data-reveal]').forEach((el) => {
+        gsap.fromTo(el,
+          { opacity: 0, y: 35 },
+          { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
+            scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' } }
+        );
+      });
+    }
+
+    // Offset heroImageWrap for entrance animation
+    gsap.set('#heroImageWrap', { x: 40 });
+
+    // ===== NAV =====
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav__link, .nav__cta').forEach(l => {
+      l.addEventListener('click', () => { navLinks.classList.remove('open'); navToggle.classList.remove('open'); });
+    });
+
+    // ===== MENU TABS =====
+    document.querySelectorAll('.menu__tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.menu__tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.menu__panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelector(`[data-panel="${tab.dataset.tab}"]`).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

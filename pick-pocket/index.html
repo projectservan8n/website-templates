@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>DEMO | Pick Pocket &mdash; Street Food &amp; Casual Dining, Zamboanga City</title>
+  <meta name="description" content="Pick Pocket &mdash; Bold street food and casual dining at MCLL Highway, Brgy. Boalan, Zamboanga City. Grills, combos, and cold drinks done right.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    :root {
+      --black: #0A0A0A;
+      --dark: #131313;
+      --card: #1A1A1A;
+      --yellow: #F5C518;
+      --yellow-dim: rgba(245, 197, 24, 0.1);
+      --yellow-glow: rgba(245, 197, 24, 0.25);
+      --orange: #FF6B35;
+      --white: #FAFAFA;
+      --text: #E8E8E8;
+      --muted: #888;
+      --border: rgba(255,255,255,0.07);
+      --font-display: 'Bebas Neue', Impact, sans-serif;
+      --font-body: 'Outfit', system-ui, sans-serif;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+      --banner-h: 32px;
+      --nav-h: 64px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: var(--yellow) var(--black);
+    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--yellow); border-radius: 3px; }
+    ::selection { background: var(--yellow); color: var(--black); }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--black);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== PRELOADER ===== */
+    .preloader {
+      position: fixed; inset: 0; z-index: 10000;
+      background: var(--yellow);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem;
+    }
+    .preloader__name {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 10vw, 5rem);
+      letter-spacing: 0.12em; color: var(--black);
+      opacity: 0; transform: translateY(20px);
+    }
+    .preloader__sub {
+      font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(0,0,0,0.55); opacity: 0;
+    }
+
+    /* ===== DEMO BANNER ===== */
+    .demo-banner {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9000;
+      background: var(--yellow); color: var(--black);
+      text-align: center; padding: 0.45rem 1rem;
+      font-family: var(--font-body); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.02em;
+    }
+    .demo-banner a { color: var(--black); text-decoration: underline; font-weight: 700; }
+    .demo-banner a:hover { opacity: 0.65; }
+
+    /* ===== NAV ===== */
+    .nav {
+      position: fixed; top: var(--banner-h); left: 0; right: 0; z-index: 8000;
+      height: var(--nav-h); display: flex; align-items: center; padding: 0 5%;
+      transition: background 0.35s ease, backdrop-filter 0.35s ease, border-color 0.35s ease;
+      border-bottom: 1px solid transparent;
+    }
+    .nav.scrolled {
+      background: rgba(10,10,10,0.93);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom-color: var(--border);
+    }
+    .nav__inner {
+      width: 100%; max-width: 1280px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav__logo {
+      font-family: var(--font-display); font-size: 1.9rem; letter-spacing: 0.1em; color: var(--yellow);
+    }
+    .nav__logo span { color: var(--white); }
+    .nav__links { display: flex; align-items: center; gap: 2.25rem; }
+    .nav__link {
+      font-size: 0.83rem; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--muted); transition: color 0.2s;
+    }
+    .nav__link:hover { color: var(--yellow); }
+    .nav__cta {
+      background: var(--yellow); color: var(--black);
+      padding: 0.55rem 1.5rem; border-radius: 3px;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      transition: all 0.22s;
+    }
+    .nav__cta:hover { background: var(--white); transform: translateY(-1px); box-shadow: 0 6px 20px var(--yellow-glow); }
+    .nav__toggle {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .nav__toggle span {
+      display: block; width: 24px; height: 2px;
+      background: var(--white); transition: all 0.3s; border-radius: 2px;
+    }
+    .nav__toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav__toggle.open span:nth-child(2) { opacity: 0; }
+    .nav__toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media (max-width: 768px) {
+      .nav__links {
+        position: fixed; top: calc(var(--banner-h) + var(--nav-h));
+        left: 0; right: 0; background: var(--dark);
+        flex-direction: column; padding: 2rem; gap: 1.5rem; align-items: flex-start;
+        transform: translateX(-100%); transition: transform 0.4s var(--ease-out);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav__links.open { transform: translateX(0); }
+      .nav__toggle { display: flex; }
+      .nav__cta { width: 100%; text-align: center; }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; overflow: hidden;
+    }
+    .hero__bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1600&q=80&fit=crop&auto=format');
+      background-size: cover; background-position: center; will-change: transform;
+    }
+    .hero__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(125deg, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.65) 55%, rgba(0,0,0,0.35) 100%);
+    }
+    .hero__content {
+      position: relative; z-index: 2;
+      max-width: 1280px; width: 100%; margin: 0 auto;
+      padding: calc(var(--banner-h) + var(--nav-h) + 5rem) 5% 6rem;
+    }
+    .hero__tag {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--yellow-dim); border: 1px solid rgba(245,197,24,0.4);
+      color: var(--yellow); padding: 0.4rem 1.1rem; border-radius: 2px;
+      font-size: 0.74rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+      margin-bottom: 1.75rem; opacity: 0;
+    }
+    .hero__tag::before {
+      content: ''; display: block; width: 7px; height: 7px;
+      background: var(--yellow); border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+    .hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(5.5rem, 16vw, 14rem);
+      line-height: 0.88; letter-spacing: 0.04em; color: var(--white);
+      opacity: 0; transform: translateY(35px);
+    }
+    .hero__title em { color: var(--yellow); font-style: normal; display: block; }
+    .hero__tagline {
+      font-size: clamp(1rem, 2.5vw, 1.35rem); font-weight: 300;
+      color: rgba(255,255,255,0.72); margin: 1.25rem 0 0.5rem; opacity: 0;
+    }
+    .hero__sub { font-size: 0.9rem; color: var(--muted); margin-bottom: 2.75rem; opacity: 0; }
+    .hero__sub strong { color: var(--yellow); font-weight: 500; }
+    .hero__buttons { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; }
+    .btn-primary {
+      background: var(--yellow); color: var(--black);
+      padding: 0.9rem 2.4rem; border-radius: 3px;
+      font-weight: 700; font-size: 0.88rem; letter-spacing: 0.08em; text-transform: uppercase;
+      transition: all 0.25s; display: inline-block;
+    }
+    .btn-primary:hover { background: var(--white); transform: translateY(-2px); box-shadow: 0 10px 28px var(--yellow-glow); }
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,0.28); color: var(--white);
+      padding: 0.9rem 2.4rem; border-radius: 3px;
+      font-weight: 500; font-size: 0.88rem; letter-spacing: 0.04em;
+      transition: all 0.25s; display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--yellow); color: var(--yellow); }
+    .hero__scroll-hint {
+      position: absolute; bottom: 2.5rem; left: 5%;
+      display: flex; align-items: center; gap: 0.85rem;
+      color: rgba(255,255,255,0.35); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      opacity: 0;
+    }
+    .hero__scroll-hint::before {
+      content: ''; display: block; width: 42px; height: 1px; background: rgba(255,255,255,0.3);
+    }
+
+    /* ===== STATS BAR ===== */
+    .stats-bar { background: var(--yellow); padding: 1.1rem 5%; }
+    .stats-bar__inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem;
+    }
+    .stats-bar__item { text-align: center; color: var(--black); }
+    .stats-bar__num {
+      font-family: var(--font-display); font-size: 1.9rem;
+      letter-spacing: 0.06em; line-height: 1; display: block;
+    }
+    .stats-bar__label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.65; }
+
+    /* ===== SECTION BASE ===== */
+    .section { padding: 6rem 5%; scroll-margin-top: calc(var(--banner-h) + var(--nav-h)); }
+    .section--alt { background: var(--dark); }
+    .container { max-width: 1280px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--yellow); display: block; margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: var(--font-display); font-size: clamp(2.8rem, 7vw, 5.5rem);
+      letter-spacing: 0.05em; line-height: 0.92; color: var(--white); margin-bottom: 1.5rem;
+    }
+    .section-title em { color: var(--yellow); font-style: normal; }
+
+    /* ===== ABOUT ===== */
+    .about__grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    }
+    .about__image-wrap { position: relative; }
+    .about__img { width: 100%; height: 520px; object-fit: cover; border-radius: 4px; filter: brightness(0.9); }
+    .about__badge {
+      position: absolute; bottom: -1.5rem; right: -1.5rem;
+      background: var(--yellow); color: var(--black);
+      padding: 1.5rem 1.75rem; border-radius: 4px; text-align: center; z-index: 2;
+    }
+    .about__badge-num {
+      font-family: var(--font-display); font-size: 2.8rem; line-height: 1;
+      letter-spacing: 0.05em; display: block;
+    }
+    .about__badge-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; }
+    .about__body { font-size: 1rem; color: rgba(232,232,232,0.78); line-height: 1.9; margin-bottom: 1.25rem; }
+    .about__features { display: flex; flex-direction: column; gap: 0.85rem; margin-top: 2rem; }
+    .about__feature {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--yellow-dim); border-left: 3px solid var(--yellow); border-radius: 0 4px 4px 0;
+    }
+    .about__feature-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .about__feature strong { display: block; font-size: 0.88rem; font-weight: 600; color: var(--yellow); }
+    .about__feature span { font-size: 0.8rem; color: var(--muted); }
+
+    @media (max-width: 900px) {
+      .about__grid { grid-template-columns: 1fr; gap: 3.5rem; }
+      .about__img { height: 320px; }
+      .about__badge { right: 0; bottom: -1rem; }
+    }
+
+    /* ===== MENU ===== */
+    .menu__tabs { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .menu__tab {
+      font-family: var(--font-body); font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.6rem 1.5rem; background: transparent; color: var(--muted);
+      border: 1px solid var(--border); border-radius: 3px; cursor: pointer; transition: all 0.25s;
+    }
+    .menu__tab:hover { color: var(--white); border-color: rgba(255,255,255,0.25); }
+    .menu__tab.active { background: var(--yellow); color: var(--black); border-color: transparent; }
+    .menu__panel { display: none; }
+    .menu__panel.active {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem; animation: fadeUp 0.4s ease;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .menu-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 6px;
+      overflow: hidden; transition: all 0.3s var(--ease-smooth);
+    }
+    .menu-card:hover { border-color: rgba(245,197,24,0.35); transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.45); }
+    .menu-card__img { width: 100%; height: 200px; object-fit: cover; transition: transform 0.5s var(--ease-smooth); }
+    .menu-card:hover .menu-card__img { transform: scale(1.04); }
+    .menu-card__body { padding: 1.25rem; }
+    .menu-card__name { font-family: var(--font-display); font-size: 1.6rem; letter-spacing: 0.07em; color: var(--white); margin-bottom: 0.35rem; }
+    .menu-card__desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.1rem; }
+    .menu-card__footer { display: flex; align-items: center; justify-content: space-between; }
+    .menu-card__price { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 0.06em; color: var(--yellow); }
+    .menu-card__tag {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.28rem 0.7rem; border-radius: 2px;
+      background: var(--yellow-dim); color: var(--yellow);
+    }
+    .menu-card__tag.orange { background: rgba(255,107,53,0.12); color: var(--orange); }
+
+    /* ===== GALLERY ===== */
+    .gallery__grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 260px); gap: 0.5rem;
+    }
+    .gallery__item { position: relative; overflow: hidden; border-radius: 4px; }
+    .gallery__item:first-child { grid-column: span 2; grid-row: span 2; }
+    .gallery__item:nth-child(4) { grid-column: span 2; }
+    .gallery__img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease-smooth); }
+    .gallery__item:hover .gallery__img { transform: scale(1.08); }
+    .gallery__overlay {
+      position: absolute; inset: 0; background: rgba(0,0,0,0); transition: background 0.3s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .gallery__item:hover .gallery__overlay { background: rgba(245,197,24,0.12); }
+    .gallery__plus {
+      color: white; font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 0.1em;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .gallery__item:hover .gallery__plus { opacity: 1; }
+    @media (max-width: 768px) {
+      .gallery__grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gallery__item { height: 160px; }
+      .gallery__item:first-child { grid-column: span 2; height: 220px; }
+      .gallery__item:nth-child(4) { grid-column: span 1; }
+    }
+
+    /* ===== CONTACT ===== */
+    .contact__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .contact__info { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact__item { display: flex; gap: 1.25rem; align-items: flex-start; }
+    .contact__icon {
+      width: 46px; height: 46px; background: var(--yellow-dim);
+      border: 1px solid rgba(245,197,24,0.25); border-radius: 4px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .contact__icon svg { width: 20px; height: 20px; stroke: var(--yellow); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .contact__item-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--yellow); display: block; margin-bottom: 0.25rem;
+    }
+    .contact__item-value { font-size: 0.95rem; color: var(--text); line-height: 1.6; }
+    .contact__item-value a { color: var(--text); transition: color 0.2s; }
+    .contact__item-value a:hover { color: var(--yellow); }
+    .contact__social { display: flex; gap: 0.75rem; margin-top: 1rem; flex-wrap: wrap; }
+    .contact__social-link {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.65rem 1.25rem; background: var(--card); border: 1px solid var(--border);
+      border-radius: 4px; font-size: 0.82rem; font-weight: 500; color: var(--text); transition: all 0.25s;
+    }
+    .contact__social-link:hover { border-color: var(--yellow); color: var(--yellow); }
+    .contact__map {
+      background: var(--card); border: 1px solid var(--border); border-radius: 6px;
+      overflow: hidden; height: 400px; position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .contact__map-bg { position: absolute; inset: 0; object-fit: cover; width: 100%; height: 100%; opacity: 0.35; }
+    .contact__map-body { position: relative; z-index: 2; text-align: center; padding: 2rem; }
+    .contact__map-pin { font-size: 3rem; margin-bottom: 0.75rem; }
+    .contact__map-name { font-family: var(--font-display); font-size: 2rem; letter-spacing: 0.08em; color: var(--white); margin-bottom: 0.25rem; }
+    .contact__map-addr { font-size: 0.88rem; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; line-height: 1.7; }
+    @media (max-width: 900px) { .contact__grid { grid-template-columns: 1fr; } }
+
+    /* ===== FOOTER ===== */
+    .footer { background: var(--dark); border-top: 1px solid var(--border); padding: 3rem 5%; text-align: center; }
+    .footer__inner { max-width: 1280px; margin: 0 auto; }
+    .footer__logo { font-family: var(--font-display); font-size: 2.2rem; letter-spacing: 0.1em; color: var(--yellow); margin-bottom: 0.5rem; }
+    .footer__copy { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.5rem; }
+    .footer__demo { font-size: 0.72rem; color: rgba(136,136,136,0.45); }
+    .footer__demo a { color: var(--yellow); text-decoration: underline; opacity: 0.7; }
+
+    /* ===== REVEAL ===== */
+    [data-reveal] { opacity: 0; transform: translateY(32px); }
+  </style>
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__name" id="preloaderName">PICK POCKET</div>
+    <div class="preloader__sub" id="preloaderSub">Street Food &bull; Zamboanga City</div>
+  </div>
+
+  <!-- DEMO BANNER -->
+  <div class="demo-banner">
+    This is a <strong>DEMO PREVIEW</strong> for Pick Pocket ZC &nbsp;|&nbsp;
+    <a href="tel:+639559918754">0955 991 8754</a> &nbsp;|&nbsp;
+    <a href="https://wa.me/639559918754?text=Hi%20Tony!%20I%20saw%20the%20Pick%20Pocket%20demo%20and%20I%27m%20interested!" target="_blank" rel="noopener">WhatsApp Tony &rarr;</a>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">PICK <span>POCKET</span></a>
+      <div class="nav__links" id="navLinks">
+        <a href="#about" class="nav__link">About</a>
+        <a href="#menu" class="nav__link">Menu</a>
+        <a href="#gallery" class="nav__link">Gallery</a>
+        <a href="#contact" class="nav__link">Find Us</a>
+        <a href="#menu" class="nav__cta">Order Now</a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="hero">
+    <div class="hero__bg" id="heroBg"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <div class="hero__tag" id="heroTag">Now Open &bull; MCLL Highway, Boalan</div>
+      <h1 class="hero__title" id="heroTitle">
+        PICK
+        <em>POCKET</em>
+      </h1>
+      <p class="hero__tagline" id="heroTagline">Real Street Food. Real Flavor.</p>
+      <p class="hero__sub" id="heroSub">Grilled to perfection at <strong>MCLL Highway, Brgy. Boalan, Zamboanga City</strong></p>
+      <div class="hero__buttons" id="heroButtons">
+        <a href="#menu" class="btn-primary">See the Menu</a>
+        <a href="#contact" class="btn-outline">Find Us &rarr;</a>
+      </div>
+    </div>
+    <div class="hero__scroll-hint" id="heroScroll">Scroll to explore</div>
+  </header>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-bar__inner">
+      <div class="stats-bar__item">
+        <span class="stats-bar__num">16K+</span>
+        <span class="stats-bar__label">Facebook Fans</span>
+      </div>
+      <div class="stats-bar__item">
+        <span class="stats-bar__num">100%</span>
+        <span class="stats-bar__label">Charcoal Grilled</span>
+      </div>
+      <div class="stats-bar__item">
+        <span class="stats-bar__num">Daily</span>
+        <span class="stats-bar__label">Fresh Ingredients</span>
+      </div>
+      <div class="stats-bar__item">
+        <span class="stats-bar__num">ZC&rsquo;s</span>
+        <span class="stats-bar__label">Favorite Street Food</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__image-wrap" data-reveal>
+          <img
+            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=80&fit=crop&auto=format"
+            alt="Pick Pocket food spread" class="about__img" loading="lazy">
+          <div class="about__badge">
+            <span class="about__badge-num">16K</span>
+            <span class="about__badge-label">Facebook Likes</span>
+          </div>
+        </div>
+        <div class="about__text" data-reveal>
+          <span class="section-label">Our Story</span>
+          <h2 class="section-title">We Keep<br>It <em>Real</em></h2>
+          <p class="about__body">Born from the streets of Zamboanga, Pick Pocket started as a simple idea: give the city the bold, no-frills street food it deserves. Every skewer is grilled over real charcoal. Every rice meal is packed with love and zero shortcuts.</p>
+          <p class="about__body">Tucked along MCLL Highway in Brgy. Boalan, we&rsquo;ve become the go-to spot for locals who know that good food doesn&rsquo;t need to be fancy &mdash; it just needs to be real. Over 16,000 fans can&rsquo;t be wrong.</p>
+          <div class="about__features">
+            <div class="about__feature">
+              <div class="about__feature-icon">&#128293;</div>
+              <div>
+                <strong>Charcoal Grilled</strong>
+                <span>Every skewer over live coals for that authentic smoky flavor</span>
+              </div>
+            </div>
+            <div class="about__feature">
+              <div class="about__feature-icon">&#127807;</div>
+              <div>
+                <strong>Fresh Daily</strong>
+                <span>Ingredients sourced fresh every single day &mdash; no exceptions</span>
+              </div>
+            </div>
+            <div class="about__feature">
+              <div class="about__feature-icon">&#128176;</div>
+              <div>
+                <strong>Budget-Friendly</strong>
+                <span>Street food prices, restaurant-quality flavor &mdash; always</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="section section--alt" id="menu">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3rem;" data-reveal>
+        <span class="section-label">What We Serve</span>
+        <h2 class="section-title">THE <em>MENU</em></h2>
+        <p style="font-size: 1rem; color: var(--muted); max-width: 500px; margin: 0 auto; line-height: 1.8;">Bold flavors, generous servings, and that signature smoky goodness in every bite.</p>
+      </div>
+      <div class="menu__tabs">
+        <button class="menu__tab active" data-tab="grills">&#128293; Grills</button>
+        <button class="menu__tab" data-tab="combos">&#127857; Combos</button>
+        <button class="menu__tab" data-tab="sides">&#127839; Sides</button>
+        <button class="menu__tab" data-tab="drinks">&#127849; Drinks</button>
+      </div>
+
+      <div class="menu__panel active" data-panel="grills">
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=75&fit=crop&auto=format" alt="Chicken BBQ" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Chicken BBQ</div>
+            <p class="menu-card__desc">Juicy chicken soaked in our house marinade, grilled over charcoal to smoky perfection. Served with fresh atchara.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;120</span>
+              <span class="menu-card__tag">Bestseller</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=75&fit=crop&auto=format" alt="Pork BBQ" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Pork BBQ</div>
+            <p class="menu-card__desc">Tender pork marinated overnight in a sweet-savory blend, threaded on bamboo skewers and char-grilled just right.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;100</span>
+              <span class="menu-card__tag">Fan Fave</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=600&q=75&fit=crop&auto=format" alt="Inihaw na Liempo" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Inihaw na Liempo</div>
+            <p class="menu-card__desc">Thick-cut pork belly, slow-grilled until crispy outside and impossibly juicy inside. The real deal, no shortcuts.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;150</span>
+              <span class="menu-card__tag orange">Premium</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu__panel" data-panel="combos">
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=75&fit=crop&auto=format" alt="Pick Pocket Combo" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Pick Pocket Combo</div>
+            <p class="menu-card__desc">2 chicken skewers + steaming java rice + house-made atchara. The full Pick Pocket experience in one tray.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;180</span>
+              <span class="menu-card__tag">Bestseller</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=600&q=75&fit=crop&auto=format" alt="Inasal Plate" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Inasal Plate</div>
+            <p class="menu-card__desc">Half-chicken inasal, unlimited rice, liver sauce, and a cold drink. Pure, straight-up value on a plate.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;220</span>
+              <span class="menu-card__tag orange">Value Deal</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=75&fit=crop&auto=format" alt="Family Pack" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Family Pack</div>
+            <p class="menu-card__desc">4 pork + 4 chicken skewers, 4 cups of rice, atchara, and a 1-liter drink. Feeds the whole barkada.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;499</span>
+              <span class="menu-card__tag">Group Deal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu__panel" data-panel="sides">
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=75&fit=crop&auto=format" alt="Java Rice" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Java Rice</div>
+            <p class="menu-card__desc">Golden fried rice seasoned with annatto and soy. The perfect companion to any skewer on the menu.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;40</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=75&fit=crop&auto=format" alt="Grilled Corn" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Grilled Corn</div>
+            <p class="menu-card__desc">Fresh corn on the cob, char-grilled with margarine and seasoning. A street classic that never gets old.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;35</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=75&fit=crop&auto=format" alt="Atchara" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Atchara</div>
+            <p class="menu-card__desc">House-pickled green papaya with carrots and raisins. The tangy punch your BBQ is waiting for.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;20</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu__panel" data-panel="drinks">
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600&q=75&fit=crop&auto=format" alt="Sago Gulaman" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Sago&rsquo;t Gulaman</div>
+            <p class="menu-card__desc">Classic street drink with sago pearls, brown sugar syrup, and gulaman. Iced and ridiculously refreshing.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;35</span>
+              <span class="menu-card__tag">Classic</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1560023907-5f339617ea30?w=600&q=75&fit=crop&auto=format" alt="Buko Juice" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Buko Juice</div>
+            <p class="menu-card__desc">Fresh young coconut water with soft buko strips. Tropical, natural, and the perfect match for anything grilled.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;45</span>
+            </div>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="https://images.unsplash.com/photo-1497534446932-c925b458314e?w=600&q=75&fit=crop&auto=format" alt="Softdrinks" class="menu-card__img" loading="lazy">
+          <div class="menu-card__body">
+            <div class="menu-card__name">Softdrinks</div>
+            <p class="menu-card__desc">Coke, Royal, Sprite, or Sarsi &mdash; ice cold and ready. Because every BBQ session needs a cold pop.</p>
+            <div class="menu-card__footer">
+              <span class="menu-card__price">&#8369;30</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3rem;" data-reveal>
+        <span class="section-label">Visual Appetite</span>
+        <h2 class="section-title">THE <em>GRILL</em></h2>
+      </div>
+      <div class="gallery__grid" data-reveal>
+        <div class="gallery__item">
+          <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=900&q=75&fit=crop&auto=format" alt="Grilled meats" class="gallery__img" loading="lazy">
+          <div class="gallery__overlay"><span class="gallery__plus">VIEW</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=75&fit=crop&auto=format" alt="Grilled chicken" class="gallery__img" loading="lazy">
+          <div class="gallery__overlay"><span class="gallery__plus">VIEW</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=600&q=75&fit=crop&auto=format" alt="BBQ spread" class="gallery__img" loading="lazy">
+          <div class="gallery__overlay"><span class="gallery__plus">VIEW</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=75&fit=crop&auto=format" alt="Food spread" class="gallery__img" loading="lazy">
+          <div class="gallery__overlay"><span class="gallery__plus">VIEW</span></div>
+        </div>
+        <div class="gallery__item">
+          <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=75&fit=crop&auto=format" alt="Street food" class="gallery__img" loading="lazy">
+          <div class="gallery__overlay"><span class="gallery__plus">VIEW</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section--alt" id="contact">
+    <div class="container">
+      <div style="margin-bottom: 3.5rem;" data-reveal>
+        <span class="section-label">Come Visit</span>
+        <h2 class="section-title">FIND <em>US</em></h2>
+      </div>
+      <div class="contact__grid">
+        <div class="contact__info">
+          <div class="contact__item" data-reveal>
+            <div class="contact__icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <span class="contact__item-label">Address</span>
+              <span class="contact__item-value">MCLL Highway, Brgy. Boalan<br>Zamboanga City</span>
+            </div>
+          </div>
+          <div class="contact__item" data-reveal>
+            <div class="contact__icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.09 6.09l1.27-.84a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <span class="contact__item-label">Phone</span>
+              <span class="contact__item-value"><a href="tel:+639561635245">+63 956 163 5245</a></span>
+            </div>
+          </div>
+          <div class="contact__item" data-reveal>
+            <div class="contact__icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <span class="contact__item-label">Hours</span>
+              <span class="contact__item-value">Daily &bull; 10:00 AM &ndash; 10:00 PM</span>
+            </div>
+          </div>
+          <div class="contact__social" data-reveal>
+            <a href="https://www.facebook.com/pickpocketzamboanga" target="_blank" rel="noopener" class="contact__social-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+              Facebook Page
+            </a>
+            <a href="tel:+639561635245" class="contact__social-link">&#128222; Call Us</a>
+          </div>
+        </div>
+        <div class="contact__map" data-reveal>
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=75&fit=crop&auto=format" alt="Restaurant" class="contact__map-bg" loading="lazy">
+          <div class="contact__map-body">
+            <div class="contact__map-pin">&#128205;</div>
+            <div class="contact__map-name">PICK POCKET</div>
+            <p class="contact__map-addr">MCLL Highway, Brgy. Boalan<br>Zamboanga City</p>
+            <a href="https://www.facebook.com/pickpocketzamboanga" target="_blank" rel="noopener" class="btn-primary" style="font-size: 0.82rem; padding: 0.7rem 1.75rem; display: inline-block;">
+              Visit Our Facebook &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__logo">PICK POCKET</div>
+      <p class="footer__copy">MCLL Highway, Brgy. Boalan, Zamboanga City &bull; +63 956 163 5245</p>
+      <p class="footer__demo">
+        Demo website built by <a href="https://wa.me/639559918754" target="_blank" rel="noopener">Tony Herrera</a> &mdash; not the official Pick Pocket website.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ===== PRELOADER =====
+    const tl = gsap.timeline({ onComplete: initPage });
+    tl.to('#preloaderName', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' })
+      .to('#preloaderSub',  { opacity: 1, duration: 0.4, ease: 'power2.out' }, '-=0.2')
+      .to('#preloader',     { yPercent: -100, duration: 0.9, delay: 0.5, ease: 'power3.inOut' });
+
+    function initPage() {
+      document.getElementById('preloader').style.display = 'none';
+
+      gsap.to('#heroTag',     { opacity: 1, duration: 0.5, delay: 0.1 });
+      gsap.to('#heroTitle',   { opacity: 1, y: 0, duration: 0.9, delay: 0.15, ease: 'power3.out' });
+      gsap.to('#heroTagline', { opacity: 1, duration: 0.6, delay: 0.4 });
+      gsap.to('#heroSub',     { opacity: 1, duration: 0.6, delay: 0.55 });
+      gsap.to('#heroButtons', { opacity: 1, duration: 0.6, delay: 0.7 });
+      gsap.to('#heroScroll',  { opacity: 1, duration: 0.6, delay: 1.0 });
+
+      gsap.to('#heroBg', {
+        yPercent: 20, ease: 'none',
+        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+      });
+
+      document.querySelectorAll('[data-reveal]').forEach((el) => {
+        gsap.fromTo(el,
+          { opacity: 0, y: 40 },
+          { opacity: 1, y: 0, duration: 0.85, ease: 'power3.out',
+            scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' } }
+        );
+      });
+    }
+
+    // ===== NAV =====
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav__link, .nav__cta').forEach(l => {
+      l.addEventListener('click', () => { navLinks.classList.remove('open'); navToggle.classList.remove('open'); });
+    });
+
+    // ===== MENU TABS =====
+    document.querySelectorAll('.menu__tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.menu__tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.menu__panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelector(`[data-panel="${tab.dataset.tab}"]`).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
